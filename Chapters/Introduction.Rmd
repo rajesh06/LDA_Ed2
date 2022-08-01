@@ -1,9 +1,9 @@
-# Introduction to Loss Data Analytics {#ChapIntro}
+# Loss Data and Insurance Activities {#ChapIntro}
 
 *Chapter Preview*. This book introduces readers to methods of analyzing insurance data. Section \@ref(S:Intro) begins with a discussion of why the use of data is important in the insurance industry. Section \@ref(S:PredModApps) gives a general overview of the purposes of analyzing insurance data which is reinforced in the Section \@ref(S:LGPIF) case study. Naturally, there is a huge gap between the broad goals summarized in the overview and a case study application; this gap is covered through the methods and techniques of data analysis covered in the rest of the text.
 
 
-## Relevance of Analytics to Insurance Activities {#S:Intro}
+## Data Driven Insurance Activities {#S:Intro}
 
 ***
 In this section, you learn how to:
@@ -29,7 +29,7 @@ Both life and non-life insurances are important components of the world economy.
 Insurance may not be as entertaining as the sports industry (another industry that depends heavily on data) but it does affect the financial livelihoods of many. By almost any measure, insurance is a major economic activity. As noted earlier, on a global level, insurance premiums comprised about 6.2% of the world GDP in 2014, [@III2016]. As examples, premiums accounted for 18.9% of GDP in Taiwan (the highest in the study) and represented 7.3% of GDP in the United States. On a personal level, almost everyone owning a home has insurance to protect themselves in the event of a fire, hailstorm, or some other calamitous event. Almost every country requires insurance for those driving a car. In sum, although not particularly entertaining, insurance plays an important role in the economies of nations and the lives of individuals.
 
 
-### What is Analytics?
+### Why Data Driven?
 
 Insurance is a data-driven industry. Like all major corporations and organizations, insurers use data when trying to decide how much to pay employees, how many employees to retain, how to market their services and products, how to forecast financial trends, and so on. These represent general areas of activities that are not specific to the insurance industry. Although  each industry has  its own data nuances and needs,  the collection, analysis and use of data is an activity shared by all, from the internet giants to a small business, by public and governmental organizations, and is not  specific to the  insurance  industry. You will find that the  data collection and analysis  methods  and  tools introduced in this text are relevant for all.
 

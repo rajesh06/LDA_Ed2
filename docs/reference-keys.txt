@@ -155,7 +155,7 @@ eq:AppBVE2
 ChapIntro
 S:Intro
 nature-and-relevance-of-insurance
-what-is-analytics
+why-data-driven
 S:InsProcesses
 S:PredModApps
 initiating-insurance
