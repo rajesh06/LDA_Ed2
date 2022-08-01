@@ -9,7 +9,7 @@
 In this section, you learn how to:
 
 - Summarize the importance of insurance to consumers and the economy
-- Describe analytics
+- Describe the role that data plays in managing insurance activities
 - Identify data generating events associated with the timeline of a typical insurance contract
 
 ***
@@ -24,38 +24,24 @@ One way to think about the nature of insurance is who buys it. Renters, homeowne
 Another way to think about the nature of insurance is the type of risk being covered. In the U.S., policies such as renters and homeowners are known as
 `r Gloss('property insurance')` whereas a policy such as auto that covers medical damages to people is known as `r Gloss('casualty insurance')`. In the rest of the world, these are both known as `r Gloss('non-life')` or general insurance, to distinguish them from `r Gloss('life insurance')`.
 
-Both life and non-life insurances are important components of the world economy. The @III2016 estimates that direct insurance premiums in the world for 2014 was 2,654,549 for life and 2,123,699 for non-life; these figures are in *millions of U.S. dollars*. The total represents 6.2% of the world gross domestic product (GDP). Put another way, life accounts for 55.5% of insurance premiums and 3.4% of world GDP whereas non-life accounts for 44.5% of insurance premiums and 2.8% of world GDP. Both life and non-life represent important economic activities.
+Both life and non-life insurances are important components of the world economy. The @OECD2022 estimates that direct insurance premiums in the OECD (Organization for Economic Cooperation and Development) countries for 2020 was 2,520,220 for life and 2,704,799 for non-life; these figures are in *millions of U.S. dollars*. The total represents 9.447% of the OECD gross domestic product (GDP). As examples, premiums accounted for 30.9% of GDP in Luxembourg and 17.0% of GDP in Chinese Taipei (the two highest in the study) and represented 12.5% of GDP in the United States. Both life and non-life insurances represent important economic activities.
 
-Insurance may not be as entertaining as the sports industry (another industry that depends heavily on data) but it does affect the financial livelihoods of many. By almost any measure, insurance is a major economic activity. As noted earlier, on a global level, insurance premiums comprised about 6.2% of the world GDP in 2014, [@III2016]. As examples, premiums accounted for 18.9% of GDP in Taiwan (the highest in the study) and represented 7.3% of GDP in the United States. On a personal level, almost everyone owning a home has insurance to protect themselves in the event of a fire, hailstorm, or some other calamitous event. Almost every country requires insurance for those driving a car. In sum, although not particularly entertaining, insurance plays an important role in the economies of nations and the lives of individuals.
+Insurance affects the financial livelihoods of many and, by almost any measure, insurance is a major economic activity. As noted earlier, on a global level insurance premiums comprised nearly 9.5% of GDP in 2020. On a personal level, almost everyone owning a home has insurance to protect themselves in the event of a fire, hailstorm, or some other calamitous event. Almost every country requires insurance for those driving a car. In sum, insurance plays an important role in the economies of nations and the lives of individuals.
 
 
 ### Why Data Driven?
 
 Insurance is a data-driven industry. Like all major corporations and organizations, insurers use data when trying to decide how much to pay employees, how many employees to retain, how to market their services and products, how to forecast financial trends, and so on. These represent general areas of activities that are not specific to the insurance industry. Although  each industry has  its own data nuances and needs,  the collection, analysis and use of data is an activity shared by all, from the internet giants to a small business, by public and governmental organizations, and is not  specific to the  insurance  industry. You will find that the  data collection and analysis  methods  and  tools introduced in this text are relevant for all.
 
-In any data-driven industry, analytics is a key to deriving and extracting 
-information from data. But what is analytics? Making data-driven
-business decisions has been described as business analytics, business
-intelligence, and data science. These terms, among others, are
-sometimes used interchangeably and sometimes refer to distinct applications. *Business intelligence* may focus on processes of collecting data, often
-through databases and data warehouses, whereas *business analytics*
-utilizes tools and methods for statistical analyses of data. In contrast
-to these two terms that emphasize business applications, the term *data
-science* can encompass broader data related applications in many scientific domains. 
-For our purposes, we use the term `r Gloss('analytics')` to refer to the process of using data to make decisions. This process involves gathering data, understanding concepts and models of uncertainty, making general inferences, and communicating results.
+In any data-driven industry, deriving and extracting information from data is critical. Making data-driven business decisions has been described as business analytics, business intelligence, and data science. These terms, among others, are sometimes used interchangeably and sometimes refer to distinct applications. *Business intelligence* may focus on processes of collecting data, often through databases and data warehouses, whereas *business analytics* utilizes tools and methods for statistical analyses of data. In contrast to these two terms that emphasize business applications, the term *data science* can encompass broader data related applications in many scientific domains. For our purposes, we use the term `r Gloss('analytics')` to refer to the process of using data to make decisions. This process involves gathering data, understanding concepts and models of uncertainty, making general inferences, and communicating results. Chapter 2 describes data analytics in further detail.
 
-
-When introducing data methods in this text, we focus on losses that arise from,  or related to, obligations in insurance contracts. This could be the amount of damage to one's apartment under a renter's insurance agreement, the amount needed to compensate someone that you hurt in a driving accident, and the like. We call this type of obligation an `r Gloss('insurance claim')`. With this focus, we are able to introduce  and directly use  generally applicable statistical tools and techniques.
+When introducing methods in this text, we focus on **loss data** that arise from,  or are related to, obligations in insurance contracts. This could be the amount of damage to one's apartment under a renter's insurance agreement, the amount needed to compensate someone that you hurt in a driving accident, and the like. We call such payments an `r Gloss('insurance claim')`. With this focus, we are able to introduce  and directly use  generally applicable statistical tools and techniques.
 
 ### Insurance Processes {#S:InsProcesses}
 
-Yet another way to think about the nature of insurance is by the duration of an insurance contract, known as the `r Gloss('term')`. This text will focus on short-term insurance contracts. By short-term, we mean contracts where the insurance coverage is typically provided for a year or six months. Most commercial and personal contracts are for a year so that is our default duration. An important exception is U.S. auto policies that are often six months in length.
+Yet another way to think about the nature of insurance is by the duration of an insurance contract, known as the `r Gloss('term')`. This text will focus on short-term insurance contracts. By short-term, we mean contracts where the insurance coverage is typically provided for a year or six months. Most non-life commercial and personal contracts are for a year so that is our default duration. An important exception is U.S. auto policies that are often six months in length.
 
-In contrast, we typically think of life insurance  as a long-term
-contract where the default is to have a multi-year contract. For example, if
-a person 25 years old purchases a whole life policy that pays upon death
-of the insured and that person does not die until age 100, then the
-contract is in force for 75 years. 
+In contrast, we typically think of life insurance  as a long-term contract where the default is to have a multi-year contract. For example, if a person 25 years old purchases a whole life policy that pays upon death of the insured and that person does not die until age 100, then the contract is in force for 75 years. 
 
 
 There are other important differences between life and non-life products. In life insurance, the benefit amount is often stipulated in
@@ -785,7 +771,10 @@ Table4d <- ByVarCredit(4)    #Claims Summary by Entity Type and Alarm Credit==15
 ```
 </div>  
       
-  
+
+We will learn more about modeling count data in the Chapter \@ref(ChapFrequency-Modeling) and about severity data in Chapters 
+\@ref(ChapSeverity) and \@ref(ChapAggLossModels).
+
 
 ### Fund Operations
 
@@ -835,7 +824,7 @@ two years had much lower claim frequencies than those with at least one
 accident (0.310 compared to 1.501); a lower predicted frequency
 typically results in a lower premium. This is why it is common for
 insurers to use variables such as ${\tt NoClaimCredit}$ in their rating. We
-will explore this topic further in Chapter \@ref(ChapCredibility) on *experience rating*.
+will explore this topic further in Chapters \@ref(ChapCredibility) and \@ref(ChapBonusMalus) on *experience rating*.
 
 #### Claims Management {-}
 

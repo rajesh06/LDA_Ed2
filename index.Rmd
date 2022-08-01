@@ -6,7 +6,7 @@ site: bookdown::bookdown_site
 output:
   bookdown::gitbook
 documentclass: book
-bibliography: ["References/LDAReference2020A.bib"]
+bibliography: ["References/LDAReference2022.bib"]
 biblio-style: econPeriod
 link-citations: yes
 github-repo: https://github.com/openacttexts/Loss-Data-Analytics
