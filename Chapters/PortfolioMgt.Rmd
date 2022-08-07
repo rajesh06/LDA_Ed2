@@ -1,6 +1,6 @@
 # Insurance Portfolio Management including Reinsurance {#ChapPortMgt}
 
-`r chapnum = 10`
+`r chapnum = 12`
 
 *Chapter Preview*. An insurance portfolio is simply a collection of insurance contracts. To help manage the uncertainty of the portfolio, this chapter 
 
@@ -66,7 +66,7 @@ The first part of Definition  `r chapnum`.1 is an absolute concept of tail weigh
 **Example `r chapnum`.2.1. Light tail nature of the gamma distribution.**
 Let $X\sim gamma(\alpha,\theta)$, with $\alpha>0$ and $\theta>0$, then for all $k>0$, show that $\mu_k' < \infty$.
 
-`r HideExample('10.2.1','Show Example Solution')`
+`r HideExample('12.2.1','Show Example Solution')`
 
 **Solution.**
 
@@ -86,7 +86,7 @@ Since all the positive moments exist, i.e., $k^{\ast}=\infty$, in accordance wit
 **Example `r chapnum`.2.2. Light tail nature of the Weibull distribution.**
 Let $X\sim Weibull(\theta,\tau)$, with $\theta>0$ and $\tau>0$, then for all $k>0$, show that $\mu_k' < \infty$.
 
-`r HideExample('10.2.2','Show Example Solution')`
+`r HideExample('12.2.2','Show Example Solution')`
 
 **Solution.**
 
@@ -155,7 +155,7 @@ We say that
 **Example `r chapnum`.2.4. Comparison of Pareto to Weibull distributions.**
 Let $X\sim Pareto(\alpha, \theta)$ and $Y\sim Weibull(\tau, \theta)$, for $\alpha>0$, $\tau>0$, and $\theta>0$. Show that the Pareto has a heavier right tail than the Weibull.
 
-`r HideExample('10.2.4','Show Example Solution')`
+`r HideExample('12.2.4','Show Example Solution')`
 
 **Solution.**
 
@@ -189,7 +189,7 @@ given that the density functions exist. This is an application of L'Hôpital's R
 **Example `r chapnum`.2.5. Comparison of Pareto to gamma distributions.**
 Let $X\sim Pareto(\alpha, \theta)$ and $Y\sim gamma(\alpha, \theta)$, for $\alpha>0$ and $\theta>0$. Show that the Pareto has a heavier right tail than the gamma.
 
-`r HideExample('10.2.5','Show Example Solution')`
+`r HideExample('12.2.5','Show Example Solution')`
 
 **Solution.**
 
@@ -389,7 +389,7 @@ F_X(x)=1-e^{-x/\theta}, \text{ for } x>0.
 $$
 Give a closed-form expression for the $VaR$.
 
-`r HideExample('10.3.1','Show Example Solution')`
+`r HideExample('12.3.1','Show Example Solution')`
 
 **Solution.**
 
@@ -411,7 +411,7 @@ The result reported in Example `r chapnum`.3.1 can be generalized to any continu
 **Example `r chapnum`.3.2. $VaR$ for the normal distribution.**
 Consider an insurance loss random variable $X\sim Normal(\mu,\sigma^2)$ with $\sigma>0$.  In this case, one may interpret the negative values of $X$ as profit or revenue.  Give a closed-form expression for the $VaR$.
 
-`r HideExample('10.3.2','Show Example Solution')`
+`r HideExample('12.3.2','Show Example Solution')`
 
 **Solution.**
 
@@ -437,7 +437,7 @@ In many insurance applications, we have to deal with transformations of random v
 **Example `r chapnum`.3.3. $VaR$ for transformed variables.**
 Consider an insurance loss random variable $Y$ with a lognormal distribution with parameters $\mu \in \mathbf{R}$ and $\sigma^2>0$. Give an expression of the $VaR$ of $Y$ in terms of the standard normal inverse *cdf*.
 
-`r HideExample('10.3.3','Show Example Solution')`
+`r HideExample('12.3.3','Show Example Solution')`
 
 **Solution.**
 
@@ -468,7 +468,7 @@ $$
 $$
 Determine the $VaR$ at $q = 0.6, 0.9, 0.95, 0.95001$.
 
-`r HideExample('10.3.4','Show Example Solution')`
+`r HideExample('12.3.4','Show Example Solution')`
 
 **Solution.**
 
@@ -543,7 +543,7 @@ TVaR_{q}[X]=\frac{1}{(1-q)}\int_{\pi_q}^{\infty}xf_X(x)dx.
 **Example `r chapnum`.3.6. $TVaR$ for a normal distribution.**
 Consider an insurance loss random variable\ $X\sim Normal (\mu,\sigma^2)$ with $\mu\in \mathbf{R}$ and $\sigma>0$. Give an expression for $TVaR$.
 
-`r HideExample('10.3.6','Show Example Solution')`
+`r HideExample('12.3.6','Show Example Solution')`
 
 **Solution.**
 
@@ -582,7 +582,7 @@ $$
 TVaR_q[X] = \frac{e^{\mu+\sigma^2/2}}{(1-q)} \Phi(\Phi^{-1}(q)-\sigma).
 $$
 
-`r HideExample('10.3.7','Show Example Solution')`
+`r HideExample('12.3.7','Show Example Solution')`
 
 **Solution.**
 
@@ -629,7 +629,7 @@ TVaR_{q}[X]&=&\left[-x S_X(x)\big |_{\pi_q}^{\infty}+\int_{\pi_q}^{\infty}S_X(x)
 **Example  `r chapnum`.3.8. $TVaR$ of an exponential distribution.**
 Consider an insurance loss random variable $X$ with an exponential distribution having parameter $\theta$ for $\theta>0$. Give an expression for the $TVaR$.
 
-`r HideExample('10.3.8','Show Example Solution')`
+`r HideExample('12.3.8','Show Example Solution')`
 
 **Solution.**
 

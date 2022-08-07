@@ -11,7 +11,7 @@ Observe that from $n$ values initially generated, we keep here only $[F(b)-F(a)]
 
 
 
-**Example `r chapnum`.4.1. Draws from a Normal Distribution.** Suppose that we draw from a normal distribution with mean 2.5 and variance 1, $N(2.5,1)$, but are only interested in draws greater that $a \ge 2$ and less than $b \le 4$. That is, we can only use $F(4)-F(2) = \Phi(4-2.5)-\Phi(2-2.5)$ = `r round(pnorm(4,2.5,1),digits=4)` - `r round(pnorm(2,2.5,1),digits=4)` = `r round(pnorm(4,2.5,1)-pnorm(2,2.5,1),digits=4)` proportion of the draws. Figure \@ref(fig:sampleani1) demonstrates that some draws lie with the interval $(2,4)$ and some are outside.
+**Example 7.4.1. Draws from a Normal Distribution.** Suppose that we draw from a normal distribution with mean 2.5 and variance 1, $N(2.5,1)$, but are only interested in draws greater that $a \ge 2$ and less than $b \le 4$. That is, we can only use $F(4)-F(2) = \Phi(4-2.5)-\Phi(2-2.5)$ = `r round(pnorm(4,2.5,1),digits=4)` - `r round(pnorm(2,2.5,1),digits=4)` = `r round(pnorm(4,2.5,1)-pnorm(2,2.5,1),digits=4)` proportion of the draws. Figure \@ref(fig:sampleani1) demonstrates that some draws lie with the interval $(2,4)$ and some are outside.
 
 `r HideRCode('ImportanceSampling.1','Show R Code for Accept-Reject Mechanism')`
 
@@ -92,7 +92,7 @@ pic_ani = function(){
 for (i in 1:numAnimation) {pic_ani()}
 ```
 
-In Example `r chapnum`.4.1., the inverse of the normal distribution is readily available (in `R`, the function is `qnorm`). However, for other applications, this is not the case. Then, one simply uses numerical methods to determine $X^\star$ as the solution of the equation $F(X^\star) =\tilde{U}$ where $\tilde{U}=(1-U)\cdot F(a)+U\cdot F(b)$. See the following illustrative code.
+In Example 7.4.1., the inverse of the normal distribution is readily available (in `R`, the function is `qnorm`). However, for other applications, this is not the case. Then, one simply uses numerical methods to determine $X^\star$ as the solution of the equation $F(X^\star) =\tilde{U}$ where $\tilde{U}=(1-U)\cdot F(a)+U\cdot F(b)$. See the following illustrative code.
 
 
 `r HideRCode('ImportanceSampling.3','Show R Code for Importance Sampling via Numerical Solutions')`

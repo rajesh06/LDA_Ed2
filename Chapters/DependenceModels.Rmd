@@ -1,29 +1,28 @@
-`r chapnum = 14`
+`r chapnum = 15`
 
 # Dependence Modeling {#ChapDependenceModel}
 
-*Chapter Preview*. In practice, there are many types of variables that one encounters. The first step in dependence modeling is identifying the type of variable to help direct you to the appropriate technique. This chapter introduces readers to variable types and techniques for modeling dependence or association of multivariate distributions. Section \@ref(S:VarTypes) provides an overview of the types of variables. Section \@ref(S:Measures) then elaborates basic measures for modeling the dependence between variables. 
+*Chapter Preview*. In practice, there are many types of variables that one encounters. The first step in dependence modeling is identifying the type of variable to help direct you to the appropriate technique. This chapter introduces readers to variable types and techniques for modeling dependence or association of multivariate distributions. Section \@ref(S:VarTypes15) provides an overview of the types of variables. Section \@ref(S:Measures) then elaborates basic measures for modeling the dependence between variables. 
 
 Section \@ref(S:Copula) introduces an approach to modeling dependence using copulas which is reinforced with practical illustrations in Section \@ref(S:CopAppl). The types of copula families and basic properties of copula functions are explained Section \@ref(S:CopTyp). The chapter concludes by explaining why the study of dependence modeling is important in Section \@ref(S:CopImp).
 
-## Variable Types {#S:VarTypes}
+## Variable Types {#S:VarTypes15}
 
 ***
 
 In this section, you learn how to:
 
-- Classify variables as qualitative or quantitative. 
 - Describe multivariate variables.
 
 ***
 
-People, firms, and other entities that we want to understand are described in a dataset by numerical characteristics. As these characteristics vary by entity, they are commonly known as `r Gloss('variables')`. To manage insurance systems, it will be critical to understand the distribution of each variable and how they are associated with one another. It is common for data sets to have many variables (`r Gloss('high dimensional')`) and so is useful to begin by classifying them into different types. As will be seen, these classifications are not strict; there is overlap among the groups. Nonetheless, the grouping summarized in  [Table 14.1] and explained in the remainder of this section provides a solid first step in framing a data set. 
+People, firms, and other entities that we want to understand are described in a dataset by numerical characteristics. As these characteristics vary by entity, they are commonly known as `r Gloss('variables')`. To manage insurance systems, it will be critical to understand the distribution of each variable and how they are associated with one another. It is common for data sets to have many variables (`r Gloss('high dimensional')`) and so is useful to begin by classifying them into different types. As will be seen, these classifications are not strict; there is overlap among the groups. Nonetheless, the grouping summarized in  [Table 15.1] and explained in the remainder of this section provides a solid first step in framing a data set. 
 
-<a id=tab:14.1></a>  
+<a id=tab:15.1></a>  
 
-[Table 14.1]: \#tab:14.1
+[Table 15.1]: \#tab:15.1
 
-Table 14.1. **Variable Types**
+Table 15.1. **Variable Types**
 
 $$
 {\small \begin{matrix}
@@ -80,44 +79,6 @@ qplot(Coverage,Claim,colour=EntityType, ylim = c(0,3000000), xlab = "Coverage (M
 ```
 
 
-
-### Qualitative Variables {#S:QuaVar}
-
-***
-
-In this sub-section, you learn how to:
-
-- Classify qualitative variables as nominal or ordinal 
-- Describe a binary variable 
-
-***
-
-A `r Gloss('qualitative')`, or `r Gloss('categorical variable')` is one for which the measurement denotes membership in a set of groups, or categories. For example, if you were coding in which area of the country an insured resides, you might use 1 for the northern part, 2 for southern, and 3 for everything else. This location variable is an example of a `r Gloss('nominal variable')`, one for which the levels have no natural ordering. Any analysis of nominal variables should not depend on the labeling of the categories. For example, instead of using a 1,2,3 for north, south, other, I should arrive at the same set of summary statistics if I used a 2,1,3 coding instead, interchanging north and south. 
-
-In contrast, an `r Gloss('ordinal variable')` is a type of categorical variable for which an ordering does exist. For example, with a survey to see how satisfied customers are with our claims servicing department, we might use a five point scale that ranges from 1 meaning dissatisfied to a 5 meaning satisfied. Ordinal variables provide a clear ordering of levels of a variable but the amount of separation between levels is unknown.
-
-A `r Gloss('binary variable')` is a special type of categorical variable where there are only two categories commonly taken to be 0 and 1. For example, we might code a variable in a dataset to be 1 if an insured is female and 0 if male. 
-
-
-### Quantitative Variables {#S:QuanVar}
-
-***
-
-In this sub-section, you learn how to:
-
-- Differentiate between continuous and discrete variables
-- Use a combination of continuous and discrete variables
-- Describe circular data
-
-***
-
-Unlike a qualitative variable, a `r Gloss('quantitative variable')` is one in which each numerical level is a realization from some scale so that the distance between any two levels of the scale takes on meaning. A `r Gloss('continuous variable')` is one that can take on any value within a finite interval. For example, one could represent a `r Gloss('policyholder')`'s age, weight, or income, as continuous variables. In contrast, a 
-`r Gloss('discrete variable')` is one that takes on only a finite number of values in any finite interval. For example, when examining a policyholder's choice of `r Gloss('deductibles')`, it may be that values of 0, 250, 500, and 1000 are the only possible outcomes. Like an ordinal variable, these represent distinct categories that are ordered. Unlike an ordinal variable, the numerical difference between levels takes on economic meaning. A special type of discrete variable is a `r Gloss('count variable')`, one with values on the nonnegative integers. For example, we will be particularly interested in the number of claims arising from a policy during a given period. 
-
-
-Some variables are inherently a *combination of discrete and continuous* components. For example, when we analyze the insured `r Gloss('loss')` of a policyholder, we will encounter a discrete outcome at zero, representing no insured loss, and a continuous amount for positive outcomes, representing the amount of the insured loss. Another interesting variation is an `r Gloss('interval variable')`, one that gives a range of possible outcomes. 
-
- 
 
 `r Gloss('Circular data')` represent an interesting category typically not analyzed by `r Gloss('insurers')`. As an example of circular data, suppose that you monitor calls to your customer service center and would like to know when is the peak time of the day for calls to arrive. In this context, one can think about the time of the day as a variable with realizations on a circle, e.g., imagine an analog picture of a clock. For circular data, the distance between observations at 00:15 and 00:45 are just as close as observations 23:45 and 00:15 (the convention *HH:MM* means hours and minutes).
 
@@ -361,13 +322,13 @@ Although these statistics provide the same information as is the original odds r
 
 In a later section, we will also see that the marginal distributions have no effect on the Fr&eacute;chet-H&ouml;effding of the `r Gloss('tetrachoric correlation')`, another measure of association, see also, @joe2014dependence, page 48. 
 
-From [Table 14.2], $OR(\pi_{11})=\frac{1611(956)}{897(2175)}=0.79$. You can obtain the $OR(\pi_{11})$, using the `oddsratio()` function from the `epitools` library in `R`. From the output below, $OR(\pi_{11})=0.79$ for the binary variables ${\tt NoClaimCredit}$  and ${\tt Fire5}$ from the LGPIF data.
+From [Table 15.2], $OR(\pi_{11})=\frac{1611(956)}{897(2175)}=0.79$. You can obtain the $OR(\pi_{11})$, using the `oddsratio()` function from the `epitools` library in `R`. From the output below, $OR(\pi_{11})=0.79$ for the binary variables ${\tt NoClaimCredit}$  and ${\tt Fire5}$ from the LGPIF data.
 
-<a id=tab:14.2></a>
+<a id=tab:15.2></a>
 
-[Table 14.2]:\#tab:14.2
+[Table 15.2]:\#tab:15.2
 
-Table 14.2. **2 $\times$ 2 Table of Counts for ${\tt Fire5}$ and ${\tt NoClaimCredit}$**
+Table 15.2. **2 $\times$ 2 Table of Counts for ${\tt Fire5}$ and ${\tt NoClaimCredit}$**
 
 $$
 {\small \begin{matrix}
@@ -437,11 +398,11 @@ Under the null hypothesis of independence, we have $\pi_{jk} =\pi_{X,j}\pi_{Y,k}
 
 Classical approaches, as described in @bishop1975discrete (page 374), distinguish between tests of independence and measures of associations. The former are designed to detect whether a relationship exists whereas the latter are meant to assess the type and extent of a relationship. We acknowledge these differing purposes but also less concerned with this distinction for actuarial applications.
 
-<a id=tab:14.3></a>
+<a id=tab:15.3></a>
 
-[Table 14.3]:\#tab:14.3
+[Table 15.3]:\#tab:15.3
 
-Table 14.3.  **Two-way Table of Counts for ${\tt EntityType}$ and ${\tt NoClaimCredit}$**
+Table 15.3.  **Two-way Table of Counts for ${\tt EntityType}$ and ${\tt NoClaimCredit}$**
 
 $$
 {\small \begin{matrix}
@@ -462,7 +423,7 @@ $$
 $$
 
 
-You can obtain the Pearson chi-square statistic, using the `chisq.test()` function from the `MASS` library in `R`. Here, we test whether the  ${\tt EntityType}$  variable is independent of the ${\tt NoClaimCredit}$ variable using [Table 14.3].
+You can obtain the Pearson chi-square statistic, using the `chisq.test()` function from the `MASS` library in `R`. Here, we test whether the  ${\tt EntityType}$  variable is independent of the ${\tt NoClaimCredit}$ variable using [Table 15.3].
 
 ```{r include=FALSE}
 library(pander)
@@ -558,11 +519,11 @@ $$
 
 It is called a *tetrachoric* correlation for binary variables.
 
-<a id=tab:14.4></a>
+<a id=tab:15.4></a>
 
-[Table 14.4]:\#tab:14.4
+[Table 15.4]:\#tab:15.4
 
-Table 14.4.  **Two-way Table of Counts for ${\tt AlarmCredit}$ and ${\tt NoClaimCredit}$**
+Table 15.4.  **Two-way Table of Counts for ${\tt AlarmCredit}$ and ${\tt NoClaimCredit}$**
 
 $$
 {\small \begin{matrix}
@@ -580,7 +541,7 @@ $$
 \end{matrix}}
 $$
 
-You can obtain the polychoric or tetrachoric correlation using the `polychoric()` or `tetrachoric()` function from the `psych` library in `R`. The polychoric correlation is illustrated using [Table 14.4]. Here, $\hat{\rho}_N=-0.14$, which means that there is a negative relationship between ${\tt AlarmCredit}$ and ${\tt NoClaimCredit}$.
+You can obtain the polychoric or tetrachoric correlation using the `polychoric()` or `tetrachoric()` function from the `psych` library in `R`. The polychoric correlation is illustrated using [Table 15.4]. Here, $\hat{\rho}_N=-0.14$, which means that there is a negative relationship between ${\tt AlarmCredit}$ and ${\tt NoClaimCredit}$.
 
 ```{r include=FALSE}
 NoClaimCredit<-as.numeric(Insample$NoClaimCredit)
@@ -645,11 +606,11 @@ $$
 
 The `r Gloss('biserial correlation')` is defined similarly, when one variable is continuous and the other binary.
 
-<a id=tab:14.5></a>
+<a id=tab:15.5></a>
 
-[Table 14.5]:\#tab:14.5
+[Table 15.5]:\#tab:15.5
 
-Table 14.5. **Summary of ${\tt Claim}$ by ${\tt NoClaimCredit}$**
+Table 15.5. **Summary of ${\tt Claim}$ by ${\tt NoClaimCredit}$**
 
 $$
 {\small \begin{matrix}
@@ -665,7 +626,7 @@ $$
 \end{matrix}}
 $$
 
-You can obtain the polyserial or biserial correlation using the `polyserial()` or `biserial()` function, respectively, from the `psych` library in `R`. [Table 14.5] gives the summary of ${\tt Claim}$ by ${\tt NoClaimCredit}$ and  the biserial correlation is illustrated using `R` code below. The $\hat{\rho}_N=-0.04$ which means that there is a negative correlation between ${\tt Claim}$ and ${\tt NoClaimCredit}$.
+You can obtain the polyserial or biserial correlation using the `polyserial()` or `biserial()` function, respectively, from the `psych` library in `R`. [Table 15.5] gives the summary of ${\tt Claim}$ by ${\tt NoClaimCredit}$ and  the biserial correlation is illustrated using `R` code below. The $\hat{\rho}_N=-0.04$ which means that there is a negative correlation between ${\tt Claim}$ and ${\tt NoClaimCredit}$.
 
 
 ```{r include=FALSE, comment=""}
@@ -794,7 +755,7 @@ $$
 
 Here, $\theta$ is a scale parameter and $\alpha$ is a shape parameter. Section \@ref(S:ContinuousDistributions) provides details of this distribution.
 
-The marginal distributions of losses and expenses are fit using the method of maximum likelihood. Specifically, we use the `vglm` function from the `R VGAM` package. Firstly, we fit the marginal distribution of ${\tt ALAE}$. Parameters are summarized in [Table 14.6].
+The marginal distributions of losses and expenses are fit using the method of maximum likelihood. Specifically, we use the `vglm` function from the `R VGAM` package. Firstly, we fit the marginal distribution of ${\tt ALAE}$. Parameters are summarized in [Table 15.6].
 
 ```{r include=FALSE, comment=""}
 library(VGAM)
@@ -838,11 +799,11 @@ Output:
 ```
 </div>  
 
-<a id=tab:14.6></a>
+<a id=tab:15.6></a>
 
-[Table 14.6]:\#tab:14.6
+[Table 15.6]:\#tab:15.6
 
-Table 14.6.  **Summary of Pareto Maximum Likelihood Fitted Parameters from the LGPIF Data**
+Table 15.6.  **Summary of Pareto Maximum Likelihood Fitted Parameters from the LGPIF Data**
 
 $$
 {\small \begin{matrix}
@@ -1070,7 +1031,7 @@ g_p \left( \frac{1}{2} (\mathbf{z}- \boldsymbol \mu)^{\prime}
 \boldsymbol \Sigma^{-1}(\mathbf{z}- \boldsymbol \mu) \right) ,
 $$
 
-for $\mathbf{z} \in R^p$ and $k_p$ is a constant, determined so the density integrates to one. The function $g_p(\cdot)$ is called a *generator* because it can be used to produce different distributions. [Table 14.7] summarizes a few choices used in actuarial practice. The choice $g_p(x) = \exp(-x)$ gives rises to the normal *pdf* in equation \@ref(eq:Normalpdf). The choice $g_p(x) = \exp(-(1+2x/r)^{-(p+r)/2})$ gives rise to a multivariate $t$- distribution with $r$ degrees of freedom with *pdf*
+for $\mathbf{z} \in R^p$ and $k_p$ is a constant, determined so the density integrates to one. The function $g_p(\cdot)$ is called a *generator* because it can be used to produce different distributions. [Table 15.7] summarizes a few choices used in actuarial practice. The choice $g_p(x) = \exp(-x)$ gives rises to the normal *pdf* in equation \@ref(eq:Normalpdf). The choice $g_p(x) = \exp(-(1+2x/r)^{-(p+r)/2})$ gives rise to a multivariate $t$- distribution with $r$ degrees of freedom with *pdf*
 
 $$
 h_{t_r} (\mathbf{z})= \frac{k_p}{\sqrt{\det \boldsymbol \Sigma}}
@@ -1078,11 +1039,11 @@ h_{t_r} (\mathbf{z})= \frac{k_p}{\sqrt{\det \boldsymbol \Sigma}}
 $$
 
 
-<a id=tab:14.7></a>  
+<a id=tab:15.7></a>  
 
-[Table 14.7]: \#tab:14.7
+[Table 15.7]: \#tab:15.7
 
-Table 14.7. **Generator Functions ($g_p(\cdot)$) for Selected Elliptical Distributions**
+Table 15.7. **Generator Functions ($g_p(\cdot)$) for Selected Elliptical Distributions**
 
 $$
 \small\begin{array}{lc}
@@ -1252,14 +1213,14 @@ $$
 
 with the lower tail dependence parameter $L = \lim_{z \rightarrow 0} L(z)$. A `r Gloss('tail dependency')` concentration function captures the probability of two random variables simultaneously having extreme values.
 
-It is of interest to see how well a given copula can capture tail dependence. To this end, we calculate the left and right tail concentration functions for four different types of copulas; Normal, Frank, Gumbel and $t$- copulas. The results are summarized for concentration function values for these four copulas in  [Table 14.8]. As in @venter2002tails, we show $L(z)$ for $z\leq 0.5$ and $R(z)$ for $z>0.5$ in the tail dependence plot in Figure \@ref(fig:DepTails). We interpret the tail dependence plot to mean that both the Frank and Normal copula exhibit no tail dependence whereas the $t$- and the Gumbel do so. The $t$- copula is symmetric in its treatment of upper and lower tails.
+It is of interest to see how well a given copula can capture tail dependence. To this end, we calculate the left and right tail concentration functions for four different types of copulas; Normal, Frank, Gumbel and $t$- copulas. The results are summarized for concentration function values for these four copulas in  [Table 15.8]. As in @venter2002tails, we show $L(z)$ for $z\leq 0.5$ and $R(z)$ for $z>0.5$ in the tail dependence plot in Figure \@ref(fig:DepTails). We interpret the tail dependence plot to mean that both the Frank and Normal copula exhibit no tail dependence whereas the $t$- and the Gumbel do so. The $t$- copula is symmetric in its treatment of upper and lower tails.
 
 
-<a id=tab:14.8></a>
+<a id=tab:15.8></a>
 
-[Table 14.8]:\#tab:14.8
+[Table 15.8]:\#tab:15.8
 
-Table 14.8.  **Tail Dependence Parameters for Four Copulas**
+Table 15.8.  **Tail Dependence Parameters for Four Copulas**
 
 $$
 {\small \begin{matrix}
@@ -1337,14 +1298,14 @@ text(0.9, 0.4, "t with 5 df", cex=1.3)   #4
 Dependence modeling is important because it enables us to understand the dependence structure by defining the relationship between variables in a dataset. In insurance, ignoring dependence modeling may not impact pricing but could lead to misestimation of required capital to cover losses. For instance, from Section  \@ref(S:CopAppl) , it is seen that there was a positive relationship between ${\tt LOSS}$ and ${\tt ALAE}$. This means that, if there is a large loss then we expect expenses to be large as well and ignoring this relationship could lead to mis-estimation of reserves.
 
 
-To illustrate the importance of dependence modeling, we refer you back to portfolio management example in Section \@ref(S:PortMgtExample) that assumed that the property and liability risks are independent. Now, we incorporate dependence by allowing the four lines of business to depend on one another through a Gaussian copula. In [Table 14.9], we show that dependence affects the portfolio quantiles ($VaR_q$), although not the expected values. For instance, the $VaR_{0.99}$ for total risk which is the amount of capital required to ensure, with a $99\%$ degree of certainty that the firm does not become technically insolvent is higher when we incorporate dependence. This leads to less capital being allocated when dependence is ignored and can cause unexpected solvency problems. 
+To illustrate the importance of dependence modeling, we refer you back to portfolio management example in Section \@ref(S:PortMgtExample) that assumed that the property and liability risks are independent. Now, we incorporate dependence by allowing the four lines of business to depend on one another through a Gaussian copula. In [Table 15.9], we show that dependence affects the portfolio quantiles ($VaR_q$), although not the expected values. For instance, the $VaR_{0.99}$ for total risk which is the amount of capital required to ensure, with a $99\%$ degree of certainty that the firm does not become technically insolvent is higher when we incorporate dependence. This leads to less capital being allocated when dependence is ignored and can cause unexpected solvency problems. 
 
 
-<a id=tab:14.9></a>  
+<a id=tab:15.9></a>  
 
-[Table 14.9]: \#tab:14.9
+[Table 15.9]: \#tab:15.9
 
-Table 14.9.  **Results for Portfolio Expected Value and Quantiles ($VaR_q$)**
+Table 15.9.  **Results for Portfolio Expected Value and Quantiles ($VaR_q$)**
 
 $$
 {\small \begin{matrix}

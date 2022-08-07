@@ -1,6 +1,6 @@
 
 ```{r include = FALSE}
-chapnum = 6
+chapnum = 7
 
 ```
 
@@ -64,18 +64,6 @@ In this section, you learn how to:
 ```
 
 
-## Monte Carlo Markov Chain (MCMC)  {#S:MCMC}
-
-
-***
-
-**This section is being written and is not yet complete nor edited. It is here to give you a flavor of what will be in the final version.**
-
-***
-
-
-```{r eval = TRUE, child = './Chapters/SimulationSections/MCMC.Rmd'}
-```
 
 ## Further Resources and Contributors {#Simulation:further-reading-and-resources}
 
@@ -91,7 +79,7 @@ In this section, you learn how to:
 
 
 
-### TS `r chapnum`.A. Bootstrap Applications in Predictive Modeling
+### TS 7.A. Bootstrap Applications in Predictive Modeling
 
 ***
 

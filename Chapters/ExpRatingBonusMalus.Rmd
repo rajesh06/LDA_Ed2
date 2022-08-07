@@ -1,5 +1,5 @@
 
-`r chapnum = 12`
+`r chapnum = 14`
 
 
 # Experience Rating using Bonus-Malus {#ChapBonusMalus}
@@ -82,7 +82,7 @@ insurer, or from one takaful operator, to another.
 
 The discounts in the Malaysian *NCD* system are divided into six classes,
 starting from the initial class of 0% discount, followed by classes of
-25%, 30%, 38.3%, 45% and 55% discounts. [Figure 12.1] 
+25%, 30%, 38.3%, 45% and 55% discounts. [Figure 14.1] 
 <!-- \@ref(fig:TransitionMsia)  -->
 provides the classes of
 NCD system in Malaysia. A claim-free year indicates that a policyholder
@@ -95,7 +95,7 @@ the year, the *NCD* will be forfeited and the policyholder has to start at
 0% discount in the renewal year. This set of transition rules can also be 
 summarized as a rule of -1/Top, that is, a class of bonus for a claim-free
 year, and moving to the highest class after having one or more claims.
-For an illustration purpose,  [Figure 12.1]
+For an illustration purpose,  [Figure 14.1]
 <!-- \@ref(fig:TransitionMsia)  -->
 shows the classes and the transition diagram for the Malaysian *NCD* system. 
 
@@ -111,9 +111,9 @@ colnames(MalaysiaTab) <- c("Classes (claim-free years)","Discount (%)")
 # dev.off()
 ```
 
-<a id=fig:12.1></a> 
+<a id=fig:14.1></a> 
 
-[Figure 12.1]: \#fig:12.1
+[Figure 14.1]: \#fig:14.1
 
 (ref:TranMalaysia) **Transition Diagram for NCD Classes (Malaysia)**
 
@@ -156,7 +156,7 @@ classes: 0%, 10%, 15%, 20%, 25%, 30% and 45%. New policyholders have to
 start at 0% discount, or at premium level of 100, and a claim-free year indicates
 that a policyholder can move forward at a one-class discount. If one or
 more claims incurred within the year, the policyholder has to move one-class
-backward for each claim. [Figure 12.2] 
+backward for each claim. [Figure 14.2] 
 <!-- \ref{fig:TransitionBrazil} -->
 shows the classes and the transition diagram for the *NCD*
 system in Brazil. This set of transition rules can also be summarized as a rule
@@ -176,9 +176,9 @@ colnames(BrazilTab) <- c("Classes (claim-free years)","Discount (%)")
 # dev.off()
 ```
 
-<a id=fig:12.2></a> 
+<a id=fig:14.2></a> 
 
-[Figure 12.2]: \#fig:12.2
+[Figure 14.2]: \#fig:14.2
 
 (ref:TransitionBrazil) **Transition Diagram for *NCD* Classes (Brazil)**
 
@@ -221,15 +221,15 @@ also equivalent to the following loadings (malus): 170%, 150%, 130%, 115%, 100%,
 to start at 0% discount, or at premium level of 100, and a claim-free year
 indicates that a policyholder can move one-class forward. If one or more
 claims incurred within the year, the policyholder has to move
-four-classes backward for each claim. [Table 12.1] and Figure \@ref(fig:TransitionSwitz) 
+four-classes backward for each claim. [Table 14.1] and Figure \@ref(fig:TransitionSwitz) 
 respectively show the classes and the transition diagram for the *NCD* system in Switzerland.
 This set of transition rule can be summarized as a rule of -1/+4.
 
-<a id=tab:12.3></a> 
+<a id=tab:14.3></a> 
 
-[Table 12.1]: \#tab:12.3
+[Table 14.1]: \#tab:14.3
 
-Table 12.1. **Classes of *NCD* (Switzerland)**
+Table 14.1. **Classes of *NCD* (Switzerland)**
 
 $$
 \small{
@@ -346,11 +346,11 @@ $$
 **Example `r chapnum`.3.1.** 
 Provide the transition matrix for the *NCD* system in Brazil.
 
-`r HideExample('12.3.1','Show Example Solution')`
+`r HideExample('14.3.1','Show Example Solution')`
 
 **Solution**
 
-Based on the *NCD* classes and the transition diagram shown in [Figure 12.2]
+Based on the *NCD* classes and the transition diagram shown in [Figure 14.2]
 <!-- \@ref(fig:TransitionBrazil) -->
 , the probability of a no-claim year is equal to
 the probability of moving one-class forward, whereas the probability of
@@ -382,11 +382,11 @@ $$
 **Example `r chapnum`.3.2.** 
 Provide the transition matrix for the *NCD* system in Switzerland.
 
-`r HideExample('12.3.2','Show Example Solution')`
+`r HideExample('14.3.2','Show Example Solution')`
 
 **Solution.**
 
-From [Table 12.1] and Figure \@ref(fig:TransitionSwitz), the probability of a no-claim year is equal to the probability of moving one-class forward, whereas the probability of having one or more claims within the year is equal to the probability of moving four-classes backward for each claim. The transition matrix is:
+From [Table 14.1] and Figure \@ref(fig:TransitionSwitz), the probability of a no-claim year is equal to the probability of moving one-class forward, whereas the probability of having one or more claims within the year is equal to the probability of moving four-classes backward for each claim. The transition matrix is:
 
 $$
 \small{
@@ -439,7 +439,7 @@ of the one-step transition matrix.
 **Example `r chapnum`.4.1.** 
 Find the stationary distribution for the *NCD* system in Malaysia assuming that the probability of a no-claim year for all *NCD* classes are ${p_0}$.
 
-`r HideExample('12.4.1','Show Example Solution')`
+`r HideExample('14.4.1','Show Example Solution')`
 
 
 **Solution.**
@@ -564,7 +564,7 @@ signif(eigen(t(TP))$vectors[,1]/sum(eigen(t(TP))$vectors[,1]), digits = 4)
 **Example `r chapnum`.4.2.** 
 Find the stationary distribution for the *NCD* system in Brazil assuming that the number of claims is Poisson distributed with parameter $\lambda = 0.10$.
 
-`r HideExample('12.4.2','Show Example Solution')`
+`r HideExample('14.4.2','Show Example Solution')`
 
 **Solution.**
 As given in Appendix Section \@ref(S:DiscreteDistributions), when the number of claims is Poisson distributed with parameter $\lambda=0.10$, the probability of $k$ claims is $p_k = \frac{e^{ - 0.1}{(0.1)}^k}{{k!}},{\rm{ }}k = 0,1,2,\ldots.$
@@ -630,7 +630,7 @@ have less than 1% of insureds in the long run.
 Using the results from Example `r chapnum`.4.2, find the final premium under the steady state condition assuming that the premium prior to implementing
 the *NCD* is $m$.
 
-`r HideExample('12.4.3','Show Example Solution')`
+`r HideExample('14.4.3','Show Example Solution')`
 
 **Solution.**
 Using the stationary probabilities from Example `r chapnum`.4.2, the stationary final premium is:
@@ -671,7 +671,7 @@ $p_{ij}^{(n)}$ can be obtained as the $(i,j)$-th element of the $n$-th power of 
 **Example `r chapnum`.4.4.** 
 Observe the premiums in 20 years under the *NCD* system in Malaysia, assuming that the probability of claims is Poisson distributed with parameter $\lambda = 0.10$ and the premium prior to implementing the *NCD* is $m = 100$.
 
-`r HideExample('12.4.4','Show Example Solution')`
+`r HideExample('14.4.4','Show Example Solution')`
 
 **Solution.**
 Under the Malaysian *NCD*, we use the Poisson probability $p_k = \frac{e^{ - 0.1}{(0.1)}^k}{k!}$, only for $k = 0,1$. Therefore, the transition matrix in the first year is:
@@ -807,7 +807,7 @@ signif(premium, digits = 4)
 **Example `r chapnum`.4.5.** 
 Observe the premiums in 20 years under the *NCD* system in Brazil, assuming that the probability of $k$ claims is $p_k = \frac{e^{-0.1}{(0.1)}^k}{k!}, \ \ k = 0,1,2,\ldots$, and the premium prior to implementing the *NCD* is $m = 100$.
 
-`r HideExample('12.4.5','Show Example Solution')`
+`r HideExample('14.4.5','Show Example Solution')`
 
 **Solution.**
 The transition matrix for the *NCD* system in Brazil is:
@@ -835,13 +835,13 @@ Using `R`, the premiums in 20 years are:
 
 </div>
 
-The results in Examples `r chapnum`.4-5 allow us to observe the evolution of premium for the *NCD* systems in Malaysia and Brazil assuming that the number of claims is Poisson distributed with parameter $\lambda = 0.10$, and the premium prior to implementing the *NCD* is $m = 100$. The evolution of premiums for both countries are provided in [Table 12.4], and are shown graphically in Figure \@ref(fig:PremEvolution).
+The results in Examples `r chapnum`.4-5 allow us to observe the evolution of premium for the *NCD* systems in Malaysia and Brazil assuming that the number of claims is Poisson distributed with parameter $\lambda = 0.10$, and the premium prior to implementing the *NCD* is $m = 100$. The evolution of premiums for both countries are provided in [Table 14.4], and are shown graphically in Figure \@ref(fig:PremEvolution).
 
-<a id=tab:12.4></a> 
+<a id=tab:14.4></a> 
 
-[Table 12.4]: \#tab:12.4
+[Table 14.4]: \#tab:14.4
 
-Table 12.4. **Evolution of Premium (Malaysia and Brazil)**
+Table 14.4. **Evolution of Premium (Malaysia and Brazil)**
 
 $$
 \small{
@@ -893,7 +893,7 @@ total variation implies a better convergence rate between the $n$-step transitio
 **Example `r chapnum`.4.6.** 
 Provide the total variations (convergence rate) in 20 years under the *NCD* system in Malaysia, assuming that the probability of claims is Poisson distributed with parameter $\lambda = 0.10$.
 
-`r HideExample('12.4.6','Show Example Solution')`
+`r HideExample('14.4.6','Show Example Solution')`
 
 **Solution.**
 Using `R`, the stationary probabilities are:
@@ -1026,7 +1026,7 @@ Provide the total variations (or convergence rate) in 20 years under
 the *NCD* system in Brazil, assuming that the number of claims is distributed 
 as Poisson with parameter $\lambda = 0.10$.
 
-`r HideExample('12.4.7','Show Example Solution')`
+`r HideExample('14.4.7','Show Example Solution')`
 
 **Solution.**
 Using `R` code, the total variations (or convergence rates) in 20 years for the *NCD* system in Brazil are:
@@ -1257,18 +1257,18 @@ get a solid overall conceptual understanding on how to account for all
 the relevant information in the design of a bonus-malus system. 
 
 For the Malaysian *BMS* with 6 levels and the transition rule of -1/Top,
-the obtained numerical values of optimal relativities are presented in [Table 12.5] 
+the obtained numerical values of optimal relativities are presented in [Table 14.5] 
 together with the stationary probabilities. We find that around half of the policyholders
 will occupy the highest *BMS* level with the lowest premium relativity over the long run 
 when the stationary state has been reached. We also observe that the constrained 
 optimal relativities are higher than the unconstrained counterparts because of the
 need to satisfy the financial balanced constraint.
 
-<a id=tab:12.5></a> 
+<a id=tab:14.5></a> 
 
-[Table 12.5]: \#tab:12.5
+[Table 14.5]: \#tab:14.5
 
-Table 12.5. **Optimal Relativities with $k=6$ levels and transition rule of  -1/Top**
+Table 14.5. **Optimal Relativities with $k=6$ levels and transition rule of  -1/Top**
 
 $$
 \small{
@@ -1299,7 +1299,7 @@ the *a priori* base premiums have been inflated accordingly taking into account
 both the information of claim frequency and claim severity. 
 
 For the Brazilian *BMS* with 7 levels and the transition rule of -1/+1,
-the corresponding numerical values of optimal relativities are shown in [Table 12.6]. 
+the corresponding numerical values of optimal relativities are shown in [Table 14.6]. 
 We find that around three quarters of the policyholders will occupy the highest *BMS* level 
 with the lowest premium relativity in the stationary state. This finding is 
 mainly due to the less severe penalty in the transition rule of -1/+1 
@@ -1308,11 +1308,11 @@ occupy the highest *BMS* level. Similar to the earlier example, we find that the
 optimal relativities are lower and result in a lower value of $\mathrm{E}(r_{L})$. 
 
 
-<a id=tab:12.6></a> 
+<a id=tab:14.6></a> 
 
-[Table 12.6]: \#tab:12.6
+[Table 14.6]: \#tab:14.6
 
-Table 12.6. **Optimal Relativities with $k=7$ levels and transition rule of  -1/+1**
+Table 14.6. **Optimal Relativities with $k=7$ levels and transition rule of  -1/+1**
 
 $$
 \small{

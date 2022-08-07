@@ -1,11 +1,277 @@
 
-`r chapnum = 12`
+`r chapnum = 2`
 
-# Data and Systems {#ChapDataAnalytics}
+# Introduction to Data Analytics {#ChapDataAnalytics}
 
-*Chapter Preview*. This chapter covers the learning areas on data and systems outlined in the IAA (International Actuarial Association) Education Syllabus published in September 2015. This chapter is organized into three major parts: data, data analysis, and data analysis techniques. The first part introduces data basics such as data types, data structures, data storages, and data sources. The second part discusses the process and various aspects of data analysis. The third part presents some commonly used techniques for data analysis. 
+*Chapter Preview*. This chapter steps outside of pure loss data because many types of data may influence the outcome of loss data and we want a structure that allows one to model these different data types. This introduction to data analytic concepts emphasizes aspects that are likely to be of use within insurance activities.
 
-## Data
+
+##  Elements of Data Analytics
+
+
+**Data analysis** involves inspecting, cleansing, transforming, and modeling data to discover useful information to suggest conclusions and make decisions. Data analysis has a long history. In 1962, statistician John Tukey defined data analysis as: 
+
+> procedures for analyzing data,  techniques for interpreting the results of such procedures, ways of planning the  gathering of data to make its analysis easier, more precise or more accurate, and  all the machinery and results of (mathematical) statistics which apply to analyzing data.
+>
+> --- [@tukey1962data]
+
+
+### Key Data Analytic Concepts
+
+Underpinning the elements of data analytics are the following key concepts:
+
+*  **Data Driven**. As described in Section \@ref(S:DataDriven), the conclusions and decisions made through a data analytic process depend heavily on data inputs. In comparison, econometricians have long recognized the difference between a data-driven model and a structural model, one that represents an explicit interplay between economic theory and stochastic models, @goldberger1972structural .
+*  **EDA** - exploratory data analysis - and **CDA** - confirmatory data analysis. Although some techniques overlap, e.g., taking the average of a dataset, these two approaches to analyzing data  have different purposes. The purpose of EDA is to reveal aspects or patterns in the data without reference to any particular model. In contrast, CDA techniques use data to substantiate, or confirm, aspects or patterns in a model. See Section \@ref(S:EDACDA) for further discussions.
+*  **Estimation** and **Prediction**. Recall the traditional triad of statistical inference: hypothesis testing, parameter estimation, and prediction. Medical statisticians test the efficacy of a new drug and econometricians estimate parameters of an economic relationship. In insurance, we also use hypothesis testing and parameter estimation. Moreover, predictions of yet to be realized random outcomes are critical for financial risk management (e.g., pricing) of existing risks in future periods, as well as not yet observed risks in a current period, cf. @frees2015analytics.
+*  **Model Complexity** and **Interpretability**. A model is a mathematical representation of reality that is calibrated using a data set. One concern is the complexity of the model where the complexity may involve the number of parameters used to define the model, the number of variables upon which it relies, and the complexity of relationships among the parameters and variables. As a rule of thumb, we will see that the more complex the model, the better it fares in fitting a set of data (and hence at estimation) but the worse it fares in predicting new outcomes. Moreover, other things being equal, a more complex model is more difficult to interpret than a comparable simpler model. Complexity hinders our ability to understand the inner workings of a model, its interpretability, and will be a key ingredient in our comparisons of data versus algorithmic models in Section \@ref(S:DataAlgorithm).
+*  **Parametric** and **Nonparametric** models. Many models, including stochastic distributions, are known with the exception of a limited number of quantities known as parameters. For example, the mean and variance are parameters that determine a normal distribution. In contrast, other models may not rely on parameters;  these are simply known as *nonparametric* models. Naturally, there is also a host of models that rely on parameters for some parts of the distribution and are distribution-free for other portions; these are referred to as *semi-parametric* models. Parametric and nonparametric approaches have different strengths and limitations; neither is strictly better than the other. We start the discussion in Section \@ref(S:ParametricNonP) to explain under what circumstances you might prefer one approach to another.
+*  **Robustness** refers to the "health" of a model to unanticipated deviations in model assumptions or the data used to calibrate the model. When interpreting findings, it is natural to ask questions about how the results react to changes in assumptions or data, that is, the robustness of the results.
+*  **Computational Statistics**. Historically, statistical modeling relied extensively on summary statistics that were not only easy to interpret but also easy to compute. With modern-day computing power, definitions of "easy to compute" have altered drastically paving the way for measures that were once deemed far too computationally intensive to be of practical use. Moreover, ideas of subsampling and resampling data (e.g., through cross-validation and bootstrapping) have introduced new methods for understanding statistical sampling errors.
+*  **Big Data**. Examples of big data include text documents, videos, and audio files that are also known as *unstructured* data. [Table 2.1] summarizes new types of data sources that lead to new data. As part of the analytics trends, different types of algorithms lead to new software for handling new types of data. See Section \@ref(Sec:BigDataAnalysis)  for further discussions.
+
+[Table 2.1]:\#tab:2.1
+
+<a id=tab:2.1></a>
+
+Table 2.1. **Analytic Trends**  (from @Frees2019)
+
+$$
+{\small
+\begin{array}{l|l}
+    \hline
+\textbf{Data Sources}                   & \textbf{Algorithms}\\ \hline
+\text{Mobile devices}                   & \text{Statistical learning} \\
+\text{Auto telematics}                  & \text{Artificial intelligence}\\
+\text{Home sensors (Internet of Things)}&  \text{Structural models}\\
+\text{Drones, micro satellites}         &\\ \hline
+\textbf{Data}                           & \textbf{Software}  \\ \hline
+\text{Big data (text, speech, image, video)}   & \text{Text analysis, semantics}  \\
+\text{Behavioral data (including social media)}& \text{Voice recognition}\\
+\text{Credit, trading, financial data}         & \text{Image recognition}  \\
+                                               & \text{Video recognition} \\    \hline
+{{\tiny \textit{Source}:\text{Stephen Mildenhall, Personal Communication}}} &  \\ \hline
+\end{array}
+}
+$$
+
+
+
+
+### Data  versus Algorithmic Modeling {#S:DataAlgorithm}
+
+@breiman2001modeling discussed two cultures for the use of statistical modeling to reach conclusions from data: the data modeling culture and the algorithmic modeling culture. In the data modeling culture, data are assumed to be generated by a given stochastic model. In the algorithmic modeling culture, the data mechanism is treated as unknown and algorithmic models are used.
+
+`r Gloss('Data modeling')` allows statisticians to analyze data and acquire information about the data mechanisms. However, @breiman2001modeling argued that the focus on data modeling in the statistical community has led to some side effects such as:
+
+*  It produced irrelevant theory and questionable scientific conclusions.
+*  It kept statisticians from using algorithmic models that might be more suitable.
+*  It restricted the ability of statisticians to deal with a wide range of problems.
+
+`r Gloss('Algorithmic modeling')` was used by industrial statisticians long time ago. Sadly, the development of algorithmic methods was taken up by a community outside statistics. The goal of algorithmic modeling is `r Gloss('predictive accuracy')`. For some complex prediction problems, data models are not suitable. These prediction problems include voice recognition, image recognition, handwriting recognition, nonlinear time series prediction, and financial market prediction. The theory in algorithmic modeling focuses on the properties of algorithms, such as convergence and predictive accuracy. 
+
+## Single Variable Analytics 
+
+Rather than starting with multiple variables consisting of inputs and outputs as is common in analytics, in this section we restrict considerations to a single variable. Single variable analytics is motivated by statistical data modeling. Even in this relatively simple situation, we are able to introduce several topics important to analytics including the type of variable, exploratory versus confirmatory analyses, as well as issues of model construction and selection. Moreover, as we will see in Chapters 3-8, single variable analytics plays a prominent role in fundamental insurance and risk management applications.
+
+### Variable Types {#S:VarTypes}
+
+This section describes basic variable types traditionally encountered in data analysis. Section \@ref(S:DataLearn) will provide a framework for more extensive types that include big data.
+
+#### Qualitative Variables {#S:QuaVar}
+
+A `r Gloss('qualitative')`, or `r Gloss('categorical variable')` is one for which the measurement denotes membership in a set of groups, or categories. For example, if you were coding in which area of the country an insured resides, you might use 1 for the northern part, 2 for southern, and 3 for everything else. Any analysis of categorical variables should not depend on the labeling of the categories. For example, instead of using a 1,2,3 for north, south, other, one should arrive at the same set of summary statistics if I used a 2,1,3 coding instead, interchanging north and south. 
+
+In contrast, an `r Gloss('ordinal variable')` is a variation of categorical variable for which an ordering exists. For example, with a survey to see how satisfied customers are with our claims servicing department, we might use a five point scale that ranges from 1 meaning dissatisfied to a 5 meaning satisfied. Ordinal variables provide a clear ordering of levels of a variable although the amount of separation between levels is unknown.
+
+A `r Gloss('binary variable')` is a special type of categorical variable where there are only two categories commonly taken to be 0 and 1.
+
+Earlier, in the Section \@ref(S:LGPIF) case study, we saw in [Table 1.5] several examples of qualitative variables. These included the categorical `EntityType` and binary variables `NoClaimCredit` and `Fire5`. We also treated `AlarmCredit` as a categorical variable although some analysts may wish to explore its use as an ordinal variable.
+
+
+#### Quantitative Variables {#S:QuanVar}
+
+
+Unlike a qualitative variable, a `r Gloss('quantitative variable')` is one in which each numerical level is a realization from some scale so that the distance between any two levels of the scale takes on meaning. A `r Gloss('continuous variable')` is one that can take on any value within a finite interval. For example, one could represent a `r Gloss('policyholder')`'s age, weight, or income, as continuous variables. In contrast, a 
+`r Gloss('discrete variable')` is one that takes on only a finite number of values in any finite interval. For example, when examining a policyholder's choice of `r Gloss('deductibles')`, it may be that values of 0, 250, 500, and 1000 are the only possible outcomes. Like an ordinal variable, these represent distinct categories that are ordered. Unlike an ordinal variable, the numerical difference between levels takes on economic meaning. A special type of discrete variable is a `r Gloss('count variable')`, one with values on the nonnegative integers. For example, we will be particularly interested in the number of claims arising from a policy during a given period.  Another interesting variation is an `r Gloss('interval variable')`, one that gives a range of possible outcomes. 
+
+Earlier, in the Section \@ref(S:LGPIF) case study, we encountered several examples of quantitative variables. These included the deductible (in logarithmic dollars), total building and content coverage (in logarithmic dollars), claim severity and claim frequency.
+
+
+#### Loss Data
+
+This introduction to data analytics is motivated by features of **loss data** that arise from, or are related to, obligations in insurance contracts. Loss data rarely arise from a bell-shaped normal distribution that has motivated the development of much of classical statistics. As a consequence, the treatment of data analytics in this text differs from that normally encountered in other introductions to data analytics.
+
+What features of loss data warrant special treatment? 
+
+*  We have already seen in the Section \@ref(S:LGPIF) case study that we will be concerned with the frequency of claims, a type of count variable. 
+*  Further, when a claim occurs, the interest is in the amount of the claim, a quantitative variable. This claim severity is commonly modeled using skewed and long-tailed distributions so that extremely large outcomes are associated with relatively large probabilities. Typically, the normal distribution is a poor choice for a loss distribution.
+*  When a claim does occur, the realized value is frequently modified by insurance contractual features such as deductibles, upper limits, and co-insurance parameters. 
+*  Loss data are frequently a *combination of discrete and continuous* components. For example, when we analyze the insured `r Gloss('loss')` of a policyholder, we will encounter a discrete outcome at zero, representing no insured loss, and a continuous amount for positive outcomes, representing the amount of the insured loss. 
+ 
+
+
+### Exploratory versus Confirmatory {#S:EDACDA}
+
+
+There are two phases of data analysis [@good1983data]: `r Gloss('exploratory data analysis')` (EDA) and `r Gloss('confirmatory data analysis')` (CDA). [Table 2.2] summarizes some differences between EDA and CDA. EDA is usually applied to observational data with the goal of looking for patterns and formulating hypotheses. In contrast, CDA is often applied to experimental data (i.e., data obtained by means of a formal design of experiments) with the goal of quantifying the extent to which discrepancies between the model and the data could be expected to occur by chance. @gelman2004eda. 
+
+[Table 2.2]:\#tab:2.2
+
+<a id=tab:2.2></a>
+
+Table 2.2. **Comparison of Exploratory Data Analysis and Confirmatory Data Analysis**
+
+$$
+\small{
+\begin{array}{lll} \hline
+ & \textbf{EDA} & \textbf{CDA} \\\hline
+\text{Data} & \text{Observational data} & \text{Experimental data}\\[3mm]
+\text{Goal} & \text{Pattern recognition,}  & \text{Hypothesis testing,}  \\
+& \text{formulate hypotheses} & \text{estimation, prediction} \\[3mm]
+\text{Techniques} & \text{Descriptive statistics,} & \text{Traditional statistical tools of} \\
+& \text{visualization, clustering} & \text{inference, significance, and}\\
+& & \text{confidence} \\
+\hline
+\end{array}
+}
+$$
+
+As we have seen in the Section \@ref(S:LGPIF) case study, the techniques for single variable EDA include descriptive statistics (e.g., mean, median, standard deviation, quantiles) and summaries of distributions such as through histograms. In contrast, the techniques for CDA include the traditional statistical tools of inference, significance, and confidence.
+
+
+### Model Construction 
+
+As we learned in Section \@ref(S:DataAlgorithm), models may have a stochastic basis from the statistical modeling paradigm or may simply be the result of an algorithm. When construction a model, it is helpful to think about how it is parameterized and to identify the purpose of constructing the model.
+
+#### Parametric versus Nonparametric {#S:ParametricNonP}
+
+Data analysis models can be parametric or nonparametric. Parametric models are representations that are known up to a few variables known as *parameters*. These may be representations of a stochastic distribution or simply an algorithm used to predict data outcomes. Typically, data are used to determine the parameters and in this way calibrate the model. In contrast, nonparametric methods make no such assumption of a known functional form. As example, Section \@ref(S:MS:NonParInf) introduces nonparametric methods that do not assume distributions for the data and therefore are called distribution-free methods.
+
+Parametric methods have the advantage that if the distribution of the data is known, properties of the data and properties of the method (e.g., errors, convergence, coefficients) can be derived. A disadvantage of parametric methods is that analysts need to spend considerable time on figuring out the distribution. For example, analysts may try different transformation methods to transform the data so that it follows a certain distribution.
+
+Because nonparametric methods make fewer assumptions, nonparametric methods have the advantage that they are more flexible, more `r Gloss('robust', '13.2')`, and more applicable to non-quantitative data. However, a drawback of nonparametric methods is that it is more difficult to extrapolate findings outside of the observed domain of the data, a key consideration in *predictive modeling*.
+
+
+#### Explanation versus Prediction {#S:expred}
+
+There are two goals in data analysis [@breiman2001modeling;@shmueli2010model]: explanation and prediction. In some scientific areas such as economics, psychology, and environmental science, the focus of data analysis is to explain the causal relationships between the input variables and the response variable. In other scientific areas such as natural language processing and bioinformatics, the focus of data analysis is to predict what the responses are going to be given the input variables.
+
+@shmueli2010model discussed in detail the distinction between explanatory modeling and predictive modeling. Explanatory modeling is commonly used for theory building and testing. However, predictive modeling is rarely used in many scientific fields as a tool for developing theory.  
+
+`r Gloss('Explanatory modeling')` is typically done as follows:
+
+*  State the prevailing theory.
+*  State causal hypotheses, which are given in terms of theoretical constructs rather than measurable variables. A causal diagram is usually included to illustrate the hypothesized causal relationship between the theoretical constructs.
+*  Operationalize constructs. In this step, previous literature and theoretical justification are used to build a bridge between theoretical constructs and observable measurements.
+*  Collect data and build models alongside the statistical hypotheses, which are operationalized from the research hypotheses. 
+*  Reach research conclusions and recommend policy. The statistical conclusions are converted into research conclusions or policy recommendations.
+
+@shmueli2010model defined `r Gloss('predictive modeling')` as the process of applying a statistical model or data mining algorithm to data for the purpose of predicting new or future observations. Predictions include point predictions, interval predictions, regions, distributions, and rankings of new observations. A predictive model can be any method that produces predictions. 
+
+ 
+### Model Selection
+
+Model complexity (e.g., number of parameters). One should split the data into training and testing portions. Discuss reducible versus irreducible errors. Also provide a brief introduction to cross validation and information criteria.
+
+An analyst must resolve two conflicting goals:
+
+* to add more parameters to the model so that the model represents data better, and
+* to remove parameters from the model so that the model is simple and parsimonious.
+
+## Analytics with Many Variables  
+
+With many variables, we can think about some of them as "inputs" and others "outputs" of a system....
+
+When most analysts think of “data science,” or “machine learning,” they focus on multiple variables.
+
+###  Types of Tasks
+
+Explain types of tasks including supervised vs. unsupervised then regression vs. classification. Refer back to estimation versus prediction.
+
+
+#### Supervised versus Unsupervised
+
+Methods for data analysis can be divided into two types [@abbott2014;@igual2017]: supervised learning methods and unsupervised learning methods. `r Gloss('Supervised learning methods')` work with labeled data, which include a target variable. Mathematically, supervised learning methods try to approximate the following function:
+\[
+Y = f(X_1, X_2, \ldots, X_p),
+\]
+where $Y$ is a target variable and $X_1$, $X_2$, $\ldots$, $X_p$ are explanatory variables. [Table 2.3] gives a list of common names for different types of variables [@frees2009regression]. When the target variable is a categorical variable, supervised learning methods are called `r Gloss('classification methods')`. When the target variable is continuous, supervised learning methods are called `r Gloss('regression methods')`.
+
+[Table 2.3]:\#tab:2.3
+
+<a id=tab:2.3></a>
+
+Table 2.3. **Common Names of Different Variables**
+
+$$
+\small{
+\begin{array}{ll}
+\hline
+\textbf{Target Variable}  &  \textbf{Explanatory Variable}\\\hline
+\text{Dependent variable} & \text{Independent variable}\\
+\text{Response} & \text{Treatment} \\
+\text{Output} & \text{Input} \\
+\text{Endogenous variable} & \text{Exogenous variable} \\
+\text{Predicted variable} & \text{Predictor variable} \\
+\text{Regressand} & \text{Regressor} \\
+\hline
+\end{array}
+}
+$$
+
+`r Gloss('Unsupervised learning methods')` work with unlabeled data, which include explanatory variables only. In other words, unsupervised learning methods do not use target variables. As a result, unsupervised learning methods are also called descriptive modeling methods.
+
+#### Regression and Classification
+
+### EDA (as a stage in the modelling process)
+
+Perhaps also mention in passing the concepts of PCA and clustering as in the current 13.3.1 (although we will not do so in this book).
+
+### Model Construction
+
+A brief introduction to types of modeling methods focusing on basic MLE-based methods and extensions such as LM, GLM.
+It partly covers the current contents of 13.3.2, but perspectives may be quite different.
+Perhaps mention in passing the concepts of regularized GLM, tree-based methods, neural networks, etc. (although we will not do so in this book). May include some explanation of regularization if not in detail. 
+
+### Model selection
+
+A brief introduction to cross validation and information criteria.
+
+
+## Data Analysis Process {#S:process}
+
+Starts from similar contents to the old 13.2.1. We can do a bit better – not just give old processes. For example, including data-splitting step…
+
+Emphasize “common methods” objectives and tie to the rest of the book. These objectives include the basic concepts of distributions (Ch2, 3), EDA/summary/visualization (a bit in Ch4), statistical inference including estimation (a bit in Ch4), model selection (a bit in Ch4, 13), simulation (Ch6), bootstrap (Ch6), Bayesian methods (a bit in Ch4, 9), and data preprocessing.
+
+
+
+Data analysis is part of an overall study. For example, Figure \@ref(fig:studyNew) shows the process of a typical study in behavioral and social sciences as described in @albers2017. Data analysis consists of the following steps:
+
+*  **Exploratory analysis.** Through summary statistics and graphical representations, understand all relevant data characteristics and determine what type of analysis for the data makes sense.
+*  **Statistical analysis.** Performs statistical analysis such as determining statistical significance and effect size. 
+*  **Make sense of the results.** Interprets the statistical results in the context of the overall study.
+*  **Determine implications.** Interprets the data by connecting it to the study goals and the larger field of this study.
+
+The goal of the data analysis as described above focuses on explaining some phenomenon (See Section \@ref(S:expred)).
+
+(ref:studyNew) **The Process of a Typical Study in Behavioral and Social Sciences**
+
+```{r studyNew, echo=FALSE, fig.cap='(ref:studyNew)', out.width='80%', fig.align='center'}
+knitr::include_graphics("Figures/Figure1.png")
+```
+
+@shmueli2010model described a general process for statistical modeling, which is shown in Figure \@ref(fig:modeling). Depending on the goal of the analysis, the steps differ in terms of the choice of methods, criteria, data, and information.
+
+(ref:modelingNew) **The Process of Statistical Modeling**
+
+```{r, modelingNew, echo=FALSE, fig.cap='(ref:modelingNew)', out.width='80%', fig.align='center'}
+knitr::include_graphics("Figures/Figure2.png")
+```
+
+
+
+## Data {#S:DataLearn}
 
 
 ### Data Types and Sources
@@ -14,7 +280,6 @@ In terms of how data are collected, data can be divided into two types [@hox2005
 
 In terms of the degree of organization of the data, data can be also divided into two types [@inmon2014;@leary2013bigdata;@hashem2015bigdata;@abdullah2013data;@pries2015]: structured data and unstructured data. `r Gloss('Structured data')` have a predictable and regularly occurring format. In contrast, `r Gloss('unstructured data')` lack any regularly occurring format and have no structure that is recognizable to a computer. Structured data consist of records, attributes, keys, and indices and are typically managed by a database management system (DBMS) such as IBM DB2, Oracle, MySQL, and Microsoft SQL Server. As a result, most units of structured data can be located quickly and easily. Unstructured data have many different forms and variations. One common form of unstructured data is text. Accessing unstructured data can be awkward. To find a given unit of data in a long text, for example, a sequential search is usually performed. 
 
-Data can be classified as qualitative or quantitative. `r Gloss('Qualitative data')` are data about qualities, which cannot be actually measured. As a result, qualitative data are extremely varied in nature and include interviews, documents, and artifacts [@miles2014]. `r Gloss('Quantitative data')` are data about quantities, which can be measured numerically with numbers. In terms of the level of measurement, quantitative data can be further classified as nominal, ordinal,  interval, or ratio [@gan2011]. Nominal data, also called categorical data, are discrete data without a natural ordering. `r Gloss('Ordinal data')` are discrete data with a natural order. `r Gloss('Interval data')` are continuous data with a specific order and equal intervals. Ratio data are interval data with a natural zero. See Section \@ref(S:VarTypes) for a more detailed discussion, with examples, on types of data.
 
 There exist a number of data sources. First, data can be obtained from university-based researchers who collect primary data. Second, data can be obtained from organizations that are set up for the purpose of releasing secondary data for the general research community. Third, data can be obtained from national and regional statistical institutes that collect data. Finally, companies have corporate data that can be obtained for research purposes.
 
@@ -71,7 +336,7 @@ Inaccurate data arise from different sources. In particular, the following areas
 * Data moving and restructuring. Inaccurate data can also arise from data extracting, cleansing, transforming, loading, or integrating.
 * Data usage. Faulty reporting and lack of understanding can lead to inaccurate data.
 
-`r Gloss('Reverification')` and analysis are two approaches used to find inaccurate data elements. The first approach is done by people, who manually check every data element by going back to the original source of the data. The second approach is done by software with the skills of an analyst to search through data to find possible inaccurate data elements. To ensure that the data elements are 100\% accurate, we must use reverification. However, reverification can be time consuming and may not be possible for some data. Analytical techniques can also be used to identify inaccurate data elements. There are five types of analysis that can be used to  identify inaccurate data [@olson2003]: `r Gloss('data element analysis')`, `r Gloss('structural analysis')`, value correlation, aggregation correlation, and value inspection.
+`r Gloss('Reverification')` and analysis are two approaches used to find inaccurate data elements. The first approach is done by people, who manually check every data element by going back to the original source of the data. The second approach is done by software with the skills of an analyst to search through data to find possible inaccurate data elements. To ensure that the data elements are 100\% accurate, we must use reverification. However, reverification can be time consuming and may not be possible for some data. Analytic techniques can also be used to identify inaccurate data elements. There are five types of analysis that can be used to  identify inaccurate data [@olson2003]: `r Gloss('data element analysis')`, `r Gloss('structural analysis')`, value correlation, aggregation correlation, and value inspection.
 
 Companies can create a data quality assurance program to create high-quality databases. For more information about management of data quality issues and data profiling techniques, readers are referred to @olson2003.
 
@@ -80,7 +345,7 @@ Companies can create a data quality assurance program to create high-quality dat
 Raw data usually need to be cleaned before useful analysis can be conducted. In particular, the following areas need attention when preparing data for analysis [@janert2010]:
 
 *  **Missing values.** It is common to have missing values in raw data. Depending on the situation, we can discard the record, discard the variable, or impute the missing values.
-*  **Outliers.** Raw data may contain unusual data points such as outliers. We need to handle outliers carefully. We cannot just remove outliers without knowing the reason for their existence. Although sometimes outliers can be simple mistakes such as thosed caused by clerical errors, sometimes their unusual behavior can point to precisely the type of effect that we are looking for.
+*  **Outliers.** Raw data may contain unusual data points such as outliers. We need to handle outliers carefully. We cannot just remove outliers without knowing the reason for their existence. Although sometimes outliers can be simple mistakes such as those caused by clerical errors, sometimes their unusual behavior can point to precisely the type of effect that we are looking for.
 *  **Junk.** Raw data may contain garbage, or junk, such as nonprintable characters. When it happens, junk is typically rare and not easily noticed. However, junk can cause serious problems in downstream applications.
 *  **Format.** Raw data may be formatted in a way that is inconvenient for subsequent analysis. For example, components of a record may be split into multiple lines in a text file. In such cases, lines corresponding to a single record should be merged before loading to a data analysis software such as `R`.
 *  **Duplicate records.** Raw data may contain duplicate records. Duplicate records should be recognized and removed. This task may not be trivial depending on what you consider "duplicate."
@@ -93,160 +358,12 @@ For more information about how to handle data in `R`, readers are referred to @f
 ```
 
 
-## Data Analysis Preliminaries
 
-<!-- aims 7.1.1  stages 7.1.2 -->
-<!-- 7.5.1 visualization reporting -->
-<!-- 7.5.2 reproducible mailund2017 -->
-Data analysis involves inspecting, cleansing, transforming, and modeling data to discover useful information to suggest conclusions and make decisions. Data analysis has a long history. In 1962, statistician John Tukey defined data analysis as: 
-
-> procedures for analyzing data,  techniques for interpreting the results of such procedures, ways of planning the  gathering of data to make its analysis easier, more precise or more accurate, and  all the machinery and results of (mathematical) statistics which apply to analyzing data.
->
-> --- [@tukey1962data]
-
-
-Recently, Judd and coauthors defined data analysis as the following equation [@judd2017]:
-
-$$
-\hbox{Data} = \hbox{Model} + \hbox{Error},
-$$
-
-where Data represents a set of basic scores or observations to be analyzed, Model is a compact representation of the data, and Error is the amount by which an observation differs from its model representation. Using the above equation for data analysis, an analyst must resolve the following two conflicting goals:
-
-* to add more parameters to the model so that the model represents data better, and
-* to remove parameters from the model so that the model is simple and parsimonious.
-
-In this section, we give a high-level introduction to data analysis, including different types of methods.
-
-### Data Analysis Process {#S:process}
-
-Data analysis is part of an overall study. For example, Figure \@ref(fig:study) shows the process of a typical study in behavioral and social sciences as described in @albers2017. Data analysis consists of the following steps:
-
-*  **Exploratory analysis.** Through summary statistics and graphical representations, understand all relevant data characteristics and determine what type of analysis for the data makes sense.
-*  **Statistical analysis.** Performs statistical analysis such as determining statistical significance and effect size. 
-*  **Make sense of the results.** Interprets the statistical results in the context of the overall study.
-*  **Determine implications.** Interprets the data by connecting it to the study goals and the larger field of this study.
-
-The goal of the data analysis as described above focuses on explaining some phenomenon (See Section \@ref(S:expred)).
-
-(ref:study) **The Process of a Typical Study in Behavioral and Social Sciences**
-
-```{r study, echo=FALSE, fig.cap='(ref:study)', out.width='80%', fig.align='center'}
-knitr::include_graphics("Figures/Figure1.png")
-```
-
-@shmueli2010model described a general process for statistical modeling, which is shown in Figure \@ref(fig:modeling). Depending on the goal of the analysis, the steps differ in terms of the choice of methods, criteria, data, and information.
-
-(ref:modeling) **The Process of Statistical Modeling**
-
-```{r, modeling, echo=FALSE, fig.cap='(ref:modeling)', out.width='80%', fig.align='center'}
-knitr::include_graphics("Figures/Figure2.png")
-```
-
-### Exploratory versus Confirmatory
-
-There are two phases of data analysis [@good1983data]: `r Gloss('exploratory data analysis')` (EDA) and `r Gloss('confirmatory data analysis')` (CDA). [Table 13.1] summarizes some differences between EDA and CDA. EDA is usually applied to observational data with the goal of looking for patterns and formulating hypotheses. In contrast, CDA is often applied to experimental data (i.e., data obtained by means of a formal design of experiments) with the goal of quantifying the extent to which discrepancies between the model and the data could be expected to occur by chance. @gelman2004eda. 
-
-[Table 13.1]:\#tab:13.1
-
-<a id=tab:13.1></a>
-
-Table 13.1. **Comparison of Exploratory Data Analysis and Confirmatory Data Analysis**
-
-$$
-\small{
-\begin{array}{lll} \hline
- & \textbf{EDA} & \textbf{CDA} \\\hline
-\text{Data} & \text{Observational data} & \text{Experimental data}\\[3mm]
-\text{Goal} & \text{Pattern recognition,}  & \text{Hypothesis testing,}  \\
-& \text{formulate hypotheses} & \text{estimation, prediction} \\[3mm]
-\text{Techniques} & \text{Descriptive statistics,} & \text{Traditional statistical tools of} \\
-& \text{visualization, clustering} & \text{inference, significance, and}\\
-& & \text{confidence} \\
-\hline
-\end{array}
-}
-$$
-
-
-Techniques for EDA include descriptive statistics (e.g., mean, median, standard deviation, quantiles), distributions, histograms, correlation analysis, dimension reduction, and cluster analysis. Techniques for CDA include the traditional statistical tools of inference, significance, and confidence.
-
-### Supervised versus Unsupervised
-
-Methods for data analysis can be divided into two types [@abbott2014;@igual2017]: supervised learning methods and unsupervised learning methods. `r Gloss('Supervised learning methods')` work with labeled data, which include a target variable. Mathematically, supervised learning methods try to approximate the following function:
-\[
-Y = f(X_1, X_2, \ldots, X_p),
-\]
-where $Y$ is a target variable and $X_1$, $X_2$, $\ldots$, $X_p$ are explanatory variables. [Table 13.2] gives a list of common names for different types of variables [@frees2009regression]. When the target variable is a categorical variable, supervised learning methods are called `r Gloss('classification methods')`. When the target variable is continuous, supervised learning methods are called `r Gloss('regression methods')`.
-
-[Table 13.2]:\#tab:13.2
-
-<a id=tab:13.2></a>
-
-Table 13.2. **Common Names of Different Variables**
-
-$$
-\small{
-\begin{array}{ll}
-\hline
-\textbf{Target Variable}  &  \textbf{Explanatory Variable}\\\hline
-\text{Dependent variable} & \text{Independent variable}\\
-\text{Response} & \text{Treatment} \\
-\text{Output} & \text{Input} \\
-\text{Endogenous variable} & \text{Exogenous variable} \\
-\text{Predicted variable} & \text{Predictor variable} \\
-\text{Regressand} & \text{Regressor} \\
-\hline
-\end{array}
-}
-$$
-
-`r Gloss('Unsupervised learning methods')` work with unlabeled data, which include explanatory variables only. In other words, unsupervised learning methods do not use target variables. As a result, unsupervised learning methods are also called descriptive modeling methods.
-
-### Parametric versus Nonparametric
-
-Methods for data analysis can be parametric or nonparametric [@abbott2014]. Parametric methods assume that the data follow a certain distribution. Nonparametric methods, introduced in Section \@ref(S:MS:NonParInf), do not assume distributions for the data and therefore are called distribution-free methods.
-
-Parametric methods have the advantage that if the distribution of the data is known, properties of the data and properties of the method (e.g., errors, convergence, coefficients) can be derived. A disadvantage of parametric methods is that analysts need to spend considerable time on figuring out the distribution. For example, analysts may try different transformation methods to transform the data so that it follows a certain distribution.
-
-Because nonparametric methods make fewer assumptions, nonparametric methods have the advantage that they are more flexible, more `r Gloss('robust', '13.2')`, and more applicable to non-quantitative data. However, a drawback of nonparametric methods is that it is more difficult to extrapolate findings outside of the observed domain of the data, a key consideration in *predictive modeling*.
-
-
-### Explanation versus Prediction {#S:expred}
-
-There are two goals in data analysis [@breiman2001modeling;@shmueli2010model]: explanation and prediction. In some scientific areas such as economics, psychology, and environmental science, the focus of data analysis is to explain the causal relationships between the input variables and the response variable. In other scientific areas such as natural language processing and bioinformatics, the focus of data analysis is to predict what the responses are going to be given the input variables.
-
-@shmueli2010model discussed in detail the distinction between explanatory modeling and predictive modeling. Explanatory modeling is commonly used for theory building and testing. However, predictive modeling is rarely used in many scientific fields as a tool for developing theory.  
-
-`r Gloss('Explanatory modeling')` is typically done as follows:
-
-*  State the prevailing theory.
-*  State causal hypotheses, which are given in terms of theoretical constructs rather than measurable variables. A causal diagram is usually included to illustrate the hypothesized causal relationship between the theoretical constructs.
-*  Operationalize constructs. In this step, previous literature and theoretical justification are used to build a bridge between theoretical constructs and observable measurements.
-*  Collect data and build models alongside the statistical hypotheses, which are operationalized from the research hypotheses. 
-*  Reach research conclusions and recommend policy. The statistical conclusions are converted into research conclusions or policy recommendations.
-
-@shmueli2010model defined `r Gloss('predictive modeling')` as the process of applying a statistical model or data mining algorithm to data for the purpose of predicting new or future observations. Predictions include point predictions, interval predictions, regions, distributions, and rankings of new observations. A predictive model can be any method that produces predictions. 
-
- 
-
-### Data Modeling versus Algorithmic Modeling
-
-@breiman2001modeling discussed two cultures for the use of statistical modeling to reach conclusions from data: the data modeling culture and the algorithmic modeling culture. In the data modeling culture, data are assumed to be generated by a given stochastic data model. In the algorithmic modeling culture, the data mechanism is treated as unknown and algorithmic models are used.
-
-`r Gloss('Data modeling')` allows statisticians to analyze data and acquire information about the data mechanisms. However, @breiman2001modeling argued that the focus on data modeling in the statistical community has led to some side effects such as:
-
-*  It produced irrelevant theory and questionable scientific conclusions.
-*  It kept statisticians from using algorithmic models that might be more suitable.
-*  It restricted the ability of statisticians to deal with a wide range of problems.
-
-`r Gloss('Algorithmic modeling')` was used by industrial statisticians long time ago. Sadly, the development of algorithmic methods was taken up by a community outside statistics [@breiman2001modeling]. The goal of algorithmic modeling is `r Gloss('predictive accuracy')`. For some complex prediction problems, data models are not suitable. These prediction problems include speech recognition, image recognition, handwriting recognition, nonlinear time series prediction, and financial market prediction. The theory in algorithmic modeling focuses on the properties of algorithms, such as convergence and predictive accuracy. 
-
-### Big Data Analysis
+### Big Data Analysis {#Sec:BigDataAnalysis}
 
 Unlike traditional data analysis, big data analysis employs additional methods and tools that can extract information rapidly from massive data. In particular, big data analysis uses the following processing methods [@chen2014b]:
 
-*  A **bloom filter** is a space-efficient probabilistic data structure that is used to determine whether an element belongs to a set. It has the advantages of high space efficiency and high query speed. A drawback of using bloom filter is that there is a certain misrecognition rate.
+*  A **bloom filter** is a space-efficient probabilistic data structure that is used to determine whether an element belongs to a set. It has the advantages of high space efficiency and high query speed. A drawback of using bloom filter is that there is a certain nonrecognition rate.
 *  **Hashing** is a method that transforms data into  fixed-length numerical values through a hash function. It has the advantages of rapid reading and writing. However, sound hash functions are difficult to find.
 *  **Indexing** refers to a process of partitioning data in order to speed up reading. Hashing is a special case of indexing.
 *  A **trie,**  also called digital tree, is a method to improve query efficiency by using common prefixes of character strings to reduce comparisons among character strings.
@@ -282,16 +399,31 @@ Analysts may face ethical issues and dilemmas during the data analysis process. 
 ```
 
 
-## Data Analysis Techniques
+
+## Summary
+
+In this chapter, we give a high-level overview of data analysis by introducing data types, data structures, data storage, data sources, data analysis processes, and data analysis techniques. In particular, we present various aspects of data analysis. In addition, we provide several websites where readers can obtain real-world datasets to hone their data analysis skills. We also list some `R` packages and functions that can be used to perform various data analysis tasks.
 
 
-Techniques for data analysis are drawn from different but overlapping fields such as statistics, machine learning, pattern recognition, and data mining. Statistics is a field that addresses reliable ways of gathering data and making inferences, @bandyo2011, @bluman2012. The term `r Gloss('machine learning')`  was coined by Samuel in 1959 [@samuel1959ml]. Originally, machine learning referred to the field of study where computers have the ability to learn without being explicitly programmed. Nowadays, machine learning has evolved to the broad field of study where computational methods use experience (i.e., the past information available for analysis) to improve performance or to make accurate predictions [@bishop2007;@clarke2009;@mohri2012;@kubat2017]. There are four types of machine learning algorithms (see [Table 13.3]) depending on the type of data and the type of the learning tasks.
+## Further Resources and Contributors {#DS:further-reading-and-resources}
 
-[Table 13.3]:\#tab:13.3
 
-<a id=tab:13.3></a>
+#### Contributors {-}
 
-Table 13.3. **Types of Machine Learning Algorithms**
+- **Guojun Gan**, University of Connecticut, is the principal author of the initial version of this chapter. Email: guojun.gan@uconn.edu for chapter comments and suggested improvements.
+- Chapter reviewers include: Runhuan Feng, Himchan Jeong, Lei Hua, Min Ji, and Toby White.
+
+
+
+### Technical Supplement: Data Analysis Techniques
+
+Techniques for data analysis are drawn from different but overlapping fields such as statistics, machine learning, pattern recognition, and data mining. Statistics is a field that addresses reliable ways of gathering data and making inferences, @bandyo2011, @bluman2012. The term `r Gloss('machine learning')`  was coined by Samuel in 1959 [@samuel1959ml]. Originally, machine learning referred to the field of study where computers have the ability to learn without being explicitly programmed. Nowadays, machine learning has evolved to the broad field of study where computational methods use experience (i.e., the past information available for analysis) to improve performance or to make accurate predictions [@bishop2007;@clarke2009;@mohri2012;@kubat2017]. There are four types of machine learning algorithms (see [Table 2.4]) depending on the type of data and the type of the learning tasks.
+
+[Table 2.4]:\#tab:2.4
+
+<a id=tab:2.4></a>
+
+Table 2.4. **Types of Machine Learning Algorithms**
 
 $$
 \small{
@@ -307,19 +439,19 @@ $$
 Originating in engineering, `r Gloss('pattern recognition')` is a field that is closely related to machine learning, which grew out of computer science. In fact, pattern recognition and machine learning can be considered to be two facets of the same field [@bishop2007]. `r Gloss('Data mining')` is a field that concerns collecting, cleaning, processing, analyzing, and gaining useful insights from data [@aggarwal2015].
 
 
-### Exploratory Techniques
+#### Exploratory Techniques
 
 Exploratory data analysis techniques include descriptive statistics as well as many unsupervised learning techniques such as data clustering and principal component analysis.
 
-#### Descriptive Statistics
+##### Descriptive Statistics
 
 In one sense (as a "mass noun"), "descriptive statistics" is an area of statistics that concerns the collection, organization, summarization, and presentation of data [@bluman2012]. In another sense (as a "count noun"), "descriptive statistics" are summary statistics that quantitatively describe or summarize data.
 
-[Table 13.4]:\#tab:13.4
+[Table 2.5]:\#tab:2.5
 
-<a id=tab:13.4></a>
+<a id=tab:2.5></a>
 
-Table 13.4. **Commonly Used Descriptive Statistics**
+Table 2.5. **Commonly Used Descriptive Statistics**
 
 $$
 \small{
@@ -333,11 +465,11 @@ $$
 }
 $$
 
-[Table 13.4] lists some commonly used descriptive statistics. In `R`, we can use the function `summary` to calculate some of the descriptive statistics. For numeric data, we can visualize the descriptive statistics using a boxplot.
+[Table 2.5] lists some commonly used descriptive statistics. In `R`, we can use the function `summary` to calculate some of the descriptive statistics. For numeric data, we can visualize the descriptive statistics using a boxplot.
 
 In addition to these quantitative descriptive statistics, we can also qualitatively describe shapes of the distributions [@bluman2012]. For example, we can say that a distribution is positively skewed, symmetric, or negatively skewed. To visualize the distribution of a variable, we can draw a histogram.
 
-#### Principal Component Analysis
+##### Principal Component Analysis
 
 `r Gloss('Principal component analysis')` (PCA) is a statistical procedure that transforms a dataset described by possibly correlated variables into a dataset described by linearly uncorrelated variables, which are called principal components and are ordered according to their variances. PCA is a technique for dimension reduction. If the original variables are highly correlated, then the first few principal components can account for most of the variation of the original data.  
 
@@ -350,12 +482,12 @@ $$
 where $\textbf{X}=(X_1,X_2,\ldots,X_d)'$. It can be shown that $\mathrm{Var~}{(Z_i)} = \lambda_i$. As a result, the proportion of variance explained by the $i$th principal component is calculated as
 
 $$
-\dfrac{\mathrm{Var~}{(Z_i)}}{ \sum_{j=1}^{d} \mathrm{Var~}{(Z_j)}} = \dfrac{\lambda_i}{\lambda_1+\lambda_2+\cdots+\lambda_d}.
+\frac{\mathrm{Var~}{(Z_i)}}{ \sum_{j=1}^{d} \mathrm{Var~}{(Z_j)}} = \frac{\lambda_i}{\lambda_1+\lambda_2+\cdots+\lambda_d}.
 $$
 
 For more information about PCA, readers are referred to @mirkin2011.
 
-#### Cluster Analysis
+##### Cluster Analysis
 
 `r Gloss('Cluster analysis')` (aka data clustering) refers to the process of dividing a dataset into homogeneous groups or clusters such that points in the same cluster are similar and points from different clusters are quite distinct [@gan2007;@gan2011]. Data clustering is one of the most popular tools for exploratory data analysis and has found its applications in many scientific areas. 
 
@@ -377,11 +509,11 @@ $$
 
 The $k$-means algorithm employs an iterative procedure to minimize the objective function. It repeatedly updates the partition matrix $U$ and the cluster centers $Z$ alternately until some stop criterion is met. For more information about $k$-means, readers are referred to @gan2007 and @mirkin2011.
 
-### Confirmatory Techniques
+#### Confirmatory Techniques
 
 Confirmatory data analysis techniques include the traditional statistical tools of inference, significance, and confidence.
 
-#### Linear Models
+##### Linear Models
 
 Linear models, also called `r Gloss('linear regression models')`, aim at using a linear function to approximate the relationship between the dependent variable and independent variables. A linear regression model is called a simple linear regression model if there is only one independent variable. When more than one independent variable is involved, a linear regression model is called a multiple linear regression model.
 
@@ -412,7 +544,7 @@ For the purpose of obtaining tests and confidence statements with small samples,
 (d) $\epsilon_1,\epsilon_2,\ldots,\epsilon_n$ are normally distributed.
 
 
-#### Generalized Linear Models
+##### Generalized Linear Models
 
 The `r Gloss('generalized linear model')` (GLM) consists of a wide family of regression models that include linear regression models as a special case. In a GLM, the mean of the response (i.e., the dependent variable) is assumed to be a function of linear combinations of the explanatory variables, i.e., 
 
@@ -442,7 +574,7 @@ where $\phi$ denotes the dispersion parameter and $\nu(\cdot)$ is a function.
 As we can see from the above specification, the GLM provides a unifying framework to handle different types of dependent variables, including discrete and continuous variables. For more information about GLMs, readers are referred to @Dejong08 and @frees2009regression. 
 
 
-#### Tree-based Models
+##### Tree-based Models
 
 `r Gloss('Decision trees')`, also known as tree-based models, involve dividing the predictor space (i.e., the space formed by independent variables) into a number of simple regions and using the mean or the mode of the region for prediction [@breiman1984]. There are two types of tree-based models: classification trees and regression trees. When the dependent variable is categorical, the resulting tree models are called classification trees. When the dependent variable is continuous, the resulting tree models are called regression trees.
 
@@ -463,17 +595,17 @@ In terms of predictive accuracy, decision trees generally do not perform to the 
 ```
 
  
-## Some R Functions
+#### Some R Functions
 
 <!-- % 7.2.4 - 7.2.7 fit distribution, linear model, survival analysis, glm -->
 <!-- % 7.3.4 nn, trees -->
 `R` is an open-source software for statistical computing and graphics. The `R` software can be downloaded from the `R` project website at [https://www.r-project.org/](https://www.r-project.org/). In this section, we give some `R` function for data analysis, especially the data analysis tasks mentioned in previous sections. 
 
-[Table 13.5]:\#tab:13.5
+[Table 2.6]:\#tab:2.6
 
-<a id=tab:13.5></a>
+<a id=tab:2.6></a>
 
-Table 13.5. **Some `R` Functions for Data Analysis**
+Table 2.6. **Some `R` Functions for Data Analysis**
 
 $$
 \small{
@@ -492,20 +624,8 @@ $$
 }
 $$
 
-[Table 13.5] lists a few `R` functions for different data analysis tasks. Readers can go to the `R` documentation to learn how to use these functions. There are also other `R` packages that do similar things. However, the functions listed in this table provide good starting points for readers to conduct data analysis in `R`. For analyzing large datasets in `R` in an efficient way, readers are referred to @daroczi2015. 
+[Table 2.6] lists a few `R` functions for different data analysis tasks. Readers can go to the `R` documentation to learn how to use these functions. There are also other `R` packages that do similar things. However, the functions listed in this table provide good starting points for readers to conduct data analysis in `R`. For analyzing large datasets in `R` in an efficient way, readers are referred to @daroczi2015. 
 
 
-## Summary
-
-In this chapter, we give a high-level overview of data analysis by introducing data types, data structures, data storages, data sources, data analysis processes, and data analysis techniques. In particular, we present various aspects of data analysis. In addition, we provide several websites where readers can obtain real-world datasets to hone their data analysis skills. We also list some `R` packages and functions that can be used to perform various data analysis tasks.
-
-
-## Further Resources and Contributors {#DS:further-reading-and-resources}
-
-
-#### Contributor {-}
-
-- **Guojun Gan**, University of Connecticut, is the principal author of the initial version of this chapter. Email: guojun.gan@uconn.edu for chapter comments and suggested improvements.
-- Chapter reviewers include: Runhuan Feng, Himchan Jeong, Lei Hua, Min Ji, and Toby White.
 
 

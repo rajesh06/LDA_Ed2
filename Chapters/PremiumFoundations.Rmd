@@ -1,5 +1,5 @@
 
-`r chapnum = 7`
+`r chapnum = 9`
 
 # Premium Foundations {#ChapPremiumFoundations}
 
@@ -147,7 +147,7 @@ $$
 - Variable expense factor = 20\%
 - Profit and contingencies factor = 5\%
 
-`r HideExample('7.1.1', 'Show Example Solution')`
+`r HideExample('9.1.1', 'Show Example Solution')`
 
 **Solution.** Under the pure premium method, the indicated rate is
 
@@ -271,13 +271,13 @@ Approaches to pricing vary by the type of contract. For example, personal automo
 
 ### Premium Principles
 
-This chapter introduces traditional actuarial pricing principles that provide a price based only on the insurance loss distribution; the price does not depend on the demand for insurance or other aspects of the costs such as expenses. Assume that the loss $X$ has distribution function $F(\cdot)$ and that there exists some rule (which in mathematics is known as a *functional*), say $H$, that takes $F(\cdot)$ into the positive real line, denoted as $P = H(F)$. For notation purposes, it is often convenient to substitute the random variable $X$ for its distribution function and write $P = H(X)$. [Table 7.1] provides several examples. 
+This chapter introduces traditional actuarial pricing principles that provide a price based only on the insurance loss distribution; the price does not depend on the demand for insurance or other aspects of the costs such as expenses. Assume that the loss $X$ has distribution function $F(\cdot)$ and that there exists some rule (which in mathematics is known as a *functional*), say $H$, that takes $F(\cdot)$ into the positive real line, denoted as $P = H(F)$. For notation purposes, it is often convenient to substitute the random variable $X$ for its distribution function and write $P = H(X)$. [Table 9.1] provides several examples. 
 
-[Table 7.1]:\#tab:71
+[Table 9.1]:\#tab:9.1
 
-<a id=tab:71></a>
+<a id=tab:9.1></a>
 
-Table 7.1. **Common Premium Principles**
+Table 9.1. **Common Premium Principles**
 
 $$
 \small{
@@ -323,13 +323,13 @@ $$
 
 ### Properties of Premium Principles
 
-Properties of premium principles help guide the selection of a premium principle in applications. [Table 7.2] provides examples of properties of premium principles.
+Properties of premium principles help guide the selection of a premium principle in applications. [Table 9.2] provides examples of properties of premium principles.
 
-[Table 7.2]:\#tab:72
+[Table 9.2]:\#tab:9.2
 
-<a id=tab:72></a>
+<a id=tab:9.2></a>
 
-Table 7.2. **Common Properties of Premium Principles**
+Table 9.2. **Common Properties of Premium Principles**
 
 $$
 \small{
@@ -347,7 +347,7 @@ $$
 
 This is simply a subset of the many properties quoted in the actuarial literature. For example, the review paper of @young2014premium lists 15 properties. See also the properties described as *coherent axioms* that we introduce for risk measures in Section \@ref(S:RiskMeasure).
 
-Some of the properties listed in [Table 7.2] are mild in the sense that they will nearly always be satisfied. For example, the *no rip-off* property indicates that the premium charge will be smaller than the largest or "maximal" value of the loss $X$ (here, we use the notation $\max \{X\}$ for this maximal value which is defined as an "essential supremium" in mathematics). Other properties may not be so mild. For example, for a portfolio of independent risks, the actuary may want the *additivity* property to hold. It is easy to see that this property holds for the expected value, variance, and exponential premium principles but not for the standard deviation principle. Another example is the *consistency* property that does not hold for the expected value principle when the risk loading parameter $\alpha$ is positive.
+Some of the properties listed in [Table 9.2] are mild in the sense that they will nearly always be satisfied. For example, the *no rip-off* property indicates that the premium charge will be smaller than the largest or "maximal" value of the loss $X$ (here, we use the notation $\max \{X\}$ for this maximal value which is defined as an "essential supremium" in mathematics). Other properties may not be so mild. For example, for a portfolio of independent risks, the actuary may want the *additivity* property to hold. It is easy to see that this property holds for the expected value, variance, and exponential premium principles but not for the standard deviation principle. Another example is the *consistency* property that does not hold for the expected value principle when the risk loading parameter $\alpha$ is positive.
 
 The *scale invariance* principle is known as *homogeneity of degree one* in economics. For example, it allows us to work in different currencies (e.g., from dollars to Euros) as well as a host of other applications and will be discussed further in the following Section \@ref(S:HeterogeneousRisks). Although a generally accepted principle, we note that this principle does not hold for a large value of $X$ that may border on a surplus constraint of an insurer; if an insurer has a large probability of becoming insolvent, then that insurer may not wish to use linear pricing. It is easy to check that this principle holds for the expected value and standard deviation principles, although not for the variance and exponential principles.
 
@@ -375,13 +375,13 @@ One way to make heterogeneous risks comparable is through the concept of an `r G
 
 Intuitively, the idea behind exposures is to make risks more comparable to one another. For example, it may be that risks $X_1, \ldots, X_n$ come from different distributions and yet, with the choice of the right exposures, the rates $R_1, \ldots, R_n$ come from the same distribution. Here, we interpret the rate $R_i = X_i/E_i$ to be the loss divided by exposure.
 
-[Table 7.3] provides a few examples. We remark that this table refers to "earned" car and house years, concepts that will be explained in Section \@ref(S:TrendDevelopment).
+[Table 9.3] provides a few examples. We remark that this table refers to "earned" car and house years, concepts that will be explained in Section \@ref(S:TrendDevelopment).
 
-<a id=tab:7.3></a> 
+<a id=tab:9.3></a> 
 
-[Table 7.3]: \#tab:7.3
+[Table 9.3]: \#tab:9.3
 
-Table 7.3. **Commonly used Exposures in Different Types of Insurance**
+Table 9.3. **Commonly used Exposures in Different Types of Insurance**
 
 $$
 \small{
@@ -428,13 +428,13 @@ As another example, the exposure measure in `r Gloss('commercial business proper
 
 A rating factor, or `r Gloss('rating variable')`, is simply a characteristic of the policyholder or risk being insured by which rates vary. For example, when you purchase auto insurance, it is likely that the insurer has rates that differ by age, gender, type of car, where the car is garaged, accident history, and so forth. These variables are known as rating factors. Although some variables may be continuous, such as age, most are categorical - `r Gloss('factor')` is a label that is used for categorical variables. In fact, even with `r Gloss('continuous variables')` such as age, it is common to categorize them by creating groups such as "young," "intermediate," and "old" for rating purposes. 
 
-[Table 7.4] provides just a few examples. In many jurisdictions, the personal insurance market (e.g., auto and homeowners) is very competitive - using 10 or 20 variables for rating purposes is not uncommon.
+[Table 9.4] provides just a few examples. In many jurisdictions, the personal insurance market (e.g., auto and homeowners) is very competitive - using 10 or 20 variables for rating purposes is not uncommon.
 
-<a id=tab:7.4></a> 
+<a id=tab:9.4></a> 
 
-[Table 7.4]: \#tab:7.4
+[Table 9.4]: \#tab:9.4
 
-Table 7.4. **Commonly used Rating Factors in Different Types of Insurance**
+Table 9.4. **Commonly used Rating Factors in Different Types of Insurance**
 
 $$
 \small{
@@ -455,13 +455,13 @@ $$
 
 ***
 
-**Example. Losses and Premium by Amount of Insurance and Territory.** To illustrate, [Table 7.5] presents a small fictitious data set from @werner2016basic. The data consists of loss and loss adjustment expenses (*LossLAE*), decomposed by three levels of amount of insurance (*AOI*), and three territories (*Terr*). For each combination of *AOI* and *Terr*, we also have available the number of policies issued, given as the *Exposure*.
+**Example. Losses and Premium by Amount of Insurance and Territory.** To illustrate, [Table 9.5] presents a small fictitious data set from @werner2016basic. The data consists of loss and loss adjustment expenses (*LossLAE*), decomposed by three levels of amount of insurance (*AOI*), and three territories (*Terr*). For each combination of *AOI* and *Terr*, we also have available the number of policies issued, given as the *Exposure*.
 
-<a id=tab:7.5></a> 
+<a id=tab:9.5></a> 
 
-[Table 7.5]: \#tab:7.5
+[Table 9.5]: \#tab:9.5
 
-Table 7.5. **Losses and Premium by Amount of Insurance and Territory**
+Table 9.5. **Losses and Premium by Amount of Insurance and Territory**
 
 $$
 \small{
@@ -486,7 +486,7 @@ $$
 }
 $$
 
-In this case, the rating factors *AOI* and *Terr* produce nine cells. Note that one might combine the cell "territory one with a low amount of insurance"" with another cell because there are only 7 policies in that cell. Doing so is perfectly acceptable - considerations of this sort is one of the main jobs of the analyst. An outline on selecting variables is in Chapter \@ref(ChapRiskClass), including Technical Supplement TS **8.B**. Alternatively, you can also think about reinforcing information about the cell (*Terr* 1, Low *AOI*) by "borrowing" information from neighboring cells (e.g., other territories with the same *AOI*, or other amounts of *AOI* within *Terr* 1). This is the subject of `r Gloss('credibility', '7.4')` that is introduced in Chapter \@ref(ChapCredibility).
+In this case, the rating factors *AOI* and *Terr* produce nine cells. Note that one might combine the cell "territory one with a low amount of insurance"" with another cell because there are only 7 policies in that cell. Doing so is perfectly acceptable - considerations of this sort is one of the main jobs of the analyst. An outline on selecting variables is in Chapter \@ref(ChapRiskClass), including Technical Supplement TS **10.B**. Alternatively, you can also think about reinforcing information about the cell (*Terr* 1, Low *AOI*) by "borrowing" information from neighboring cells (e.g., other territories with the same *AOI*, or other amounts of *AOI* within *Terr* 1). This is the subject of `r Gloss('credibility', '7.4')` that is introduced in Chapter \@ref(ChapCredibility).
 
 ***
 
@@ -498,13 +498,13 @@ $$
 
 ***
 
-**Example. Losses and Premium by Amount of Insurance and Territory - Continued.** Traditional classification methods consider only one classification variable at a time - they are univariate. Thus, if we wanted relativities for losses and expenses (*LossLAE*) by amount of insurance, we might sum over territories to get the information displayed in [Table 7.6].
+**Example. Losses and Premium by Amount of Insurance and Territory - Continued.** Traditional classification methods consider only one classification variable at a time - they are univariate. Thus, if we wanted relativities for losses and expenses (*LossLAE*) by amount of insurance, we might sum over territories to get the information displayed in [Table 9.6].
 
-<a id=tab:7.6></a> 
+<a id=tab:9.6></a> 
 
-[Table 7.6]: \#tab:7.6
+[Table 9.6]: \#tab:9.6
 
-Table 7.6. **Losses and Relativities by Amount of Insurance**
+Table 9.6. **Losses and Relativities by Amount of Insurance**
 
 $$
 \small{
@@ -529,9 +529,9 @@ Thus, losses and expenses per unit of exposure are 23.2% higher for risks with a
 
 The introduction of rating factors allows the analyst to create cells that define small collections of risks -- the goal is to choose the right combination of rating factors so that all risks within a cell may be treated the same. In statistical terminology, we want all risks within a cell to have the same distribution (subject to rescaling by an exposure variable). This is the foundation of insurance pricing. All risks within a cell have the same price per exposure yet risks from different cells may have different prices. 
 
-Said another way, insurers are allowed to charge different rates for different risks; `r Gloss('discrimination')` of risks is legal and routinely done. Nonetheless, the basis of discrimination, the choice of risk factors, is the subject of extensive debate. The actuarial community, insurance management, regulators, and consumer advocates are all active participants in this debate. Technical Supplement TS **7.A** describes these issues from a regulatory perspective.
+Said another way, insurers are allowed to charge different rates for different risks; `r Gloss('discrimination')` of risks is legal and routinely done. Nonetheless, the basis of discrimination, the choice of risk factors, is the subject of extensive debate. The actuarial community, insurance management, regulators, and consumer advocates are all active participants in this debate. Technical Supplement TS **9.A** describes these issues from a regulatory perspective.
 
-In addition to statistical criteria for assessing the significance of a rating factor, analysts much pay attention to business concerns of the company (e.g., is it expensive to implement a rating factor?), social criteria (is a variable under the control of a policyholder?), legal criteria (are there regulations that prohibit the use of a rating factor such as gender?), and other societal issues. These questions are largely beyond the scope of this text. Nonetheless, because they are so fundamental to pricing of insurance, a brief overview is given in Chapter \@ref(ChapRiskClass), including Technical Supplement TS **8.B.**
+In addition to statistical criteria for assessing the significance of a rating factor, analysts much pay attention to business concerns of the company (e.g., is it expensive to implement a rating factor?), social criteria (is a variable under the control of a policyholder?), legal criteria (are there regulations that prohibit the use of a rating factor such as gender?), and other societal issues. These questions are largely beyond the scope of this text. Nonetheless, because they are so fundamental to pricing of insurance, a brief overview is given in Chapter \@ref(ChapRiskClass), including Technical Supplement TS **10.B.**
 
 
 ## Development and Trending {#S:TrendDevelopment}
@@ -608,13 +608,13 @@ Some commonly used exposure measures are:
 - `r Gloss('unearned exposures')`, represent the portion of the written exposures for which coverage has not yet been provided as of that point in time, and
 -  `r Gloss('in force exposures')`, exposure units exposed to loss at a given point in time.
 
-[Table 7.7] gives detailed illustrative calculations for the four illustrative policies.
+[Table 9.7] gives detailed illustrative calculations for the four illustrative policies.
 
-<a id=tab:7.7></a>
+<a id=tab:9.7></a>
 
-[Table 7.7]: \#tab:7.7
+[Table 9.7]: \#tab:9.7
 
-Table 7.7. **Exposures for Four 12-Month Policies**
+Table 9.7. **Exposures for Four 12-Month Policies**
 
 $$
 \small{
@@ -661,7 +661,7 @@ E. & 900 & 750 & 900 \\\hline
 }
 $$
 
-`r HideExample('7.5.1', 'Show Example Solution')`
+`r HideExample('9.5.1', 'Show Example Solution')`
 
 **Solution.**
 
@@ -833,7 +833,7 @@ In many developed countries like the US where lines of business have been in exi
 (b) Calculate the indicated rate level change using the pure premium method.
 (c) Describe one situation in which it is preferable to use the loss ratio method, and one situation in which it is preferable to use the pure premium method.
 
-`r HideExample('7.5.2', 'Show Example Solution')`
+`r HideExample('9.5.2', 'Show Example Solution')`
 
 **Solution.**
 
@@ -1275,7 +1275,7 @@ For more background on pricing principles, a classic treatment is by @gerber1979
 - **Edward W. (Jed) Frees**, University of Wisconsin-Madison, and **Jos&eacute;  Garrido**, Concordia University are the principal authors of the initial version of this chapter. Email: jfrees@bus.wisc.edu and/or jose.garrido@concordia.ca for chapter comments and suggested improvements.
 - Chapter reviewers include Chun Yong Chew, Curtis Gary Dean, Brian Hartman, and Jeffrey Pai. Write Jed or Jos&eacute; to add you name here.
 
-### TS 7.A. Rate Regulation {-}
+### TS 9.A. Rate Regulation {-}
 
 
 Insurance regulation helps to ensure the financial stability of insurers and to protect consumers. Insurers receive premiums in return for promises to pay in the event of a contingent (insured) event. Like other financial institutions such as banks, there is a strong public interest in promoting the continuing viability of insurers. 

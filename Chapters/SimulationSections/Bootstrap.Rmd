@@ -100,14 +100,14 @@ We summarize the nonparametric bootstrap procedure as follows:
 2. Repeat this $b=1, \ldots, B$ times to get a sample of statistics, $\hat{\theta}_1^*, \ldots,\hat{\theta}_B^*$.
 3. From the sample of statistics in Step 2, $\{\hat{\theta}_1^*, \ldots, \hat{\theta}_B^*\}$, compute a summary measure of interest.
  
-In this section, we focus on three summary measures, the `r Gloss('bias')`, the standard deviation, and the mean square error (*MSE*). [Table 6.2] summarizes these three measures. Here, $\overline{\hat{\theta^*}}$ is the average of $\{\hat{\theta}_1^*, \ldots,\hat{\theta}_B^*\}$.
+In this section, we focus on three summary measures, the `r Gloss('bias')`, the standard deviation, and the mean square error (*MSE*). [Table 7.2] summarizes these three measures. Here, $\overline{\hat{\theta^*}}$ is the average of $\{\hat{\theta}_1^*, \ldots,\hat{\theta}_B^*\}$.
 
 
-[Table 6.2]:\#tab:62
+[Table 7.2]:\#tab:7.2
 
-<a id=tab:62></a>
+<a id=tab:7.2></a>
 
-Table 6.2. **Bootstrap Summary Measures**
+Table 7.2. **Bootstrap Summary Measures**
 
 $$
 {\small
@@ -132,10 +132,10 @@ $$
 
 **Example `r chapnum`.2.1. Bodily Injury Claims and Loss Elimination Ratios.** To show how the bootstrap can be used to quantify the precision of estimators, we return to the Section \@ref(S:MS:PlugIn) Example 4.1.6 bodily injury claims data where we introduced a nonparametric estimator of the loss elimination ratio.
 
-[Table 6.3] summarizes the results of the bootstrap estimation. For example, at $d=14000$, the nonparametric estimate of *LER* is 0.97678. This has an estimated bias of 0.00018 with a standard deviation of 0.00701. For some applications, you may wish to apply the estimated bias to the original estimate to give a `r Gloss('bias-corrected estimator')`. This is the focus of the next example. For this illustration, the bias is small and so such a correction is not relevant.
+[Table 7.3] summarizes the results of the bootstrap estimation. For example, at $d=14000$, the nonparametric estimate of *LER* is 0.97678. This has an estimated bias of 0.00018 with a standard deviation of 0.00701. For some applications, you may wish to apply the estimated bias to the original estimate to give a `r Gloss('bias-corrected estimator')`. This is the focus of the next example. For this illustration, the bias is small and so such a correction is not relevant.
 
 
-`r HideRCode('LER6.2.1','Show R Code For Bootstrap Estimates of LER')`
+`r HideRCode('LER7.2.1','Show R Code For Bootstrap Estimates of LER')`
 
 ```{r comment="", warning=FALSE, echo=SHOW_PDF}
 # Example from Derrig et al
@@ -168,11 +168,11 @@ OutBoot[i,6] <- temp$normal[3]
 
 </div>
 
-[Table 6.3]:\#tab:63
+[Table 7.3]:\#tab:7.3
 
-<a id=tab:63></a>
+<a id=tab:7.3></a>
 
-Table 6.3. **Bootstrap Estimates of LER at Selected Deductibles**
+Table 7.3. **Bootstrap Estimates of LER at Selected Deductibles**
 
 ```{r comment="", echo=FALSE}
 library(kableExtra)
@@ -332,7 +332,7 @@ So, $\left( \hat{\theta}-q_U,  \hat{\theta} -q_L\right)$ is an 95% interval for 
 Many alternative bootstrap intervals are available. The easiest to explain is the `r Gloss('percentile bootstrap interval')` which is defined as $\left(q_L, q_U\right)$. However, this has the drawback of potentially poor behavior in the tails which can be of concern in some actuarial problems of interest.
 
 
-**Example `r chapnum`.2.3. Bodily Injury Claims and Risk Measures.** To see how the bootstrap confidence intervals work, we return to the bodily injury auto claims considered in *Example 6.2.1*. Instead of the loss elimination ratio, suppose we wish to estimate the 95th percentile $F^{-1}(0.95)$ and a measure defined as
+**Example `r chapnum`.2.3. Bodily Injury Claims and Risk Measures.** To see how the bootstrap confidence intervals work, we return to the bodily injury auto claims considered in *Example 7.2.1*. Instead of the loss elimination ratio, suppose we wish to estimate the 95th percentile $F^{-1}(0.95)$ and a measure defined as
 $$
 TVaR_{0.95}[X] = \mathrm{E}[X | X > F^{-1}(0.95)] .
 $$
@@ -341,7 +341,7 @@ This measure is called the `r Gloss('tail value-at-risk')`; it is the expected v
 $$
 TVaR_{n,0.95}[X] = \frac{\sum_{i=1}^n X_i I(X_i > F^{-1}_n(0.95))}{\sum_{i=1}^n I(X_i > F^{-1}_n(0.95))} ~.
 $$
-In this expression, the denominator counts the number of observations that exceed the 95th percentile $F^{-1}_n(0.95)$. The numerator adds up losses for those observations that exceed $F^{-1}_n(0.95)$. [Table 6.4] summarizes the estimator for selected fractions.
+In this expression, the denominator counts the number of observations that exceed the 95th percentile $F^{-1}_n(0.95)$. The numerator adds up losses for those observations that exceed $F^{-1}_n(0.95)$. [Table 7.4] summarizes the estimator for selected fractions.
 
 
 `r HideRCode('bootstrapquantiles.1','Show R Code for Creating Quantile Bootstrap Samples')`
@@ -378,11 +378,11 @@ OutBoot1[i,10] <- temp$percent[5]
 
 </div>
 
-[Table 6.4]:\#tab:64
+[Table 7.4]:\#tab:7.4
 
-<a id=tab:64></a>
+<a id=tab:7.4></a>
 
-Table 6.4. **Bootstrap Estimates of Quantiles at Selected Fractions**
+Table 7.4. **Bootstrap Estimates of Quantiles at Selected Fractions**
 
 ```{r comment="", echo=FALSE}
 OutBoot1.latex <- OutBoot1
@@ -411,10 +411,10 @@ if (knitr::is_latex_output()) {kbl(OutBoot1.latex, booktabs = T, digits=2) %>%
 
 
 For example, when the fraction is 0.50, we see that lower and upper 2.5th quantiles of the bootstrap simulations are $q_L=$ `r quantile(bootreal,.025, type=6)` and $q_u=$ `r quantile(bootreal,.975, type=6)`, respectively. These form the percentile bootstrap confidence interval. With the nonparametric estimator `r quantile(BIDataUncensored$AmountPaid,.5)`, these yield the lower and upper bounds of the basic confidence interval `r 2*quantile(BIDataUncensored$AmountPaid,.5)-quantile(bootreal,.975, type=6)`
-and `r 2*quantile(BIDataUncensored$AmountPaid,.5)-quantile(bootreal,.025, type=6)`, respectively. [Table 6.4] also shows bootstrap estimates of the bias, standard deviation, and a normal confidence interval, concepts introduced in Section \@ref(S:Sim:Precision).
+and `r 2*quantile(BIDataUncensored$AmountPaid,.5)-quantile(bootreal,.025, type=6)`, respectively. [Table 7.4] also shows bootstrap estimates of the bias, standard deviation, and a normal confidence interval, concepts introduced in Section \@ref(S:Sim:Precision).
 
 
-[Table 6.5] shows similar calculations for the tail value-at-risk. In each case, we see that the bootstrap standard deviation increases as the fraction increases. This is because there are fewer observations to estimate quantiles as the fraction increases, leading to greater imprecision.  Confidence intervals also become wider. Interestingly, there does not seem to be the same pattern in the estimates of the bias.
+[Table 7.5] shows similar calculations for the tail value-at-risk. In each case, we see that the bootstrap standard deviation increases as the fraction increases. This is because there are fewer observations to estimate quantiles as the fraction increases, leading to greater imprecision.  Confidence intervals also become wider. Interestingly, there does not seem to be the same pattern in the estimates of the bias.
 
 
 `r HideRCode('bootstrapquantiles.2','Show R Code for Creating TVar Bootstrap Samples')`
@@ -451,11 +451,11 @@ OutBoot1[i,10] <- temp$percent[5]
 
 </div>
 
-[Table 6.5]:\#tab:65
+[Table 7.5]:\#tab:7.5
 
-<a id=tab:65></a>
+<a id=tab:7.5></a>
 
-Table 6.5. **Bootstrap Estimates of TVaR at Selected Risk Levels**
+Table 7.5. **Bootstrap Estimates of TVaR at Selected Risk Levels**
 
 
 ```{r comment="", echo=FALSE}
@@ -549,7 +549,7 @@ legend("topright",c("nonparametric","parametric(LN)"),
 
 **Example `r chapnum`.2.5. Bootstrapping Censored Observations.** The parametric bootstrap draws simulated realizations from a parametric estimate of the distribution function. In the same way, we can draw simulated realizations from estimates of a distribution function. As one example, we might draw from smoothed estimates of a distribution function introduced in Section \@ref(S:MS:Density). Another special case, considered here, is to draw an estimate from the Kaplan-Meier estimator introduced in Section \@ref(S:MS:RightCensored). In this way, we can handle observations that are censored.
 
-Specifically, return to the bodily injury data in Examples 6.2.1 and 6.2.3 but now we include the `r sum(BIData$Censored)` claims that were censored by policy limits. In Example 4.3.6, we used this full dataset to estimate the Kaplan-Meier estimator of the survival function introduced in Section \@ref(S:MS:RightCensored). [Table 6.6] presents bootstrap estimates of the quantiles from the Kaplan-Meier survival function estimator. These include the bootstrap precision estimates, bias and standard deviation, as well as the basic 95% confidence interval.
+Specifically, return to the bodily injury data in Examples 7.2.1 and 7.2.3 but now we include the `r sum(BIData$Censored)` claims that were censored by policy limits. In Example 4.3.6, we used this full dataset to estimate the Kaplan-Meier estimator of the survival function introduced in Section \@ref(S:MS:RightCensored). [Table 7.6] presents bootstrap estimates of the quantiles from the Kaplan-Meier survival function estimator. These include the bootstrap precision estimates, bias and standard deviation, as well as the basic 95% confidence interval.
 
 
 `r HideRCode('KMCode.1','Show R Code For Bootstrap Kaplan-Meier Estimates')`
@@ -582,11 +582,11 @@ OutBoot1[i,6] <- 2*OutBoot1[i,2]-quantile(results,.025, type=6)
 
 </div>
 
-[Table 6.6]:\#tab:66
+[Table 7.6]:\#tab:7.6
 
-<a id=tab:66></a>
+<a id=tab:7.6></a>
 
-Table 6.6. **Bootstrap Kaplan-Meier Estimates of Quantiles at Selected Fractions**
+Table 7.6. **Bootstrap Kaplan-Meier Estimates of Quantiles at Selected Fractions**
 
 
 ```{r comment="", echo=FALSE}
@@ -610,6 +610,6 @@ if (knitr::is_latex_output()) {kbl(OutBoot1.latex, booktabs = T, digits=2) %>%
 
 
 
-Results in [Table 6.6] are consistent with the results for the uncensored subsample in [Table 6.4]. In [Table 6.6], we note the difficulty in estimating quantiles at large fractions due to the censoring. However, for moderate size fractions (0.50, 0.80, and 0.90), the Kaplan-Meier nonparametric (KM NP) estimates of the quantile are consistent with those [Table 6.4]. The bootstrap standard deviation is smaller at the 0.50 (corresponding to the median) but larger at the 0.80 and 0.90 levels. The censored data analysis summarized in [Table 6.6] uses more data than the uncensored subsample analysis in [Table 6.4] but also has difficulty extracting information for large quantiles.
+Results in [Table 7.6] are consistent with the results for the uncensored subsample in [Table 7.4]. In [Table 7.6], we note the difficulty in estimating quantiles at large fractions due to the censoring. However, for moderate size fractions (0.50, 0.80, and 0.90), the Kaplan-Meier nonparametric (KM NP) estimates of the quantile are consistent with those [Table 7.4]. The bootstrap standard deviation is smaller at the 0.50 (corresponding to the median) but larger at the 0.80 and 0.90 levels. The censored data analysis summarized in [Table 7.6] uses more data than the uncensored subsample analysis in [Table 7.4] but also has difficulty extracting information for large quantiles.
 
 

@@ -1,6 +1,4 @@
 
-`r chapnum = 2`
-
 # Frequency Modeling {#ChapFrequency-Modeling}
 
 *Chapter Preview.* A primary focus for insurers is estimating the magnitude of aggregate claims it must bear under its insurance contracts. `r Gloss('Aggregate claims')` are affected by both the frequency and the severity of the insured event. Decomposing aggregate claims into these two components, each of which warrant significant attention, is essential for analysis and pricing. This chapter discusses frequency distributions, summary measures, and parameter estimation techniques. 
@@ -123,11 +121,11 @@ We note that while $M_N(\cdot)$ is well defined as it is the expectation of a no
 
 ***
 
-<a id=thm:2.1></a> 
+<a id=thm:3.1></a> 
 
-[Theorem 2.1]: \#thm:2.1
+[Theorem 3.1]: \#thm:3.1
 
-**Theorem 2.1.**  
+**Theorem 3.1.**  
 Let $N$ be a count random variable such that $\mathrm{E}~{[e^{t^\ast N}]}$ is finite for some $t^\ast>0$. We have the following:
 
 a.  All moments of $N$ are finite, *i.e.*
@@ -158,15 +156,15 @@ It is straightforward to see that if the *mgf* $M_N(\cdot)$ exists on $(-\infty,
 \[
 P_N(s)=M_N(\log(s)), \quad s<e^{t^\ast}.
 \]
-Moreover, if the *pgf* exists on an interval $[0,s^\ast)$ with $s^\ast>1$, then the *mgf* $M_N(\cdot)$ exists on $(-\infty,\log(s^\ast))$, and hence uniquely specifies the distribution of $N$ by [Theorem 2.1]. (As a reminder, throughout this text we use *log* as the natural logarithm, not the base ten (common) logarithm or other version.) The following result for *pgf* is an analog of [Theorem 2.1], and in particular justifies its name. 
+Moreover, if the *pgf* exists on an interval $[0,s^\ast)$ with $s^\ast>1$, then the *mgf* $M_N(\cdot)$ exists on $(-\infty,\log(s^\ast))$, and hence uniquely specifies the distribution of $N$ by [Theorem 3.1]. (As a reminder, throughout this text we use *log* as the natural logarithm, not the base ten (common) logarithm or other version.) The following result for *pgf* is an analog of [Theorem 3.1], and in particular justifies its name. 
 
 ***
 
-<a id=thm:2.2></a> 
+<a id=thm:3.2></a> 
 
-[Theorem 2.2]: \#thm:2.2
+[Theorem 3.2]: \#thm:3.2
 
-**Theorem 2.2.** 
+**Theorem 3.2.** 
 Let $N$ be a count random variable such that $\mathrm{E}~{(s^{\ast})^N}$ is finite for some $s^\ast>1$. We have the following:
 
 a.  All moments of $N$ are finite, *i.e.*
@@ -265,7 +263,7 @@ This can be checked easily. In particular, this implies that
 \[
 \mathrm{E}[{N}]=\sum_{k\geq 0} k~p_k =\lambda\sum_{k\geq 1} p_{k-1} = \lambda\sum_{j\geq 0} p_{j} =\lambda.
 \]
-In fact, more generally, using either a generalization of the above or using [Theorem 2.1], we see that
+In fact, more generally, using either a generalization of the above or using [Theorem 3.1], we see that
 \[
 \mathrm{E}{\prod\limits_{i=0}^{m-1} (N-i)}=\left.\frac{{\rm d}^m}{{\rm d}s^m} P_N(s)\right\vert_{s=1}=\lambda^m, \quad m\geq 1.
 \]
@@ -309,7 +307,7 @@ The above implies that the *mgf* is given by
   M_N(t) &= (1-\beta(e^t-1))^{-r}, \quad t < \log\left(1+\frac{1}{\beta}\right), \beta\geq0. 
 \end{aligned}
 \]
-We derive its moments using [Theorem 2.1] as follows:
+We derive its moments using [Theorem 3.1] as follows:
 
 \begin{eqnarray*}
 \mathrm{E}[N]&=&M'(0)= \left. r\beta e^t (1-\beta(e^t-1))^{-r-1}\right\vert_{t=0}=r\beta;\\
@@ -395,7 +393,7 @@ The above series converges for $a<1$ when $r>0$, with the sum given by $p_0 \cdo
 
 From the above development we see that not only does the recurrence \@ref(eq:ab0) tie these three distributions together, but also it characterizes them. For this reason these three distributions are collectively referred to in the actuarial literature as `r Gloss('(a,b,0) class')` of distributions, with $0$ referring to the starting point of the recurrence. Note that the value of $p_0$ is implied by $(a,b)$ since the probabilities have to sum to one. Of course, \@ref(eq:ab0) as a recurrence relation for $p_k$  makes  the computation of the *pmf* efficient by removing redundancies. Later, we will see that it does so even in the case of compound distributions with the frequency distribution belonging to the $(a,b,0)$ class - this fact is the more important motivating reason to study these three distributions from this viewpoint.
 
-**Example `r chapnum`.3.1.** 
+**Example 3.3.1.** 
 A discrete probability distribution has the following properties 
 \[
 \begin{aligned}
@@ -405,7 +403,7 @@ p_1&= \frac{9}{256}
 \] 
 Determine the expected value of this discrete random variable.
 
-`r HideExample('2.3.1', 'Show Example Solution')`
+`r HideExample('3.3.1', 'Show Example Solution')`
 
 **Solution:** Since the *pmf* satisfies the $(a,b,0)$ recurrence relation we know that the underlying distribution is one among the binomial, Poisson, and negative binomial distributions. Since the ratio of the parameters (*i.e.* $b/a$) equals $2$, we know that it is negative binomial and that $r=3$. Moreover, since for a negative binomial $p_1=r(1+\beta)^{-(r+1)}\beta$, we have 
 \[
@@ -563,7 +561,7 @@ where $\overline{x} = n^{-1} \sum_{i=1}^n x_i$. Note that since $m$ takes only n
 (\#eq:binmle)
 \end{equation}
 
-`r HideProofTheory('Binomial.1',"Show A Verification of Equation (2.2)")`
+`r HideProofTheory('Binomial.1',"Show A Verification of Equation (3.2)")`
 
 ***
 
@@ -711,16 +709,16 @@ c(r,iter)
 
 *** 
 
-To summarize our discussion of `r Gloss('MLE')` for the $(a,b,0)$ class of distributions, in Figure \@ref(fig:MLEab0) below we plot the maximum value of the Poisson likelihood, $L(m,\overline{x}/m)$ for the binomial, and $L(r,\overline{x}/r)$ for the negative binomial, for the three samples of size $5$ given in [Table 2.1]. The data was constructed to cover the three orderings of the sample mean and variance. As shown in the Figure \@ref(fig:MLEab0), and supported by theory, if $\hat{\mu}<\hat{\sigma}^2$ then the negative binomial results in a higher maximum likelihood value; if $\hat{\mu}=\hat{\sigma}^2$  the Poisson has the highest likelihood value; and finally in the case that $\hat{\mu}>\hat{\sigma}^2$ the binomial gives a better fit than the others. So before fitting a frequency data with an $(a,b,0)$ distribution, it is best to start with examining the ordering of $\hat{\mu}$ and $\hat{\sigma}^2$. We again emphasize that the Poisson is on the **boundary** of the  negative binomial and binomial distributions. So in the case that $\hat{\mu}\geq\hat{\sigma}^2$ ($\hat{\mu}\leq\hat{\sigma}^2$, resp.) the Poisson yields a better fit than the negative binomial 
+To summarize our discussion of `r Gloss('MLE')` for the $(a,b,0)$ class of distributions, in Figure \@ref(fig:MLEab0) below we plot the maximum value of the Poisson likelihood, $L(m,\overline{x}/m)$ for the binomial, and $L(r,\overline{x}/r)$ for the negative binomial, for the three samples of size $5$ given in [Table 3.1]. The data was constructed to cover the three orderings of the sample mean and variance. As shown in the Figure \@ref(fig:MLEab0), and supported by theory, if $\hat{\mu}<\hat{\sigma}^2$ then the negative binomial results in a higher maximum likelihood value; if $\hat{\mu}=\hat{\sigma}^2$  the Poisson has the highest likelihood value; and finally in the case that $\hat{\mu}>\hat{\sigma}^2$ the binomial gives a better fit than the others. So before fitting a frequency data with an $(a,b,0)$ distribution, it is best to start with examining the ordering of $\hat{\mu}$ and $\hat{\sigma}^2$. We again emphasize that the Poisson is on the **boundary** of the  negative binomial and binomial distributions. So in the case that $\hat{\mu}\geq\hat{\sigma}^2$ ($\hat{\mu}\leq\hat{\sigma}^2$, resp.) the Poisson yields a better fit than the negative binomial 
 (binomial, resp.), which is indicated by $\hat{r}=\infty$ ($\hat{m}=\infty$, respectively).
 
 \newpage
 
-<a id=tab:2.1></a>  
+<a id=tab:3.1></a>  
 
-[Table 2.1]: \#tab:2.1
+[Table 3.1]: \#tab:3.1
 
-Table 2.1. **Three Samples of Size 5**
+Table 3.1. **Three Samples of Size 5**
 
 $$
 \small{
@@ -799,21 +797,21 @@ In particular, we have that a zero modification of a count distribution $\{p_k^T
 p^M_k= p^M_0 \cdot \delta_{0}(k) + (1-p^M_0) \cdot p^T_k, \quad k\geq 0.  
 \]
 
-**Example `r chapnum`.5.1. Zero Truncated/Modified Poisson**.
+**Example 3.5.1. Zero Truncated/Modified Poisson**.
 Consider a Poisson distribution with parameter \(\lambda=2\). Calculate \(p_k, k=0,1,2,3\), for the usual (unmodified), truncated and a modified
 version with \((p_0^M=0.6)\).  
 
 
-`r HideExample('2.5.1', 'Show Example Solution')`
+`r HideExample('3.5.1', 'Show Example Solution')`
 
-**Solution.** For the Poisson distribution as a member of the (\(a,b\),0) class, we have \(a=0\) and \(b=\lambda=2\). Thus, we may use the recursion \(p_k = \lambda p_{k-1}/k= 2 p_{k-1}/k\) for each type, after determining starting probabilities. The calculation of probabilities for $k\leq 3$ is shown in [Table 2.2].
+**Solution.** For the Poisson distribution as a member of the (\(a,b\),0) class, we have \(a=0\) and \(b=\lambda=2\). Thus, we may use the recursion \(p_k = \lambda p_{k-1}/k= 2 p_{k-1}/k\) for each type, after determining starting probabilities. The calculation of probabilities for $k\leq 3$ is shown in [Table 3.2].
 
 
-<a id=tab:2.2></a>  
+<a id=tab:3.2></a>  
 
-[Table 2.2]: \#tab:2.2
+[Table 3.2]: \#tab:3.2
 
-Table 2.2. **Calculation of Probabilities for** $k\leq 3$ 
+Table 3.2. **Calculation of Probabilities for** $k\leq 3$ 
 
 $$
 \begin{matrix}
@@ -887,14 +885,14 @@ Appendix Chapter \@ref(CAppB) provides additional background about this importan
 
 <!-- \phantom{Exercise or example for hazard rate density/survival expectation etc..} -->
 
-**Example  `r chapnum`.6.1. Actuarial Exam Question**.
+**Example  3.6.1. Actuarial Exam Question**.
 In a certain town the number of common colds an individual will get in a year follows a Poisson distribution that depends on the individual's age and smoking status. The distribution of the population and the mean number of colds are as follows:
 
-<a id=tab:2.3></a>  
+<a id=tab:3.3></a>  
 
-[Table 2.3]: \#tab:2.3
+[Table 3.3]: \#tab:3.3
 
-Table 2.3. **The Distribution of the Population and the Mean Number of Colds**
+Table 3.3. **The Distribution of the Population and the Mean Number of Colds**
 
 $$
 \small{
@@ -915,7 +913,7 @@ $$
 1. Calculate the probability that a randomly drawn person has 3 common colds in a year.
 2. Calculate the conditional probability that a person with exactly 3 common colds in a year is an adult smoker.
 
-`r HideExample('2.6.1', 'Show Example Solution')`
+`r HideExample('3.6.1', 'Show Example Solution')`
 
 **Solution.**  
 
@@ -963,10 +961,10 @@ f_{N\vert\Lambda=\lambda}(N=k)=\frac{e^{-\lambda}\lambda^k}{k!}, \quad k\geq 0; 
 
 By considering mixtures of a parametric class of distributions, we increase the richness of the class. This expansion of distributions results in the mixture class being able to cater well to more applications that the parametric class we started with. Mixture modeling is an important modeling technique in insurance applications and later chapters will cover more aspects of this modeling technique. 
 
-**Example `r chapnum`.6.2.**
+**Example 3.6.2.**
 Suppose that \(N|\Lambda \sim\) Poisson\((\Lambda)\) and that \(\Lambda \sim\) gamma with mean of 1 and variance of 2. Determine the probability that \(N=1\).
 
-`r HideExample('2.6.2', 'Show Example Solution')`
+`r HideExample('3.6.2', 'Show Example Solution')`
 
 **Solution.** For a gamma distribution with parameters \((\alpha, \theta)\), we have that the mean is \(\alpha \theta\) and the variance is \(\alpha \theta^2\). Using these expressions we have
 \[
@@ -1005,13 +1003,13 @@ In this section, you learn how to:
 
 In the above we have discussed three basic frequency distributions, along with their extensions through zero modification/truncation and by looking at mixtures of these distributions. Nevertheless, these classes still remain parametric and hence by their very nature a small subset of the class of all possible frequency distributions (that is, the set of distributions on non-negative integers). Hence, even though we have talked about methods for estimating the unknown parameters, the *fitted* distribution is not be a good representation of the underlying distribution if the latter is **far** from the class of distribution used for modeling. In fact, it can be shown that the *maximum likelihood estimator* converges to a value such that the corresponding distribution is a Kullback-Leibler *projection* of the underlying distribution on the class of distributions used for modeling. Below we present one testing method - Pearson's chi-square statistic - to check for the `r Gloss('goodness of fit')` of the fitted distribution. For more details on the `r Gloss("Pearson's chi-square test")`, at an introductory mathematical statistics level, we refer the reader to Section 9.1 of @zimmerman2015.
 
-In $1993$, a portfolio of $n=7,483$ automobile insurance policies from a major Singaporean insurance company had the distribution of auto accidents per policyholder as given in [Table 2.4].
+In $1993$, a portfolio of $n=7,483$ automobile insurance policies from a major Singaporean insurance company had the distribution of auto accidents per policyholder as given in [Table 3.4].
 
-<a id=tab:2.4></a>  
+<a id=tab:3.4></a>  
 
-[Table 2.4]: \#tab:2.4
+[Table 3.4]: \#tab:3.4
 
-Table 2.4. **Singaporean Automobile Accident Data**
+Table 3.4. **Singaporean Automobile Accident Data**
 
 $$
 \small{
@@ -1031,13 +1029,13 @@ If we a fit a Poisson distribution, then the *mle* for $\lambda$, the Poisson me
 \[
 \overline{N} = \frac{0\cdot 6996 + 1 \cdot 455 + 2 \cdot 28 + 3 \cdot 4 + 4 \cdot 0}{7483} = 0.06989.
 \]
-Now if we use Poisson ($\hat{\lambda}_{MLE}$) as the fitted distribution, then a tabular comparison of the fitted counts and observed counts is given by [Table 2.5] below, where $\hat{p}_k$ represents the estimated probabilities under the fitted Poisson distribution. 
+Now if we use Poisson ($\hat{\lambda}_{MLE}$) as the fitted distribution, then a tabular comparison of the fitted counts and observed counts is given by [Table 3.5] below, where $\hat{p}_k$ represents the estimated probabilities under the fitted Poisson distribution. 
 
-<a id=tab:2.5></a>  
+<a id=tab:3.5></a>  
 
-[Table 2.5]: \#tab:2.5
+[Table 3.5]: \#tab:3.5
 
-Table 2.5. **Comparison of Observed to Fitted Counts: Singaporean Auto Data**
+Table 3.5. **Comparison of Observed to Fitted Counts: Singaporean Auto Data**
 
 $$
 \small{
@@ -1094,17 +1092,17 @@ In the above, we started with the cells as given in the above tabular summary. I
 
 #### Theoretical Exercises  {-}
   
-**Exercise 2.1.** Derive an expression for $p_N(\cdot)$ in terms of $F_N(\cdot)$ and $S_N(\cdot)$.   
+**Exercise 3.1.** Derive an expression for $p_N(\cdot)$ in terms of $F_N(\cdot)$ and $S_N(\cdot)$.   
 
-**Exercise 2.2.** A measure of center of location must be **equi-variant** with respect to shifts, or location transformations. In other words, if $N_1$ and $N_2$ are two random variables such that $N_1+c$ has the same distribution as $N_2$, for some constant $c$,  then the difference between the measures of the center of location of $N_2$ and $N_1$ must equal $c$. Show that the mean satisfies this property.  
+**Exercise 3.2.** A measure of center of location must be **equi-variant** with respect to shifts, or location transformations. In other words, if $N_1$ and $N_2$ are two random variables such that $N_1+c$ has the same distribution as $N_2$, for some constant $c$,  then the difference between the measures of the center of location of $N_2$ and $N_1$ must equal $c$. Show that the mean satisfies this property.  
 
-**Exercise 2.3.** Measures of dispersion should be invariant with respect to shifts and scale equi-variant. Show that standard deviation satisfies these properties by doing the following:
+**Exercise 3.3.** Measures of dispersion should be invariant with respect to shifts and scale equi-variant. Show that standard deviation satisfies these properties by doing the following:
 
 * Show that for a random variable $N$, its standard deviation equals that of $N+c$, for any constant $c$.
 * Show that for a random variable $N$, its standard deviation equals $1/c$ times that of $cN$, for any positive constant $c$.   
 
 
-**Exercise 2.4.** Let $N$ be a random variable with probability mass function given by 
+**Exercise 3.4.** Let $N$ be a random variable with probability mass function given by 
 \[
 p_N(k)= \begin{cases}
 \left(\frac{6}{\pi^2}\right)\left(\frac{1}{k^{2}}\right), & k\geq 1;\\
@@ -1114,24 +1112,24 @@ p_N(k)= \begin{cases}
 Show that the mean of $N$ is $\infty$.  
 
 
-**Exercise 2.5.** Let $N$ be a random variable with a finite second moment. Show that the function $\psi(\cdot)$ defined by 
+**Exercise 3.5.** Let $N$ be a random variable with a finite second moment. Show that the function $\psi(\cdot)$ defined by 
 \[
 \psi(x)=\mathrm{E}{(N-x)^2}. \quad x\in\mathbb{R}
 \]
 is minimized at $\mu_N$ without using calculus. Also, give a proof of this fact using derivatives. Conclude that the minimum value equals the variance of $N$.  
 
 
-**Exercise 2.6.** Derive the first two central moments of the $(a,b,0)$ distributions using the methods mentioned below:
+**Exercise 3.6.** Derive the first two central moments of the $(a,b,0)$ distributions using the methods mentioned below:
 
 * For the binomial distribution, derive the moments using only its *pmf*, then its *mgf*, and then its *pgf*.
 * For the Poisson distribution, derive the moments using only its *mgf*.
 * For the negative binomial distribution, derive the moments using only its *pmf*, and then its *pgf*.  
 
 
-**Exercise 2.7.** Let $N_1$ and $N_2$ be two independent Poisson random variables with means $\lambda_1$ and $\lambda_2$, respectively. Identify the conditional distribution of $N_1$ given $N_1+N_2$.   
+**Exercise 3.7.** Let $N_1$ and $N_2$ be two independent Poisson random variables with means $\lambda_1$ and $\lambda_2$, respectively. Identify the conditional distribution of $N_1$ given $N_1+N_2$.   
 
 
-**Exercise 2.8.** (**Non-Uniqueness of the MLE**) Consider the following parametric family of densities indexed by the parameter $p$ taking values in $[0,1]$:
+**Exercise 3.8.** (**Non-Uniqueness of the MLE**) Consider the following parametric family of densities indexed by the parameter $p$ taking values in $[0,1]$:
 \[
 f_p(x)=p\cdot\phi(x+2)+(1-p)\cdot\phi(x-2), \quad x\in\mathbb{R},
 \]
@@ -1142,18 +1140,18 @@ where $\phi(\cdot)$ represents the standard normal density.
 * Let us consider a sample of size one consisting of $x$. Show that when $x$ equals $0$, the set of *maximum likelihood estimates* for $p$ equals $[0,1]$; also show that the *mle* is unique otherwise.  
 
 
-**Exercise 2.9.** Graph the region of the plane corresponding to values of $(a,b)$ that give rise to valid $(a,b,0)$ distributions. Do the same for $(a,b,1)$ distributions.  
+**Exercise 3.9.** Graph the region of the plane corresponding to values of $(a,b)$ that give rise to valid $(a,b,0)$ distributions. Do the same for $(a,b,1)$ distributions.  
 
 
-**Exercise 2.10.** (**Computational Complexity**) For the $(a,b,0)$ class of distributions, count the number of basic mathematical operations (addition, subtraction, multiplication, division) needed to compute the $n$ probabilities $p_0\ldots p_{n-1}$ using the recurrence relationship. For the negative binomial distribution with non-integer $r$, count the number of such operations. What do you observe?
+**Exercise 3.10.** (**Computational Complexity**) For the $(a,b,0)$ class of distributions, count the number of basic mathematical operations (addition, subtraction, multiplication, division) needed to compute the $n$ probabilities $p_0\ldots p_{n-1}$ using the recurrence relationship. For the negative binomial distribution with non-integer $r$, count the number of such operations. What do you observe?
 
 
-**Exercise 2.11.** (** **) Using the development of Section 2.3 rigorously show that not only does the recurrence \@ref(eq:ab0) tie the binomial, the Poisson and the negative binomial distributions together, but that it also characterizes them. 
+**Exercise 3.11.** (** **) Using the development of Section 3.3 rigorously show that not only does the recurrence \@ref(eq:ab0) tie the binomial, the Poisson and the negative binomial distributions together, but that it also characterizes them. 
 
 
 #### Exercises with a Practical Focus {-}
   
-**Exercise 2.12. Actuarial Exam Question.** You are given:
+**Exercise 3.12. Actuarial Exam Question.** You are given:
 
 <!-- \def\labelenumi{\arabic{enumi}.} -->
 1.  \(p_k\) denotes the probability that the number of claims equals \(k\)
@@ -1163,7 +1161,7 @@ where $\phi(\cdot)$ represents the standard normal density.
 Using the corresponding zero-modified claim count distribution with
 \(p_0^M=0.1\), calculate \(p_1^M\).  
 
-**Exercise 2.13. Actuarial Exam Question.** During a one-year period, the number of accidents per day was distributed as follows:
+**Exercise 3.13. Actuarial Exam Question.** During a one-year period, the number of accidents per day was distributed as follows:
 
 <!-- \label{tabsing3} -->
 $$
@@ -1201,7 +1199,7 @@ Appendix Chapter \@ref(CAppA) gives a general introduction to maximum likelihood
 - Chapter reviewers include: Chunsheng Ban, Paul Johnson, Hirokazu (Iwahiro) Iwasawa, Dalia Khalil, Tatjana Miljkovic, Rajesh Sahasrabuddhe, and Michelle Xia.
 
 
-### TS `r chapnum`.A. R Code for Plots {#S:rcode}
+### TS 3.A. R Code for Plots {#S:rcode}
 
 
 **Code for Figure \@ref(fig:MLEm):**

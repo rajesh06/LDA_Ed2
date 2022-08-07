@@ -70,7 +70,7 @@ When using a statistic (e.g., the sample mean $\bar{X}$) to make statistical inf
 
 In statistics, there are variations of the central limit theorem (CLT) ensuring that, under certain conditions, the sample mean will approach the population mean with its sampling distribution approaching the normal distribution as the sample size goes to infinity. We give the Lindeberg--Levy CLT that establishes the asymptotic sampling distribution of the sample mean $\bar{X}$ calculated using a random sample from a universe population having a distribution $F(\cdot)$.
 
-**Lindeberg--Levy CLT.** Let $X_1, \ldots, X_n$ be a random sample from a population distribution $F(\cdot)$ with mean $\mu$ and variance $\sigma^2<\infty$. The difference between the sample mean $\bar{X}$ and $\mu$, when multiplied by $\sqrt{n}$, converges in distribution to a normal distribution as the sample size goes to infinity. That is, $$\sqrt{n}(\bar{X}-\mu)\xrightarrow[]{d}N(0,\sigma).$$  
+**Lindeberg--Levy CLT.** Let $X_1, \ldots, X_n$ be a random sample from a population distribution $F(\cdot)$ with mean $\mu$ and variance $\sigma^2<\infty$. The difference between the sample mean $\bar{X}$ and $\mu$, when multiplied by $\sqrt{n}$, converges in distribution to a normal distribution as the sample size goes to infinity. That is, $$\sqrt{n}(\bar{X}-\mu)\rightarrow^{d}N(0,\sigma).$$  
 
 Note that the CLT does not require a parametric form for $F(\cdot)$. Based on the CLT, we may perform statistical inference on the population mean (we *infer*, not *deduce*). The types of inference we may perform include **estimation** of the population, **hypothesis testing** on whether a null statement is true, and **prediction** of future samples from the population.
     
