@@ -152,6 +152,8 @@ eq:LawIterExp
 eq:LawTotVar
 eq:AppBEV1
 eq:AppBVE2
+tab:unnamed-chunk-170
+tab:unnamed-chunk-171
 ChapIntro
 S:Intro
 nature-and-relevance-of-insurance
@@ -190,7 +192,7 @@ model-construction-1
 model-selection-1
 S:process
 S:DataLearn
-data-types-and-sources
+data-types
 data-structures-and-storage
 data-quality
 data-cleaning
@@ -455,7 +457,6 @@ numerical-illustrations
 S:Further
 further-reading-and-references-1
 ChapDependenceModel
-S:VarTypes15
 multivariate-variables
 S:Measures
 association-measures-for-quantitative-variables
@@ -547,3 +548,7 @@ S:Abbreviations
 S:StatSymbols
 S:Symbols
 further-readings
+appendix.-data-resources
+data-used-in-this-book
+S:WiscPropFundA
+other-data-sources
