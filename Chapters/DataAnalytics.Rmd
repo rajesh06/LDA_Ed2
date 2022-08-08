@@ -274,24 +274,12 @@ knitr::include_graphics("Figures/Figure2.png")
 ## Data {#S:DataLearn}
 
 
-### Data Types and Sources
+### Data Types
 
 In terms of how data are collected, data can be divided into two types [@hox2005data]: primary data and secondary data. Primary data are original data that are collected for a specific research problem. Secondary data are data originally collected for a different purpose and reused for another research problem. A major advantage of using primary data is that the theoretical constructs, the research design, and the data collection strategy can be tailored to the underlying research question to ensure that data collected help to solve the problem. A disadvantage of using primary data is that data collection can be costly and time consuming. Using secondary data has the advantage of lower cost and faster access to relevant information. However, using secondary data may not be optimal for the research question under consideration.   
 
 In terms of the degree of organization of the data, data can be also divided into two types [@inmon2014;@leary2013bigdata;@hashem2015bigdata;@abdullah2013data;@pries2015]: structured data and unstructured data. `r Gloss('Structured data')` have a predictable and regularly occurring format. In contrast, `r Gloss('unstructured data')` lack any regularly occurring format and have no structure that is recognizable to a computer. Structured data consist of records, attributes, keys, and indices and are typically managed by a database management system (DBMS) such as IBM DB2, Oracle, MySQL, and Microsoft SQL Server. As a result, most units of structured data can be located quickly and easily. Unstructured data have many different forms and variations. One common form of unstructured data is text. Accessing unstructured data can be awkward. To find a given unit of data in a long text, for example, a sequential search is usually performed. 
 
-
-There exist a number of data sources. First, data can be obtained from university-based researchers who collect primary data. Second, data can be obtained from organizations that are set up for the purpose of releasing secondary data for the general research community. Third, data can be obtained from national and regional statistical institutes that collect data. Finally, companies have corporate data that can be obtained for research purposes.
-
-While it might be difficult to obtain data to address a specific research problem or answer a business question, it is relatively easy to obtain data to test a model or an algorithm for data analysis. In the modern era, readers can obtain datasets from the Internet. The following is a list of some websites to obtain real-world data:
-
-*  **UCI Machine Learning Repository.** This website (url: [http://archive.ics.uci.edu/ml/index.php](http://archive.ics.uci.edu/ml/index.php)) maintains more than 400 datasets that can be used to test machine learning algorithms.
-*  **Kaggle.** The Kaggle website (url: [https://www.kaggle.com/](https://www.kaggle.com/)) include real-world datasets used for data science competitions. Readers can download data from Kaggle by registering an account.
-*  **DrivenData.** DrivenData aims at bringing cutting-edge practices in data science to solve some of the world's biggest social challenges. In its website (url: [https://www.drivendata.org/](https://www.drivendata.org/)), readers can participate in data science competitions and download datasets.
-*  **Analytics Vidhya.** This website (url: [https://datahack.analyticsvidhya.com/contest/all/](https://datahack.analyticsvidhya.com/contest/all/)) allows you to participate and download datasets from practice problems and hackathon problems. 
-*  **KDD Cup.** KDD Cup is the annual Data Mining and Knowledge Discovery competition organized by the ACM Special Interest Group on Knowledge Discovery and Data Mining. This website (url: [http://www.kdd.org/kdd-cup](http://www.kdd.org/kdd-cup)) contains the datasets used in past KDD Cup competitions since 1997.
-*  **U.S. Government's open data.** This website (url: [https://www.data.gov/](https://www.data.gov/)) contains about 200,000 datasets covering a wide range of areas including climate, education, energy, and finance.
-*  **AWS Public Datasets.** In this website (url: [https://aws.amazon.com/datasets/](https://aws.amazon.com/datasets/)), Amazon provides a centralized repository of public datasets, including some huge datasets.
 
 
 ### Data Structures and Storage

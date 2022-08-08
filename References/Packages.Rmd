@@ -30,6 +30,7 @@ library("knitr")
 library("kableExtra")
 library("magick")
 library("pdftools")
+library(dplyr)
 
 # Install as needed
 #install.packages("actuar")

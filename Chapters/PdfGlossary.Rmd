@@ -1,6 +1,6 @@
-`r if (knitr:::is_latex_output()) '# Glossary {#C:Glossary}'`
+`r if (knitr:::is_latex_output()) '# Glossary {#ChapGlossary}'`
 
-```{r, echo=FALSE, eval=GLOSSARY}
+```{r echo=FALSE, eval=GLOSSARY}
 glossary <- read.csv("References/GlossFct.csv", header=TRUE)
 terms <- glossary$Term
 

@@ -1,0 +1,68 @@
+
+#  Appendix. Data Resources
+
+
+## Data Used in this Book
+
+
+This appendix section describes the datasets used in this book.
+
+For each set of data, we provide download buttons so that you can easily access the data in standard .csv (comma separated value) format. This allows you replicate and experiment with the methods developed in the book as well as sharpen your understanding through exercises.
+
+We provide the source of each dataset. We also recommend, for deeper understanding, that you occasionally refer to these original sources to further develop your appreciation of the data underpinning the analytics developed in this book.
+
+
+
+```{r echo = FALSE}
+
+
+```
+
+###  Wisconsin Property Fund {#S:WiscPropFundA}
+
+
+**Description**: The Wisconsin Local Government Property Insurance Fund (LGPIF) is an insurance pool administered by the Wisconsin Office of the Insurance Commissioner. The LGPIF was established to provide property insurance for local government entities that include counties, cities, towns, villages, school districts, and library boards. The fund insures local government property such as government buildings, schools, libraries, and motor vehicles. It covers all property losses except those resulting from flood, earthquake, wear and tear, extremes in temperature, mold, war, nuclear reactions, and embezzlement or theft by an employee.
+
+
+The data are available using this download button: <a href="https://raw.githubusercontent.com/OpenActTexts/Loss-Data-Analytics/master/Data/PropertyFundInsample.csv" download> 
+
+<button type="button"  style="background-color:#008CBA;color:white">Download the Wisconsin Property Fund Data</button></a> 
+
+
+
+
+```{r echo = FALSE}
+printnum = 5 # Number to print in tables
+
+#Wisc_Fund <- read.csv("../Data/Insample.csv")
+Wisc_Fund <- read.csv("Data/Insample.csv")
+knitr::kable(head(Wisc_Fund, n=printnum), align = "cccccccc", caption = "**Wisconsin Property Fund First Five Rows**")
+tmp_tail_data <- tail(Wisc_Fund, n=printnum)
+rownames(tmp_tail_data) <- NULL
+knitr::kable(tmp_tail_data, align = "cccccccc", caption = "**Wisconsin Property Fund Last Five Rows**")
+```
+
+
+
+```{r echo = FALSE}
+Summary <- summary(Wisc_Fund)[,-c(1,2)]
+Summary[is.na(Summary)] <- ""
+knitr::kable(Summary, caption="**Wisconsin Property Fund Summary Statistics**") 
+
+#  %>% kableExtra::kable_classic(html_font = "Cambria")
+```    
+
+## Other Data Sources
+
+There exist a number of data sources. First, data can be obtained from university-based researchers who collect primary data. Second, data can be obtained from organizations that are set up for the purpose of releasing secondary data for the general research community. Third, data can be obtained from national and regional statistical institutes that collect data. Finally, companies have corporate data that can be obtained for research purposes.
+
+While it might be difficult to obtain data to address a specific research problem or answer a business question, it is relatively easy to obtain data to test a model or an algorithm for data analysis. In the modern era, readers can obtain datasets from the Internet. The following is a list of some websites to obtain real-world data:
+
+*  **UCI Machine Learning Repository.** This website (url: [http://archive.ics.uci.edu/ml/index.php](http://archive.ics.uci.edu/ml/index.php)) maintains more than 400 datasets that can be used to test machine learning algorithms.
+*  **Kaggle.** The Kaggle website (url: [https://www.kaggle.com/](https://www.kaggle.com/)) include real-world datasets used for data science competitions. Readers can download data from Kaggle by registering an account.
+*  **DrivenData.** DrivenData aims at bringing cutting-edge practices in data science to solve some of the world's biggest social challenges. In its website (url: [https://www.drivendata.org/](https://www.drivendata.org/)), readers can participate in data science competitions and download datasets.
+*  **Analytics Vidhya.** This website (url: [https://datahack.analyticsvidhya.com/contest/all/](https://datahack.analyticsvidhya.com/contest/all/)) allows you to participate and download datasets from practice problems and hackathon problems. 
+*  **KDD Cup.** KDD Cup is the annual Data Mining and Knowledge Discovery competition organized by the ACM Special Interest Group on Knowledge Discovery and Data Mining. This website (url: [http://www.kdd.org/kdd-cup](http://www.kdd.org/kdd-cup)) contains the datasets used in past KDD Cup competitions since 1997.
+*  **U.S. Government's open data.** This website (url: [https://www.data.gov/](https://www.data.gov/)) contains about 200,000 datasets covering a wide range of areas including climate, education, energy, and finance.
+*  **AWS Public Datasets.** In this website (url: [https://aws.amazon.com/datasets/](https://aws.amazon.com/datasets/)), Amazon provides a centralized repository of public datasets, including some huge datasets.
+

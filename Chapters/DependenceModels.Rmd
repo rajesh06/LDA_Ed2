@@ -6,13 +6,15 @@
 
 Section \@ref(S:Copula) introduces an approach to modeling dependence using copulas which is reinforced with practical illustrations in Section \@ref(S:CopAppl). The types of copula families and basic properties of copula functions are explained Section \@ref(S:CopTyp). The chapter concludes by explaining why the study of dependence modeling is important in Section \@ref(S:CopImp).
 
-## Variable Types {#S:VarTypes15}
+
+## Multivariate Variables
 
 ***
 
 In this section, you learn how to:
 
-- Describe multivariate variables.
+- Differentiate between univariate and multivariate data
+- Handle missing variables 
 
 ***
 
@@ -83,16 +85,6 @@ qplot(Coverage,Claim,colour=EntityType, ylim = c(0,3000000), xlab = "Coverage (M
 `r Gloss('Circular data')` represent an interesting category typically not analyzed by `r Gloss('insurers')`. As an example of circular data, suppose that you monitor calls to your customer service center and would like to know when is the peak time of the day for calls to arrive. In this context, one can think about the time of the day as a variable with realizations on a circle, e.g., imagine an analog picture of a clock. For circular data, the distance between observations at 00:15 and 00:45 are just as close as observations 23:45 and 00:15 (the convention *HH:MM* means hours and minutes).
 
 
-### Multivariate Variables
-
-***
-
-In this sub-section, you learn how to:
-
-- Differentiate between univariate and multivariate data
-- Handle missing variables 
-
-***
 
 Insurance data typically are `r Gloss('multivariate')` in the sense that we can take many measurements on a single entity. For example, when studying losses associated with a firm's `r Gloss("workers' compensation")` plan, we might want to know the location of its manufacturing plants, the industry in which it operates, the number of employees, and so forth. The usual strategy for analyzing multivariate data is to begin by examining each variable in isolation of the others. This is known as a `r Gloss('univariate')` approach. 
 
