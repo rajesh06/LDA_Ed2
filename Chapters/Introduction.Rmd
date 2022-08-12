@@ -854,10 +854,15 @@ much longer to develop. Chapter \@ref(ChapLossReserves) introduces this concern 
 
 ## Further Resources and Contributors {#Intro-further-reading-and-resources}
 
+If you would like some practice with `R` code, please visit the [first chapter of a *Short Course on Loss Data Analytics*](
+https://openacttexts.github.io/LDACourse1/introduction-to-loss-data-analytics.html).
+
+
 #### Contributor {-}
 
-- **Edward W. (Jed) Frees**, University of Wisconsin-Madison, is the principal author of the initial version of this chapter. Email: jfrees@bus.wisc.edu for chapter comments and suggested improvements.
+- **Edward (Jed) Frees**, University of Wisconsin-Madison, is the principal author of the initial version of this chapter.
 - Chapter reviewers include: Yair Babad, Chunsheng Ban, Aaron Bruhn, Gordon Enderle, Hirokazu (Iwahiro) Iwasawa, Dalia Khalil, Bell Ouelega, Michelle Xia.
+-  **Edward (Jed) Frees**, University of Wisconsin-Madison and Australian National University, is the author of the second edition of this chapter.  Email: jfrees@bus.wisc.edu for chapter comments and suggested improvements.
 
 This book introduces loss data analytic tools that are most relevant to actuaries and other financial risk analysts. We have also introduced you to many new insurance terms; more terms can be found at the @NAICGlossary. Here are a few references cited in the chapter.
 

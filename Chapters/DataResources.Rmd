@@ -45,7 +45,7 @@ knitr::kable(tmp_tail_data, align = "cccccccc", caption = "**Wisconsin Property 
 
 
 ```{r echo = FALSE}
-Summary <- summary(Wisc_Fund)[,-c(1,2)]
+Summary <- summary(Wisc_Fund)[,-c(1,2,3,9,10,11)]
 Summary[is.na(Summary)] <- ""
 knitr::kable(Summary, caption="**Wisconsin Property Fund Summary Statistics**") 
 
