@@ -418,7 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#key-data-analytic-concepts"><i class="fa fa-check"></i><b>2.1.1</b> Key Data Analytic Concepts</a></li>
 <li class="chapter" data-level="2.1.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataAlgorithm"><i class="fa fa-check"></i><b>2.1.2</b> Data versus Algorithmic Modeling</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#single-variable-analytics"><i class="fa fa-check"></i><b>2.2</b> Single Variable Analytics</a><ul>
+<li class="chapter" data-level="2.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:SingleVarAnalytics"><i class="fa fa-check"></i><b>2.2</b> Single Variable Analytics</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:VarTypes"><i class="fa fa-check"></i><b>2.2.1</b> Variable Types</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:EDACDA"><i class="fa fa-check"></i><b>2.2.2</b> Exploratory versus Confirmatory</a></li>
 <li class="chapter" data-level="2.2.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction"><i class="fa fa-check"></i><b>2.2.3</b> Model Construction</a></li>
@@ -426,9 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#analytics-with-many-variables"><i class="fa fa-check"></i><b>2.3</b> Analytics with Many Variables</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#types-of-tasks"><i class="fa fa-check"></i><b>2.3.1</b> Types of Tasks</a></li>
-<li class="chapter" data-level="2.3.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#eda-as-a-stage-in-the-modelling-process"><i class="fa fa-check"></i><b>2.3.2</b> EDA (as a stage in the modelling process)</a></li>
-<li class="chapter" data-level="2.3.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction-1"><i class="fa fa-check"></i><b>2.3.3</b> Model Construction</a></li>
-<li class="chapter" data-level="2.3.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-selection-1"><i class="fa fa-check"></i><b>2.3.4</b> Model selection</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction-1"><i class="fa fa-check"></i><b>2.3.2</b> Model Construction</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:process"><i class="fa fa-check"></i><b>2.4</b> Data Analysis Process</a></li>
 <li class="chapter" data-level="2.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataLearn"><i class="fa fa-check"></i><b>2.5</b> Data</a><ul>
@@ -442,7 +440,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#summary"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
 <li class="chapter" data-level="2.7" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#DS:further-reading-and-resources"><i class="fa fa-check"></i><b>2.7</b> Further Resources and Contributors</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-data-analysis-techniques"><i class="fa fa-check"></i><b>2.7.1</b> Technical Supplement: Data Analysis Techniques</a></li>
+<li class="chapter" data-level="2.7.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:MultiEDA"><i class="fa fa-check"></i><b>2.7.1</b> Technical Supplement: Multivariate Exploratory Analysis</a></li>
+<li class="chapter" data-level="2.7.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-some-r-functions"><i class="fa fa-check"></i><b>2.7.2</b> Technical Supplement: Some R Functions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html"><i class="fa fa-check"></i><b>3</b> Frequency Modeling</a><ul>
@@ -1741,9 +1740,6 @@ AC15
 <th style="text-align:left;">
 </th>
 <th style="text-align:left;">
-LnCoverage
-</th>
-<th style="text-align:left;">
 BCcov
 </th>
 <th style="text-align:left;">
@@ -1757,15 +1753,6 @@ Deduct
 </th>
 <th style="text-align:left;">
 y
-</th>
-<th style="text-align:left;">
-lny
-</th>
-<th style="text-align:left;">
-yAvg
-</th>
-<th style="text-align:left;">
-lnDeduct
 </th>
 <th style="text-align:left;">
 Fire5
@@ -1810,9 +1797,6 @@ AC15
 <td style="text-align:left;">
 </td>
 <td style="text-align:left;">
-Min. :-4.7176
-</td>
-<td style="text-align:left;">
 Min. : 8937
 </td>
 <td style="text-align:left;">
@@ -1826,15 +1810,6 @@ Min. : 500
 </td>
 <td style="text-align:left;">
 Min. : 0
-</td>
-<td style="text-align:left;">
-Min. : 0.000
-</td>
-<td style="text-align:left;">
-Min. : 0
-</td>
-<td style="text-align:left;">
-Min. : 6.215
 </td>
 <td style="text-align:left;">
 Min. :0.0000
@@ -1875,9 +1850,6 @@ Min. :0.0000
 </tr>
 <tr>
 <td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-1st Qu.: 0.7851
 </td>
 <td style="text-align:left;">
 1st Qu.: 2192556
@@ -1895,15 +1867,6 @@ Min. :0.0000
 1st Qu.: 0
 </td>
 <td style="text-align:left;">
-1st Qu.: 0.000
-</td>
-<td style="text-align:left;">
-1st Qu.: 0
-</td>
-<td style="text-align:left;">
-1st Qu.: 6.215
-</td>
-<td style="text-align:left;">
 1st Qu.:0.0000
 </td>
 <td style="text-align:left;">
@@ -1944,9 +1907,6 @@ Min. :0.0000
 <td style="text-align:left;">
 </td>
 <td style="text-align:left;">
-Median : 2.4295
-</td>
-<td style="text-align:left;">
 Median : 11353566
 </td>
 <td style="text-align:left;">
@@ -1960,15 +1920,6 @@ Median : 1000
 </td>
 <td style="text-align:left;">
 Median : 0
-</td>
-<td style="text-align:left;">
-Median : 0.000
-</td>
-<td style="text-align:left;">
-Median : 0
-</td>
-<td style="text-align:left;">
-Median : 6.908
 </td>
 <td style="text-align:left;">
 Median :1.0000
@@ -2011,9 +1962,6 @@ Median :0.0000
 <td style="text-align:left;">
 </td>
 <td style="text-align:left;">
-Mean : 2.1329
-</td>
-<td style="text-align:left;">
 Mean : 37280855
 </td>
 <td style="text-align:left;">
@@ -2027,15 +1975,6 @@ Mean : 3365
 </td>
 <td style="text-align:left;">
 Mean : 17287
-</td>
-<td style="text-align:left;">
-Mean : 2.753
-</td>
-<td style="text-align:left;">
-Mean : 9292
-</td>
-<td style="text-align:left;">
-Mean : 7.157
 </td>
 <td style="text-align:left;">
 Mean :0.5552
@@ -2078,9 +2017,6 @@ Mean :0.4366
 <td style="text-align:left;">
 </td>
 <td style="text-align:left;">
-3rd Qu.: 3.6062
-</td>
-<td style="text-align:left;">
 3rd Qu.: 36826540
 </td>
 <td style="text-align:left;">
@@ -2094,15 +2030,6 @@ Mean :0.4366
 </td>
 <td style="text-align:left;">
 3rd Qu.: 2182
-</td>
-<td style="text-align:left;">
-3rd Qu.: 7.688
-</td>
-<td style="text-align:left;">
-3rd Qu.: 1520
-</td>
-<td style="text-align:left;">
-3rd Qu.: 7.824
 </td>
 <td style="text-align:left;">
 3rd Qu.:1.0000
@@ -2145,9 +2072,6 @@ Mean :0.4366
 <td style="text-align:left;">
 </td>
 <td style="text-align:left;">
-Max. : 7.8017
-</td>
-<td style="text-align:left;">
 Max. :2444796980
 </td>
 <td style="text-align:left;">
@@ -2161,15 +2085,6 @@ Max. :100000
 </td>
 <td style="text-align:left;">
 Max. :12922218
-</td>
-<td style="text-align:left;">
-Max. :16.374
-</td>
-<td style="text-align:left;">
-Max. :12922218
-</td>
-<td style="text-align:left;">
-Max. :11.513
 </td>
 <td style="text-align:left;">
 Max. :1.0000

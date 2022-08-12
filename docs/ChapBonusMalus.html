@@ -418,7 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#key-data-analytic-concepts"><i class="fa fa-check"></i><b>2.1.1</b> Key Data Analytic Concepts</a></li>
 <li class="chapter" data-level="2.1.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataAlgorithm"><i class="fa fa-check"></i><b>2.1.2</b> Data versus Algorithmic Modeling</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#single-variable-analytics"><i class="fa fa-check"></i><b>2.2</b> Single Variable Analytics</a><ul>
+<li class="chapter" data-level="2.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:SingleVarAnalytics"><i class="fa fa-check"></i><b>2.2</b> Single Variable Analytics</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:VarTypes"><i class="fa fa-check"></i><b>2.2.1</b> Variable Types</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:EDACDA"><i class="fa fa-check"></i><b>2.2.2</b> Exploratory versus Confirmatory</a></li>
 <li class="chapter" data-level="2.2.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction"><i class="fa fa-check"></i><b>2.2.3</b> Model Construction</a></li>
@@ -426,9 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#analytics-with-many-variables"><i class="fa fa-check"></i><b>2.3</b> Analytics with Many Variables</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#types-of-tasks"><i class="fa fa-check"></i><b>2.3.1</b> Types of Tasks</a></li>
-<li class="chapter" data-level="2.3.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#eda-as-a-stage-in-the-modelling-process"><i class="fa fa-check"></i><b>2.3.2</b> EDA (as a stage in the modelling process)</a></li>
-<li class="chapter" data-level="2.3.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction-1"><i class="fa fa-check"></i><b>2.3.3</b> Model Construction</a></li>
-<li class="chapter" data-level="2.3.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-selection-1"><i class="fa fa-check"></i><b>2.3.4</b> Model selection</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction-1"><i class="fa fa-check"></i><b>2.3.2</b> Model Construction</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:process"><i class="fa fa-check"></i><b>2.4</b> Data Analysis Process</a></li>
 <li class="chapter" data-level="2.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataLearn"><i class="fa fa-check"></i><b>2.5</b> Data</a><ul>
@@ -442,7 +440,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#summary"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
 <li class="chapter" data-level="2.7" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#DS:further-reading-and-resources"><i class="fa fa-check"></i><b>2.7</b> Further Resources and Contributors</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-data-analysis-techniques"><i class="fa fa-check"></i><b>2.7.1</b> Technical Supplement: Data Analysis Techniques</a></li>
+<li class="chapter" data-level="2.7.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:MultiEDA"><i class="fa fa-check"></i><b>2.7.1</b> Technical Supplement: Multivariate Exploratory Analysis</a></li>
+<li class="chapter" data-level="2.7.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-some-r-functions"><i class="fa fa-check"></i><b>2.7.2</b> Technical Supplement: Some R Functions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html"><i class="fa fa-check"></i><b>3</b> Frequency Modeling</a><ul>
@@ -2085,7 +2084,7 @@ a+b\mathrm{E}(L)\ge 1.
 <h2><span class="header-section-number">14.6</span> Further Resources and Contributors</h2>
 <div id="further-reading-and-references-1" class="section level3">
 <h3><span class="header-section-number">14.6.1</span> Further Reading and References</h3>
-<p>Note that our discussions in Section <a href="ChapBonusMalus.html#S:PremRtg">14.5</a> focus on the classical frequency-driven BMS, which implicitly assume that the information of frequency and severity are independent, consistent with the collective risk model as discussed in Section <a href="ChapAggLossModels.html#S:AggLoss:CRM">6.3</a>. However, a number of recent empirical studies (<span class="citation">Edward W. Frees, Lee, and Yang (<a href="#ref-Frees2016" role="doc-biblioref">2016</a>)</span>; <span class="citation">Garrido, Genest, and Schulz (<a href="#ref-Garrido2016" role="doc-biblioref">2016</a>)</span>) point towards the need due to their significant dependence structure. In this regard, <span class="citation">Oh, Kim, and Ahn (<a href="#ref-Oh20b" role="doc-biblioref">2020</a>)</span> and <span class="citation">Oh, Shi, and Ahn (<a href="#ref-Oh20a" role="doc-biblioref">2020</a>)</span> propose recent BMS framework that allows for such frequency-severity dependence based on the bivariate random effect model, where the former utilize both frequency and severity information in the specification of transition rule.</p>
+<p>Note that our discussions in Section <a href="ChapBonusMalus.html#S:PremRtg">14.5</a> focus on the classical frequency-driven BMS, which implicitly assume that the information of frequency and severity are independent, consistent with the collective risk model as discussed in Section <a href="ChapAggLossModels.html#S:AggLoss:CRM">6.3</a>. However, a number of recent empirical studies (<span class="citation">Edward W. Frees, Lee, and Yang (<a href="#ref-Frees2016" role="doc-biblioref">2016</a><a href="#ref-Frees2016" role="doc-biblioref">b</a>)</span>; <span class="citation">Garrido, Genest, and Schulz (<a href="#ref-Garrido2016" role="doc-biblioref">2016</a>)</span>) point towards the need due to their significant dependence structure. In this regard, <span class="citation">Oh, Kim, and Ahn (<a href="#ref-Oh20b" role="doc-biblioref">2020</a>)</span> and <span class="citation">Oh, Shi, and Ahn (<a href="#ref-Oh20a" role="doc-biblioref">2020</a>)</span> propose recent BMS framework that allows for such frequency-severity dependence based on the bivariate random effect model, where the former utilize both frequency and severity information in the specification of transition rule.</p>
 <p>On the other hand, the framework presented in Section <a href="ChapBonusMalus.html#S:PremRtg">14.5</a> is found to suffer from a double-counting problem, which results in biased premiums due to the dual role of the <em>a priori</em> rating factors in affecting both the <em>a priori</em> risk classification as well as <em>a posteriori</em> experience rating. We refer interested readers to <span class="citation">Oh et al. (<a href="#ref-Oh20c" role="doc-biblioref">2020</a>)</span> who propose to incorporate the estimation of <em>a priori</em> rate (in addition to the <em>a posteriori</em> rate) under a full optimization process to resolve the double-counting problem.</p>
 <div id="contributors-9" class="section level4 unnumbered">
 <h4>Contributors</h4>
@@ -2110,7 +2109,7 @@ a+b\mathrm{E}(L)\ge 1.
 <p>Dionne, Georges, and Charles Vanasse. 1989. “A Generalization of Automobile Insurance Rating Models: The Negative Binomial Distribution with a Regression Component.” <em>ASTIN Bulletin</em> 19(2): 199–212.</p>
 </div>
 <div id="ref-Frees2016">
-<p>Frees, Edward W., Gee Lee, and Lu Yang. 2016. “Multivariate Frequency-Severity Regression Models Under Insurance.” <em>Risks</em> 4(1): 4.</p>
+<p>Frees, Edward W., Gee Lee, and Lu Yang. 2016a. “Multivariate Frequency-Severity Regression Models in Insurance.” <em>Risks</em> 4 (1): 4.</p> 2016b. “Multivariate Frequency-Severity Regression Models Under Insurance.” <em>Risks</em> 4(1): 4.</p>
 </div>
 <div id="ref-Garrido2016">
 <p>Garrido, Jose, Christian Genest, and Juliana Schulz. 2016. “Generalized Linear Models for Dependent Frequency and Severity of Insurance Claims.” <em>Insurance: Mathematics and Economics</em> 70: 205–15.</p>
