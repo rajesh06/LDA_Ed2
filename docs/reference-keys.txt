@@ -1,7 +1,5 @@
 fig:StochOperations
 fig:SeverityFig
-fig:studyNew
-fig:modelingNew
 eq:ab0
 fig:berlik
 eq:binmle
@@ -173,6 +171,7 @@ ChapDataAnalytics
 elements-of-data-analytics
 key-data-analytic-concepts
 S:DataAlgorithm
+S:Process
 S:SingleVarAnalytics
 S:VarTypes
 S:QuaVar
@@ -183,13 +182,12 @@ model-construction
 S:ParametricNonP
 S:expred
 model-selection
-analytics-with-many-variables
+S:ManyVarAnalytics
 types-of-tasks
 model-construction-1
 linear-models
 generalized-linear-models
 tree-based-models
-S:process
 S:DataLearn
 data-types
 data-structures-and-storage

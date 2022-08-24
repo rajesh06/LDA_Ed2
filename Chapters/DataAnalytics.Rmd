@@ -5,7 +5,7 @@
 
 *Chapter Preview*. This introduction to data analytic concepts emphasizes aspects that are likely to be of use within insurance activities. Because many types of data can influence the outcomes of loss data, this chapter steps outside of pure loss data and provides background that allows one to analyze these different data types. 
 
->**This chaper is under construction.** It does not yet include any data examples. It may be too long and so some sections may go or be curtailed....
+>**This chaper is under construction.** It does not yet include any data examples. It may be too long and so some sections may be curtailed....
 
 
 ##  Elements of Data Analytics
@@ -70,6 +70,97 @@ $$
 *  It restricted the ability of statisticians to deal with a wide range of problems.
 
 `r Gloss('Algorithmic modeling')` was used by industrial statisticians long time ago. Sadly, the development of algorithmic methods was taken up by a community outside statistics. The goal of algorithmic modeling is `r Gloss('predictive accuracy')`. For some complex prediction problems, data models are not suitable. These prediction problems include voice recognition, image recognition, handwriting recognition, nonlinear time series prediction, and financial market prediction. The theory in algorithmic modeling focuses on the properties of algorithms, such as convergence and predictive accuracy. 
+
+
+## Data Analysis Process {#S:Process}
+
+[Table 2.2] outlines common steps used when analyzing data associated with insurance activities.
+
+[Table 2.2]:\#tab:2.2
+
+<a id=tab:2.2></a>
+
+Table 2.2 **Data Analysis Process for Insurance Activities**
+
+$$
+{\small
+\begin{array}{c|c|c|c|c}\hline
+\textbf{I. Scoping} &\textbf{II. Data}& \textbf{III. Model} & \textbf{IV. Validation} & 
+\textbf{V. Determine} \\ 
+\textbf{Phase} &\textbf{ Splitting}& \textbf{ Development} &   & 
+\textbf{Implications} \\ \hline
+\text{Use background} &\text{Split the}& \text{Select a candidate} & \text{Repeat Phase III} & 
+\text{Use knowledge gained} \\
+\text{knowledge and} &\text{data into}& \text{model} & \text{ to determine several} & 
+\text{from exploring the data,} \\
+ \text{theory to} &\text{training}& &\text{candidate models}  & 
+\text{fitting and predicting} \\
+ \text{define goals} &\text{and testing}&&& \text{the models to make} \\ 
+&\text{portions}&&& \text{data-informed statements} \\ 
+&&&& \text{about the project goals} \\ \\ 
+\text{Prepare, collect,}&&\text{Select variables to} &\text{Assess each model}  \\
+\text{and revise data}&&\text{ be used with the} & \text{using the testing}&  \\
+&&\text{candidate model} & \text{portion of the data}&  \\ 
+&& & \text{ to determine its}&  \\ 
+&& & \text{predictive capabilities}&  \\\\
+\text{EDA}&&\text{Evaluate model fit}
+&&\\
+\text{Explore the data}&&\text{using training data}
+&&\\ \\
+&&\text{Use deviations from}\\
+&&\text{ model fit to improve}\\
+&&\text{suggested models}\\
+\hline
+\end{array}
+}
+$$
+
+
+#### I. Scoping Phase {-}
+
+Scoping, or problem formulation, can be divided into three components:
+
+*  **Use background knowledge and theory to define goals**. Insurance activity projects are commonly motivated by business pursuits that have been formulated to be consistent with background knowledge such as market conditions and theory such as a person's attitude towards risk-taking.
+*  **Prepare, collect, and revise data**. Getting the right data that gives insights into questions at hand is typically the most time-consuming aspect of most projects. Section \@ref(S:DataLearn) delves more into the devilish details of data structures, quality, cleaning, and so forth. 
+*  **EDA** - Exploring the data, without reference to any particular model, can reveal unsuspected aspects or patterns in the data. 
+
+These three components can be performed *iteratively*. For example, a question may suggest collecting certain data types. Then, a preliminary analysis of the data raises additional questions of interest that can lead to seeking more data - this cycle can be repeated many times. Note that this iterative approach differs from the traditional "scientific method" whereby the analyst develops a hypothesis, collects data, and then employs the data to test the hypothesis.
+
+#### II. Data Splitting {-}
+
+Although optional, splitting the data into training and testing portions has some important advantages. If the available dataset is sufficiently large, one can split the data into a portion used to calibrate one or more candidate models, the training portion, and another portion that can be used for testing, that is, evaluating the predictive capabilities of the model. The data splitting procedure guards against overfitting a model and emphasizes predictive aspects of a model. For many applications, the splitting is done randomly to mitigate unanticipated sources of bias. For some applications such as insurance, it is common to use data from an earlier time period to predict, or *forecast*, future behavior. For example, with the Section \@ref(S:LGPIF) Wisconsin Property Fund data, one might use 2006-2010 data for training and 2011 data for assessing predictions.
+
+For large datasets, some analysts prefer to split the data into three portions, one for training (model estimation), one for validation (estimate prediction error for model selection), and one for testing (assessment of the generalization error of the final chosen model), c.f. @hastie2009elements (Chapter 7). In contrast, for moderate and smaller datasets, it is common to use *cross-validation* techniques where one repeatedly splits the dataset into training and testing portions and then averages results over many applications. These techniques are described further in Chapter \@ref(ChapSimulation).
+
+
+#### III. Model Development {-}
+
+The objective of the model development phase is to consider different types of model and provide the best fit for each "candidate" model. As with the scoping phase, developing a model is an iterative procedure.
+
+*  **Select a candidate model.** One starts with a model that, from the analyst's perspective, is a likely "candidate" to be the recommended model. Although analysts will focus on familiar models, such as through their past applications of a model or its acceptance in industry, in principle one remains open to all types of models.
+*  **Select variables to be used with the candidate model.** For simpler situations, only a single outcome, or variable, is of interest. However, many (if not most) situations deal with multivariate outcomes and, as will be seen in Section \@ref(S:ManyVarAnalytics), analysts give a great deal of thought as to which variables are considered inputs to a system and which variables can be treated as outcomes.
+*  **Evaluate model fit on training data.** Given a candidate model based on one or more selected variables, the next step is to calibrate the model based on the training data and evaluate the model fit. Many measures of model fit are available - analysts should focus on those likely to be consistent with the project goals and intended audience of the data analysis process.
+*  **Use deviations from the model fit to suggest improvements to the candidate model.** When comparing the training data to model fits, it may be that certain patterns are revealed that suggest model improvements. In regression analysis, this tactic is known as *diagnostic checking.*
+
+#### IV. Validation {-}
+
+*  **Repeat Phase III to determine several candidate models.** There is a wealth of potential models from which an analyst can choose. Some are parametric, others non-parametric, and some a mixture between the two. Some focus on simplicity such as through linear relationships whereas others are much more complex. And so on.  Through repeated applications of the Phase III process, it is customary to narrow the field of candidates down to a handful based on their fit to the training data.
+*  **Assess each model use the testing portion of the data to determine its predictive capabilities.** With the handful of models that perform the best in the model development phase, one assesses the predictive capabilities of each model. Specifically, each fitted model is used to make predictions with the predicted outcomes compared to the held-out test data. This comparison may also be done using cross-validation. Models are then compared based on their predictive capabilities.
+
+#### V. Determine Implications {-}
+
+The scoping, model development, and validation phases all contribute to making data-informed statements about the project goals. Although most projects result in a single recommended model, each phase has the potential to lend powerful insights. 
+
+For data analytic projects associated with insurance activities, it is common to select the model with best predictive capabilities. However, analysts are also mindful of the intended audiences of their analyses, and it is also common to favor models that are simpler and easier to interpret. The relative importance of interpretability very much depends on the project goals. For example, a model devoted to enticing potential customers to view a webpage can be judged more on its predictive capabilities. In contrast, a model that provides the foundations for insurance prices typically undergoes scrutiny by regulators and consumer advocacy groups; here, interpretation plays an important role.
+
+
+
+***
+
+
+>We seek to emphasize “common methods” objectives and tie to the rest of the book. These objectives include the basic concepts of distributions (Ch2, 3), EDA/summary/visualization (a bit in Ch4), statistical inference including estimation (a bit in Ch4), model selection (a bit in Ch4, 13), simulation (Ch6), bootstrap (Ch6), Bayesian methods (a bit in Ch4, 9), and data preprocessing.
+
+
 
 ## Single Variable Analytics {#S:SingleVarAnalytics}
 
@@ -177,7 +268,7 @@ Although  hypothesis testing is one approach to model selection that is viable i
 
 For modeling insurance activities, it is typically preferable to estimate the predictive power of various models and select a model with the best predictive power. The motivation for this is that we want good model selection methods achieve a balance between goodness of fit and parsimony. This is a trade-off because on the one hand, better fits to the data can be achieved by adding more parameters, making the model more complex and less parsimonious. On the other hand, models with fewer parameters (parsimonious) are attractive because of their simplicity and interpretability; they are also less subject to estimation variability and so can yield more accurate predictions, @ruppert2003semiparametric.
 
-One way of measuring this balance is through information criteria such as Akaike's Information Criterion (*AIC*) and the Bayesian Infomation Criterion (*BIC*). These measures each contain a component that summarizes how well the model fits the data, a *goodness of fit* piece, plus a component to penalize the complexity of the model. Section xx describes these measures in more detail.
+One way of measuring this balance is through information criteria such as Akaike's Information Criterion (*AIC*) and the Bayesian Information Criterion (*BIC*). These measures each contain a component that summarizes how well the model fits the data, a *goodness of fit* piece, plus a component to penalize the complexity of the model. Section xx describes these measures in more detail.
 
 Although attractive due to their simplicity, there are drawbacks to these measures. In particular, both rely on knowledge of the underlying distribution of the outcomes (or at least good estimates). A more robust approach is to split a data set in a portion that can used to calibrate a model, the *training* portion, and another portion used to quantify the predictive power of the model, the *test* portion. It is more robust in the sense that it does not rely on any distributional assumptions and can be used to validate general models.
 
@@ -199,7 +290,7 @@ Chapter 5.
 
 
 
-## Analytics with Many Variables  
+## Analytics with Many Variables  {#S:ManyVarAnalytics}
 
 Just as with single variables in Section \@ref(S:SingleVarAnalytics), with many variables analysts  follow the same structure of identifying variables, exploring data, constructing and selecting models. However, the potential applications becomes much richer when considering many variables. With many potential applications, it is natural that techniques for data analysis have developed in different but overlapping fields; these fields include statistics, machine learning, pattern recognition, and data mining. 
 
@@ -336,49 +427,19 @@ In terms of predictive accuracy, decision trees generally do not perform to the 
 ```
 
 
-## Data Analysis Process {#S:process}
-
->**If this section stays, we can improve it.**  – not just give old processes. For example, including data-splitting step…
-
->Emphasize “common methods” objectives and tie to the rest of the book. These objectives include the basic concepts of distributions (Ch2, 3), EDA/summary/visualization (a bit in Ch4), statistical inference including estimation (a bit in Ch4), model selection (a bit in Ch4, 13), simulation (Ch6), bootstrap (Ch6), Bayesian methods (a bit in Ch4, 9), and data preprocessing.
-
-
-Data analysis is part of an overall study. For example, Figure \@ref(fig:studyNew) shows the process of a typical study in behavioral and social sciences as described in @albers2017. Data analysis consists of the following steps:
-
-*  **Exploratory analysis.** Through summary statistics and graphical representations, understand all relevant data characteristics and determine what type of analysis for the data makes sense.
-*  **Statistical analysis.** Performs statistical analysis such as determining statistical significance and effect size. 
-*  **Make sense of the results.** Interprets the statistical results in the context of the overall study.
-*  **Determine implications.** Interprets the data by connecting it to the study goals and the larger field of this study.
-
-The goal of the data analysis as described above focuses on explaining some phenomenon (See Section \@ref(S:expred)).
-
-(ref:studyNew) **The Process of a Typical Study in Behavioral and Social Sciences**
-
-```{r studyNew, echo=FALSE, fig.cap='(ref:studyNew)', out.width='80%', fig.align='center'}
-knitr::include_graphics("Figures/Figure1.png")
-```
-
-@shmueli2010model described a general process for statistical modeling, which is shown in Figure \@ref(fig:modelingNew). Depending on the goal of the analysis, the steps differ in terms of the choice of methods, criteria, data, and information.
-
-(ref:modelingNew) **The Process of Statistical Modeling**
-
-```{r, modelingNew, echo=FALSE, fig.cap='(ref:modelingNew)', out.width='80%', fig.align='center'}
-knitr::include_graphics("Figures/Figure2.png")
-```
-
 
 ## Data {#S:DataLearn}
 
 Data constitute the backbone of "data analytics." Without data containing useful information, no level of sophisticated analytic techniques can provide useful guidance for making good decisions.
 
-The prior sections of this chapter provide the foundations of data considerations needed for the rest of this book. However, readers who wish to specialize in data analytics, the following subsections provide a useful starting point.
+The prior sections of this chapter provide the foundations of data considerations needed for the rest of this book. However, readers who wish to specialize in data analytics, the following subsections provide a useful starting point for further study.
 
 
 ### Data Types
 
-In terms of how data are collected, data can be divided into two types [@hox2005data]: primary data and secondary data. Primary data are original data that are collected for a specific research problem. Secondary data are data originally collected for a different purpose and reused for another research problem. A major advantage of using primary data is that the theoretical constructs, the research design, and the data collection strategy can be tailored to the underlying research question to ensure that data collected help to solve the problem. A disadvantage of using primary data is that data collection can be costly and time consuming. Using secondary data has the advantage of lower cost and faster access to relevant information. However, using secondary data may not be optimal for the research question under consideration.   
+In terms of how data are collected, data can be divided into two types [@hox2005data]: primary and secondary data. Primary data are the original data that are collected for a specific research problem. Secondary data are data originally collected for a different purpose and reused for another research problem. A major advantage of using primary data is that the theoretical constructs, the research design, and the data collection strategy can be tailored to the underlying research question to ensure that data collected help to solve the problem. A disadvantage of using primary data is that data collection can be costly and time consuming. Using secondary data has the advantage of lower cost and faster access to relevant information. However, using secondary data may not be optimal for the research question under consideration.   
 
-In terms of the degree of organization of the data, data can be also divided into two types [@inmon2014;@leary2013bigdata;@hashem2015bigdata;@abdullah2013data;@pries2015]: structured data and unstructured data. `r Gloss('Structured data')` have a predictable and regularly occurring format. In contrast, `r Gloss('unstructured data')` lack any regularly occurring format and have no structure that is recognizable to a computer. Structured data consist of records, attributes, keys, and indices and are typically managed by a database management system (DBMS) such as IBM DB2, Oracle, MySQL, and Microsoft SQL Server. As a result, most units of structured data can be located quickly and easily. Unstructured data have many different forms and variations. One common form of unstructured data is text. Accessing unstructured data can be awkward. To find a given unit of data in a long text, for example, a sequential search is usually performed. 
+In terms of the degree of organization, data can be also divided into two types [@inmon2014;@leary2013bigdata;@hashem2015bigdata;@abdullah2013data;@pries2015]: structured data and unstructured data. `r Gloss('Structured data')` have a predictable and regularly occurring format. In contrast, `r Gloss('unstructured data')` lack any regularly occurring format and have no structure that is recognizable to a computer. Structured data consist of records, attributes, keys, and indices and are typically managed by a database management system such as IBM DB2, Oracle, MySQL, and Microsoft SQL Server. As a result, most units of structured data can be located quickly and easily. Unstructured data have many different forms and variations. One common form of unstructured data is text. Accessing unstructured data can be awkward. To find a given unit of data in a long text, for example, a sequential search is usually performed. 
 
 
 
@@ -498,9 +559,9 @@ In this chapter, we give a high-level overview of data analysis by introducing d
 
 #### Contributors {-}
 
-- **Guojun Gan**, University of Connecticut, is the principal author of the initial version of this chapter. 
-- Chapter reviewers include: Runhuan Feng, Himchan Jeong, Lei Hua, Min Ji, and Toby White.
-- **Hirokazu (Iwahiro) Iwasawa** and  **Edward (Jed) Frees**, University of Wisconsin-Madison and Australian National University, are the authors of the second edition of this chapter.  Email: iwahiro@bb.mbn.or.jp and/or jfrees@bus.wisc.edu for chapter comments and suggested improvements.
+-  **Guojun Gan**, University of Connecticut, was the principal author of the initial version of this chapter. 
+   - Chapter reviewers include: Runhuan Feng, Himchan Jeong, Lei Hua, Min Ji, and Toby White.
+-  **Hirokazu (Iwahiro) Iwasawa** and  **Edward (Jed) Frees**, University of Wisconsin-Madison and Australian National University, are the authors of the second edition of this chapter.  Email: iwahiro@bb.mbn.or.jp and/or jfrees@bus.wisc.edu for chapter comments and suggested improvements.
 
 
 ### Technical Supplement: Multivariate Exploratory Analysis {#S:MultiEDA}
