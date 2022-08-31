@@ -819,11 +819,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.4" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html#S:Symbols"><i class="fa fa-check"></i><b>20.4</b> Common Mathematical Symbols and Functions</a></li>
 <li class="chapter" data-level="20.5" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html#further-readings"><i class="fa fa-check"></i><b>20.5</b> Further Readings</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="appendix-data-resources.html"><a href="appendix-data-resources.html"><i class="fa fa-check"></i><b>21</b> Appendix. Data Resources</a><ul>
-<li class="chapter" data-level="21.1" data-path="appendix-data-resources.html"><a href="appendix-data-resources.html#data-used-in-this-book"><i class="fa fa-check"></i><b>21.1</b> Data Used in this Book</a><ul>
-<li class="chapter" data-level="21.1.1" data-path="appendix-data-resources.html"><a href="appendix-data-resources.html#S:WiscPropFundA"><i class="fa fa-check"></i><b>21.1.1</b> Wisconsin Property Fund</a></li>
-</ul></li>
-<li class="chapter" data-level="21.2" data-path="appendix-data-resources.html"><a href="appendix-data-resources.html#other-data-sources"><i class="fa fa-check"></i><b>21.2</b> Other Data Sources</a></li>
+<li class="chapter" data-level="21" data-path="DataResources.html"><a href="DataResources.html"><i class="fa fa-check"></i><b>21</b> Appendix. Data Resources</a><ul>
+<li class="chapter" data-level="21.1" data-path="DataResources.html"><a href="DataResources.html#S:WiscPropFundA"><i class="fa fa-check"></i><b>21.1</b> Wisconsin Property Fund</a></li>
+<li class="chapter" data-level="21.2" data-path="DataResources.html"><a href="DataResources.html#Sec:DataTravel"><i class="fa fa-check"></i><b>21.2</b> ANU Corporate Travel Data</a></li>
+<li class="chapter" data-level="21.3" data-path="DataResources.html"><a href="DataResources.html#Sec:DataGPA"><i class="fa fa-check"></i><b>21.3</b> ANU Group Personal Accident Data</a></li>
+<li class="chapter" data-level="21.4" data-path="DataResources.html"><a href="DataResources.html#Sec:DataAuto"><i class="fa fa-check"></i><b>21.4</b> ANU Motor Vehicle Data</a></li>
+<li class="chapter" data-level="21.5" data-path="DataResources.html"><a href="DataResources.html#spanish-personal-insurance-data"><i class="fa fa-check"></i><b>21.5</b> Spanish Personal Insurance Data</a></li>
+<li class="chapter" data-level="21.6" data-path="DataResources.html"><a href="DataResources.html#r-package-casdatasets"><i class="fa fa-check"></i><b>21.6</b> ‘R’ Package CASdatasets</a></li>
+<li class="chapter" data-level="21.7" data-path="DataResources.html"><a href="DataResources.html#other-data-sources"><i class="fa fa-check"></i><b>21.7</b> Other Data Sources</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
@@ -931,27 +934,19 @@ The following code shows how to generate three uniform (0,1) numbers in <code>R<
 <span id="cb29-3"><a href="ChapSimulation.html#cb29-3"></a>knitr<span class="op">::</span><span class="kw">kable</span>(U, <span class="dt">digits=</span><span class="dv">5</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>, <span class="dt">col.names =</span> <span class="st">&quot;Uniform&quot;</span>)</span></code></pre></div>
 <table>
 <thead>
-<tr>
-<th style="text-align:center;">
-Uniform
-</th>
+<tr class="header">
+<th align="center">Uniform</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center;">
-0.92424
-</td>
+<tr class="odd">
+<td align="center">0.92424</td>
 </tr>
-<tr>
-<td style="text-align:center;">
-0.53718
-</td>
+<tr class="even">
+<td align="center">0.53718</td>
 </tr>
-<tr>
-<td style="text-align:center;">
-0.46920
-</td>
+<tr class="odd">
+<td align="center">0.46920</td>
 </tr>
 </tbody>
 </table>
@@ -1000,51 +995,27 @@ inverse transform, we can use the following steps:
 <h5>Three Uniform Random Variates</h5>
 <table>
 <thead>
-<tr>
-<th style="text-align:right;">
-Uniform
-</th>
-<th style="text-align:right;">
-Exponential 1
-</th>
-<th style="text-align:right;">
-Exponential 2
-</th>
+<tr class="header">
+<th align="right">Uniform</th>
+<th align="right">Exponential 1</th>
+<th align="right">Exponential 2</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0.92424
-</td>
-<td style="text-align:right;">
-25.80219
-</td>
-<td style="text-align:right;">
-3.25222
-</td>
+<tr class="odd">
+<td align="right">0.92424</td>
+<td align="right">25.80219</td>
+<td align="right">3.25222</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0.53718
-</td>
-<td style="text-align:right;">
-7.70409
-</td>
-<td style="text-align:right;">
-8.47652
-</td>
+<tr class="even">
+<td align="right">0.53718</td>
+<td align="right">7.70409</td>
+<td align="right">8.47652</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0.46920
-</td>
-<td style="text-align:right;">
-6.33362
-</td>
-<td style="text-align:right;">
-5.40176
-</td>
+<tr class="odd">
+<td align="right">0.46920</td>
+<td align="right">6.33362</td>
+<td align="right">5.40176</td>
 </tr>
 </tbody>
 </table>
@@ -1115,39 +1086,23 @@ For illustration, we generate three random numbers to get</p>
 <h4>Three Random Variates</h4>
 <table>
 <thead>
-<tr>
-<th style="text-align:right;">
-Uniform
-</th>
-<th style="text-align:right;">
-Binary X
-</th>
+<tr class="header">
+<th align="right">Uniform</th>
+<th align="right">Binary X</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0.92424
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="right">0.92424</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0.53718
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="even">
+<td align="right">0.53718</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0.46920
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="odd">
+<td align="right">0.46920</td>
+<td align="right">0</td>
 </tr>
 </tbody>
 </table>
@@ -1157,82 +1112,30 @@ given as:</p>
 <div id="discrete-distribution" class="section level5 unnumbered">
 <h5>Discrete Distribution</h5>
 <table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-</th>
-<th style="text-align:right;">
-</th>
-<th style="text-align:right;">
-</th>
-<th style="text-align:right;">
-</th>
-<th style="text-align:right;">
-</th>
-</tr>
-</thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Time
-</td>
-<td style="text-align:right;">
-1.0
-</td>
-<td style="text-align:right;">
-2.0
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-4.0
-</td>
-<td style="text-align:right;">
-5.0
-</td>
+<tr class="odd">
+<td align="left">Time</td>
+<td align="right">1.0</td>
+<td align="right">2.0</td>
+<td align="right">3.0</td>
+<td align="right">4.0</td>
+<td align="right">5.0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Probability
-</td>
-<td style="text-align:right;">
-0.1
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:right;">
-0.1
-</td>
-<td style="text-align:right;">
-0.4
-</td>
-<td style="text-align:right;">
-0.2
-</td>
+<tr class="even">
+<td align="left">Probability</td>
+<td align="right">0.1</td>
+<td align="right">0.2</td>
+<td align="right">0.1</td>
+<td align="right">0.4</td>
+<td align="right">0.2</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Distribution Function
-</td>
-<td style="text-align:right;">
-0.1
-</td>
-<td style="text-align:right;">
-0.3
-</td>
-<td style="text-align:right;">
-0.4
-</td>
-<td style="text-align:right;">
-0.8
-</td>
-<td style="text-align:right;">
-1.0
-</td>
+<tr class="odd">
+<td align="left">Distribution Function</td>
+<td align="right">0.1</td>
+<td align="right">0.3</td>
+<td align="right">0.4</td>
+<td align="right">0.8</td>
+<td align="right">1.0</td>
 </tr>
 </tbody>
 </table>
