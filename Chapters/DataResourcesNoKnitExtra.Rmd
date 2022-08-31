@@ -59,10 +59,11 @@ rownames(text_tbl) <- NULL
 ```{r echo = FALSE}
 library(knitr)
 #library(kableExtra)
-knitr::kable(text_tbl, caption = "**Variables in the Wisconsin Property Fund Dataset**", booktabs = T) %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "3.5cm") %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
+knitr::kable(text_tbl, caption = "**Variables in the Wisconsin Property Fund Dataset**", booktabs = T) 
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::column_spec(1,  width = "3.5cm") %>%
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 ```
 
 
@@ -71,14 +72,16 @@ printnum = 5 # Number to print in tables
 
 #Wisc_Fund <- read.csv("../Data/WiscPropFund.csv")
 Wisc_Fund <- read.csv("Data/WiscPropFund.csv")
-knitr::kable(head(Wisc_Fund, n=printnum), align = "cccccccc", caption = "**Wisconsin Property Fund First Five Rows**") %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
+knitr::kable(head(Wisc_Fund, n=printnum), align = "cccccccc", caption = "**Wisconsin Property Fund First Five Rows**") 
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
 tmp_tail_data <- tail(Wisc_Fund, n=printnum)
 rownames(tmp_tail_data) <- NULL
-knitr::kable(tmp_tail_data, align = "cccccccc", caption = "**Wisconsin Property Fund Last Five Rows**") %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
+knitr::kable(tmp_tail_data, align = "cccccccc", caption = "**Wisconsin Property Fund Last Five Rows**") 
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
 ```
 
 
@@ -119,10 +122,11 @@ rownames(text_tbl) <- NULL
 ```{r DescribeTravel, echo = FALSE}
 library(knitr)
 #library(kableExtra)
-knitr::kable(text_tbl, caption = "**Variables in the Corporate Travel Dataset**", booktabs = T) %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "3.5cm") %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
+knitr::kable(text_tbl, caption = "**Variables in the Corporate Travel Dataset**", booktabs = T) 
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::column_spec(1,  width = "3.5cm") %>%
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 
 ```
 
@@ -131,14 +135,16 @@ knitr::kable(text_tbl, caption = "**Variables in the Corporate Travel Dataset**"
 printnum = 5 # Number to print in tables
 
 PrintData <- TravelClaims
-knitr::kable(head(PrintData, n=printnum), align = "cccccccc", caption = "**Corporate Travel Data First Five Rows**")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 11)
+knitr::kable(head(PrintData, n=printnum), align = "cccccccc", caption = "**Corporate Travel Data First Five Rows**")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 11)
 PrintData_tail <- tail(PrintData, n=printnum)
 rownames(PrintData_tail) <- NULL
-knitr::kable(PrintData_tail, align = "cccccccc", caption = "**Corporate Travel Data Last Five Rows**")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 11)
+knitr::kable(PrintData_tail, align = "cccccccc", caption = "**Corporate Travel Data Last Five Rows**")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 11)
 ```
 
 
@@ -183,10 +189,11 @@ rownames(text_tbl) <- NULL
 ```{r DescribeGPA, echo = FALSE}
 library(knitr)
 #library(kableExtra)
-knitr::kable(text_tbl, caption = "**Variables in the Group Personal Accident Dataset**", booktabs = T) %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "3.5cm") %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
+knitr::kable(text_tbl, caption = "**Variables in the Group Personal Accident Dataset**", booktabs = T) 
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::column_spec(1,  width = "3.5cm") %>%
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 
 ```
 
@@ -195,14 +202,16 @@ knitr::kable(text_tbl, caption = "**Variables in the Group Personal Accident Dat
 printnum = 5 # Number to print in tables
 
 PrintData <- GPAClaims
-knitr::kable(head(PrintData, n=printnum), align = "cccccccc", caption = "**Group Personal Accident  Data First Five Rows**")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 11)
+knitr::kable(head(PrintData, n=printnum), align = "cccccccc", caption = "**Group Personal Accident  Data First Five Rows**")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 11)
 PrintData_tail <- tail(PrintData, n=printnum)
 rownames(PrintData_tail) <- NULL
-knitr::kable(PrintData_tail, align = "cccccccc", caption = "**Group Personal Accident Data Last Five Rows**")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 11)
+knitr::kable(PrintData_tail, align = "cccccccc", caption = "**Group Personal Accident Data Last Five Rows**")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 11)
 ```
 
 <br>
@@ -254,10 +263,11 @@ rownames(text_tbl) <- NULL
 ```{r DescribeAuto, echo = FALSE}
 library(knitr)
 #library(kableExtra)
-knitr::kable(text_tbl, caption = "**Variables in the Motor Vehicle Dataset**", booktabs = T) %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "4.5cm") %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
+knitr::kable(text_tbl, caption = "**Variables in the Motor Vehicle Dataset**", booktabs = T) 
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::column_spec(1,  width = "4.5cm") %>%
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 
 ```
 
@@ -267,22 +277,26 @@ printnum = 5 # Number to print in tables
 
 PrintData <- AutoClaims
 PrintData_head <- head(PrintData, n=printnum)
-knitr::kable(PrintData_head[,1:7], align = "cccccccc", caption = "**Motor Vehicle  Data First Five Rows**")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
-knitr::kable(PrintData_head[,8:13], align = "cccccccc")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
+knitr::kable(PrintData_head[,1:7], align = "cccccccc", caption = "**Motor Vehicle  Data First Five Rows**")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
+knitr::kable(PrintData_head[,8:13], align = "cccccccc")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
 
 
 PrintData_tail <- tail(PrintData, n=printnum)
 rownames(PrintData_tail) <- NULL
-knitr::kable(PrintData_tail[,1:7], align = "cccccccc", caption = "**Motor Vehicle Data Last Five Rows**")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
-knitr::kable(PrintData_tail[,8:13], align = "cccccccc")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
+knitr::kable(PrintData_tail[,1:7], align = "cccccccc", caption = "**Motor Vehicle Data Last Five Rows**")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
+knitr::kable(PrintData_tail[,8:13], align = "cccccccc")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
 ```
 
 <br>
@@ -337,10 +351,11 @@ colnames(text_tbl) <- c("Variable", "Description")
 ```
 
 ```{r DescribeCover, echo = FALSE}
-knitr::kable(text_tbl, caption = "Variable and Description of Spanish Personal Insurance Data", booktabs = T) %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "2.5cm") %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
+knitr::kable(text_tbl, caption = "Variable and Description of Spanish Personal Insurance Data", booktabs = T) 
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::column_spec(1,  width = "2.5cm") %>%
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 
 ```
 
@@ -355,21 +370,25 @@ PersonalInsData <- read.csv("Data/SpanishPersonalIns.csv",header=T)
 PrintData <- PersonalInsData
 PrintData_head <- head(PrintData, n=printnum)
 knitr::kable(PrintData_head[,1:10], align = "cccccccc", 
-    caption = "**Spanish Personal Insurance  Data First Five Rows**")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 9)
-knitr::kable(PrintData_head[,11:21], align = "cccccccc")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 9)
+    caption = "**Spanish Personal Insurance  Data First Five Rows**") 
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 9)
+knitr::kable(PrintData_head[,11:21], align = "cccccccc")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 9)
 PrintData_tail <- tail(PrintData, n=printnum)
 rownames(PrintData_tail) <- NULL
 knitr::kable(PrintData_tail[,1:10], align = "cccccccc", 
-    caption = "**Spanish Personal Insurance Data Last Five Rows**")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 9)
-knitr::kable(PrintData_tail[,11:21], align = "cccccccc")  %>%
-  kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 9)
+    caption = "**Spanish Personal Insurance Data Last Five Rows**")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 9)
+knitr::kable(PrintData_tail[,11:21], align = "cccccccc")  
+# %>%
+#   kableExtra::kable_classic(full_width = FALSE) %>% 
+#   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 9)
 ```
 
 

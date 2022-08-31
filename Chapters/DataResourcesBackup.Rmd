@@ -1,6 +1,7 @@
 
 #  Appendix. Data Resources {#DataResources}
 
+
 This appendix section describes the datasets used in this book and others that you may wish to explore.
 
 For each set of data, we provide download buttons so that you can easily access the data in standard .csv (comma separated value) format. This allows you replicate and experiment with the methods developed in the book as well as sharpen your understanding through exercises.
@@ -58,11 +59,12 @@ rownames(text_tbl) <- NULL
 
 ```{r echo = FALSE}
 library(knitr)
-#library(kableExtra)
+library(kableExtra)
 knitr::kable(text_tbl, caption = "**Variables in the Wisconsin Property Fund Dataset**", booktabs = T) %>%
   kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "3.5cm") %>%
+  column_spec(1,  width = "3.5cm") %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
+
 ```
 
 
@@ -80,6 +82,17 @@ knitr::kable(tmp_tail_data, align = "cccccccc", caption = "**Wisconsin Property 
   kableExtra::kable_classic(full_width = FALSE) %>% 
   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"), font_size = 10)
 ```
+
+
+
+```{r echo = FALSE, eval = FALSE}
+Summary <- summary(Wisc_Fund)[,-c(1,2,3,9,10,11)]
+Summary[is.na(Summary)] <- ""
+knitr::kable(Summary, caption="**Wisconsin Property Fund Summary Statistics**") 
+
+#  %>% kableExtra::kable_classic(html_font = "Cambria")
+```    
+
 
 
 ## ANU Corporate Travel Data {#Sec:DataTravel}
@@ -118,10 +131,10 @@ rownames(text_tbl) <- NULL
 
 ```{r DescribeTravel, echo = FALSE}
 library(knitr)
-#library(kableExtra)
+library(kableExtra)
 knitr::kable(text_tbl, caption = "**Variables in the Corporate Travel Dataset**", booktabs = T) %>%
   kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "3.5cm") %>%
+  column_spec(1,  width = "3.5cm") %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 
 ```
@@ -182,10 +195,10 @@ rownames(text_tbl) <- NULL
 
 ```{r DescribeGPA, echo = FALSE}
 library(knitr)
-#library(kableExtra)
+library(kableExtra)
 knitr::kable(text_tbl, caption = "**Variables in the Group Personal Accident Dataset**", booktabs = T) %>%
   kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "3.5cm") %>%
+  column_spec(1,  width = "3.5cm") %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 
 ```
@@ -253,10 +266,10 @@ rownames(text_tbl) <- NULL
 
 ```{r DescribeAuto, echo = FALSE}
 library(knitr)
-#library(kableExtra)
+library(kableExtra)
 knitr::kable(text_tbl, caption = "**Variables in the Motor Vehicle Dataset**", booktabs = T) %>%
   kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "4.5cm") %>%
+  column_spec(1,  width = "4.5cm") %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 
 ```
@@ -299,7 +312,7 @@ The data are available using this download button: <a href="https://raw.githubus
 The description of the data is the following: 
 
 ```{r echo = FALSE, warning = FALSE}
-#library(kableExtra)
+library(kableExtra)
 types <- c("gender", "Age_client", "year", 
            "age_of_car_M" ,"Car_power_M", "Car_2ndDriver_M", 
            "num_policiesC", "metro_code", "Policy_PaymentMethodA",  "Policy_PaymentMethodH",
@@ -339,7 +352,7 @@ colnames(text_tbl) <- c("Variable", "Description")
 ```{r DescribeCover, echo = FALSE}
 knitr::kable(text_tbl, caption = "Variable and Description of Spanish Personal Insurance Data", booktabs = T) %>%
   kableExtra::kable_classic(full_width = FALSE) %>% 
-  kableExtra::column_spec(1,  width = "2.5cm") %>%
+  column_spec(1,  width = "2.5cm") %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "condensed"))
 
 ```
