@@ -50,6 +50,10 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 <!-- Mathjax Version 2-->
 <script type='text/x-mathjax-config'>
@@ -859,7 +863,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Description</strong>: The Wisconsin Local Government Property Insurance Fund (LGPIF) is an insurance pool administered by the Wisconsin Office of the Insurance Commissioner. The LGPIF was established to provide property insurance for local government entities that include counties, cities, towns, villages, school districts, and library boards. The fund insures local government property such as government buildings, schools, libraries, and motor vehicles. It covers all property losses except those resulting from flood, earthquake, wear and tear, extremes in temperature, mold, war, nuclear reactions, and embezzlement or theft by an employee.</p>
 <p>The data are available using this download button: <a href="https://raw.githubusercontent.com/OpenActTextDev/LDA_Ed2/main/Data/WiscPropFund.csv" download>
 <button type="button"  style="background-color:#008CBA;color:white">Download the Wisconsin Property Fund Data</button></a></p>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
 <caption>
 <span id="tab:unnamed-chunk-171">Table 21.1: </span><strong>Variables in the Wisconsin Property Fund Dataset</strong>
 </caption>
@@ -875,7 +879,7 @@ Description
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 PolicyNum
 </td>
 <td style="text-align:left;">
@@ -883,7 +887,7 @@ Policy number
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Year
 </td>
 <td style="text-align:left;">
@@ -891,7 +895,7 @@ Contract year
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Premium
 </td>
 <td style="text-align:left;">
@@ -899,7 +903,7 @@ Premium
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Deduct
 </td>
 <td style="text-align:left;">
@@ -907,7 +911,7 @@ Deductible
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 BCcov
 </td>
 <td style="text-align:left;">
@@ -915,7 +919,7 @@ Coverage for building and contents
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Freq
 </td>
 <td style="text-align:left;">
@@ -923,7 +927,7 @@ Number of claims during the year (frequency)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Fire5
 </td>
 <td style="text-align:left;">
@@ -931,7 +935,7 @@ Binary variable to indicate the fire class is below 5
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 NoClaimCredit
 </td>
 <td style="text-align:left;">
@@ -939,7 +943,7 @@ Binary variable to indicate no claims in the past two years
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 EntityType
 </td>
 <td style="text-align:left;">
@@ -947,7 +951,7 @@ Categorical variable that is one of six types: 1=Village, 2=City,3=County, 4=Mis
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 AlarmCredit
 </td>
 <td style="text-align:left;">
@@ -955,7 +959,7 @@ Categorical variable that is one of four types: (0, 5, 10, or 15) for automatic 
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 BCClaim
 </td>
 <td style="text-align:left;">
@@ -964,8 +968,8 @@ Builing and contents claims
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-172">Table 21.2: </span><strong>Wisconsin Property Fund First Five Rows</strong>
 </caption>
 <thead>
@@ -1183,8 +1187,8 @@ BCClaim
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-172">Table 21.2: </span><strong>Wisconsin Property Fund Last Five Rows</strong>
 </caption>
 <thead>
@@ -1410,7 +1414,7 @@ BCClaim
 <p>Data are available using this button: <a href="https://datacommons.anu.edu.au/DataCommons/rest/records/anudc:6160/data/TravelClaims2022.csv"
 download >
 <button type="button"  style="background-color:#008CBA;color:white">Download Corporate Travel Claims Data</button></a>.</p>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
 <caption>
 <span id="tab:DescribeTravel">Table 21.3: </span><strong>Variables in the Corporate Travel Dataset</strong>
 </caption>
@@ -1426,7 +1430,7 @@ Description
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 UW Year
 </td>
 <td style="text-align:left;">
@@ -1434,7 +1438,7 @@ Underwriting Year
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Loss Date
 </td>
 <td style="text-align:left;">
@@ -1442,7 +1446,7 @@ Date that the loss occurred
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Reported Date
 </td>
 <td style="text-align:left;">
@@ -1450,7 +1454,7 @@ Date that the loss was reported
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Last Trans Date
 </td>
 <td style="text-align:left;">
@@ -1458,7 +1462,7 @@ Last date in which there was a transaction regarding the loss
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Paid Loss
 </td>
 <td style="text-align:left;">
@@ -1466,7 +1470,7 @@ Cumulative amount paid on the loss
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Outstanding Reserve
 </td>
 <td style="text-align:left;">
@@ -1474,7 +1478,7 @@ Estimate of the loss amount yet to be paid
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Incurred Loss
 </td>
 <td style="text-align:left;">
@@ -1482,7 +1486,7 @@ Sum of the amount paid and the estimate of future payments
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Status
 </td>
 <td style="text-align:left;">
@@ -1491,8 +1495,8 @@ An indicator as to whether the claim has been deemed settled (closed) or not set
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 11px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:PrintNumTravel">Table 21.4: </span><strong>Corporate Travel Data First Five Rows</strong>
 </caption>
 <thead>
@@ -1654,8 +1658,8 @@ Closed
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 11px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:PrintNumTravel">Table 21.4: </span><strong>Corporate Travel Data Last Five Rows</strong>
 </caption>
 <thead>
@@ -1826,7 +1830,7 @@ Closed
 <p>Group personal accident insurance offers financial protection in case of injury or death resulting from an incident that occurs on the job. Like workers’ compensation, group personal accident offers insurance coverage and liability insurance protection against accidental death or injury. Unlike workers’ compensation, group personal accident covers students and ANU’s voluntary workers. See <span class="citation">Frees and Butt (<a href="#ref-frees2022ANURisks" role="doc-biblioref">2022</a>)</span> for more information about this coverage.</p>
 <p>There are 148 observations in this dataset. The variable names are described in Table <a href="DataResources.html#tab:DescribeGPA">21.5</a> and the first and last five observations are in Table <a href="DataResources.html#tab:PrintNumGPA">21.6</a>.</p>
 <p>Data are available using this button: <a href="https://datacommons.anu.edu.au/DataCommons/rest/records/anudc:6164/data/GroupPersonalAccidentClaims2022.csv" download > <button type="button"  style="background-color:#008CBA;color:white">Download Group Personal Accident Claims Data</button></a>.</p>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
 <caption>
 <span id="tab:DescribeGPA">Table 21.5: </span><strong>Variables in the Group Personal Accident Dataset</strong>
 </caption>
@@ -1842,7 +1846,7 @@ Description
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 UW Year
 </td>
 <td style="text-align:left;">
@@ -1850,7 +1854,7 @@ Underwriting Year
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Loss Date
 </td>
 <td style="text-align:left;">
@@ -1858,7 +1862,7 @@ Date that the loss occurred
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Last Trans Date
 </td>
 <td style="text-align:left;">
@@ -1866,7 +1870,7 @@ Last date in which there was a transaction regarding the loss.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Paid Loss
 </td>
 <td style="text-align:left;">
@@ -1874,7 +1878,7 @@ Cumulative amount paid on the loss
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Outstanding Reserve
 </td>
 <td style="text-align:left;">
@@ -1882,7 +1886,7 @@ Estimate of the loss amount yet to be paid
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Incurred Loss
 </td>
 <td style="text-align:left;">
@@ -1890,7 +1894,7 @@ Sum of the amount paid and the estimate of future payments
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 3.5cm; ">
 Status
 </td>
 <td style="text-align:left;">
@@ -1899,8 +1903,8 @@ An indicator as to whether the claim has been deemed settled (closed) or not set
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 11px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:PrintNumGPA">Table 21.6: </span><strong>Group Personal Accident Data First Five Rows</strong>
 </caption>
 <thead>
@@ -2044,8 +2048,8 @@ Open
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 11px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:PrintNumGPA">Table 21.6: </span><strong>Group Personal Accident Data Last Five Rows</strong>
 </caption>
 <thead>
@@ -2200,7 +2204,7 @@ Closed
 <p>Data are available using this button: <a href="https://datacommons.anu.edu.au/DataCommons/rest/records/anudc:6165/data/MotorClaims2022.csv"
 download >
 <button type="button"  style="background-color:#008CBA;color:white">Download Motor Vehicle Claims Data</button></a>.</p>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
 <caption>
 <span id="tab:DescribeAuto">Table 21.7: </span><strong>Variables in the Motor Vehicle Dataset</strong>
 </caption>
@@ -2216,7 +2220,7 @@ Description
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Policy Term Start Date
 </td>
 <td style="text-align:left;">
@@ -2224,7 +2228,7 @@ Start date of the contract year in which the loss occurred
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Loss Date
 </td>
 <td style="text-align:left;">
@@ -2232,7 +2236,7 @@ Date that the loss occurred
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Reported Date
 </td>
 <td style="text-align:left;">
@@ -2240,7 +2244,7 @@ Date that the loss was reported
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Motor Fault
 </td>
 <td style="text-align:left;">
@@ -2248,7 +2252,7 @@ Party responsible for the loss
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Driver Age
 </td>
 <td style="text-align:left;">
@@ -2256,7 +2260,7 @@ Age of the driver
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Vehicle Description
 </td>
 <td style="text-align:left;">
@@ -2264,7 +2268,7 @@ Type of vehicle
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Loss Postcode
 </td>
 <td style="text-align:left;">
@@ -2272,7 +2276,7 @@ Postal code where the loss occurred
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Excess
 </td>
 <td style="text-align:left;">
@@ -2280,7 +2284,7 @@ The deductible applied to the loss
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Motor Net Paid
 </td>
 <td style="text-align:left;">
@@ -2288,7 +2292,7 @@ Amount paid to the insured (ANU)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Outstanding Estimate
 </td>
 <td style="text-align:left;">
@@ -2296,7 +2300,7 @@ Estimate of the loss amount yet to be paid
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Motor Net Incurred
 </td>
 <td style="text-align:left;">
@@ -2304,7 +2308,7 @@ Sum of the amount paid and the estimate of future payments
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Third Party Identified
 </td>
 <td style="text-align:left;">
@@ -2312,7 +2316,7 @@ Indicates whether a responsible third party could be identified
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 4.5cm; ">
 Third Party Insured
 </td>
 <td style="text-align:left;">
@@ -2321,8 +2325,8 @@ Indicates whether a responsible third party was insured
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:PrintNumAuto">Table 21.8: </span><strong>Motor Vehicle Data First Five Rows</strong>
 </caption>
 <thead>
@@ -2468,7 +2472,7 @@ SUBARU FORESTER
 </tr>
 </tbody>
 </table>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; margin-left: auto; margin-right: auto;'>
 <thead>
 <tr>
 <th style="text-align:center;">
@@ -2588,8 +2592,8 @@ INSURED
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:PrintNumAuto">Table 21.8: </span><strong>Motor Vehicle Data Last Five Rows</strong>
 </caption>
 <thead>
@@ -2735,7 +2739,7 @@ TOYOTA HILUX
 </tr>
 </tbody>
 </table>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 10px; margin-left: auto; margin-right: auto;'>
 <thead>
 <tr>
 <th style="text-align:center;">
@@ -2860,7 +2864,7 @@ Third.Party.Insured
 <p>The data are available using this download button: <a href="https://raw.githubusercontent.com/OpenActTextDev/LDA_Ed2/main/Data/SpanishPersonalIns.csv" download>
 <button type="button"  style="background-color:#008CBA;color:white">Download the Spanish Personal Insurance Data</button></a></p>
 <p>The description of the data is the following:</p>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
 <caption>
 <span id="tab:DescribeCover">Table 21.9: </span>Variable and Description of Spanish Personal Insurance Data
 </caption>
@@ -2876,7 +2880,7 @@ Description
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 gender
 </td>
 <td style="text-align:left;">
@@ -2884,7 +2888,7 @@ gender
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Age_client
 </td>
 <td style="text-align:left;">
@@ -2892,7 +2896,7 @@ the age of the customer in years
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 year
 </td>
 <td style="text-align:left;">
@@ -2900,7 +2904,7 @@ Policy year. Equals 5 corresponding to 2014.
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 age_of_car_M
 </td>
 <td style="text-align:left;">
@@ -2908,7 +2912,7 @@ the number of years since the vehicle was bought by the customer
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Car_power_M
 </td>
 <td style="text-align:left;">
@@ -2916,7 +2920,7 @@ the power of the vehicle
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Car_2ndDriver_M
 </td>
 <td style="text-align:left;">
@@ -2924,7 +2928,7 @@ Car_2ndDriver_M
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 num_policiesC
 </td>
 <td style="text-align:left;">
@@ -2932,7 +2936,7 @@ the total number of policies held by the same customer in the insurance company
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 metro_code
 </td>
 <td style="text-align:left;">
@@ -2940,7 +2944,7 @@ metro_code
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Policy_PaymentMethodA
 </td>
 <td style="text-align:left;">
@@ -2948,7 +2952,7 @@ Policy_PaymentMethodA
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Policy_PaymentMethodH
 </td>
 <td style="text-align:left;">
@@ -2956,7 +2960,7 @@ Policy_PaymentMethodH
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Insuredcapital_content_re
 </td>
 <td style="text-align:left;">
@@ -2964,7 +2968,7 @@ the value of content in homeowners insurance
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Insuredcapital_continent_re
 </td>
 <td style="text-align:left;">
@@ -2972,7 +2976,7 @@ the value of building in homeowners insurance
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 appartment
 </td>
 <td style="text-align:left;">
@@ -2980,7 +2984,7 @@ appartment
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Client_Seniority
 </td>
 <td style="text-align:left;">
@@ -2988,7 +2992,7 @@ the number of years that the customer has been in the company
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Retention
 </td>
 <td style="text-align:left;">
@@ -2996,7 +3000,7 @@ Retention
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 NClaims1
 </td>
 <td style="text-align:left;">
@@ -3004,7 +3008,7 @@ the number of claims in the motor insurance policy for the corresponding year
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 NClaims2
 </td>
 <td style="text-align:left;">
@@ -3012,7 +3016,7 @@ the number of claims in the homeowners insurance policy for the corresponding ye
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Claims1
 </td>
 <td style="text-align:left;">
@@ -3020,7 +3024,7 @@ the sum of claims cost in the motor insurance policy for the corresponding year
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Claims2
 </td>
 <td style="text-align:left;">
@@ -3028,7 +3032,7 @@ the sum of claims cost in the homeowners insurance policy for the corresponding 
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 Types
 </td>
 <td style="text-align:left;">
@@ -3036,7 +3040,7 @@ Types
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;width: 2.5cm; ">
 PolID
 </td>
 <td style="text-align:left;">
@@ -3046,8 +3050,8 @@ Policy Identification Number
 </tbody>
 </table>
 <p>All monetary units are expressed in Euros. In motor insurance, only claims at fault are considered.</p>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 9px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:PrintNumPersonalIns">Table 21.10: </span><strong>Spanish Personal Insurance Data First Five Rows</strong>
 </caption>
 <thead>
@@ -3247,7 +3251,7 @@ Policy_PaymentMethodH
 </tr>
 </tbody>
 </table>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 9px; margin-left: auto; margin-right: auto;'>
 <thead>
 <tr>
 <th style="text-align:center;">
@@ -3463,8 +3467,8 @@ PolID
 </tr>
 </tbody>
 </table>
-<table>
-<caption>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 9px; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
 <span id="tab:PrintNumPersonalIns">Table 21.10: </span><strong>Spanish Personal Insurance Data Last Five Rows</strong>
 </caption>
 <thead>
@@ -3664,7 +3668,7 @@ Policy_PaymentMethodH
 </tr>
 </tbody>
 </table>
-<table>
+<table class=" lightable-classic table table-striped table-condensed" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 9px; margin-left: auto; margin-right: auto;'>
 <thead>
 <tr>
 <th style="text-align:center;">
