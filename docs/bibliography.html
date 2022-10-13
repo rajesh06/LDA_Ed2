@@ -50,6 +50,10 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 <!-- Mathjax Version 2-->
 <script type='text/x-mathjax-config'>
@@ -414,7 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="ChapIntro.html"><a href="ChapIntro.html#Intro-further-reading-and-resources"><i class="fa fa-check"></i><b>1.4</b> Further Resources and Contributors</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data Analytics</a><ul>
-<li class="chapter" data-level="2.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#elements-of-data-analytics"><i class="fa fa-check"></i><b>2.1</b> Elements of Data Analytics</a><ul>
+<li class="chapter" data-level="2.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:Elements"><i class="fa fa-check"></i><b>2.1</b> Elements of Data Analytics</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#key-data-analytic-concepts"><i class="fa fa-check"></i><b>2.1.1</b> Key Data Analytic Concepts</a></li>
 <li class="chapter" data-level="2.1.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataAlgorithm"><i class="fa fa-check"></i><b>2.1.2</b> Data versus Algorithmic Modeling</a></li>
 </ul></li>
@@ -426,22 +430,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-selection"><i class="fa fa-check"></i><b>2.3.4</b> Model Selection</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:ManyVarAnalytics"><i class="fa fa-check"></i><b>2.4</b> Analytics with Many Variables</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#types-of-tasks"><i class="fa fa-check"></i><b>2.4.1</b> Types of Tasks</a></li>
-<li class="chapter" data-level="2.4.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction-1"><i class="fa fa-check"></i><b>2.4.2</b> Model Construction</a></li>
+<li class="chapter" data-level="2.4.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#supervised-and-unsupervised-learning"><i class="fa fa-check"></i><b>2.4.1</b> Supervised and Unsupervised Learning</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#algorithmic-modeling"><i class="fa fa-check"></i><b>2.4.2</b> Algorithmic Modeling</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-modeling"><i class="fa fa-check"></i><b>2.4.3</b> Data Modeling</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataLearn"><i class="fa fa-check"></i><b>2.5</b> Data</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-types"><i class="fa fa-check"></i><b>2.5.1</b> Data Types</a></li>
 <li class="chapter" data-level="2.5.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-structures-and-storage"><i class="fa fa-check"></i><b>2.5.2</b> Data Structures and Storage</a></li>
-<li class="chapter" data-level="2.5.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-quality"><i class="fa fa-check"></i><b>2.5.3</b> Data Quality</a></li>
-<li class="chapter" data-level="2.5.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-cleaning"><i class="fa fa-check"></i><b>2.5.4</b> Data Cleaning</a></li>
-<li class="chapter" data-level="2.5.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#Sec:BigDataAnalysis"><i class="fa fa-check"></i><b>2.5.5</b> Big Data Analysis</a></li>
-<li class="chapter" data-level="2.5.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#reproducible-analysis"><i class="fa fa-check"></i><b>2.5.6</b> Reproducible Analysis</a></li>
-<li class="chapter" data-level="2.5.7" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#ethical-issues"><i class="fa fa-check"></i><b>2.5.7</b> Ethical Issues</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-cleaning"><i class="fa fa-check"></i><b>2.5.3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#Sec:BigDataAnalysis"><i class="fa fa-check"></i><b>2.5.4</b> Big Data Analysis</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#ethical-issues"><i class="fa fa-check"></i><b>2.5.5</b> Ethical Issues</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#summary"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
-<li class="chapter" data-level="2.7" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#DS:further-reading-and-resources"><i class="fa fa-check"></i><b>2.7</b> Further Resources and Contributors</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:MultiEDA"><i class="fa fa-check"></i><b>2.7.1</b> Technical Supplement: Multivariate Exploratory Analysis</a></li>
-<li class="chapter" data-level="2.7.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-some-r-functions"><i class="fa fa-check"></i><b>2.7.2</b> Technical Supplement: Some R Functions</a></li>
+<li class="chapter" data-level="2.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#DS:further-reading-and-resources"><i class="fa fa-check"></i><b>2.6</b> Further Resources and Contributors</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:MultiEDA"><i class="fa fa-check"></i><b>2.6.1</b> Technical Supplement: Multivariate Exploratory Analysis</a></li>
+<li class="chapter" data-level="2.6.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#tree-based-models"><i class="fa fa-check"></i><b>2.6.2</b> Tree-based Models</a></li>
+<li class="chapter" data-level="2.6.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-some-r-functions"><i class="fa fa-check"></i><b>2.6.3</b> Technical Supplement: Some R Functions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html"><i class="fa fa-check"></i><b>3</b> Frequency Modeling</a><ul>
@@ -989,13 +992,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Frank, Maurice J. 1979. “On the Simultaneous Associativity of F(x, Y) and X+y-F(x, Y).” <em>Aequationes Mathematicae</em> 19 (1): 194–226.</p>
 </div>
 <div>
-<p>Frees, Edward W. 2009. <em>Regression Modeling with Actuarial and Financial Applications</em>. Cambridge University Press.</p>
+<p>Frees, Edward W. 2009. <em>Regression Modeling with Actuarial and Financial Applications</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511814372">https://doi.org/10.1017/CBO9780511814372</a>.</p>
 </div>
 <div>
 <p>———. 2015. “Analytics of Insurance Markets.” <em>Annual Review of Financial Economics</em> 7: 253–77.</p>
 </div>
 <div>
-<p>Frees, Edward W. 2014. “Frequency and Severity Models.” In <em>Predictive Modeling Applications in Actuarial Science</em>, edited by Edward W. Frees, Glenn Meyers, and Richard Derrig, 1:138–64. Cambridge University Press Cambridge.</p>
+<p>Frees, Edward W. 2014. “Frequency and Severity Models.” In <em>Predictive Modeling Applications in Actuarial Science</em>, edited by Edward W. Frees, Glenn Meyers, and Richard Derrig, 1:138–64. Cambridge University Press Cambridge. <a href="https://doi.org/10.1017/CBO9781139342674">https://doi.org/10.1017/CBO9781139342674</a>.</p>
 </div>
 <div>
 <p>Frees, Edward W, Catalina Bolancé, Montserrat Guillen, and Emiliano A Valdez. 2021. “Dependence Modeling of Multivariate Longitudinal Hybrid Insurance Data with Dropout.” <em>Expert Systems with Applications</em> 185: 115552.</p>
@@ -1013,7 +1016,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>———. 2021. “The Discriminating (Pricing) Actuary.” <em>North American Actuarial Journal</em>, 1–23. <a href="https://www.tandfonline.com/doi/pdf/10.1080/10920277.2021.1951296">https://www.tandfonline.com/doi/pdf/10.1080/10920277.2021.1951296</a>.</p>
 </div>
 <div>
-<p>Frees, Edward W., Gee Lee, and Lu Yang. 2016a. “Multivariate Frequency-Severity Regression Models in Insurance.” <em>Risks</em> 4 (1): 4.</p>
+<p>Frees, Edward W., Gee Lee, and Lu Yang. 2016a. “Multivariate Frequency-Severity Regression Models in Insurance.” <em>Risks</em> 4 (1): 4. <a href="https://doi.org/10.3390/risks4010004">https://doi.org/10.3390/risks4010004</a>.</p>
 </div>
 <div>
 <p>———. 2016b. “Multivariate Frequency-Severity Regression Models Under Insurance.” <em>Risks</em> 4(1): 4.</p>
@@ -1085,10 +1088,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hashem, Ibrahim Abaker Targio, Ibrar Yaqoob, Nor Badrul Anuar, Salimah Mokhtar, Abdullah Gani, and Samee Ullah Khan. 2015. “The Rise of ‘Big Data’ on Cloud Computing: Review and Open Research Issues.” <em>Information Systems</em> 47: 98–115.</p>
 </div>
 <div>
-<p>Hastie, Trevor, Robert Tibshirani, Jerome H Friedman, and Jerome H Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. Vol. 2. Springer.</p>
+<p>Hastie, Trevor, Robert Tibshirani, and Jerome H Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. Vol. 2. Springer.</p>
 </div>
 <div>
 <p>Hettmansperger, T. P. 1984. <em>Statistical Inference Based on Ranks</em>. Wiley.</p>
+</div>
+<div>
+<p>Hoerl, Arthur E, and Robert W Kennard. 1970. “Ridge Regression: Biased Estimation for Nonorthogonal Problems.” <em>Technometrics</em> 12 (1): 55–67.</p>
 </div>
 <div>
 <p>Hofert, Marius, Ivan Kojadinovic, Martin Mächler, and Jun Yan. 2018. <em>Elements of Copula Modeling with R</em>. Springer.</p>
@@ -1101,9 +1107,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div>
 <p>Hox, Joop J., and Hennie R. Boeije. 2005. “Data Collection, Primary Versus Secondary.” In <em>Encyclopedia of Social Measurement</em>, 593–99. Elsevier.</p>
-</div>
-<div>
-<p>Igual, Laura, and Santi Segu. 2017. <em>Introduction to Data Science. A Python Approach to Concepts, Techniques and Applications</em>. New York, NY: Springer.</p>
 </div>
 <div>
 <p>Inmon, W. H., and Dan Linstedt. 2014. <em>Data Architecture: A Primer for the Data Scientist: Big Data, Data Warehouse and Data Vault</em>. Cambridge, MA: Morgan Kaufmann.</p>
@@ -1166,9 +1169,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Mack, Thomas, and Gary Venter. 2000. “A Comparison of Stochastic Models That Reproduce Chain Ladder Reserve Estimates.” <em>Insurance: Mathematics and Economics</em> 26 (1): 101–7.</p>
 </div>
 <div>
-<p>Mailund, Thomas. 2017. <em>Beginning Data Science in R: Data Analysis, Visualization, and Modelling for the Data Scientist</em>. Apress.</p>
-</div>
-<div>
 <p>McCullagh, Peter, and John A. Nelder. 1989. <em>Generalized Linear Models, Second Edition</em>. Chapman and Hall/Crc Monographs on Statistics and Applied Probability Series. Chapman &amp; Hall, London.</p>
 </div>
 <div>
@@ -1217,9 +1217,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Olkin, Ingram, A John Petkau, and James V Zidek. 1981. “A Comparison of N Estimators for the Binomial Distribution.” <em>Journal of the American Statistical Association</em> 76 (375): 637–42.</p>
 </div>
 <div>
-<p>Olson, Jack E. 2003. <em>Data Quality: The Accuracy Dimension</em>. San Francisco, CA: Morgan Kaufmann.</p>
-</div>
-<div>
 <p>Picard, Richard R., and Kenneth N. Berk. 1990. “Data Splitting.” <em>The American Statistician</em> 44 (2): 140–47.</p>
 </div>
 <div>
@@ -1254,6 +1251,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div>
 <p>Spearman, C. 1904. “The Proof and Measurement of Association Between Two Things.” <em>The American Journal of Psychology</em> 15 (01): 72–101.</p>
+</div>
+<div>
+<p>Stigler, Stephen M. 1986. <em>The History of Statistics: The Measurement of Uncertainty Before 1900</em>. Harvard University Press.</p>
 </div>
 <div>
 <p>Tan, Chong It. 2016. “Optimal Design of a Bonus-Malus System: Linear Relativities Revisited.” <em>Annals of Actuarial Science</em> 10(1): 52–64.</p>

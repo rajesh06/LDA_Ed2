@@ -50,6 +50,10 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 <!-- Mathjax Version 2-->
 <script type='text/x-mathjax-config'>
@@ -414,7 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="ChapIntro.html"><a href="ChapIntro.html#Intro-further-reading-and-resources"><i class="fa fa-check"></i><b>1.4</b> Further Resources and Contributors</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data Analytics</a><ul>
-<li class="chapter" data-level="2.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#elements-of-data-analytics"><i class="fa fa-check"></i><b>2.1</b> Elements of Data Analytics</a><ul>
+<li class="chapter" data-level="2.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:Elements"><i class="fa fa-check"></i><b>2.1</b> Elements of Data Analytics</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#key-data-analytic-concepts"><i class="fa fa-check"></i><b>2.1.1</b> Key Data Analytic Concepts</a></li>
 <li class="chapter" data-level="2.1.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataAlgorithm"><i class="fa fa-check"></i><b>2.1.2</b> Data versus Algorithmic Modeling</a></li>
 </ul></li>
@@ -426,22 +430,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-selection"><i class="fa fa-check"></i><b>2.3.4</b> Model Selection</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:ManyVarAnalytics"><i class="fa fa-check"></i><b>2.4</b> Analytics with Many Variables</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#types-of-tasks"><i class="fa fa-check"></i><b>2.4.1</b> Types of Tasks</a></li>
-<li class="chapter" data-level="2.4.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction-1"><i class="fa fa-check"></i><b>2.4.2</b> Model Construction</a></li>
+<li class="chapter" data-level="2.4.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#supervised-and-unsupervised-learning"><i class="fa fa-check"></i><b>2.4.1</b> Supervised and Unsupervised Learning</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#algorithmic-modeling"><i class="fa fa-check"></i><b>2.4.2</b> Algorithmic Modeling</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-modeling"><i class="fa fa-check"></i><b>2.4.3</b> Data Modeling</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataLearn"><i class="fa fa-check"></i><b>2.5</b> Data</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-types"><i class="fa fa-check"></i><b>2.5.1</b> Data Types</a></li>
 <li class="chapter" data-level="2.5.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-structures-and-storage"><i class="fa fa-check"></i><b>2.5.2</b> Data Structures and Storage</a></li>
-<li class="chapter" data-level="2.5.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-quality"><i class="fa fa-check"></i><b>2.5.3</b> Data Quality</a></li>
-<li class="chapter" data-level="2.5.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-cleaning"><i class="fa fa-check"></i><b>2.5.4</b> Data Cleaning</a></li>
-<li class="chapter" data-level="2.5.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#Sec:BigDataAnalysis"><i class="fa fa-check"></i><b>2.5.5</b> Big Data Analysis</a></li>
-<li class="chapter" data-level="2.5.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#reproducible-analysis"><i class="fa fa-check"></i><b>2.5.6</b> Reproducible Analysis</a></li>
-<li class="chapter" data-level="2.5.7" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#ethical-issues"><i class="fa fa-check"></i><b>2.5.7</b> Ethical Issues</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-cleaning"><i class="fa fa-check"></i><b>2.5.3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="2.5.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#Sec:BigDataAnalysis"><i class="fa fa-check"></i><b>2.5.4</b> Big Data Analysis</a></li>
+<li class="chapter" data-level="2.5.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#ethical-issues"><i class="fa fa-check"></i><b>2.5.5</b> Ethical Issues</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#summary"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
-<li class="chapter" data-level="2.7" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#DS:further-reading-and-resources"><i class="fa fa-check"></i><b>2.7</b> Further Resources and Contributors</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:MultiEDA"><i class="fa fa-check"></i><b>2.7.1</b> Technical Supplement: Multivariate Exploratory Analysis</a></li>
-<li class="chapter" data-level="2.7.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-some-r-functions"><i class="fa fa-check"></i><b>2.7.2</b> Technical Supplement: Some R Functions</a></li>
+<li class="chapter" data-level="2.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#DS:further-reading-and-resources"><i class="fa fa-check"></i><b>2.6</b> Further Resources and Contributors</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:MultiEDA"><i class="fa fa-check"></i><b>2.6.1</b> Technical Supplement: Multivariate Exploratory Analysis</a></li>
+<li class="chapter" data-level="2.6.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#tree-based-models"><i class="fa fa-check"></i><b>2.6.2</b> Tree-based Models</a></li>
+<li class="chapter" data-level="2.6.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-some-r-functions"><i class="fa fa-check"></i><b>2.6.3</b> Technical Supplement: Some R Functions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html"><i class="fa fa-check"></i><b>3</b> Frequency Modeling</a><ul>
