@@ -8,7 +8,6 @@ For each set of data, we provide download buttons so that you can easily access 
 We provide the source of each dataset. We also recommend, for deeper understanding, that you occasionally refer to these original sources to further develop your appreciation of the data underpinning the analytics developed in this book.
 
 
-
 ##  Wisconsin Property Fund {#S:WiscPropFundA}
 
 
