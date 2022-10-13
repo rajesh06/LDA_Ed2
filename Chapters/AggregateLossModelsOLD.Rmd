@@ -994,7 +994,6 @@ m} x f_X (x) f_{S_N} (s-x)\right\} .
 
 ***
 
-
 **Example 6.4.1. Actuarial Exam Question.**
 The number of claims in a period $N$ has a geometric distribution with mean 4. The amount of each claim $X$ follows ${\rm Pr} (X = x) = 0.25$, for $x = 1,2,3,4$. The number of claims and the claim amount are independent. $S_N$ is the aggregate claim amount in the period. Calculate $F_{S_N}(3)$. 
 
