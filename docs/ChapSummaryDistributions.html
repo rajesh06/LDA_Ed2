@@ -6,10 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 19 Appendix D: Summary of Distributions | Loss Data Analytics</title>
   <meta name="description" content="Chapter 19 Appendix D: Summary of Distributions | Loss Data Analytics is an interactive, online, freely available text. - The online version will contain many interactive objects (quizzes, computer demonstrations, interactive graphs, video, and the like) to promote deeper learning. - A subset of the book will be available in pdf format for low-cost printing. - The online text will be available in multiple languages to promote access to a worldwide audience." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 19 Appendix D: Summary of Distributions | Loss Data Analytics" />
   <meta property="og:type" content="book" />
+  
   
   <meta property="og:description" content="Chapter 19 Appendix D: Summary of Distributions | Loss Data Analytics is an interactive, online, freely available text. - The online version will contain many interactive objects (quizzes, computer demonstrations, interactive graphs, video, and the like) to promote deeper learning. - A subset of the book will be available in pdf format for low-cost printing. - The online text will be available in multiple languages to promote access to a worldwide audience." />
   <meta name="github-repo" content="https://github.com/openacttexts/Loss-Data-Analytics" />
@@ -31,8 +32,7 @@
   
 <link rel="prev" href="CAppC.html"/>
 <link rel="next" href="ChapNotationConvention.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +48,8 @@
 
 
 
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 <!-- Mathjax Version 2-->
 <script type='text/x-mathjax-config'>
@@ -305,20 +304,19 @@ document.getElementById("defaultOpen").click();
 </script>
 
 
-
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -338,7 +336,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -371,29 +369,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -410,123 +385,102 @@ div.csl-indent {
 <li><a href="./">Loss Data Analytics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i>Contributors</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reviewers"><i class="fa fa-check"></i>Reviewers</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#reviewers"><i class="fa fa-check"></i>Reviewers</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#other-collaborators"><i class="fa fa-check"></i>Other Collaborators</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#version"><i class="fa fa-check"></i>Version</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#for-our-readers"><i class="fa fa-check"></i>For our Readers</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ChapIntro.html"><a href="ChapIntro.html"><i class="fa fa-check"></i><b>1</b> Loss Data and Insurance Activities</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="ChapIntro.html"><a href="ChapIntro.html#S:Intro"><i class="fa fa-check"></i><b>1.1</b> Data Driven Insurance Activities</a>
-<ul>
+<li class="chapter" data-level="1" data-path="ChapIntro.html"><a href="ChapIntro.html"><i class="fa fa-check"></i><b>1</b> Loss Data and Insurance Activities</a><ul>
+<li class="chapter" data-level="1.1" data-path="ChapIntro.html"><a href="ChapIntro.html#S:Intro"><i class="fa fa-check"></i><b>1.1</b> Data Driven Insurance Activities</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="ChapIntro.html"><a href="ChapIntro.html#nature-and-relevance-of-insurance"><i class="fa fa-check"></i><b>1.1.1</b> Nature and Relevance of Insurance</a></li>
 <li class="chapter" data-level="1.1.2" data-path="ChapIntro.html"><a href="ChapIntro.html#S:DataDriven"><i class="fa fa-check"></i><b>1.1.2</b> Why Data Driven?</a></li>
 <li class="chapter" data-level="1.1.3" data-path="ChapIntro.html"><a href="ChapIntro.html#S:InsProcesses"><i class="fa fa-check"></i><b>1.1.3</b> Insurance Processes</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="ChapIntro.html"><a href="ChapIntro.html#S:PredModApps"><i class="fa fa-check"></i><b>1.2</b> Insurance Company Operations</a>
-<ul>
+<li class="chapter" data-level="1.2" data-path="ChapIntro.html"><a href="ChapIntro.html#S:PredModApps"><i class="fa fa-check"></i><b>1.2</b> Insurance Company Operations</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="ChapIntro.html"><a href="ChapIntro.html#initiating-insurance"><i class="fa fa-check"></i><b>1.2.1</b> Initiating Insurance</a></li>
 <li class="chapter" data-level="1.2.2" data-path="ChapIntro.html"><a href="ChapIntro.html#renewing-insurance"><i class="fa fa-check"></i><b>1.2.2</b> Renewing Insurance</a></li>
 <li class="chapter" data-level="1.2.3" data-path="ChapIntro.html"><a href="ChapIntro.html#claims-and-product-management"><i class="fa fa-check"></i><b>1.2.3</b> Claims and Product Management</a></li>
 <li class="chapter" data-level="1.2.4" data-path="ChapIntro.html"><a href="ChapIntro.html#S:Reserving"><i class="fa fa-check"></i><b>1.2.4</b> Loss Reserving</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="ChapIntro.html"><a href="ChapIntro.html#S:LGPIF"><i class="fa fa-check"></i><b>1.3</b> Case Study: Wisconsin Property Fund</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="ChapIntro.html"><a href="ChapIntro.html#S:LGPIF"><i class="fa fa-check"></i><b>1.3</b> Case Study: Wisconsin Property Fund</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="ChapIntro.html"><a href="ChapIntro.html#S:OutComes"><i class="fa fa-check"></i><b>1.3.1</b> Fund Claims Variables: Frequency and Severity</a></li>
 <li class="chapter" data-level="1.3.2" data-path="ChapIntro.html"><a href="ChapIntro.html#S:FundVariables"><i class="fa fa-check"></i><b>1.3.2</b> Fund Rating Variables</a></li>
 <li class="chapter" data-level="1.3.3" data-path="ChapIntro.html"><a href="ChapIntro.html#fund-operations"><i class="fa fa-check"></i><b>1.3.3</b> Fund Operations</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="ChapIntro.html"><a href="ChapIntro.html#Intro-further-reading-and-resources"><i class="fa fa-check"></i><b>1.4</b> Further Resources and Contributors</a></li>
+<li class="chapter" data-level="1.4" data-path="ChapIntro.html"><a href="ChapIntro.html#exercises"><i class="fa fa-check"></i><b>1.4</b> Exercises</a></li>
+<li class="chapter" data-level="1.5" data-path="ChapIntro.html"><a href="ChapIntro.html#Intro-further-reading-and-resources"><i class="fa fa-check"></i><b>1.5</b> Further Resources and Contributors</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data Analytics</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:Elements"><i class="fa fa-check"></i><b>2.1</b> Elements of Data Analytics</a>
-<ul>
+<li class="chapter" data-level="2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data Analytics</a><ul>
+<li class="chapter" data-level="2.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:Elements"><i class="fa fa-check"></i><b>2.1</b> Elements of Data Analytics</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#key-data-analytic-concepts"><i class="fa fa-check"></i><b>2.1.1</b> Key Data Analytic Concepts</a></li>
 <li class="chapter" data-level="2.1.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataAlgorithm"><i class="fa fa-check"></i><b>2.1.2</b> Data versus Algorithmic Modeling</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:Process"><i class="fa fa-check"></i><b>2.2</b> Data Analysis Process</a></li>
-<li class="chapter" data-level="2.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:SingleVarAnalytics"><i class="fa fa-check"></i><b>2.3</b> Single Variable Analytics</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:SingleVarAnalytics"><i class="fa fa-check"></i><b>2.3</b> Single Variable Analytics</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:VarTypes"><i class="fa fa-check"></i><b>2.3.1</b> Variable Types</a></li>
 <li class="chapter" data-level="2.3.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:EDACDA"><i class="fa fa-check"></i><b>2.3.2</b> Exploratory versus Confirmatory</a></li>
 <li class="chapter" data-level="2.3.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-construction"><i class="fa fa-check"></i><b>2.3.3</b> Model Construction</a></li>
 <li class="chapter" data-level="2.3.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#model-selection"><i class="fa fa-check"></i><b>2.3.4</b> Model Selection</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:ManyVarAnalytics"><i class="fa fa-check"></i><b>2.4</b> Analytics with Many Variables</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:ManyVarAnalytics"><i class="fa fa-check"></i><b>2.4</b> Analytics with Many Variables</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#supervised-and-unsupervised-learning"><i class="fa fa-check"></i><b>2.4.1</b> Supervised and Unsupervised Learning</a></li>
 <li class="chapter" data-level="2.4.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#algorithmic-modeling"><i class="fa fa-check"></i><b>2.4.2</b> Algorithmic Modeling</a></li>
 <li class="chapter" data-level="2.4.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-modeling"><i class="fa fa-check"></i><b>2.4.3</b> Data Modeling</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataLearn"><i class="fa fa-check"></i><b>2.5</b> Data</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:DataLearn"><i class="fa fa-check"></i><b>2.5</b> Data</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-types"><i class="fa fa-check"></i><b>2.5.1</b> Data Types</a></li>
 <li class="chapter" data-level="2.5.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-structures-and-storage"><i class="fa fa-check"></i><b>2.5.2</b> Data Structures and Storage</a></li>
 <li class="chapter" data-level="2.5.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#data-cleaning"><i class="fa fa-check"></i><b>2.5.3</b> Data Cleaning</a></li>
 <li class="chapter" data-level="2.5.4" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#Sec:BigDataAnalysis"><i class="fa fa-check"></i><b>2.5.4</b> Big Data Analysis</a></li>
 <li class="chapter" data-level="2.5.5" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#ethical-issues"><i class="fa fa-check"></i><b>2.5.5</b> Ethical Issues</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#DS:further-reading-and-resources"><i class="fa fa-check"></i><b>2.6</b> Further Resources and Contributors</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#DS:further-reading-and-resources"><i class="fa fa-check"></i><b>2.6</b> Further Resources and Contributors</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#S:MultiEDA"><i class="fa fa-check"></i><b>2.6.1</b> Technical Supplement: Multivariate Exploratory Analysis</a></li>
 <li class="chapter" data-level="2.6.2" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#tree-based-models"><i class="fa fa-check"></i><b>2.6.2</b> Tree-based Models</a></li>
 <li class="chapter" data-level="2.6.3" data-path="ChapDataAnalytics.html"><a href="ChapDataAnalytics.html#technical-supplement-some-r-functions"><i class="fa fa-check"></i><b>2.6.3</b> Technical Supplement: Some R Functions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html"><i class="fa fa-check"></i><b>3</b> Frequency Modeling</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:frequency-distributions"><i class="fa fa-check"></i><b>3.1</b> Frequency Distributions</a>
-<ul>
+<li class="chapter" data-level="3" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html"><i class="fa fa-check"></i><b>3</b> Frequency Modeling</a><ul>
+<li class="chapter" data-level="3.1" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:frequency-distributions"><i class="fa fa-check"></i><b>3.1</b> Frequency Distributions</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:how-frequency-augments-severity-information"><i class="fa fa-check"></i><b>3.1.1</b> How Frequency Augments Severity Information</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:basic-frequency-distributions"><i class="fa fa-check"></i><b>3.2</b> Basic Frequency Distributions</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:basic-frequency-distributions"><i class="fa fa-check"></i><b>3.2</b> Basic Frequency Distributions</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:foundations"><i class="fa fa-check"></i><b>3.2.1</b> Foundations</a></li>
 <li class="chapter" data-level="3.2.2" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:generating-functions"><i class="fa fa-check"></i><b>3.2.2</b> Moment and Probability Generating Functions</a></li>
 <li class="chapter" data-level="3.2.3" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:important-frequency-distributions"><i class="fa fa-check"></i><b>3.2.3</b> Important Frequency Distributions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:the-a-b-0-class"><i class="fa fa-check"></i><b>3.3</b> The (<em>a</em>, <em>b</em>, 0) Class</a></li>
-<li class="chapter" data-level="3.4" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:estimating-frequency-distributions"><i class="fa fa-check"></i><b>3.4</b> Estimating Frequency Distributions</a>
-<ul>
+<li class="chapter" data-level="3.4" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:estimating-frequency-distributions"><i class="fa fa-check"></i><b>3.4</b> Estimating Frequency Distributions</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:parameter-estimation"><i class="fa fa-check"></i><b>3.4.1</b> Parameter Estimation</a></li>
 <li class="chapter" data-level="3.4.2" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:frequency-distributions-mle"><i class="fa fa-check"></i><b>3.4.2</b> Frequency Distributions MLE</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:other-frequency-distributions"><i class="fa fa-check"></i><b>3.5</b> Other Frequency Distributions</a>
-<ul>
+<li class="chapter" data-level="3.5" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:other-frequency-distributions"><i class="fa fa-check"></i><b>3.5</b> Other Frequency Distributions</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:zero-truncation-or-modification"><i class="fa fa-check"></i><b>3.5.1</b> Zero Truncation or Modification</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:mixture-distributions"><i class="fa fa-check"></i><b>3.6</b> Mixture Distributions</a></li>
 <li class="chapter" data-level="3.7" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:goodness-of-fit"><i class="fa fa-check"></i><b>3.7</b> Goodness of Fit</a></li>
 <li class="chapter" data-level="3.8" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:exercises"><i class="fa fa-check"></i><b>3.8</b> Exercises</a></li>
-<li class="chapter" data-level="3.9" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#Freq-further-reading-and-resources"><i class="fa fa-check"></i><b>3.9</b> Further Resources and Contributors</a>
-<ul>
+<li class="chapter" data-level="3.9" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#Freq-further-reading-and-resources"><i class="fa fa-check"></i><b>3.9</b> Further Resources and Contributors</a><ul>
 <li class="chapter" data-level="3.9.1" data-path="ChapFrequency-Modeling.html"><a href="ChapFrequency-Modeling.html#S:rcode"><i class="fa fa-check"></i><b>3.9.1</b> TS 3.A. R Code for Plots</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ChapSeverity.html"><a href="ChapSeverity.html"><i class="fa fa-check"></i><b>4</b> Modeling Loss Severity</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:BasicQuantities"><i class="fa fa-check"></i><b>4.1</b> Basic Distributional Quantities</a>
-<ul>
+<li class="chapter" data-level="4" data-path="ChapSeverity.html"><a href="ChapSeverity.html"><i class="fa fa-check"></i><b>4</b> Modeling Loss Severity</a><ul>
+<li class="chapter" data-level="4.1" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:BasicQuantities"><i class="fa fa-check"></i><b>4.1</b> Basic Distributional Quantities</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:Chap3Moments"><i class="fa fa-check"></i><b>4.1.1</b> Moments</a></li>
 <li class="chapter" data-level="4.1.2" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:LS:Quantiles"><i class="fa fa-check"></i><b>4.1.2</b> Quantiles</a></li>
 <li class="chapter" data-level="4.1.3" data-path="ChapSeverity.html"><a href="ChapSeverity.html#moment-generating-function"><i class="fa fa-check"></i><b>4.1.3</b> Moment Generating Function</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:ContinuousDistn"><i class="fa fa-check"></i><b>4.2</b> Continuous Distributions for Modeling Loss Severity</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:ContinuousDistn"><i class="fa fa-check"></i><b>4.2</b> Continuous Distributions for Modeling Loss Severity</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:Loss:Gamma"><i class="fa fa-check"></i><b>4.2.1</b> Gamma Distribution</a></li>
 <li class="chapter" data-level="4.2.2" data-path="ChapSeverity.html"><a href="ChapSeverity.html#pareto-distribution"><i class="fa fa-check"></i><b>4.2.2</b> Pareto Distribution</a></li>
 <li class="chapter" data-level="4.2.3" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:LS:Weibull"><i class="fa fa-check"></i><b>4.2.3</b> Weibull Distribution</a></li>
 <li class="chapter" data-level="4.2.4" data-path="ChapSeverity.html"><a href="ChapSeverity.html#the-generalized-beta-distribution-of-the-second-kind"><i class="fa fa-check"></i><b>4.2.4</b> The Generalized Beta Distribution of the Second Kind</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ChapSeverity.html"><a href="ChapSeverity.html#MethodsCreation"><i class="fa fa-check"></i><b>4.3</b> Methods of Creating New Distributions</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="ChapSeverity.html"><a href="ChapSeverity.html#MethodsCreation"><i class="fa fa-check"></i><b>4.3</b> Methods of Creating New Distributions</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="ChapSeverity.html"><a href="ChapSeverity.html#functions-of-random-variables-and-their-distributions"><i class="fa fa-check"></i><b>4.3.1</b> Functions of Random Variables and their Distributions</a></li>
 <li class="chapter" data-level="4.3.2" data-path="ChapSeverity.html"><a href="ChapSeverity.html#multiplication-by-a-constant"><i class="fa fa-check"></i><b>4.3.2</b> Multiplication by a Constant</a></li>
 <li class="chapter" data-level="4.3.3" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:LossSev:Raising"><i class="fa fa-check"></i><b>4.3.3</b> Raising to a Power</a></li>
@@ -534,192 +488,158 @@ div.csl-indent {
 <li class="chapter" data-level="4.3.5" data-path="ChapSeverity.html"><a href="ChapSeverity.html#finite-mixtures"><i class="fa fa-check"></i><b>4.3.5</b> Finite Mixtures</a></li>
 <li class="chapter" data-level="4.3.6" data-path="ChapSeverity.html"><a href="ChapSeverity.html#continuous-mixtures"><i class="fa fa-check"></i><b>4.3.6</b> Continuous Mixtures</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:CoverageModifications"><i class="fa fa-check"></i><b>4.4</b> Coverage Modifications</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:CoverageModifications"><i class="fa fa-check"></i><b>4.4</b> Coverage Modifications</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:PolicyDeduct"><i class="fa fa-check"></i><b>4.4.1</b> Policy Deductibles</a></li>
 <li class="chapter" data-level="4.4.2" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:PolicyLimits"><i class="fa fa-check"></i><b>4.4.2</b> Policy Limits</a></li>
 <li class="chapter" data-level="4.4.3" data-path="ChapSeverity.html"><a href="ChapSeverity.html#coinsurance-and-inflation"><i class="fa fa-check"></i><b>4.4.3</b> Coinsurance and Inflation</a></li>
 <li class="chapter" data-level="4.4.4" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:Chap3Reinsurance"><i class="fa fa-check"></i><b>4.4.4</b> Reinsurance</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:MaxLikeEstimation"><i class="fa fa-check"></i><b>4.5</b> Maximum Likelihood Estimation</a>
-<ul>
+<li class="chapter" data-level="4.5" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:MaxLikeEstimation"><i class="fa fa-check"></i><b>4.5</b> Maximum Likelihood Estimation</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="ChapSeverity.html"><a href="ChapSeverity.html#maximum-likelihood-estimators-for-complete-data"><i class="fa fa-check"></i><b>4.5.1</b> Maximum Likelihood Estimators for Complete Data</a></li>
 <li class="chapter" data-level="4.5.2" data-path="ChapSeverity.html"><a href="ChapSeverity.html#S:Loss:MLEModified"><i class="fa fa-check"></i><b>4.5.2</b> Maximum Likelihood Estimators using Modified Data</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="ChapSeverity.html"><a href="ChapSeverity.html#LM-further-reading-and-resources"><i class="fa fa-check"></i><b>4.6</b> Further Resources and Contributors</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html"><i class="fa fa-check"></i><b>5</b> Model Selection and Estimation</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:NonParInf"><i class="fa fa-check"></i><b>5.1</b> Nonparametric Inference</a>
-<ul>
+<li class="chapter" data-level="5" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html"><i class="fa fa-check"></i><b>5</b> Model Selection and Estimation</a><ul>
+<li class="chapter" data-level="5.1" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:NonParInf"><i class="fa fa-check"></i><b>5.1</b> Nonparametric Inference</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:NonParEst"><i class="fa fa-check"></i><b>5.1.1</b> Nonparametric Estimation</a></li>
 <li class="chapter" data-level="5.1.2" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:ToolsModelSelection"><i class="fa fa-check"></i><b>5.1.2</b> Tools for Model Selection and Diagnostics</a></li>
 <li class="chapter" data-level="5.1.3" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#starting-values"><i class="fa fa-check"></i><b>5.1.3</b> Starting Values</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:ModelSelection"><i class="fa fa-check"></i><b>5.2</b> Model Selection</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:ModelSelection"><i class="fa fa-check"></i><b>5.2</b> Model Selection</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#iterative-model-selection"><i class="fa fa-check"></i><b>5.2.1</b> Iterative Model Selection</a></li>
 <li class="chapter" data-level="5.2.2" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#model-selection-based-on-a-training-dataset"><i class="fa fa-check"></i><b>5.2.2</b> Model Selection Based on a Training Dataset</a></li>
 <li class="chapter" data-level="5.2.3" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#model-selection-based-on-a-test-dataset"><i class="fa fa-check"></i><b>5.2.3</b> Model Selection Based on a Test Dataset</a></li>
 <li class="chapter" data-level="5.2.4" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:Cross-Validation"><i class="fa fa-check"></i><b>5.2.4</b> Model Selection Based on Cross-Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:ModifiedData"><i class="fa fa-check"></i><b>5.3</b> Estimation using Modified Data</a>
-<ul>
+<li class="chapter" data-level="5.3" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:ModifiedData"><i class="fa fa-check"></i><b>5.3</b> Estimation using Modified Data</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#S:MS:ModifiedData1"><i class="fa fa-check"></i><b>5.3.1</b> Parametric Estimation using Modified Data</a></li>
 <li class="chapter" data-level="5.3.2" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#nonparametric-estimation-using-modified-data"><i class="fa fa-check"></i><b>5.3.2</b> Nonparametric Estimation using Modified Data</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="ChapModelSelection.html"><a href="ChapModelSelection.html#MS:further-reading-and-resources"><i class="fa fa-check"></i><b>5.4</b> Further Resources and Contributors</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html"><i class="fa fa-check"></i><b>6</b> Aggregate Loss Models</a>
-<ul>
+<li class="chapter" data-level="6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html"><i class="fa fa-check"></i><b>6</b> Aggregate Loss Models</a><ul>
 <li class="chapter" data-level="6.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a></li>
-<li class="chapter" data-level="6.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:CRM"><i class="fa fa-check"></i><b>6.3</b> Collective Risk Model</a>
-<ul>
+<li class="chapter" data-level="6.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:CRM"><i class="fa fa-check"></i><b>6.3</b> Collective Risk Model</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#stop-loss-insurance"><i class="fa fa-check"></i><b>6.3.2</b> Stop-loss Insurance</a></li>
 <li class="chapter" data-level="6.3.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#analytic-results"><i class="fa fa-check"></i><b>6.3.3</b> Analytic Results</a></li>
 <li class="chapter" data-level="6.3.4" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:Tweedie"><i class="fa fa-check"></i><b>6.3.4</b> Tweedie Distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#computing-the-aggregate-claims-distribution"><i class="fa fa-check"></i><b>6.4</b> Computing the Aggregate Claims Distribution</a>
-<ul>
+<li class="chapter" data-level="6.4" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#computing-the-aggregate-claims-distribution"><i class="fa fa-check"></i><b>6.4</b> Computing the Aggregate Claims Distribution</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#recursive-method"><i class="fa fa-check"></i><b>6.4.1</b> Recursive Method</a></li>
 <li class="chapter" data-level="6.4.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#simulation"><i class="fa fa-check"></i><b>6.4.2</b> Simulation</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#effects-of-coverage-modifications"><i class="fa fa-check"></i><b>6.5</b> Effects of Coverage Modifications</a>
-<ul>
+<li class="chapter" data-level="6.5" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#effects-of-coverage-modifications"><i class="fa fa-check"></i><b>6.5</b> Effects of Coverage Modifications</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#impact-of-exposure-on-frequency"><i class="fa fa-check"></i><b>6.5.1</b> Impact of Exposure on Frequency</a></li>
 <li class="chapter" data-level="6.5.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:MS:DedImpactClmFreq"><i class="fa fa-check"></i><b>6.5.2</b> Impact of Deductibles on Claim Frequency</a></li>
 <li class="chapter" data-level="6.5.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#impact-of-policy-modifications-on-aggregate-claims"><i class="fa fa-check"></i><b>6.5.3</b> Impact of Policy Modifications on Aggregate Claims</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#AL-further-reading-and-resources"><i class="fa fa-check"></i><b>6.6</b> Further Resources and Contributors</a>
-<ul>
+<li class="chapter" data-level="6.6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#AL-further-reading-and-resources"><i class="fa fa-check"></i><b>6.6</b> Further Resources and Contributors</a><ul>
 <li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 6.A.1. Individual Risk Model Properties</a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 6.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.3.-example-6.3.8-moment-generating-function-of-aggregate-loss-s_n"><i class="fa fa-check"></i>TS 6.A.3. Example 6.3.8 Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span></a></li>
+<li><a href="ChapAggLossModels.html#ts-6.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it">TS 6.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
+<li><a href="ChapAggLossModels.html#ts-6.a.3.-example-6.3.8-moment-generating-function-of-aggregate-loss-s_n">TS 6.A.3. Example 6.3.8 Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ChapSimulation.html"><a href="ChapSimulation.html"><i class="fa fa-check"></i><b>7</b> Simulation and Resampling</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:SimulationFundamentals"><i class="fa fa-check"></i><b>7.1</b> Simulation Fundamentals</a>
-<ul>
+<li class="chapter" data-level="7" data-path="ChapSimulation.html"><a href="ChapSimulation.html"><i class="fa fa-check"></i><b>7</b> Simulation and Resampling</a><ul>
+<li class="chapter" data-level="7.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:SimulationFundamentals"><i class="fa fa-check"></i><b>7.1</b> Simulation Fundamentals</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#generating-independent-uniform-observations"><i class="fa fa-check"></i><b>7.1.1</b> Generating Independent Uniform Observations</a></li>
 <li class="chapter" data-level="7.1.2" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:InverseTransform"><i class="fa fa-check"></i><b>7.1.2</b> Inverse Transform Method</a></li>
 <li class="chapter" data-level="7.1.3" data-path="ChapSimulation.html"><a href="ChapSimulation.html#simulation-precision"><i class="fa fa-check"></i><b>7.1.3</b> Simulation Precision</a></li>
 <li class="chapter" data-level="7.1.4" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:SimulationStatInference"><i class="fa fa-check"></i><b>7.1.4</b> Simulation and Statistical Inference</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:Bootstrap"><i class="fa fa-check"></i><b>7.2</b> Bootstrapping and Resampling</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:Bootstrap"><i class="fa fa-check"></i><b>7.2</b> Bootstrapping and Resampling</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#bootstrap-foundations"><i class="fa fa-check"></i><b>7.2.1</b> Bootstrap Foundations</a></li>
 <li class="chapter" data-level="7.2.2" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:Sim:Precision"><i class="fa fa-check"></i><b>7.2.2</b> Bootstrap Precision: Bias, Standard Deviation, and Mean Square Error</a></li>
 <li class="chapter" data-level="7.2.3" data-path="ChapSimulation.html"><a href="ChapSimulation.html#confidence-intervals"><i class="fa fa-check"></i><b>7.2.3</b> Confidence Intervals</a></li>
 <li class="chapter" data-level="7.2.4" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:ParametricBootStrap"><i class="fa fa-check"></i><b>7.2.4</b> Parametric Bootstrap</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:CrossValidation"><i class="fa fa-check"></i><b>7.3</b> Cross-Validation</a>
-<ul>
+<li class="chapter" data-level="7.3" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:CrossValidation"><i class="fa fa-check"></i><b>7.3</b> Cross-Validation</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#k-fold-cross-validation"><i class="fa fa-check"></i><b>7.3.1</b> k-Fold Cross-Validation</a></li>
 <li class="chapter" data-level="7.3.2" data-path="ChapSimulation.html"><a href="ChapSimulation.html#leave-one-out-cross-validation"><i class="fa fa-check"></i><b>7.3.2</b> Leave-One-Out Cross-Validation</a></li>
 <li class="chapter" data-level="7.3.3" data-path="ChapSimulation.html"><a href="ChapSimulation.html#cross-validation-and-bootstrap"><i class="fa fa-check"></i><b>7.3.3</b> Cross-Validation and Bootstrap</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="ChapSimulation.html"><a href="ChapSimulation.html#S:ImportanceSampling"><i class="fa fa-check"></i><b>7.4</b> Importance Sampling</a></li>
-<li class="chapter" data-level="7.5" data-path="ChapSimulation.html"><a href="ChapSimulation.html#Simulation:further-reading-and-resources"><i class="fa fa-check"></i><b>7.5</b> Further Resources and Contributors</a>
-<ul>
+<li class="chapter" data-level="7.5" data-path="ChapSimulation.html"><a href="ChapSimulation.html#Simulation:further-reading-and-resources"><i class="fa fa-check"></i><b>7.5</b> Further Resources and Contributors</a><ul>
 <li class="chapter" data-level="7.5.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#ts-7.a.-bootstrap-applications-in-predictive-modeling"><i class="fa fa-check"></i><b>7.5.1</b> TS 7.A. Bootstrap Applications in Predictive Modeling</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html"><i class="fa fa-check"></i><b>8</b> Bayesian Inference</a>
-<ul>
+<li class="chapter" data-level="8" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html"><i class="fa fa-check"></i><b>8</b> Bayesian Inference</a><ul>
 <li class="chapter" data-level="8.0.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:IntroBayes"><i class="fa fa-check"></i><b>8.0.1</b> Introduction to Bayesian Inference</a></li>
 <li class="chapter" data-level="8.0.2" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#bayesian-model"><i class="fa fa-check"></i><b>8.0.2</b> Bayesian Model</a></li>
 <li class="chapter" data-level="8.0.3" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#bayesian-inference"><i class="fa fa-check"></i><b>8.0.3</b> Bayesian Inference</a></li>
 <li class="chapter" data-level="8.0.4" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:ConjugateDistributions"><i class="fa fa-check"></i><b>8.0.4</b> Conjugate Distributions</a></li>
-<li class="chapter" data-level="8.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:MCMC"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Markov Chain (MCMC)</a>
-<ul>
+<li class="chapter" data-level="8.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:MCMC"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Markov Chain (MCMC)</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#metropolis-hastings"><i class="fa fa-check"></i><b>8.1.1</b> Metropolis Hastings</a></li>
 <li class="chapter" data-level="8.1.2" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#gibbs-sampler"><i class="fa fa-check"></i><b>8.1.2</b> Gibbs Sampler</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html"><i class="fa fa-check"></i><b>9</b> Premium Foundations</a>
-<ul>
+<li class="chapter" data-level="9" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html"><i class="fa fa-check"></i><b>9</b> Premium Foundations</a><ul>
 <li class="chapter" data-level="9.1" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:IntroductionRatemaking"><i class="fa fa-check"></i><b>9.1</b> Introduction to Ratemaking</a></li>
-<li class="chapter" data-level="9.2" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:AggRateMaking"><i class="fa fa-check"></i><b>9.2</b> Aggregate Ratemaking Methods</a>
-<ul>
+<li class="chapter" data-level="9.2" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:AggRateMaking"><i class="fa fa-check"></i><b>9.2</b> Aggregate Ratemaking Methods</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:PurePremium"><i class="fa fa-check"></i><b>9.2.1</b> Pure Premium Method</a></li>
 <li class="chapter" data-level="9.2.2" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:LossRatio"><i class="fa fa-check"></i><b>9.2.2</b> Loss Ratio Method</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:PricingPrinciples"><i class="fa fa-check"></i><b>9.3</b> Pricing Principles</a>
-<ul>
+<li class="chapter" data-level="9.3" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:PricingPrinciples"><i class="fa fa-check"></i><b>9.3</b> Pricing Principles</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#premium-principles"><i class="fa fa-check"></i><b>9.3.1</b> Premium Principles</a></li>
 <li class="chapter" data-level="9.3.2" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#properties-of-premium-principles"><i class="fa fa-check"></i><b>9.3.2</b> Properties of Premium Principles</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:HeterogeneousRisks"><i class="fa fa-check"></i><b>9.4</b> Heterogeneous Risks</a>
-<ul>
+<li class="chapter" data-level="9.4" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:HeterogeneousRisks"><i class="fa fa-check"></i><b>9.4</b> Heterogeneous Risks</a><ul>
 <li class="chapter" data-level="9.4.1" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:ExposureToRisk"><i class="fa fa-check"></i><b>9.4.1</b> Exposure to Risk</a></li>
 <li class="chapter" data-level="9.4.2" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:RatingFactors"><i class="fa fa-check"></i><b>9.4.2</b> Rating Factors</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:TrendDevelopment"><i class="fa fa-check"></i><b>9.5</b> Development and Trending</a>
-<ul>
+<li class="chapter" data-level="9.5" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:TrendDevelopment"><i class="fa fa-check"></i><b>9.5</b> Development and Trending</a><ul>
 <li class="chapter" data-level="9.5.1" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#exposures-and-premiums"><i class="fa fa-check"></i><b>9.5.1</b> Exposures and Premiums</a></li>
 <li class="chapter" data-level="9.5.2" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#losses-claims-and-payments"><i class="fa fa-check"></i><b>9.5.2</b> Losses, Claims, and Payments</a></li>
 <li class="chapter" data-level="9.5.3" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:CompareMethods"><i class="fa fa-check"></i><b>9.5.3</b> Comparing Pure Premium and Loss Ratio Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:GiniStatistic"><i class="fa fa-check"></i><b>9.6</b> Selecting a Premium</a>
-<ul>
+<li class="chapter" data-level="9.6" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#S:GiniStatistic"><i class="fa fa-check"></i><b>9.6</b> Selecting a Premium</a><ul>
 <li class="chapter" data-level="9.6.1" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#classic-lorenz-curve"><i class="fa fa-check"></i><b>9.6.1</b> Classic Lorenz Curve</a></li>
 <li class="chapter" data-level="9.6.2" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#performance-curve-and-a-gini-statistic"><i class="fa fa-check"></i><b>9.6.2</b> Performance Curve and a Gini Statistic</a></li>
 <li class="chapter" data-level="9.6.3" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#out-of-sample-validation"><i class="fa fa-check"></i><b>9.6.3</b> Out-of-Sample Validation</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#further-resources-and-contributors"><i class="fa fa-check"></i><b>9.7</b> Further Resources and Contributors</a>
-<ul>
+<li class="chapter" data-level="9.7" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#further-resources-and-contributors"><i class="fa fa-check"></i><b>9.7</b> Further Resources and Contributors</a><ul>
 <li class="chapter" data-level="" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html#ts-9.a.-rate-regulation"><i class="fa fa-check"></i>TS 9.A. Rate Regulation</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html"><i class="fa fa-check"></i><b>10</b> Risk Classification</a>
-<ul>
+<li class="chapter" data-level="10" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html"><i class="fa fa-check"></i><b>10</b> Risk Classification</a><ul>
 <li class="chapter" data-level="10.1" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#S:RC:Introduction"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#S:RC:PoissonRegression"><i class="fa fa-check"></i><b>10.2</b> Poisson Regression Model</a>
-<ul>
+<li class="chapter" data-level="10.2" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#S:RC:PoissonRegression"><i class="fa fa-check"></i><b>10.2</b> Poisson Regression Model</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#S:RC:Need.Poi.reg"><i class="fa fa-check"></i><b>10.2.1</b> Need for Poisson Regression</a></li>
 <li class="chapter" data-level="10.2.2" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#poisson-regression"><i class="fa fa-check"></i><b>10.2.2</b> Poisson Regression</a></li>
 <li class="chapter" data-level="10.2.3" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#incorporating-exposure"><i class="fa fa-check"></i><b>10.2.3</b> Incorporating Exposure</a></li>
-<li class="chapter" data-level="10.2.4" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#exercises-3"><i class="fa fa-check"></i><b>10.2.4</b> Exercises</a></li>
+<li class="chapter" data-level="10.2.4" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#exercises-4"><i class="fa fa-check"></i><b>10.2.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#S:CatVarMultiTarriff"><i class="fa fa-check"></i><b>10.3</b> Categorical Variables and Multiplicative Tariff</a>
-<ul>
+<li class="chapter" data-level="10.3" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#S:CatVarMultiTarriff"><i class="fa fa-check"></i><b>10.3</b> Categorical Variables and Multiplicative Tariff</a><ul>
 <li class="chapter" data-level="10.3.1" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#rating-factors-and-tariff"><i class="fa fa-check"></i><b>10.3.1</b> Rating Factors and Tariff</a></li>
 <li class="chapter" data-level="10.3.2" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#multiplicative-tariff-model"><i class="fa fa-check"></i><b>10.3.2</b> Multiplicative Tariff Model</a></li>
 <li class="chapter" data-level="10.3.3" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#poisson-regression-for-multiplicative-tariff"><i class="fa fa-check"></i><b>10.3.3</b> Poisson Regression for Multiplicative Tariff</a></li>
 <li class="chapter" data-level="10.3.4" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#numerical-examples"><i class="fa fa-check"></i><b>10.3.4</b> Numerical Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#RC:further-reading-and-resources"><i class="fa fa-check"></i><b>10.4</b> Further Resources and Contributors</a>
-<ul>
+<li class="chapter" data-level="10.4" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#RC:further-reading-and-resources"><i class="fa fa-check"></i><b>10.4</b> Further Resources and Contributors</a><ul>
 <li class="chapter" data-level="" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#ts-10.a.-estimating-poisson-regression-models"><i class="fa fa-check"></i>TS 10.A. Estimating Poisson Regression Models</a></li>
 <li class="chapter" data-level="" data-path="ChapRiskClass.html"><a href="ChapRiskClass.html#ts-10.b.-selecting-rating-factors"><i class="fa fa-check"></i>TS 10.B. Selecting Rating Factors</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="ChapCredibility.html"><a href="ChapCredibility.html"><i class="fa fa-check"></i><b>11</b> Experience Rating Using Credibility Theory</a>
-<ul>
+<li class="chapter" data-level="11" data-path="ChapCredibility.html"><a href="ChapCredibility.html"><i class="fa fa-check"></i><b>11</b> Experience Rating Using Credibility Theory</a><ul>
 <li class="chapter" data-level="11.1" data-path="ChapCredibility.html"><a href="ChapCredibility.html#introduction-to-applications-of-credibility-theory"><i class="fa fa-check"></i><b>11.1</b> Introduction to Applications of Credibility Theory</a></li>
-<li class="chapter" data-level="11.2" data-path="ChapCredibility.html"><a href="ChapCredibility.html#limited-fluctuation-credibility"><i class="fa fa-check"></i><b>11.2</b> Limited Fluctuation Credibility</a>
-<ul>
+<li class="chapter" data-level="11.2" data-path="ChapCredibility.html"><a href="ChapCredibility.html#limited-fluctuation-credibility"><i class="fa fa-check"></i><b>11.2</b> Limited Fluctuation Credibility</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="ChapCredibility.html"><a href="ChapCredibility.html#S:frequency"><i class="fa fa-check"></i><b>11.2.1</b> Full Credibility for Claim Frequency</a></li>
 <li class="chapter" data-level="11.2.2" data-path="ChapCredibility.html"><a href="ChapCredibility.html#full-credibility-for-aggregate-losses-and-pure-premium"><i class="fa fa-check"></i><b>11.2.2</b> Full Credibility for Aggregate Losses and Pure Premium</a></li>
 <li class="chapter" data-level="11.2.3" data-path="ChapCredibility.html"><a href="ChapCredibility.html#full-credibility-for-severity"><i class="fa fa-check"></i><b>11.2.3</b> Full Credibility for Severity</a></li>
 <li class="chapter" data-level="11.2.4" data-path="ChapCredibility.html"><a href="ChapCredibility.html#partial-credibility"><i class="fa fa-check"></i><b>11.2.4</b> Partial Credibility</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="ChapCredibility.html"><a href="ChapCredibility.html#S:Cred:Buhlmann"><i class="fa fa-check"></i><b>11.3</b> Bühlmann Credibility</a>
-<ul>
+<li class="chapter" data-level="11.3" data-path="ChapCredibility.html"><a href="ChapCredibility.html#S:Cred:Buhlmann"><i class="fa fa-check"></i><b>11.3</b> Bühlmann Credibility</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="ChapCredibility.html"><a href="ChapCredibility.html#S:EPV-VHM-Z"><i class="fa fa-check"></i><b>11.3.1</b> Credibility <em>Z</em>, <em>EPV</em>, and <em>VHM</em></a></li>
 </ul></li>
 <li class="chapter" data-level="11.4" data-path="ChapCredibility.html"><a href="ChapCredibility.html#bühlmann-straub-credibility"><i class="fa fa-check"></i><b>11.4</b> Bühlmann-Straub Credibility</a></li>
-<li class="chapter" data-level="11.5" data-path="ChapCredibility.html"><a href="ChapCredibility.html#S:Cred:BayesInf"><i class="fa fa-check"></i><b>11.5</b> Bayesian Inference and Bühlmann Credibility</a>
-<ul>
+<li class="chapter" data-level="11.5" data-path="ChapCredibility.html"><a href="ChapCredibility.html#S:Cred:BayesInf"><i class="fa fa-check"></i><b>11.5</b> Bayesian Inference and Bühlmann Credibility</a><ul>
 <li class="chapter" data-level="11.5.1" data-path="ChapCredibility.html"><a href="ChapCredibility.html#Sec:Cred:gammaPoisson"><i class="fa fa-check"></i><b>11.5.1</b> Gamma-Poisson Model</a></li>
 <li class="chapter" data-level="11.5.2" data-path="ChapCredibility.html"><a href="ChapCredibility.html#beta-binomial-model"><i class="fa fa-check"></i><b>11.5.2</b> Beta-Binomial Model</a></li>
 <li class="chapter" data-level="11.5.3" data-path="ChapCredibility.html"><a href="ChapCredibility.html#exact-credibility"><i class="fa fa-check"></i><b>11.5.3</b> Exact Credibility</a></li>
 </ul></li>
-<li class="chapter" data-level="11.6" data-path="ChapCredibility.html"><a href="ChapCredibility.html#estimating-credibility-parameters"><i class="fa fa-check"></i><b>11.6</b> Estimating Credibility Parameters</a>
-<ul>
+<li class="chapter" data-level="11.6" data-path="ChapCredibility.html"><a href="ChapCredibility.html#estimating-credibility-parameters"><i class="fa fa-check"></i><b>11.6</b> Estimating Credibility Parameters</a><ul>
 <li class="chapter" data-level="11.6.1" data-path="ChapCredibility.html"><a href="ChapCredibility.html#full-credibility-standard-for-limited-fluctuation-credibility"><i class="fa fa-check"></i><b>11.6.1</b> Full Credibility Standard for Limited Fluctuation Credibility</a></li>
 <li class="chapter" data-level="11.6.2" data-path="ChapCredibility.html"><a href="ChapCredibility.html#nonparametric-estimation-for-bühlmann-and-bühlmann-straub-models"><i class="fa fa-check"></i><b>11.6.2</b> Nonparametric Estimation for Bühlmann and Bühlmann-Straub Models</a></li>
 <li class="chapter" data-level="11.6.3" data-path="ChapCredibility.html"><a href="ChapCredibility.html#semiparametric-estimation-for-bühlmann-and-bühlmann-straub-models"><i class="fa fa-check"></i><b>11.6.3</b> Semiparametric Estimation for Bühlmann and Bühlmann-Straub Models</a></li>
@@ -727,70 +647,57 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11.7" data-path="ChapCredibility.html"><a href="ChapCredibility.html#Cred-further-reading-and-resources"><i class="fa fa-check"></i><b>11.7</b> Further Resources and Contributors</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html"><i class="fa fa-check"></i><b>12</b> Insurance Portfolio Management including Reinsurance</a>
-<ul>
+<li class="chapter" data-level="12" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html"><i class="fa fa-check"></i><b>12</b> Insurance Portfolio Management including Reinsurance</a><ul>
 <li class="chapter" data-level="12.1" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#introduction-to-insurance-portfolios"><i class="fa fa-check"></i><b>12.1</b> Introduction to Insurance Portfolios</a></li>
-<li class="chapter" data-level="12.2" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:Tails"><i class="fa fa-check"></i><b>12.2</b> Tails of Distributions</a>
-<ul>
+<li class="chapter" data-level="12.2" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:Tails"><i class="fa fa-check"></i><b>12.2</b> Tails of Distributions</a><ul>
 <li class="chapter" data-level="12.2.1" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#classification-based-on-moments"><i class="fa fa-check"></i><b>12.2.1</b> Classification Based on Moments</a></li>
 <li class="chapter" data-level="12.2.2" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#comparison-based-on-limiting-tail-behavior"><i class="fa fa-check"></i><b>12.2.2</b> Comparison Based on Limiting Tail Behavior</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:RiskMeasure"><i class="fa fa-check"></i><b>12.3</b> Risk Measures</a>
-<ul>
+<li class="chapter" data-level="12.3" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:RiskMeasure"><i class="fa fa-check"></i><b>12.3</b> Risk Measures</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#coherent-risk-measures"><i class="fa fa-check"></i><b>12.3.1</b> Coherent Risk Measures</a></li>
 <li class="chapter" data-level="12.3.2" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#value-at-risk"><i class="fa fa-check"></i><b>12.3.2</b> Value-at-Risk</a></li>
 <li class="chapter" data-level="12.3.3" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#tail-value-at-risk"><i class="fa fa-check"></i><b>12.3.3</b> Tail Value-at-Risk</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:Reinsurance"><i class="fa fa-check"></i><b>12.4</b> Reinsurance</a>
-<ul>
+<li class="chapter" data-level="12.4" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:Reinsurance"><i class="fa fa-check"></i><b>12.4</b> Reinsurance</a><ul>
 <li class="chapter" data-level="12.4.1" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:ProportionalRe"><i class="fa fa-check"></i><b>12.4.1</b> Proportional Reinsurance</a></li>
 <li class="chapter" data-level="12.4.2" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:NonProportionalRe"><i class="fa fa-check"></i><b>12.4.2</b> Non-Proportional Reinsurance</a></li>
 <li class="chapter" data-level="12.4.3" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#S:AdditionalRe"><i class="fa fa-check"></i><b>12.4.3</b> Additional Reinsurance Treaties</a></li>
 </ul></li>
 <li class="chapter" data-level="12.5" data-path="ChapPortMgt.html"><a href="ChapPortMgt.html#further-resources-and-contributors-1"><i class="fa fa-check"></i><b>12.5</b> Further Resources and Contributors</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html"><i class="fa fa-check"></i><b>13</b> Loss Reserving</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:motivation"><i class="fa fa-check"></i><b>13.1</b> Motivation</a>
-<ul>
+<li class="chapter" data-level="13" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html"><i class="fa fa-check"></i><b>13</b> Loss Reserving</a><ul>
+<li class="chapter" data-level="13.1" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:motivation"><i class="fa fa-check"></i><b>13.1</b> Motivation</a><ul>
 <li class="chapter" data-level="13.1.1" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:claim-types"><i class="fa fa-check"></i><b>13.1.1</b> Closed, IBNR, and RBNS Claims</a></li>
 <li class="chapter" data-level="13.1.2" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#why-reserving"><i class="fa fa-check"></i><b>13.1.2</b> Why Reserving?</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:Data"><i class="fa fa-check"></i><b>13.2</b> Loss Reserve Data</a>
-<ul>
+<li class="chapter" data-level="13.2" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:Data"><i class="fa fa-check"></i><b>13.2</b> Loss Reserve Data</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#from-micro-to-macro"><i class="fa fa-check"></i><b>13.2.1</b> From Micro to Macro</a></li>
 <li class="chapter" data-level="13.2.2" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#run-off-triangles"><i class="fa fa-check"></i><b>13.2.2</b> Run-off Triangles</a></li>
 <li class="chapter" data-level="13.2.3" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#loss-reserve-notation"><i class="fa fa-check"></i><b>13.2.3</b> Loss Reserve Notation</a></li>
 <li class="chapter" data-level="13.2.4" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:Rcode"><i class="fa fa-check"></i><b>13.2.4</b> R Code to Summarize Loss Reserve Data</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:Chain-ladder"><i class="fa fa-check"></i><b>13.3</b> The Chain-Ladder Method</a>
-<ul>
+<li class="chapter" data-level="13.3" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:Chain-ladder"><i class="fa fa-check"></i><b>13.3</b> The Chain-Ladder Method</a><ul>
 <li class="chapter" data-level="13.3.1" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:DeterministicCL"><i class="fa fa-check"></i><b>13.3.1</b> The Deterministic Chain-Ladder</a></li>
 <li class="chapter" data-level="13.3.2" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#macks-distribution-free-chain-ladder-model"><i class="fa fa-check"></i><b>13.3.2</b> Mack’s Distribution-Free Chain-Ladder Model</a></li>
 <li class="chapter" data-level="13.3.3" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#r-code-for-chain-ladder-predictions"><i class="fa fa-check"></i><b>13.3.3</b> R code for Chain-Ladder Predictions</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:GLMs"><i class="fa fa-check"></i><b>13.4</b> GLMs and Bootstrap for Loss Reserves</a>
-<ul>
+<li class="chapter" data-level="13.4" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#S:GLMs"><i class="fa fa-check"></i><b>13.4</b> GLMs and Bootstrap for Loss Reserves</a><ul>
 <li class="chapter" data-level="13.4.1" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#model-specification"><i class="fa fa-check"></i><b>13.4.1</b> Model Specification</a></li>
 <li class="chapter" data-level="13.4.2" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#model-estimation-and-prediction"><i class="fa fa-check"></i><b>13.4.2</b> Model Estimation and Prediction</a></li>
 <li class="chapter" data-level="13.4.3" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#bootstrap"><i class="fa fa-check"></i><b>13.4.3</b> Bootstrap</a></li>
 </ul></li>
 <li class="chapter" data-level="13.5" data-path="ChapLossReserves.html"><a href="ChapLossReserves.html#LossRe:further-reading-and-resources"><i class="fa fa-check"></i><b>13.5</b> Further Resources and Contributors</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html"><i class="fa fa-check"></i><b>14</b> Experience Rating using Bonus-Malus</a>
-<ul>
+<li class="chapter" data-level="14" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html"><i class="fa fa-check"></i><b>14</b> Experience Rating using Bonus-Malus</a><ul>
 <li class="chapter" data-level="14.1" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:ERBM:Intro"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
-<li class="chapter" data-level="14.2" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:ERBM:NCD"><i class="fa fa-check"></i><b>14.2</b> <em>NCD</em> System in Several Countries</a>
-<ul>
+<li class="chapter" data-level="14.2" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:ERBM:NCD"><i class="fa fa-check"></i><b>14.2</b> <em>NCD</em> System in Several Countries</a><ul>
 <li class="chapter" data-level="14.2.1" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#ncd-system-in-malaysia"><i class="fa fa-check"></i><b>14.2.1</b> <em>NCD</em> System in Malaysia</a></li>
 <li class="chapter" data-level="14.2.2" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#ncd-systems-in-other-countries"><i class="fa fa-check"></i><b>14.2.2</b> NCD Systems in Other Countries</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:ERBM:BMS"><i class="fa fa-check"></i><b>14.3</b> <em>BMS</em> and Markov Chain Model</a>
-<ul>
+<li class="chapter" data-level="14.3" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:ERBM:BMS"><i class="fa fa-check"></i><b>14.3</b> <em>BMS</em> and Markov Chain Model</a><ul>
 <li class="chapter" data-level="14.3.1" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#transition-probability"><i class="fa fa-check"></i><b>14.3.1</b> Transition Probability</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:ERBM:StatDist"><i class="fa fa-check"></i><b>14.4</b> <em>BMS</em> and Stationary Distribution</a>
-<ul>
+<li class="chapter" data-level="14.4" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:ERBM:StatDist"><i class="fa fa-check"></i><b>14.4</b> <em>BMS</em> and Stationary Distribution</a><ul>
 <li class="chapter" data-level="14.4.1" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#stationary-distribution"><i class="fa fa-check"></i><b>14.4.1</b> Stationary Distribution</a></li>
 <li class="chapter" data-level="14.4.2" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#r-code-for-a-stationary-distribution"><i class="fa fa-check"></i><b>14.4.2</b> <code>R</code> Code for a Stationary Distribution</a></li>
 <li class="chapter" data-level="14.4.3" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#premium-evolution"><i class="fa fa-check"></i><b>14.4.3</b> Premium Evolution</a></li>
@@ -798,8 +705,7 @@ div.csl-indent {
 <li class="chapter" data-level="14.4.5" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#convergence-rate"><i class="fa fa-check"></i><b>14.4.5</b> Convergence Rate</a></li>
 <li class="chapter" data-level="14.4.6" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#r-program-for-convergence-rate"><i class="fa fa-check"></i><b>14.4.6</b> <code>R</code> Program for Convergence Rate</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:PremRtg"><i class="fa fa-check"></i><b>14.5</b> <em>BMS</em> and Premium Rating</a>
-<ul>
+<li class="chapter" data-level="14.5" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:PremRtg"><i class="fa fa-check"></i><b>14.5</b> <em>BMS</em> and Premium Rating</a><ul>
 <li class="chapter" data-level="14.5.1" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#premium-rating"><i class="fa fa-check"></i><b>14.5.1</b> Premium Rating</a></li>
 <li class="chapter" data-level="14.5.2" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#a-priori-risk-classification"><i class="fa fa-check"></i><b>14.5.2</b> A Priori Risk Classification</a></li>
 <li class="chapter" data-level="14.5.3" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#modelling-of-residual-heterogeneity"><i class="fa fa-check"></i><b>14.5.3</b> Modelling of Residual Heterogeneity</a></li>
@@ -807,16 +713,13 @@ div.csl-indent {
 <li class="chapter" data-level="14.5.5" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#determination-of-optimal-relativities"><i class="fa fa-check"></i><b>14.5.5</b> Determination of Optimal Relativities</a></li>
 <li class="chapter" data-level="14.5.6" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#numerical-illustrations"><i class="fa fa-check"></i><b>14.5.6</b> Numerical Illustrations</a></li>
 </ul></li>
-<li class="chapter" data-level="14.6" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:Further"><i class="fa fa-check"></i><b>14.6</b> Further Resources and Contributors</a>
-<ul>
+<li class="chapter" data-level="14.6" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#S:Further"><i class="fa fa-check"></i><b>14.6</b> Further Resources and Contributors</a><ul>
 <li class="chapter" data-level="14.6.1" data-path="ChapBonusMalus.html"><a href="ChapBonusMalus.html#further-reading-and-references-1"><i class="fa fa-check"></i><b>14.6.1</b> Further Reading and References</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html"><i class="fa fa-check"></i><b>15</b> Dependence Modeling</a>
-<ul>
+<li class="chapter" data-level="15" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html"><i class="fa fa-check"></i><b>15</b> Dependence Modeling</a><ul>
 <li class="chapter" data-level="15.1" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#multivariate-variables"><i class="fa fa-check"></i><b>15.1</b> Multivariate Variables</a></li>
-<li class="chapter" data-level="15.2" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#S:Measures"><i class="fa fa-check"></i><b>15.2</b> Classic Measures of Scalar Associations</a>
-<ul>
+<li class="chapter" data-level="15.2" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#S:Measures"><i class="fa fa-check"></i><b>15.2</b> Classic Measures of Scalar Associations</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#association-measures-for-quantitative-variables"><i class="fa fa-check"></i><b>15.2.1</b> Association Measures for Quantitative Variables</a></li>
 <li class="chapter" data-level="15.2.2" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#rank-based-measures"><i class="fa fa-check"></i><b>15.2.2</b> Rank Based Measures</a></li>
 <li class="chapter" data-level="15.2.3" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#nominal-variables"><i class="fa fa-check"></i><b>15.2.3</b> Nominal Variables</a></li>
@@ -825,100 +728,81 @@ div.csl-indent {
 <li class="chapter" data-level="15.2.6" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#discrete-and-continuous-variables"><i class="fa fa-check"></i><b>15.2.6</b> Discrete and Continuous Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="15.3" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#S:Copula"><i class="fa fa-check"></i><b>15.3</b> Introduction to Copulas</a></li>
-<li class="chapter" data-level="15.4" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#S:CopAppl"><i class="fa fa-check"></i><b>15.4</b> Application Using Copulas</a>
-<ul>
+<li class="chapter" data-level="15.4" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#S:CopAppl"><i class="fa fa-check"></i><b>15.4</b> Application Using Copulas</a><ul>
 <li class="chapter" data-level="15.4.1" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#data-description"><i class="fa fa-check"></i><b>15.4.1</b> Data Description</a></li>
 <li class="chapter" data-level="15.4.2" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#marginal-models"><i class="fa fa-check"></i><b>15.4.2</b> Marginal Models</a></li>
 <li class="chapter" data-level="15.4.3" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#probability-integral-transformation"><i class="fa fa-check"></i><b>15.4.3</b> Probability Integral Transformation</a></li>
 <li class="chapter" data-level="15.4.4" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#joint-modeling-with-copula-function"><i class="fa fa-check"></i><b>15.4.4</b> Joint Modeling with Copula Function</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#S:CopTyp"><i class="fa fa-check"></i><b>15.5</b> Types of Copulas</a>
-<ul>
+<li class="chapter" data-level="15.5" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#S:CopTyp"><i class="fa fa-check"></i><b>15.5</b> Types of Copulas</a><ul>
 <li class="chapter" data-level="15.5.1" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#normal-gaussian-copulas"><i class="fa fa-check"></i><b>15.5.1</b> Normal (Gaussian) Copulas</a></li>
 <li class="chapter" data-level="15.5.2" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#t--and-elliptical-copulas"><i class="fa fa-check"></i><b>15.5.2</b> <em>t</em>- and Elliptical Copulas</a></li>
 <li class="chapter" data-level="15.5.3" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#archimedean-copulas"><i class="fa fa-check"></i><b>15.5.3</b> Archimedean Copulas</a></li>
 <li class="chapter" data-level="15.5.4" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#properties-of-copulas"><i class="fa fa-check"></i><b>15.5.4</b> Properties of Copulas</a></li>
 </ul></li>
 <li class="chapter" data-level="15.6" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#S:CopImp"><i class="fa fa-check"></i><b>15.6</b> Why is Dependence Modeling Important?</a></li>
-<li class="chapter" data-level="15.7" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#Dep:further-reading-and-resources"><i class="fa fa-check"></i><b>15.7</b> Further Resources and Contributors</a>
-<ul>
+<li class="chapter" data-level="15.7" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#Dep:further-reading-and-resources"><i class="fa fa-check"></i><b>15.7</b> Further Resources and Contributors</a><ul>
 <li class="chapter" data-level="" data-path="ChapDependenceModel.html"><a href="ChapDependenceModel.html#ts-15.a.-other-classic-measures-of-scalar-associations"><i class="fa fa-check"></i>TS 15.A. Other Classic Measures of Scalar Associations</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="CAppA.html"><a href="CAppA.html"><i class="fa fa-check"></i><b>16</b> Appendix A: Review of Statistical Inference</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="CAppA.html"><a href="CAppA.html#S:AppA:BASIC"><i class="fa fa-check"></i><b>16.1</b> Basic Concepts</a>
-<ul>
+<li class="chapter" data-level="16" data-path="CAppA.html"><a href="CAppA.html"><i class="fa fa-check"></i><b>16</b> Appendix A: Review of Statistical Inference</a><ul>
+<li class="chapter" data-level="16.1" data-path="CAppA.html"><a href="CAppA.html#S:AppA:BASIC"><i class="fa fa-check"></i><b>16.1</b> Basic Concepts</a><ul>
 <li class="chapter" data-level="16.1.1" data-path="CAppA.html"><a href="CAppA.html#random-sampling"><i class="fa fa-check"></i><b>16.1.1</b> Random Sampling</a></li>
 <li class="chapter" data-level="16.1.2" data-path="CAppA.html"><a href="CAppA.html#sampling-distribution"><i class="fa fa-check"></i><b>16.1.2</b> Sampling Distribution</a></li>
 <li class="chapter" data-level="16.1.3" data-path="CAppA.html"><a href="CAppA.html#central-limit-theorem"><i class="fa fa-check"></i><b>16.1.3</b> Central Limit Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="CAppA.html"><a href="CAppA.html#S:AppA:PE"><i class="fa fa-check"></i><b>16.2</b> Point Estimation and Properties</a>
-<ul>
+<li class="chapter" data-level="16.2" data-path="CAppA.html"><a href="CAppA.html#S:AppA:PE"><i class="fa fa-check"></i><b>16.2</b> Point Estimation and Properties</a><ul>
 <li class="chapter" data-level="16.2.1" data-path="CAppA.html"><a href="CAppA.html#method-of-moments-estimation"><i class="fa fa-check"></i><b>16.2.1</b> Method of Moments Estimation</a></li>
 <li class="chapter" data-level="16.2.2" data-path="CAppA.html"><a href="CAppA.html#S:AppA:MLE"><i class="fa fa-check"></i><b>16.2.2</b> Maximum Likelihood Estimation</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="CAppA.html"><a href="CAppA.html#S:AppA:IE"><i class="fa fa-check"></i><b>16.3</b> Interval Estimation</a>
-<ul>
+<li class="chapter" data-level="16.3" data-path="CAppA.html"><a href="CAppA.html#S:AppA:IE"><i class="fa fa-check"></i><b>16.3</b> Interval Estimation</a><ul>
 <li class="chapter" data-level="16.3.1" data-path="CAppA.html"><a href="CAppA.html#S:AppA:IE:ED"><i class="fa fa-check"></i><b>16.3.1</b> Exact Distribution for Normal Sample Mean</a></li>
 <li class="chapter" data-level="16.3.2" data-path="CAppA.html"><a href="CAppA.html#large-sample-properties-of-mle"><i class="fa fa-check"></i><b>16.3.2</b> Large-sample Properties of <em>MLE</em></a></li>
 <li class="chapter" data-level="16.3.3" data-path="CAppA.html"><a href="CAppA.html#confidence-interval"><i class="fa fa-check"></i><b>16.3.3</b> Confidence Interval</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="CAppA.html"><a href="CAppA.html#S:AppA:HT"><i class="fa fa-check"></i><b>16.4</b> Hypothesis Testing</a>
-<ul>
+<li class="chapter" data-level="16.4" data-path="CAppA.html"><a href="CAppA.html#S:AppA:HT"><i class="fa fa-check"></i><b>16.4</b> Hypothesis Testing</a><ul>
 <li class="chapter" data-level="16.4.1" data-path="CAppA.html"><a href="CAppA.html#basic-concepts"><i class="fa fa-check"></i><b>16.4.1</b> Basic Concepts</a></li>
 <li class="chapter" data-level="16.4.2" data-path="CAppA.html"><a href="CAppA.html#student-t-test-based-on-mle"><i class="fa fa-check"></i><b>16.4.2</b> Student-<em>t</em> test based on <em>mle</em></a></li>
 <li class="chapter" data-level="16.4.3" data-path="CAppA.html"><a href="CAppA.html#S:AppA:HT:LRT"><i class="fa fa-check"></i><b>16.4.3</b> Likelihood Ratio Test</a></li>
 <li class="chapter" data-level="16.4.4" data-path="CAppA.html"><a href="CAppA.html#S:AppA:HT:IC"><i class="fa fa-check"></i><b>16.4.4</b> Information Criteria</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="CAppB.html"><a href="CAppB.html"><i class="fa fa-check"></i><b>17</b> Appendix B: Iterated Expectations</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="CAppB.html"><a href="CAppB.html#S:AppB:CD"><i class="fa fa-check"></i><b>17.1</b> Conditional Distribution and Conditional Expectation</a>
-<ul>
+<li class="chapter" data-level="17" data-path="CAppB.html"><a href="CAppB.html"><i class="fa fa-check"></i><b>17</b> Appendix B: Iterated Expectations</a><ul>
+<li class="chapter" data-level="17.1" data-path="CAppB.html"><a href="CAppB.html#S:AppB:CD"><i class="fa fa-check"></i><b>17.1</b> Conditional Distribution and Conditional Expectation</a><ul>
 <li class="chapter" data-level="17.1.1" data-path="CAppB.html"><a href="CAppB.html#conditional-distribution"><i class="fa fa-check"></i><b>17.1.1</b> Conditional Distribution</a></li>
 <li class="chapter" data-level="17.1.2" data-path="CAppB.html"><a href="CAppB.html#conditional-expectation-and-conditional-variance"><i class="fa fa-check"></i><b>17.1.2</b> Conditional Expectation and Conditional Variance</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="CAppB.html"><a href="CAppB.html#S:AppB:IE"><i class="fa fa-check"></i><b>17.2</b> Iterated Expectations and Total Variance</a>
-<ul>
+<li class="chapter" data-level="17.2" data-path="CAppB.html"><a href="CAppB.html#S:AppB:IE"><i class="fa fa-check"></i><b>17.2</b> Iterated Expectations and Total Variance</a><ul>
 <li class="chapter" data-level="17.2.1" data-path="CAppB.html"><a href="CAppB.html#S:AppB:LIE"><i class="fa fa-check"></i><b>17.2.1</b> Law of Iterated Expectations</a></li>
 <li class="chapter" data-level="17.2.2" data-path="CAppB.html"><a href="CAppB.html#law-of-total-variance"><i class="fa fa-check"></i><b>17.2.2</b> Law of Total Variance</a></li>
 <li class="chapter" data-level="17.2.3" data-path="CAppB.html"><a href="CAppB.html#application"><i class="fa fa-check"></i><b>17.2.3</b> Application</a></li>
 </ul></li>
-<li class="chapter" data-level="17.3" data-path="CAppB.html"><a href="CAppB.html#S:AppConjugateDistributions"><i class="fa fa-check"></i><b>17.3</b> Conjugate Distributions</a>
-<ul>
+<li class="chapter" data-level="17.3" data-path="CAppB.html"><a href="CAppB.html#S:AppConjugateDistributions"><i class="fa fa-check"></i><b>17.3</b> Conjugate Distributions</a><ul>
 <li class="chapter" data-level="17.3.1" data-path="CAppB.html"><a href="CAppB.html#linear-exponential-family"><i class="fa fa-check"></i><b>17.3.1</b> Linear Exponential Family</a></li>
 <li class="chapter" data-level="17.3.2" data-path="CAppB.html"><a href="CAppB.html#S:IterExp:Conjugate"><i class="fa fa-check"></i><b>17.3.2</b> Conjugate Distributions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="CAppC.html"><a href="CAppC.html"><i class="fa fa-check"></i><b>18</b> Appendix C: Maximum Likelihood Theory</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="CAppC.html"><a href="CAppC.html#S:AppC:LF"><i class="fa fa-check"></i><b>18.1</b> Likelihood Function</a>
-<ul>
+<li class="chapter" data-level="18" data-path="CAppC.html"><a href="CAppC.html"><i class="fa fa-check"></i><b>18</b> Appendix C: Maximum Likelihood Theory</a><ul>
+<li class="chapter" data-level="18.1" data-path="CAppC.html"><a href="CAppC.html#S:AppC:LF"><i class="fa fa-check"></i><b>18.1</b> Likelihood Function</a><ul>
 <li class="chapter" data-level="18.1.1" data-path="CAppC.html"><a href="CAppC.html#likelihood-and-log-likelihood-functions"><i class="fa fa-check"></i><b>18.1.1</b> Likelihood and Log-likelihood Functions</a></li>
 <li class="chapter" data-level="18.1.2" data-path="CAppC.html"><a href="CAppC.html#properties-of-likelihood-functions"><i class="fa fa-check"></i><b>18.1.2</b> Properties of Likelihood Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="CAppC.html"><a href="CAppC.html#S:AppC:MLE"><i class="fa fa-check"></i><b>18.2</b> Maximum Likelihood Estimators</a>
-<ul>
+<li class="chapter" data-level="18.2" data-path="CAppC.html"><a href="CAppC.html#S:AppC:MLE"><i class="fa fa-check"></i><b>18.2</b> Maximum Likelihood Estimators</a><ul>
 <li class="chapter" data-level="18.2.1" data-path="CAppC.html"><a href="CAppC.html#definition-and-derivation-of-mle"><i class="fa fa-check"></i><b>18.2.1</b> Definition and Derivation of <em>MLE</em></a></li>
 <li class="chapter" data-level="18.2.2" data-path="CAppC.html"><a href="CAppC.html#asymptotic-properties-of-mle"><i class="fa fa-check"></i><b>18.2.2</b> Asymptotic Properties of <em>MLE</em></a></li>
 <li class="chapter" data-level="18.2.3" data-path="CAppC.html"><a href="CAppC.html#use-of-maximum-likelihood-estimation"><i class="fa fa-check"></i><b>18.2.3</b> Use of Maximum Likelihood Estimation</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="CAppC.html"><a href="CAppC.html#S:AppC:SI"><i class="fa fa-check"></i><b>18.3</b> Statistical Inference Based on Maximum Likelihood Estimation</a>
-<ul>
+<li class="chapter" data-level="18.3" data-path="CAppC.html"><a href="CAppC.html#S:AppC:SI"><i class="fa fa-check"></i><b>18.3</b> Statistical Inference Based on Maximum Likelihood Estimation</a><ul>
 <li class="chapter" data-level="18.3.1" data-path="CAppC.html"><a href="CAppC.html#hypothesis-testing"><i class="fa fa-check"></i><b>18.3.1</b> Hypothesis Testing</a></li>
 <li class="chapter" data-level="18.3.2" data-path="CAppC.html"><a href="CAppC.html#S:AppC:MLEModelVal"><i class="fa fa-check"></i><b>18.3.2</b> <em>MLE</em> and Model Validation</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html"><i class="fa fa-check"></i><b>19</b> Appendix D: Summary of Distributions</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#S:DiscreteDistributions"><i class="fa fa-check"></i><b>19.1</b> Discrete Distributions</a>
-<ul>
+<li class="chapter" data-level="19" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html"><i class="fa fa-check"></i><b>19</b> Appendix D: Summary of Distributions</a><ul>
+<li class="chapter" data-level="19.1" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#S:DiscreteDistributions"><i class="fa fa-check"></i><b>19.1</b> Discrete Distributions</a><ul>
 <li class="chapter" data-level="19.1.1" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#the-ab0-class"><i class="fa fa-check"></i><b>19.1.1</b> The <em>(a,b,0)</em> Class</a></li>
 <li class="chapter" data-level="19.1.2" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#the-ab1-class"><i class="fa fa-check"></i><b>19.1.2</b> The <em>(a,b,1)</em> Class</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#S:ContinuousDistributions"><i class="fa fa-check"></i><b>19.2</b> Continuous Distributions</a>
-<ul>
+<li class="chapter" data-level="19.2" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#S:ContinuousDistributions"><i class="fa fa-check"></i><b>19.2</b> Continuous Distributions</a><ul>
 <li class="chapter" data-level="19.2.1" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#one-parameter-distributions"><i class="fa fa-check"></i><b>19.2.1</b> One Parameter Distributions</a></li>
 <li class="chapter" data-level="19.2.2" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#two-parameter-distributions"><i class="fa fa-check"></i><b>19.2.2</b> Two Parameter Distributions</a></li>
 <li class="chapter" data-level="19.2.3" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#three-parameter-distributions"><i class="fa fa-check"></i><b>19.2.3</b> Three Parameter Distributions</a></li>
@@ -928,16 +812,14 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="19.3" data-path="ChapSummaryDistributions.html"><a href="ChapSummaryDistributions.html#limited-expected-values"><i class="fa fa-check"></i><b>19.3</b> Limited Expected Values</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html"><i class="fa fa-check"></i><b>20</b> Appendix E: Conventions for Notation</a>
-<ul>
+<li class="chapter" data-level="20" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html"><i class="fa fa-check"></i><b>20</b> Appendix E: Conventions for Notation</a><ul>
 <li class="chapter" data-level="20.1" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html#S:General"><i class="fa fa-check"></i><b>20.1</b> General Conventions</a></li>
 <li class="chapter" data-level="20.2" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html#S:Abbreviations"><i class="fa fa-check"></i><b>20.2</b> Abbreviations</a></li>
 <li class="chapter" data-level="20.3" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html#S:StatSymbols"><i class="fa fa-check"></i><b>20.3</b> Common Statistical Symbols and Operators</a></li>
 <li class="chapter" data-level="20.4" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html#S:Symbols"><i class="fa fa-check"></i><b>20.4</b> Common Mathematical Symbols and Functions</a></li>
 <li class="chapter" data-level="20.5" data-path="ChapNotationConvention.html"><a href="ChapNotationConvention.html#further-readings"><i class="fa fa-check"></i><b>20.5</b> Further Readings</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="DataResources.html"><a href="DataResources.html"><i class="fa fa-check"></i><b>21</b> Appendix. Data Resources</a>
-<ul>
+<li class="chapter" data-level="21" data-path="DataResources.html"><a href="DataResources.html"><i class="fa fa-check"></i><b>21</b> Appendix. Data Resources</a><ul>
 <li class="chapter" data-level="21.1" data-path="DataResources.html"><a href="DataResources.html#S:WiscPropFundA"><i class="fa fa-check"></i><b>21.1</b> Wisconsin Property Fund</a></li>
 <li class="chapter" data-level="21.2" data-path="DataResources.html"><a href="DataResources.html#Sec:DataTravel"><i class="fa fa-check"></i><b>21.2</b> ANU Corporate Travel Data</a></li>
 <li class="chapter" data-level="21.3" data-path="DataResources.html"><a href="DataResources.html#Sec:DataGPA"><i class="fa fa-check"></i><b>21.3</b> ANU Group Personal Accident Data</a></li>
@@ -967,20 +849,20 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ChapSummaryDistributions" class="section level1 hasAnchor" number="19">
-<h1><span class="header-section-number">Chapter 19</span> Appendix D: Summary of Distributions<a href="ChapSummaryDistributions.html#ChapSummaryDistributions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ChapSummaryDistributions" class="section level1">
+<h1><span class="header-section-number">Chapter 19</span> Appendix D: Summary of Distributions</h1>
 <p><strong>User Notes</strong></p>
 <ul>
 <li>The <code>R</code> functions are from the packages <code>actuar</code> and <code>invgamma</code>.</li>
 <li>Tables appear when first loaded by the browser. To hide them, click on one of the distributions, e.g., <em>Poisson</em>, and then click on the <em>Hide</em> button.</li>
 <li>More information on the <code>R</code> codes is available at the <a href="https://ewfrees.github.io/LDARcode/index.html">R Codes for Loss Data Analytics</a> site.</li>
 </ul>
-<div id="S:DiscreteDistributions" class="section level2 hasAnchor" number="19.1">
-<h2><span class="header-section-number">19.1</span> Discrete Distributions<a href="ChapSummaryDistributions.html#S:DiscreteDistributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="S:DiscreteDistributions" class="section level2">
+<h2><span class="header-section-number">19.1</span> Discrete Distributions</h2>
 <p><strong>Overview.</strong> This section summarizes selected discrete probability distributions used throughout <em>Loss Data Analytics</em>. Relevant functions and <code>R</code> code are provided.</p>
 <!-- ## Discrete Distributions -->
-<div id="the-ab0-class" class="section level3 hasAnchor" number="19.1.1">
-<h3><span class="header-section-number">19.1.1</span> The <em>(a,b,0)</em> Class<a href="ChapSummaryDistributions.html#the-ab0-class" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-ab0-class" class="section level3">
+<h3><span class="header-section-number">19.1.1</span> The <em>(a,b,0)</em> Class</h3>
 <div class="tab">
 <p><button class="tablinks" onclick="openTab(event, 'disA')">Poisson</button>
 <button class="tablinks" onclick="openTab(event, 'disB')">Geometric</button>
@@ -1197,8 +1079,8 @@ Negative Binomial
 \]</span></p>
 </div>
 </div>
-<div id="the-ab1-class" class="section level3 hasAnchor" number="19.1.2">
-<h3><span class="header-section-number">19.1.2</span> The <em>(a,b,1)</em> Class<a href="ChapSummaryDistributions.html#the-ab1-class" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-ab1-class" class="section level3">
+<h3><span class="header-section-number">19.1.2</span> The <em>(a,b,1)</em> Class</h3>
 </center>
 <div class="tab">
 <p><button class="tablinks" onclick="openTab(event, 'ztA')">Zero Truncated Poisson</button>
@@ -1470,12 +1352,12 @@ Logarithmic
 </div>
 </div>
 </div>
-<div id="S:ContinuousDistributions" class="section level2 hasAnchor" number="19.2">
-<h2><span class="header-section-number">19.2</span> Continuous Distributions<a href="ChapSummaryDistributions.html#S:ContinuousDistributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="S:ContinuousDistributions" class="section level2">
+<h2><span class="header-section-number">19.2</span> Continuous Distributions</h2>
 <p><strong>Overview.</strong> This section summarizes selected continuous probability distributions used throughout <em>Loss Data Analytics</em>. Relevant functions, <code>R</code> code, and illustrative graphs are provided.</p>
 <!-- ## Continuous Distributions -->
-<div id="one-parameter-distributions" class="section level3 hasAnchor" number="19.2.1">
-<h3><span class="header-section-number">19.2.1</span> One Parameter Distributions<a href="ChapSummaryDistributions.html#one-parameter-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="one-parameter-distributions" class="section level3">
+<h3><span class="header-section-number">19.2.1</span> One Parameter Distributions</h3>
 <div class="tab">
 <p><button class="tablinks" onclick="openTab(event, '1pA')">Exponential</button>
 <button class="tablinks" onclick="openTab(event, '1pB')">Inv Exponential</button>
@@ -1531,11 +1413,11 @@ Exponential
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="ChapSummaryDistributions.html#cb207-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb207-2"><a href="ChapSummaryDistributions.html#cb207-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb207-3"><a href="ChapSummaryDistributions.html#cb207-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dexp</span>(X,<span class="at">rate=</span><span class="dv">1</span><span class="sc">/</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb207-4"><a href="ChapSummaryDistributions.html#cb207-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Exponential Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-235-1.png" width="672" /></p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="ChapSummaryDistributions.html#cb227-1"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb227-2"><a href="ChapSummaryDistributions.html#cb227-2"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb227-3"><a href="ChapSummaryDistributions.html#cb227-3"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dexp</span>(X, <span class="dt">rate =</span> <span class="dv">1</span><span class="op">/</span>theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb227-4"><a href="ChapSummaryDistributions.html#cb227-4"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Exponential Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-244-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="1pB" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -1584,11 +1466,11 @@ Inverse Exponential
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="ChapSummaryDistributions.html#cb208-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
-<span id="cb208-2"><a href="ChapSummaryDistributions.html#cb208-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb208-3"><a href="ChapSummaryDistributions.html#cb208-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvexp</span>(X, <span class="at">rate =</span>  <span class="dv">1</span><span class="sc">/</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb208-4"><a href="ChapSummaryDistributions.html#cb208-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Exponential Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-236-1.png" width="672" /></p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="ChapSummaryDistributions.html#cb228-1"></a>theta &lt;-<span class="st"> </span><span class="fl">0.01</span></span>
+<span id="cb228-2"><a href="ChapSummaryDistributions.html#cb228-2"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb228-3"><a href="ChapSummaryDistributions.html#cb228-3"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dinvexp</span>(X, <span class="dt">rate =</span> <span class="dv">1</span><span class="op">/</span>theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb228-4"><a href="ChapSummaryDistributions.html#cb228-4"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Inverse Exponential Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-245-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="odC" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -1638,16 +1520,16 @@ Single Parameter Pareto
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="ChapSummaryDistributions.html#cb209-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb209-2"><a href="ChapSummaryDistributions.html#cb209-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb209-3"><a href="ChapSummaryDistributions.html#cb209-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb209-4"><a href="ChapSummaryDistributions.html#cb209-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dpareto1</span>(X,<span class="at">shape=</span>alpha,<span class="at">min=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb209-5"><a href="ChapSummaryDistributions.html#cb209-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Single Parameter Pareto Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-237-1.png" width="672" /></p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="ChapSummaryDistributions.html#cb229-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb229-2"><a href="ChapSummaryDistributions.html#cb229-2"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb229-3"><a href="ChapSummaryDistributions.html#cb229-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb229-4"><a href="ChapSummaryDistributions.html#cb229-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dpareto1</span>(X, <span class="dt">shape =</span> alpha, <span class="dt">min =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb229-5"><a href="ChapSummaryDistributions.html#cb229-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Single Parameter Pareto Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-246-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="two-parameter-distributions" class="section level3 hasAnchor" number="19.2.2">
-<h3><span class="header-section-number">19.2.2</span> Two Parameter Distributions<a href="ChapSummaryDistributions.html#two-parameter-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="two-parameter-distributions" class="section level3">
+<h3><span class="header-section-number">19.2.2</span> Two Parameter Distributions</h3>
 <div class="tab">
 <p><button class="tablinks" onclick="openTab(event, '2pA')">Pareto</button>
 <button class="tablinks" onclick="openTab(event, '2pB')">Inv Pareto</button>
@@ -1713,12 +1595,12 @@ Pareto
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="ChapSummaryDistributions.html#cb210-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb210-2"><a href="ChapSummaryDistributions.html#cb210-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">200</span></span>
-<span id="cb210-3"><a href="ChapSummaryDistributions.html#cb210-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb210-4"><a href="ChapSummaryDistributions.html#cb210-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span>actuar<span class="sc">::</span><span class="fu">dpareto</span>(X,<span class="at">shape=</span>alpha,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb210-5"><a href="ChapSummaryDistributions.html#cb210-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Pareto Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-238-1.png" width="672" /></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="ChapSummaryDistributions.html#cb230-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb230-2"><a href="ChapSummaryDistributions.html#cb230-2"></a>theta &lt;-<span class="st"> </span><span class="dv">200</span></span>
+<span id="cb230-3"><a href="ChapSummaryDistributions.html#cb230-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb230-4"><a href="ChapSummaryDistributions.html#cb230-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> actuar<span class="op">::</span><span class="kw">dpareto</span>(X, <span class="dt">shape =</span> alpha, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb230-5"><a href="ChapSummaryDistributions.html#cb230-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Pareto Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-247-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pB" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -1768,12 +1650,12 @@ Inverse Pareto
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="ChapSummaryDistributions.html#cb211-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb211-2"><a href="ChapSummaryDistributions.html#cb211-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb211-3"><a href="ChapSummaryDistributions.html#cb211-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">3000</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb211-4"><a href="ChapSummaryDistributions.html#cb211-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvpareto</span>(X,<span class="at">shape=</span>tau,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb211-5"><a href="ChapSummaryDistributions.html#cb211-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Pareto Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-239-1.png" width="672" /></p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="ChapSummaryDistributions.html#cb231-1"></a>tau &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb231-2"><a href="ChapSummaryDistributions.html#cb231-2"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb231-3"><a href="ChapSummaryDistributions.html#cb231-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">3000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb231-4"><a href="ChapSummaryDistributions.html#cb231-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dinvpareto</span>(X, <span class="dt">shape =</span> tau, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb231-5"><a href="ChapSummaryDistributions.html#cb231-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Inverse Pareto Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-248-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pC" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -1805,15 +1687,15 @@ Loglogistic
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="ChapSummaryDistributions.html#cb212-1" aria-hidden="true" tabindex="-1"></a>dloglogistic <span class="ot">&lt;-</span> <span class="cf">function</span>(x, gamma, theta){</span>
-<span id="cb212-2"><a href="ChapSummaryDistributions.html#cb212-2" aria-hidden="true" tabindex="-1"></a>  p<span class="ot">=</span>gamma<span class="sc">*</span>(x<span class="sc">/</span>theta)<span class="sc">^</span>gamma<span class="sc">/</span>(x<span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span>(x<span class="sc">/</span>theta)<span class="sc">^</span>gamma)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb212-3"><a href="ChapSummaryDistributions.html#cb212-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
-<span id="cb212-4"><a href="ChapSummaryDistributions.html#cb212-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb212-5"><a href="ChapSummaryDistributions.html#cb212-5" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb212-6"><a href="ChapSummaryDistributions.html#cb212-6" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb212-7"><a href="ChapSummaryDistributions.html#cb212-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb212-8"><a href="ChapSummaryDistributions.html#cb212-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dloglogistic</span>(X,<span class="at">gamma=</span>gamma,<span class="at">theta=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="ChapSummaryDistributions.html#cb232-1"></a>dloglogistic &lt;-<span class="st"> </span><span class="cf">function</span>(x, gamma, theta) {</span>
+<span id="cb232-2"><a href="ChapSummaryDistributions.html#cb232-2"></a>    p =<span class="st"> </span>gamma <span class="op">*</span><span class="st"> </span>(x<span class="op">/</span>theta)<span class="op">^</span>gamma<span class="op">/</span>(x <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(x<span class="op">/</span>theta)<span class="op">^</span>gamma)<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb232-3"><a href="ChapSummaryDistributions.html#cb232-3"></a>    <span class="kw">return</span>(p)</span>
+<span id="cb232-4"><a href="ChapSummaryDistributions.html#cb232-4"></a>}</span>
+<span id="cb232-5"><a href="ChapSummaryDistributions.html#cb232-5"></a>gamma &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb232-6"><a href="ChapSummaryDistributions.html#cb232-6"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb232-7"><a href="ChapSummaryDistributions.html#cb232-7"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb232-8"><a href="ChapSummaryDistributions.html#cb232-8"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dloglogistic</span>(X, <span class="dt">gamma =</span> gamma, <span class="dt">theta =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-249-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pD" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -1863,12 +1745,12 @@ Paralogistic
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="ChapSummaryDistributions.html#cb213-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb213-2"><a href="ChapSummaryDistributions.html#cb213-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb213-3"><a href="ChapSummaryDistributions.html#cb213-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb213-4"><a href="ChapSummaryDistributions.html#cb213-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dparalogis</span>(X,<span class="at">shape=</span>alpha,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb213-5"><a href="ChapSummaryDistributions.html#cb213-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Paralogistic Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-241-1.png" width="672" /></p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="ChapSummaryDistributions.html#cb233-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb233-2"><a href="ChapSummaryDistributions.html#cb233-2"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb233-3"><a href="ChapSummaryDistributions.html#cb233-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb233-4"><a href="ChapSummaryDistributions.html#cb233-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dparalogis</span>(X, <span class="dt">shape =</span> alpha, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb233-5"><a href="ChapSummaryDistributions.html#cb233-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Paralogistic Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-250-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pE" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -1916,12 +1798,12 @@ Gamma
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="ChapSummaryDistributions.html#cb214-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb214-2"><a href="ChapSummaryDistributions.html#cb214-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb214-3"><a href="ChapSummaryDistributions.html#cb214-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb214-4"><a href="ChapSummaryDistributions.html#cb214-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dgamma</span>(X,<span class="at">shape=</span>alpha,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb214-5"><a href="ChapSummaryDistributions.html#cb214-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Gamma Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-242-1.png" width="672" /></p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="ChapSummaryDistributions.html#cb234-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb234-2"><a href="ChapSummaryDistributions.html#cb234-2"></a>theta &lt;-<span class="st"> </span><span class="dv">50</span></span>
+<span id="cb234-3"><a href="ChapSummaryDistributions.html#cb234-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb234-4"><a href="ChapSummaryDistributions.html#cb234-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dgamma</span>(X, <span class="dt">shape =</span> alpha, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb234-5"><a href="ChapSummaryDistributions.html#cb234-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Gamma Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-251-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pF" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -1969,12 +1851,12 @@ Inverse Gamma
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="ChapSummaryDistributions.html#cb215-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb215-2"><a href="ChapSummaryDistributions.html#cb215-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb215-3"><a href="ChapSummaryDistributions.html#cb215-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">400</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb215-4"><a href="ChapSummaryDistributions.html#cb215-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvgamma</span>(X,<span class="at">shape=</span>alpha,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb215-5"><a href="ChapSummaryDistributions.html#cb215-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Gamma Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-243-1.png" width="672" /></p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="ChapSummaryDistributions.html#cb235-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb235-2"><a href="ChapSummaryDistributions.html#cb235-2"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb235-3"><a href="ChapSummaryDistributions.html#cb235-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">400</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb235-4"><a href="ChapSummaryDistributions.html#cb235-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dinvgamma</span>(X, <span class="dt">shape =</span> alpha, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb235-5"><a href="ChapSummaryDistributions.html#cb235-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Inverse Gamma Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-252-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pG" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2024,12 +1906,12 @@ Weibull
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="ChapSummaryDistributions.html#cb216-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb216-2"><a href="ChapSummaryDistributions.html#cb216-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb216-3"><a href="ChapSummaryDistributions.html#cb216-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb216-4"><a href="ChapSummaryDistributions.html#cb216-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dweibull</span>(X,<span class="at">shape=</span>alpha, <span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb216-5"><a href="ChapSummaryDistributions.html#cb216-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Weibull Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-244-1.png" width="672" /></p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="ChapSummaryDistributions.html#cb236-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb236-2"><a href="ChapSummaryDistributions.html#cb236-2"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb236-3"><a href="ChapSummaryDistributions.html#cb236-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb236-4"><a href="ChapSummaryDistributions.html#cb236-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dweibull</span>(X, <span class="dt">shape =</span> alpha, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb236-5"><a href="ChapSummaryDistributions.html#cb236-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Weibull Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-253-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pH" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2079,12 +1961,12 @@ Inverse Weibull
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="ChapSummaryDistributions.html#cb217-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb217-2"><a href="ChapSummaryDistributions.html#cb217-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb217-3"><a href="ChapSummaryDistributions.html#cb217-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb217-4"><a href="ChapSummaryDistributions.html#cb217-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvweibull</span>(X,<span class="at">shape=</span>tau,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb217-5"><a href="ChapSummaryDistributions.html#cb217-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Weibull Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-245-1.png" width="672" /></p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="ChapSummaryDistributions.html#cb237-1"></a>tau &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb237-2"><a href="ChapSummaryDistributions.html#cb237-2"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb237-3"><a href="ChapSummaryDistributions.html#cb237-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb237-4"><a href="ChapSummaryDistributions.html#cb237-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dinvweibull</span>(X, <span class="dt">shape =</span> tau, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb237-5"><a href="ChapSummaryDistributions.html#cb237-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Inverse Weibull Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-254-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pI" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2137,12 +2019,12 @@ Uniform
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="ChapSummaryDistributions.html#cb218-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb218-2"><a href="ChapSummaryDistributions.html#cb218-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb218-3"><a href="ChapSummaryDistributions.html#cb218-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(alpha,beta,<span class="dv">1</span>)</span>
-<span id="cb218-4"><a href="ChapSummaryDistributions.html#cb218-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dunif</span>(X,alpha,beta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb218-5"><a href="ChapSummaryDistributions.html#cb218-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Continuous Uniform Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-246-1.png" width="672" /></p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="ChapSummaryDistributions.html#cb238-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">50</span></span>
+<span id="cb238-2"><a href="ChapSummaryDistributions.html#cb238-2"></a>beta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb238-3"><a href="ChapSummaryDistributions.html#cb238-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(alpha, beta, <span class="dv">1</span>)</span>
+<span id="cb238-4"><a href="ChapSummaryDistributions.html#cb238-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dunif</span>(X, alpha, beta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb238-5"><a href="ChapSummaryDistributions.html#cb238-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Continuous Uniform Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-255-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pJ" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2195,12 +2077,12 @@ Normal
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="ChapSummaryDistributions.html#cb219-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb219-2"><a href="ChapSummaryDistributions.html#cb219-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb219-3"><a href="ChapSummaryDistributions.html#cb219-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">200</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb219-4"><a href="ChapSummaryDistributions.html#cb219-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dnorm</span>(X,<span class="at">mean=</span>mu,<span class="at">sd=</span>sigma),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb219-5"><a href="ChapSummaryDistributions.html#cb219-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Normal Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-247-1.png" width="672" /></p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="ChapSummaryDistributions.html#cb239-1"></a>mu &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb239-2"><a href="ChapSummaryDistributions.html#cb239-2"></a>sigma &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb239-3"><a href="ChapSummaryDistributions.html#cb239-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">200</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb239-4"><a href="ChapSummaryDistributions.html#cb239-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dnorm</span>(X, <span class="dt">mean =</span> mu, <span class="dt">sd =</span> sigma), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb239-5"><a href="ChapSummaryDistributions.html#cb239-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Normal Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-256-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="2pK" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2241,16 +2123,16 @@ Cauchy
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="ChapSummaryDistributions.html#cb220-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb220-2"><a href="ChapSummaryDistributions.html#cb220-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb220-3"><a href="ChapSummaryDistributions.html#cb220-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb220-4"><a href="ChapSummaryDistributions.html#cb220-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dcauchy</span>(X,<span class="at">location=</span>alpha,<span class="at">scale=</span>beta),</span>
-<span id="cb220-5"><a href="ChapSummaryDistributions.html#cb220-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Cauchy Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-248-1.png" width="672" /></p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="ChapSummaryDistributions.html#cb240-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">50</span></span>
+<span id="cb240-2"><a href="ChapSummaryDistributions.html#cb240-2"></a>beta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb240-3"><a href="ChapSummaryDistributions.html#cb240-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb240-4"><a href="ChapSummaryDistributions.html#cb240-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dcauchy</span>(X, <span class="dt">location =</span> alpha, <span class="dt">scale =</span> beta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb240-5"><a href="ChapSummaryDistributions.html#cb240-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Cauchy Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-257-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="three-parameter-distributions" class="section level3 hasAnchor" number="19.2.3">
-<h3><span class="header-section-number">19.2.3</span> Three Parameter Distributions<a href="ChapSummaryDistributions.html#three-parameter-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="three-parameter-distributions" class="section level3">
+<h3><span class="header-section-number">19.2.3</span> Three Parameter Distributions</h3>
 <div class="tab">
 <p><button class="tablinks" onclick="openTab(event, '3pA')">Generalized Pareto</button>
 <button class="tablinks" onclick="openTab(event, '3pB')">Burr</button>
@@ -2304,13 +2186,13 @@ Generalized Pareto
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="ChapSummaryDistributions.html#cb221-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb221-2"><a href="ChapSummaryDistributions.html#cb221-2" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb221-3"><a href="ChapSummaryDistributions.html#cb221-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb221-4"><a href="ChapSummaryDistributions.html#cb221-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb221-5"><a href="ChapSummaryDistributions.html#cb221-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dgenpareto</span>(X,<span class="at">shape1=</span>alpha,<span class="at">shape2=</span>tau,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb221-6"><a href="ChapSummaryDistributions.html#cb221-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Generalized Pareto Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-249-1.png" width="672" /></p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="ChapSummaryDistributions.html#cb241-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb241-2"><a href="ChapSummaryDistributions.html#cb241-2"></a>tau &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb241-3"><a href="ChapSummaryDistributions.html#cb241-3"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb241-4"><a href="ChapSummaryDistributions.html#cb241-4"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb241-5"><a href="ChapSummaryDistributions.html#cb241-5"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dgenpareto</span>(X, <span class="dt">shape1 =</span> alpha, <span class="dt">shape2 =</span> tau, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb241-6"><a href="ChapSummaryDistributions.html#cb241-6"></a>    <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Generalized Pareto Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-258-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="3pB" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2360,13 +2242,13 @@ Burr
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="ChapSummaryDistributions.html#cb222-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb222-2"><a href="ChapSummaryDistributions.html#cb222-2" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb222-3"><a href="ChapSummaryDistributions.html#cb222-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb222-4"><a href="ChapSummaryDistributions.html#cb222-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb222-5"><a href="ChapSummaryDistributions.html#cb222-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dburr</span>(X,<span class="at">shape1=</span>alpha,<span class="at">shape2=</span>gamma,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb222-6"><a href="ChapSummaryDistributions.html#cb222-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Burr Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-250-1.png" width="672" /></p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="ChapSummaryDistributions.html#cb242-1"></a>alpha &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb242-2"><a href="ChapSummaryDistributions.html#cb242-2"></a>gamma &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb242-3"><a href="ChapSummaryDistributions.html#cb242-3"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb242-4"><a href="ChapSummaryDistributions.html#cb242-4"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb242-5"><a href="ChapSummaryDistributions.html#cb242-5"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dburr</span>(X, <span class="dt">shape1 =</span> alpha, <span class="dt">shape2 =</span> gamma, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb242-6"><a href="ChapSummaryDistributions.html#cb242-6"></a>    <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Burr Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-259-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="3pC" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2416,17 +2298,17 @@ Inverse Burr
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="ChapSummaryDistributions.html#cb223-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb223-2"><a href="ChapSummaryDistributions.html#cb223-2" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb223-3"><a href="ChapSummaryDistributions.html#cb223-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb223-4"><a href="ChapSummaryDistributions.html#cb223-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb223-5"><a href="ChapSummaryDistributions.html#cb223-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvburr</span>(X,<span class="at">shape1=</span>tau,<span class="at">shape2=</span>gamma,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb223-6"><a href="ChapSummaryDistributions.html#cb223-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Burr Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-251-1.png" width="672" /></p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="ChapSummaryDistributions.html#cb243-1"></a>tau &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb243-2"><a href="ChapSummaryDistributions.html#cb243-2"></a>gamma &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb243-3"><a href="ChapSummaryDistributions.html#cb243-3"></a>theta &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb243-4"><a href="ChapSummaryDistributions.html#cb243-4"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb243-5"><a href="ChapSummaryDistributions.html#cb243-5"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dinvburr</span>(X, <span class="dt">shape1 =</span> tau, <span class="dt">shape2 =</span> gamma, <span class="dt">scale =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb243-6"><a href="ChapSummaryDistributions.html#cb243-6"></a>    <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Inverse Burr Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-260-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="four-parameter-distribution" class="section level3 hasAnchor" number="19.2.4">
-<h3><span class="header-section-number">19.2.4</span> Four Parameter Distribution<a href="ChapSummaryDistributions.html#four-parameter-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="four-parameter-distribution" class="section level3">
+<h3><span class="header-section-number">19.2.4</span> Four Parameter Distribution</h3>
 <div class="tab">
 <p><button class="tablinks" onclick="openTab(event, '4pA')">GB2</button></p>
 </div>
@@ -2456,8 +2338,8 @@ Generalized Beta of the Second Kind (GB2)
 <p><strong><code>R</code> Commands</strong></p>
 <p>Please see the <a href="https://ewfrees.github.io/LDARcode/index.html">R Codes for Loss Data Analytics</a> site for information about this distribution.</p>
 </div>
-<div id="other-distributions" class="section level3 hasAnchor" number="19.2.5">
-<h3><span class="header-section-number">19.2.5</span> Other Distributions<a href="ChapSummaryDistributions.html#other-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="other-distributions" class="section level3">
+<h3><span class="header-section-number">19.2.5</span> Other Distributions</h3>
 </center>
 <div class="tab">
 <p><button class="tablinks" onclick="openTab(event, 'odA')">Lognormal</button>
@@ -2494,15 +2376,15 @@ Lognormal
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="ChapSummaryDistributions.html#cb224-1" aria-hidden="true" tabindex="-1"></a>dlognorm <span class="ot">&lt;-</span> <span class="cf">function</span>(x,mu,sigma){</span>
-<span id="cb224-2"><a href="ChapSummaryDistributions.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  p<span class="ot">=</span>(<span class="dv">1</span><span class="sc">/</span>(x<span class="sc">*</span>sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi)))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>((<span class="fu">log</span>(x)<span class="sc">-</span>mu)<span class="sc">/</span>sigma)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb224-3"><a href="ChapSummaryDistributions.html#cb224-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
-<span id="cb224-4"><a href="ChapSummaryDistributions.html#cb224-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb224-5"><a href="ChapSummaryDistributions.html#cb224-5" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb224-6"><a href="ChapSummaryDistributions.html#cb224-6" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">12</span></span>
-<span id="cb224-7"><a href="ChapSummaryDistributions.html#cb224-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb224-8"><a href="ChapSummaryDistributions.html#cb224-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dlognorm</span>(X,<span class="at">mu=</span>mu,<span class="at">sigma=</span>sigma),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-252-1.png" width="672" /></p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="ChapSummaryDistributions.html#cb244-1"></a>dlognorm &lt;-<span class="st"> </span><span class="cf">function</span>(x, mu, sigma) {</span>
+<span id="cb244-2"><a href="ChapSummaryDistributions.html#cb244-2"></a>    p =<span class="st"> </span>(<span class="dv">1</span><span class="op">/</span>(x <span class="op">*</span><span class="st"> </span>sigma <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi))) <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>((<span class="kw">log</span>(x) <span class="op">-</span><span class="st"> </span>mu)<span class="op">/</span>sigma)<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb244-3"><a href="ChapSummaryDistributions.html#cb244-3"></a>    <span class="kw">return</span>(p)</span>
+<span id="cb244-4"><a href="ChapSummaryDistributions.html#cb244-4"></a>}</span>
+<span id="cb244-5"><a href="ChapSummaryDistributions.html#cb244-5"></a>mu &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb244-6"><a href="ChapSummaryDistributions.html#cb244-6"></a>sigma &lt;-<span class="st"> </span><span class="dv">12</span></span>
+<span id="cb244-7"><a href="ChapSummaryDistributions.html#cb244-7"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb244-8"><a href="ChapSummaryDistributions.html#cb244-8"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dlognorm</span>(X, <span class="dt">mu =</span> mu, <span class="dt">sigma =</span> sigma), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-261-1.png" width="672" style="display: block; margin: auto;" /></p>
 </p>
 </div>
 <div id="odB" class="tabcontent">
@@ -2555,16 +2437,16 @@ Inverse Gaussian
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="ChapSummaryDistributions.html#cb225-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb225-2"><a href="ChapSummaryDistributions.html#cb225-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb225-3"><a href="ChapSummaryDistributions.html#cb225-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">100</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb225-4"><a href="ChapSummaryDistributions.html#cb225-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvgauss</span>(X,<span class="at">mean=</span>mu,<span class="at">dispersion=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb225-5"><a href="ChapSummaryDistributions.html#cb225-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Gaussian Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-253-1.png" width="672" /></p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="ChapSummaryDistributions.html#cb245-1"></a>mu &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb245-2"><a href="ChapSummaryDistributions.html#cb245-2"></a>theta &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb245-3"><a href="ChapSummaryDistributions.html#cb245-3"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb245-4"><a href="ChapSummaryDistributions.html#cb245-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dinvgauss</span>(X, <span class="dt">mean =</span> mu, <span class="dt">dispersion =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb245-5"><a href="ChapSummaryDistributions.html#cb245-5"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Inverse Gaussian Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-262-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="distributions-with-finite-support" class="section level3 hasAnchor" number="19.2.6">
-<h3><span class="header-section-number">19.2.6</span> Distributions with Finite Support<a href="ChapSummaryDistributions.html#distributions-with-finite-support" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="distributions-with-finite-support" class="section level3">
+<h3><span class="header-section-number">19.2.6</span> Distributions with Finite Support</h3>
 </center>
 <div class="tab">
 <p><button class="tablinks" onclick="openTab(event, 'fsA')">Beta</button>
@@ -2618,13 +2500,13 @@ Beta
 \end{array}
 \end{matrix}
 \]</span></p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="ChapSummaryDistributions.html#cb226-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb226-2"><a href="ChapSummaryDistributions.html#cb226-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb226-3"><a href="ChapSummaryDistributions.html#cb226-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb226-4"><a href="ChapSummaryDistributions.html#cb226-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">1</span>,<span class="at">by=</span>.<span class="dv">0001</span>)</span>
-<span id="cb226-5"><a href="ChapSummaryDistributions.html#cb226-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dbeta</span>(X,<span class="at">shape1=</span>a,<span class="at">shape2=</span>b,<span class="at">ncp=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb226-6"><a href="ChapSummaryDistributions.html#cb226-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Beta Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-254-1.png" width="672" /></p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="ChapSummaryDistributions.html#cb246-1"></a>a &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb246-2"><a href="ChapSummaryDistributions.html#cb246-2"></a>b &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb246-3"><a href="ChapSummaryDistributions.html#cb246-3"></a>theta &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb246-4"><a href="ChapSummaryDistributions.html#cb246-4"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.0001</span>)</span>
+<span id="cb246-5"><a href="ChapSummaryDistributions.html#cb246-5"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dbeta</span>(X, <span class="dt">shape1 =</span> a, <span class="dt">shape2 =</span> b, <span class="dt">ncp =</span> theta), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb246-6"><a href="ChapSummaryDistributions.html#cb246-6"></a>    <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Beta Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-263-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="fsB" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2673,19 +2555,19 @@ Generalized Beta
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="ChapSummaryDistributions.html#cb227-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb227-2"><a href="ChapSummaryDistributions.html#cb227-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb227-3"><a href="ChapSummaryDistributions.html#cb227-3" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb227-4"><a href="ChapSummaryDistributions.html#cb227-4" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb227-5"><a href="ChapSummaryDistributions.html#cb227-5" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb227-6"><a href="ChapSummaryDistributions.html#cb227-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dgenbeta</span>(X,<span class="at">shape1=</span>a,<span class="at">shape2=</span>b,<span class="at">shape3=</span>tau,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb227-7"><a href="ChapSummaryDistributions.html#cb227-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Generalized Beta Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-255-1.png" width="672" /></p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="ChapSummaryDistributions.html#cb247-1"></a>a &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb247-2"><a href="ChapSummaryDistributions.html#cb247-2"></a>b &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb247-3"><a href="ChapSummaryDistributions.html#cb247-3"></a>tau &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb247-4"><a href="ChapSummaryDistributions.html#cb247-4"></a>theta &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb247-5"><a href="ChapSummaryDistributions.html#cb247-5"></a>X &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">1</span>)</span>
+<span id="cb247-6"><a href="ChapSummaryDistributions.html#cb247-6"></a><span class="kw">plot</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> <span class="kw">dgenbeta</span>(X, <span class="dt">shape1 =</span> a, <span class="dt">shape2 =</span> b, <span class="dt">shape3 =</span> tau, <span class="dt">scale =</span> theta),</span>
+<span id="cb247-7"><a href="ChapSummaryDistributions.html#cb247-7"></a>    <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Probability density&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Generalized Beta Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-264-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
-<div id="limited-expected-values" class="section level2 hasAnchor" number="19.3">
-<h2><span class="header-section-number">19.3</span> Limited Expected Values<a href="ChapSummaryDistributions.html#limited-expected-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="limited-expected-values" class="section level2">
+<h2><span class="header-section-number">19.3</span> Limited Expected Values</h2>
 <p><strong>Overview.</strong> This section summarizes limited expected values for selected continuous distributions.</p>
 <!-- ## Limited Expected Values -->
 <div class="tab">
@@ -2775,7 +2657,7 @@ Illustrative Graph
 \end{array}
 \end{matrix}
 \]</span></p>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-265-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 
 </div>
@@ -2790,6 +2672,7 @@ Illustrative Graph
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2808,7 +2691,6 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -2829,10 +2711,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "subsection"
 }

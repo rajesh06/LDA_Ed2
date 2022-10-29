@@ -1,5 +1,14 @@
 fig:StochOperations
 fig:SeverityFig
+tab:TravelClaims1
+fig:TravelClaims2
+tab:unnamed-chunk-16
+tab:GPAFreq1
+fig:GPAClaim1
+fig:GPALossTime
+tab:unnamed-chunk-18
+tab:TableExcess
+tab:unnamed-chunk-20
 eq:OLSSolution
 eq:ab0
 fig:berlik
@@ -128,8 +137,8 @@ fig:tikz-cum-triangle-cl3
 fig:tikz-cum-triangle-cl3b
 fig:tikz-cum-triangle-cl4
 fig:tikz-cum-triangle-cl5
-fig:unnamed-chunk-100
-fig:unnamed-chunk-102
+fig:unnamed-chunk-109
+fig:unnamed-chunk-111
 fig:TransitionSwitz
 fig:PremEvolution
 fig:IntroPlot
@@ -151,8 +160,8 @@ eq:LawIterExp
 eq:LawTotVar
 eq:AppBEV1
 eq:AppBVE2
-tab:unnamed-chunk-171
-tab:unnamed-chunk-172
+tab:unnamed-chunk-180
+tab:unnamed-chunk-181
 tab:DescribeTravel
 tab:PrintNumTravel
 tab:DescribeGPA
@@ -175,6 +184,7 @@ S:LGPIF
 S:OutComes
 S:FundVariables
 fund-operations
+exercises
 Intro-further-reading-and-resources
 ChapDataAnalytics
 S:Elements
@@ -307,7 +317,7 @@ impact-of-exposure-on-frequency
 S:MS:DedImpactClmFreq
 impact-of-policy-modifications-on-aggregate-claims
 AL-further-reading-and-resources
-exercises-2
+exercises-3
 ChapSimulation
 S:SimulationFundamentals
 generating-independent-uniform-observations
@@ -362,7 +372,7 @@ S:RC:PoissonRegression
 S:RC:Need.Poi.reg
 poisson-regression
 incorporating-exposure
-exercises-3
+exercises-4
 S:CatVarMultiTarriff
 rating-factors-and-tariff
 multiplicative-tariff-model
