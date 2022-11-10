@@ -579,7 +579,7 @@ intuitive, appealing (negative) sign for the ${\tt Fire5}$ variable.
 
 <a id=tab:1.6></a> 
 
-[Table 1.6]: \#tab:1.6
+[Table 1.6]: ../docs/ChapIntro.html#tab:1.6
 
 Table 1.6. **Claims Summary by Entity Type, Fire Class, and No Claim Credit**
 

@@ -306,11 +306,70 @@ $$
 \fbox{Train} \ \ \ \fbox{Test} \ \ \ \fbox{Train} \ \ \ \fbox{Train} \ \ \ \fbox{Train}
 $$
 
-<!-- $$ -->
-<!-- \colorbox{red}{Train} \ \ \ \fcolorbox{red}{Test} \ \ \ \fbox{\textcolor{Train}} \ \ \ \fbox{\color{blue}{Train}} \ \ \ \fbox{Train} -->
-<!-- $$ -->
-
 Then, based on the first, third, fourth, and fifth subsets, estimate a model, use this fitted model to predict outcomes in the second, and compare the predictions to the held-out values in the test portion. Repeat this process by selecting each subset as the test portion, with the others being used for training, and take an average over the comparison which results in a cross-validation statistic. Cross-validation is used widely in modeling insurance activities and is described in more detail in Chapter 5.
+
+**Example 2.3.1. Under- and Over-Fitting.** Suppose that we have a set of claims that potentially varies by a single categorical variable with six levels. For example, in the Section \@ref(S:LGPIF)  case study there are six entity types. If each level is truly distinct, then in classical statistics one uses the level average to make predictions for future claims. Another option is to ignore information in the categorical variable and use the overall average to make predictions; this is known as a "community-rating" approach. 
+
+For illustrative purposes, we assume that two of the six levels differ from the others yet are the same. For example, the [Table 1.6] summary statistics suggest that Schools and the Miscellaneous levels warrant a higher predicted claims amount than the other four levels. For illustrative purposes, we generated 100 claims that follow this pattern (using simulation techniques that will be described in Chapter \@ref(ChapSimulation)).
+
+Results are summarized in Table \@ref(tab:Example231) for three fitted models. These are the "Community Rating" corresponding to using the overall mean, the "Two Levels"  corresponding to using two averages, and the "Six Levels" corresponding to using an average for each level of the categorical variable. The data set of size 100 was randomly split into five folds; for each fold, the other folds were used to train/estimate the model and then that fold was used to assess predictions. The first five rows of Table \@ref(tab:Example231) give the results of the root mean square error for each fold. The sixth row provides the average over the five folds and the last row gives a similar result for another goodness of fit statistic, the $AIC$. This approach is known as "cross-validation" that will be described in greater detail in Chapters \@ref(ChapModelSelection) and \@ref(ChapSimulation).
+
+Table \@ref(tab:Example231) shows that in each case the "Two Level" model has the lowest root mean square error and $AIC$, indicating that it is the preferred model. The overfit model with six levels came in second and the underfit model, community rating, was a distant third. This analysis demonstrates techniques for selecting the appropriate model. Unlike analysis of real data, in this demonstration we enjoyed the additional luxury of knowing that we got things correct because we in fact generated the data - an approach that analysts often use to develop analytic procedures prior to utilizing the procedures on real data.
+
+
+```{r Example231, echo = FALSE}
+# Generate the Data
+rmse <- Metrics::rmse
+n <- 100
+set.seed(1234)
+u <- sample(6, n, replace = TRUE)
+x1 <- as.factor((u == 4) + (u ==5)   )
+x2 <- as.factor(u)
+y <- 1* (x1==1) + rnorm(n, sd = 1)
+xyData <- data.frame(x1, x2, y)
+
+n <- nrow(xyData)
+set.seed(123)
+
+# Number of folds
+k <- 5
+splt <- split(sample(n), 1:k) 
+Rmse.mat <- matrix(0, nrow=k, ncol=3) -> AIC.mat
+for (i in 1:k) {
+  test.id<- splt[[i]] 
+  test   <- xyData[test.id, ]
+  train  <- xyData[-test.id, ]
+  model0 <- lm(y ~ 1, data = train)
+  model1 <- lm(y ~ x1, data = train)
+  model2 <- lm(y ~ x2, data = train)
+
+  Rmse.mat[i,1] <- rmse(test$y, predict(model0, test))
+  Rmse.mat[i,2] <- rmse(test$y, predict(model1, test))
+  Rmse.mat[i,3] <- rmse(test$y, predict(model2, test))
+  AIC.mat[i,1]  <- AIC(model0)
+  AIC.mat[i,2]  <- AIC(model1)
+  AIC.mat[i,3]  <- AIC(model2)
+}
+OutMat <- rbind(round(Rmse.mat, digits=3),
+                round(colMeans(Rmse.mat), digits=3),
+                round(colMeans(AIC.mat), digits=3) )
+colnames(OutMat) <- c("Community Rating", "Two Levels", "Six Levels")
+row.names(OutMat) <- c("Rmse - Fold 1", "Rmse - Fold 2", "Rmse - Fold 3", 
+                       "Rmse - Fold 4", "Rmse - Fold 5", "Rmse - Average", 
+                       "AIC - Average")
+
+knitr::kable(OutMat, caption = "**Under- and Over-Fitting of Models**", booktabs = T) 
+
+```
+
+`r HideRCode('Example231.Hide', 'Show Example 2.3.1 R Code')`
+
+```{r eval=FALSE, ref.label = 'Example231'}
+```
+
+***
+
+</div>
 
 
 ```{r child = './Quizzes/Quiz2Data3.html', eval = QUIZ}
