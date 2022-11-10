@@ -1777,30 +1777,30 @@ Recall Example 6.3.5 with an individual’s claim frequency <span class="math in
 <div id="toggleExample.6.4.2" style="display: none">
 <p><strong>Solution.</strong>
 We follow the algorithm for the collective risk model, where we first simulate frequencies <span class="math inline">\(n_1,\ldots,n_{10000}\)</span>, and conditional on <span class="math inline">\(n_j,~j=1,\ldots,10000\)</span>, simulate each individual loss <span class="math inline">\(x_{ij},~i=1,\ldots n_j\)</span>.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="ChapAggLossModels.html#cb44-1"></a><span class="kw">set.seed</span>(<span class="dv">4321</span>)  <span class="co"># For reproducibility of results</span></span>
-<span id="cb44-2"><a href="ChapAggLossModels.html#cb44-2"></a>m &lt;-<span class="st"> </span><span class="dv">10000</span>  <span class="co"># Number of observations to simulate</span></span>
-<span id="cb44-3"><a href="ChapAggLossModels.html#cb44-3"></a>lambda &lt;-<span class="st"> </span><span class="dv">25</span>  <span class="co"># Parameter for frequency distribution N</span></span>
-<span id="cb44-4"><a href="ChapAggLossModels.html#cb44-4"></a>a &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb44-5"><a href="ChapAggLossModels.html#cb44-5"></a>b &lt;-<span class="st"> </span><span class="dv">95</span>  <span class="co"># Parameters for severity distribution X</span></span>
-<span id="cb44-6"><a href="ChapAggLossModels.html#cb44-6"></a>S &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, m)  <span class="co"># Initialize an empty vector to store S observations</span></span>
-<span id="cb44-7"><a href="ChapAggLossModels.html#cb44-7"></a></span>
-<span id="cb44-8"><a href="ChapAggLossModels.html#cb44-8"></a>n &lt;-<span class="st"> </span><span class="kw">rpois</span>(m, lambda)  <span class="co"># Generate m=10000 observations of N from Poisson</span></span>
-<span id="cb44-9"><a href="ChapAggLossModels.html#cb44-9"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
-<span id="cb44-10"><a href="ChapAggLossModels.html#cb44-10"></a>    n_j &lt;-<span class="st"> </span>n[j]  <span class="co"># Given each n_j (j=1,...,m), generate n_j observations of X from uniform</span></span>
-<span id="cb44-11"><a href="ChapAggLossModels.html#cb44-11"></a>    x_j &lt;-<span class="st"> </span><span class="kw">runif</span>(n_j, <span class="dt">min =</span> a, <span class="dt">max =</span> b)</span>
-<span id="cb44-12"><a href="ChapAggLossModels.html#cb44-12"></a>    s_j &lt;-<span class="st"> </span><span class="kw">sum</span>(x_j)  <span class="co"># Calculate the aggregate loss s_j</span></span>
-<span id="cb44-13"><a href="ChapAggLossModels.html#cb44-13"></a>    S[j] &lt;-<span class="st"> </span>s_j  <span class="co"># Store s_j in the vector of observations</span></span>
-<span id="cb44-14"><a href="ChapAggLossModels.html#cb44-14"></a>}</span>
-<span id="cb44-15"><a href="ChapAggLossModels.html#cb44-15"></a><span class="kw">mean</span>(S)  <span class="co"># Compare to theoretical value of 1,250</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="ChapAggLossModels.html#cb45-1"></a><span class="kw">set.seed</span>(<span class="dv">4321</span>)  <span class="co"># For reproducibility of results</span></span>
+<span id="cb45-2"><a href="ChapAggLossModels.html#cb45-2"></a>m &lt;-<span class="st"> </span><span class="dv">10000</span>  <span class="co"># Number of observations to simulate</span></span>
+<span id="cb45-3"><a href="ChapAggLossModels.html#cb45-3"></a>lambda &lt;-<span class="st"> </span><span class="dv">25</span>  <span class="co"># Parameter for frequency distribution N</span></span>
+<span id="cb45-4"><a href="ChapAggLossModels.html#cb45-4"></a>a &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb45-5"><a href="ChapAggLossModels.html#cb45-5"></a>b &lt;-<span class="st"> </span><span class="dv">95</span>  <span class="co"># Parameters for severity distribution X</span></span>
+<span id="cb45-6"><a href="ChapAggLossModels.html#cb45-6"></a>S &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, m)  <span class="co"># Initialize an empty vector to store S observations</span></span>
+<span id="cb45-7"><a href="ChapAggLossModels.html#cb45-7"></a></span>
+<span id="cb45-8"><a href="ChapAggLossModels.html#cb45-8"></a>n &lt;-<span class="st"> </span><span class="kw">rpois</span>(m, lambda)  <span class="co"># Generate m=10000 observations of N from Poisson</span></span>
+<span id="cb45-9"><a href="ChapAggLossModels.html#cb45-9"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
+<span id="cb45-10"><a href="ChapAggLossModels.html#cb45-10"></a>    n_j &lt;-<span class="st"> </span>n[j]  <span class="co"># Given each n_j (j=1,...,m), generate n_j observations of X from uniform</span></span>
+<span id="cb45-11"><a href="ChapAggLossModels.html#cb45-11"></a>    x_j &lt;-<span class="st"> </span><span class="kw">runif</span>(n_j, <span class="dt">min =</span> a, <span class="dt">max =</span> b)</span>
+<span id="cb45-12"><a href="ChapAggLossModels.html#cb45-12"></a>    s_j &lt;-<span class="st"> </span><span class="kw">sum</span>(x_j)  <span class="co"># Calculate the aggregate loss s_j</span></span>
+<span id="cb45-13"><a href="ChapAggLossModels.html#cb45-13"></a>    S[j] &lt;-<span class="st"> </span>s_j  <span class="co"># Store s_j in the vector of observations</span></span>
+<span id="cb45-14"><a href="ChapAggLossModels.html#cb45-14"></a>}</span>
+<span id="cb45-15"><a href="ChapAggLossModels.html#cb45-15"></a><span class="kw">mean</span>(S)  <span class="co"># Compare to theoretical value of 1,250</span></span></code></pre></div>
 <pre><code>[1] 1248.09</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="ChapAggLossModels.html#cb46-1"></a><span class="kw">var</span>(S)  <span class="co"># Compare to theoretical value of 79,375</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="ChapAggLossModels.html#cb47-1"></a><span class="kw">var</span>(S)  <span class="co"># Compare to theoretical value of 79,375</span></span></code></pre></div>
 <pre><code>[1] 77441.22</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="ChapAggLossModels.html#cb48-1"></a><span class="kw">mean</span>(S <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)  <span class="co"># Proportion of simulated observations s_j that are &gt; 2000</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="ChapAggLossModels.html#cb49-1"></a><span class="kw">mean</span>(S <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)  <span class="co"># Proportion of simulated observations s_j that are &gt; 2000</span></span></code></pre></div>
 <pre><code>[1] 0.0062</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="ChapAggLossModels.html#cb50-1"></a><span class="co"># Compare to normal approximation method of 0.003884</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="ChapAggLossModels.html#cb51-1"></a><span class="co"># Compare to normal approximation method of 0.003884</span></span></code></pre></div>
 <p>Using simulation, we estimate the mean and variance of the aggregate claims to be approximately 1248 and 77441 respectively, compared to the theoretical values of 1,250 and 79,375. In addition, we estimate the probability that aggregate losses exceed 2000 to be 0.0062, compared to the normal approximation estimate of 0.003884.</p>
 <p>We can assess the appropriateness of the normal approximation by comparing the empirical distribution of the simulated aggregate losses to the density of the normal distribution used for the normal approximation, <span class="math inline">\(N(\mu=1,250~, ~\sigma^2=79,375)\)</span>:</p>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-61-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-62-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The simulated losses are slightly more right-skewed than the normal distribution, with a longer right tail. This explains why the normal approximation estimate of <span class="math inline">\(\Pr(S_N &gt; 2000)\)</span> is lower than the simulated estimate.</p>
 </div>
 <hr />
