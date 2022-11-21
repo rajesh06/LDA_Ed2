@@ -4,16 +4,6 @@
 The goal is to have the actuarial community author our textbooks in a collaborative fashion. The text *Loss Data Analytics* represents our first book. 
 
 
-### Book Description
-
-*Loss Data Analytics* is an interactive, online, freely available text.
-
-* The online version contains many interactive objects (quizzes, computer demonstrations, interactive graphs, and the like) to promote deeper learning.
-* A subset of the book is available for offline reading in pdf and EPUB formats.
-* The online text will be available in multiple languages to promote access to a worldwide audience.
-
-To see publicly available resources, visit the [Open Actuarial Textbooks Landing Page](https://openacttexts.github.io/)
-
 ## For Authors
 
 ### DOWNLOAD AND EDIT A LOCAL COPY OF THE BOOK
