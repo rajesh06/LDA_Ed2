@@ -1,0 +1,51 @@
+I put a few points together in case it is useful in our conversation. Talk soon, Jed
+
+
+******************
+Chapter 5 - Jed Thoughts
+
+***
+Part on Model Estimation
+
+5.1 Nonparametric Estimation (not modified data, currently Section 5.1.1)
+
+Also include Section 5.1.3 on Starting Values
+
+5.2 Estimation using Modified Data (currently Section 5.3)
+
+Bring in/refer to ideas in the appendices on estimation.
+
+***
+Part on Model Selection
+
+5.3 Model Selection 
+
+Refer extensively to New Chapter 2.
+
+Use the current Section 5.2 as a base
+
+include Tools for Model Selection and Diagnostics, currently Section 5.1.2 
+
+Discuss model selection for modified data (it currently does not exist).
+***
+
+*  Cross-validation is briefly introduced in Section 5.2.4 and elaborated upon in Chapter 6. See if 
+you can introduce a data example in Chapter 5 to give the reader a better flavor as to how to make this happen. 
+*  Many "Actuarial Exam Questions." Replace many of them with data driven questions examples. 
+
+*  See, for example, 
+https://openresearch-repository.anu.edu.au/bitstream/1885/271461/3/ANURiskData30August2022.html
+*  Or https://openacttextdev.github.io/LDACourse1/
+
+*******
+
+Start the writing with our Style Guide
+
+https://openacttextdev.github.io/StyleGuideLDA2022/
+
+github for 2nd edition draft
+https://github.com/OpenActTextDev/LDA_Ed2
+
+2nd edition draft
+https://openacttextdev.github.io/LDA_Ed2/ChapModelSelection.html
+
