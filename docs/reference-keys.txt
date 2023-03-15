@@ -59,6 +59,8 @@ fig:qqCensored-1
 fig:qqCensored-2
 fig:qqCensored-3
 tab:KsCensored
+eq:case1
+eq:case2
 fig:BinaryDF
 fig:DiscreteDF
 fig:MixedDF
@@ -318,7 +320,7 @@ individual-risk-model
 S:AggLoss:CRM
 moments-and-distribution
 stop-loss-insurance
-analytic-results
+closed-form-distributions
 S:AggLoss:Tweedie
 computing-the-aggregate-claims-distribution
 recursive-method
