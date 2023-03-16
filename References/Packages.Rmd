@@ -30,6 +30,8 @@ library("knitr")
 library("magick")
 library("pdftools")
 library(dplyr)
+library("GofCens")
+library("Metrics")
 
 # Install as needed
 #install.packages("actuar")
