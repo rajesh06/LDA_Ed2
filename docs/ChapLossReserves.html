@@ -304,6 +304,177 @@ function openTab(evt, tabName) {
 document.getElementById("defaultOpen").click();
 </script>
 
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
 
 
 <style type="text/css">
@@ -395,6 +566,7 @@ div.csl-indent {
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="includeWebex/webex.css" type="text/css" />
 </head>
 
 <body>
@@ -575,10 +747,14 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html"><i class="fa fa-check"></i><b>6</b> Aggregate Loss Models</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a></li>
+<li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.2.1</b> Moments and Distribution</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#aggregate-loss-distribution"><i class="fa fa-check"></i><b>6.2.2</b> Aggregate Loss Distribution</a></li>
+</ul></li>
 <li class="chapter" data-level="6.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:CRM"><i class="fa fa-check"></i><b>6.3</b> Collective Risk Model</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
+<li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution-1"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#stop-loss-insurance"><i class="fa fa-check"></i><b>6.3.2</b> Stop-loss Insurance</a></li>
 <li class="chapter" data-level="6.3.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#closed-form-distributions"><i class="fa fa-check"></i><b>6.3.3</b> Closed-form Distributions</a></li>
 <li class="chapter" data-level="6.3.4" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:Tweedie"><i class="fa fa-check"></i><b>6.3.4</b> Tweedie Distribution</a></li>
@@ -596,9 +772,9 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#AL-further-reading-and-resources"><i class="fa fa-check"></i><b>6.6</b> Further Resources and Contributors</a>
 <ul>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 5.A.1. Individual Risk Model Properties</a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 5.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.3.-moment-generating-function-of-aggregate-loss-s_n-in-example-5.3.8"><i class="fa fa-check"></i>TS 5.A.3. Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span> in Example 5.3.8</a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 6.A.1. Individual Risk Model Properties</a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 6.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.3.-moment-generating-function-of-aggregate-loss-s_n-in-example-6.3.8"><i class="fa fa-check"></i>TS 6.A.3. Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span> in Example 6.3.8</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ChapSimulation.html"><a href="ChapSimulation.html"><i class="fa fa-check"></i><b>7</b> Simulation and Resampling</a>
@@ -1108,8 +1284,8 @@ the ultimate claim amount for occurrence year <span class="math inline">\(i\)</s
 <a id="displayCode.TriangleText.1" href="javascript:togglecode('toggleCode.TriangleText.1','displayCode.TriangleText.1');"><i><strong>R Code for Importing Text Data</strong></i></a>
 </h5>
 <div id="toggleCode.TriangleText.1" style="display: none">
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="ChapLossReserves.html#cb151-1" aria-hidden="true" tabindex="-1"></a>my_triangle_long <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;Data/triangle_W_M_long.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb151-2"><a href="ChapLossReserves.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_triangle_long)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="ChapLossReserves.html#cb161-1" aria-hidden="true" tabindex="-1"></a>my_triangle_long <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;Data/triangle_W_M_long.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb161-2"><a href="ChapLossReserves.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_triangle_long)</span></code></pre></div>
 <pre><code>   payment origin dev
 1  5946975   2004   0
 2  9668212   2004   1
@@ -1123,8 +1299,8 @@ the ultimate claim amount for occurrence year <span class="math inline">\(i\)</s
 <a id="displayCode.TriangleText.2" href="javascript:togglecode('toggleCode.TriangleText.2','displayCode.TriangleText.2');"><i><strong>R Code for Transforming to Triangular Display</strong></i></a>
 </h5>
 <div id="toggleCode.TriangleText.2" style="display: none">
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="ChapLossReserves.html#cb153-1" aria-hidden="true" tabindex="-1"></a>my_triangle <span class="ot">&lt;-</span> <span class="fu">as.triangle</span>(my_triangle_long, <span class="at">origin =</span> <span class="st">&quot;origin&quot;</span>, <span class="at">dev =</span> <span class="st">&quot;dev&quot;</span>, <span class="at">value =</span> <span class="st">&quot;payment&quot;</span>)</span>
-<span id="cb153-2"><a href="ChapLossReserves.html#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_triangle)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ChapLossReserves.html#cb163-1" aria-hidden="true" tabindex="-1"></a>my_triangle <span class="ot">&lt;-</span> <span class="fu">as.triangle</span>(my_triangle_long, <span class="at">origin =</span> <span class="st">&quot;origin&quot;</span>, <span class="at">dev =</span> <span class="st">&quot;dev&quot;</span>, <span class="at">value =</span> <span class="st">&quot;payment&quot;</span>)</span>
+<span id="cb163-2"><a href="ChapLossReserves.html#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_triangle)</span></code></pre></div>
 <pre><code> &#39;triangle&#39; int [1:10, 1:10] 5946975 6346756 6269090 5863015 5778885 6184793 5600184 5288066 5290793 5675568 ...
  - attr(*, &quot;dimnames&quot;)=List of 2
   ..$ origin: chr [1:10] &quot;2004&quot; &quot;2005&quot; &quot;2006&quot; &quot;2007&quot; ...
@@ -1135,7 +1311,7 @@ the ultimate claim amount for occurrence year <span class="math inline">\(i\)</s
 <a id="displayCode.TriangleText.3" href="javascript:togglecode('toggleCode.TriangleText.3','displayCode.TriangleText.3');"><i><strong>R Code for Displaying Triangular Data</strong></i></a>
 </h5>
 <div id="toggleCode.TriangleText.3" style="display: none">
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="ChapLossReserves.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(my_triangle<span class="sc">/</span><span class="dv">1000</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="ChapLossReserves.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(my_triangle<span class="sc">/</span><span class="dv">1000</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>      dev
 origin    0    1     2     3     4     5     6     7     8     9
   2004 5947 9668 10564 10772 10978 11041 11106 11121 11132 11148
@@ -1157,17 +1333,17 @@ origin    0    1     2     3     4     5     6     7     8     9
 <a id="displayCode.TriangleCSV.1" href="javascript:togglecode('toggleCode.TriangleCSV.1','displayCode.TriangleCSV.1');"><i><strong>R Code for Importing Triangular Data</strong></i></a>
 </h5>
 <div id="toggleCode.TriangleCSV.1" style="display: none">
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="ChapLossReserves.html#cb157-1" aria-hidden="true" tabindex="-1"></a>my_triangle_csv <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Data/triangle_W_M.csv&quot;</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb157-2"><a href="ChapLossReserves.html#cb157-2" aria-hidden="true" tabindex="-1"></a>my_triangle_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(my_triangle_csv)</span>
-<span id="cb157-3"><a href="ChapLossReserves.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(my_triangle_matrix) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">origin =</span> <span class="dv">2004</span> <span class="sc">:</span> <span class="dv">2013</span>, <span class="at">dev =</span> <span class="dv">0</span><span class="sc">:</span>(<span class="fu">ncol</span>(my_triangle_matrix)<span class="sc">-</span><span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="ChapLossReserves.html#cb167-1" aria-hidden="true" tabindex="-1"></a>my_triangle_csv <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Data/triangle_W_M.csv&quot;</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb167-2"><a href="ChapLossReserves.html#cb167-2" aria-hidden="true" tabindex="-1"></a>my_triangle_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(my_triangle_csv)</span>
+<span id="cb167-3"><a href="ChapLossReserves.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(my_triangle_matrix) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">origin =</span> <span class="dv">2004</span> <span class="sc">:</span> <span class="dv">2013</span>, <span class="at">dev =</span> <span class="dv">0</span><span class="sc">:</span>(<span class="fu">ncol</span>(my_triangle_matrix)<span class="sc">-</span><span class="dv">1</span>))</span></code></pre></div>
 </div>
 <p>We inspect the triangle:</p>
 <h5 style="text-align: center;">
 <a id="displayCode.TriangleCSV.2" href="javascript:togglecode('toggleCode.TriangleCSV.2','displayCode.TriangleCSV.2');"><i><strong>R Code for Displaying Triangular Data</strong></i></a>
 </h5>
 <div id="toggleCode.TriangleCSV.2" style="display: none">
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="ChapLossReserves.html#cb158-1" aria-hidden="true" tabindex="-1"></a>my_triangle <span class="ot">&lt;-</span> <span class="fu">as.triangle</span>(my_triangle_matrix) </span>
-<span id="cb158-2"><a href="ChapLossReserves.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(my_triangle<span class="sc">/</span><span class="dv">1000</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="ChapLossReserves.html#cb168-1" aria-hidden="true" tabindex="-1"></a>my_triangle <span class="ot">&lt;-</span> <span class="fu">as.triangle</span>(my_triangle_matrix) </span>
+<span id="cb168-2"><a href="ChapLossReserves.html#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(my_triangle<span class="sc">/</span><span class="dv">1000</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>      dev
 origin    0    1     2     3     4     5     6     7     8     9
   2004 5947 9668 10564 10772 10978 11041 11106 11121 11132 11148
@@ -1189,8 +1365,8 @@ origin    0    1     2     3     4     5     6     7     8     9
 <a id="displayCode.TriangleCSV.2" href="javascript:togglecode('toggleCode.TriangleCSV.2','displayCode.TriangleCSV.2');"><i><strong>R Code for Switching from Cumulative to Incremental Display</strong></i></a>
 </h5>
 <div id="toggleCode.TriangleCSV.2" style="display: none">
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="ChapLossReserves.html#cb160-1" aria-hidden="true" tabindex="-1"></a>my_triangle_incr <span class="ot">&lt;-</span> <span class="fu">cum2incr</span>(my_triangle) </span>
-<span id="cb160-2"><a href="ChapLossReserves.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(my_triangle_incr<span class="sc">/</span><span class="dv">1000</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="ChapLossReserves.html#cb170-1" aria-hidden="true" tabindex="-1"></a>my_triangle_incr <span class="ot">&lt;-</span> <span class="fu">cum2incr</span>(my_triangle) </span>
+<span id="cb170-2"><a href="ChapLossReserves.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(my_triangle_incr<span class="sc">/</span><span class="dv">1000</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>      dev
 origin    0    1   2   3   4   5  6  7  8  9
   2004 5947 3721 896 208 207  62 66 15 11 16
@@ -1210,7 +1386,7 @@ origin    0    1   2   3   4   5  6  7  8  9
 <h4>Visualizing Triangles<a href="ChapLossReserves.html#visualizing-triangles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To explore the evolution of the cumulative payments per occurrence year, Figure <a href="ChapLossReserves.html#fig:plottriangle">13.9</a> shows <code>my_triangle</code> using the <code>plot</code> function available for objects of type <code>triangle</code> in the <code>ChainLadder</code> package. Each line in this plot depicts an occurrence year (from 2004 to 2013, labelled as 1 to 10). Development periods are labelled from 1 to 10 (instead of 0 to 9, as used above).</p>
 
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="ChapLossReserves.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_triangle)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="ChapLossReserves.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_triangle)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:plottriangle"></span>
 <img src="LossDataAnalytics_files/figure-html/plottriangle-1.png" alt="Claim Development by Occurrence Year" width="80%" />
 <p class="caption">
@@ -1218,12 +1394,12 @@ Figure 13.9: <strong>Claim Development by Occurrence Year</strong>
 </p>
 </div>
 <p>Alternatively, the <code>lattice</code> argument creates one plot per occurrence year.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ChapLossReserves.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_triangle, <span class="at">lattice =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="ChapLossReserves.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_triangle, <span class="at">lattice =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="LossDataAnalytics_files/figure-html/plot_triangle_lattice-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Instead of plotting the cumulative triangle stored in <code>my_triangle</code>, we can plot the incremental run-off triangle.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ChapLossReserves.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_triangle_incr)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="ChapLossReserves.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_triangle_incr)</span></code></pre></div>
 <p><img src="LossDataAnalytics_files/figure-html/plot_triangle_incr-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="ChapLossReserves.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_triangle_incr, <span class="at">lattice =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="ChapLossReserves.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_triangle_incr, <span class="at">lattice =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="LossDataAnalytics_files/figure-html/plot_triangle_incr-2.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -1442,8 +1618,8 @@ The result is the sum of the <em>MSEP</em>s per occurrence period plus a covaria
 <a id="displayCode.MackModel.1" href="javascript:togglecode('toggleCode.MackModel.1','displayCode.MackModel.1');"><i><strong>R Code for Mack Model Forecasts</strong></i></a>
 </h5>
 <div id="toggleCode.MackModel.1" style="display: none">
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="ChapLossReserves.html#cb166-1" aria-hidden="true" tabindex="-1"></a>CL <span class="ot">&lt;-</span> <span class="fu">MackChainLadder</span>(my_triangle)</span>
-<span id="cb166-2"><a href="ChapLossReserves.html#cb166-2" aria-hidden="true" tabindex="-1"></a>CL</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="ChapLossReserves.html#cb176-1" aria-hidden="true" tabindex="-1"></a>CL <span class="ot">&lt;-</span> <span class="fu">MackChainLadder</span>(my_triangle)</span>
+<span id="cb176-2"><a href="ChapLossReserves.html#cb176-2" aria-hidden="true" tabindex="-1"></a>CL</span></code></pre></div>
 <pre><code>MackChainLadder(Triangle = my_triangle)
 
          Latest Dev.To.Date   Ultimate      IBNR Mack.S.E CV(IBNR)
@@ -1465,7 +1641,7 @@ Ultimate: 98,788,397.77
 IBNR:      6,047,063.77
 Mack.S.E     462,977.83
 CV(IBNR):          0.08</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="ChapLossReserves.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">summary</span>(CL)<span class="sc">$</span>Totals)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="ChapLossReserves.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">summary</span>(CL)<span class="sc">$</span>Totals)</span></code></pre></div>
 <pre><code>             Totals
 Latest:    92741334
 Dev:              1
@@ -1475,14 +1651,14 @@ Mack S.E.:   462978
 CV(IBNR):         0</code></pre>
 </div>
 <p>The development factors are obtained as follows:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="ChapLossReserves.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(CL<span class="sc">$</span>f,<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="ChapLossReserves.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(CL<span class="sc">$</span>f,<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code> [1] 1.4925 1.0778 1.0229 1.0148 1.0070 1.0051 1.0011 1.0010 1.0014 1.0000</code></pre>
 <p>We can also print the complete run-off triangle (including predictions).</p>
 <h5 style="text-align: center;">
 <a id="displayCode.MackModel.1" href="javascript:togglecode('toggleCode.MackModel.1','displayCode.MackModel.1');"><i><strong>R Code for Mack Model Completed Triangle</strong></i></a>
 </h5>
 <div id="toggleCode.MackModel.1" style="display: none">
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="ChapLossReserves.html#cb172-1" aria-hidden="true" tabindex="-1"></a>CL<span class="sc">$</span>FullTriangle</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="ChapLossReserves.html#cb182-1" aria-hidden="true" tabindex="-1"></a>CL<span class="sc">$</span>FullTriangle</span></code></pre></div>
 <pre><code>      dev
 origin       0       1        2        3        4        5        6        7
   2004 5946975 9668212 10563929 10771690 10978394 11040518 11106331 11121181
@@ -1509,15 +1685,15 @@ origin        8        9
   2013  9612728  9626383</code></pre>
 </div>
 <p>The <a href="#" class="tooltip" style="color:green"><em>MSEP</em><span style="font-size:8pt">Mean Squared Error of Prediction</span></a> for the total reserve across all occurrence periods is given by:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="ChapLossReserves.html#cb174-1" aria-hidden="true" tabindex="-1"></a>CL<span class="sc">$</span>Total.Mack.S.E<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="ChapLossReserves.html#cb184-1" aria-hidden="true" tabindex="-1"></a>CL<span class="sc">$</span>Total.Mack.S.E<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>           9 
 214348469061 </code></pre>
 <p>It is strongly advised to validate Mack’s assumptions by checking that there are no trends in the residual plots. The last four plots that we obtain with the following command show respectively the standardized residuals versus the fitted values, the origin period, the calendar period and the development period.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="ChapLossReserves.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CL)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="ChapLossReserves.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CL)</span></code></pre></div>
 <p><img src="LossDataAnalytics_files/figure-html/ResidualPlot-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The top left-hand plot is a bar-chart of the latest claims position plus IBNR and Mack’s standard error by occurrence period. The top right-hand plot shows the forecasted development patterns for all occurrence periods (starting with 1 for the oldest occurrence period).</p>
 <p>When setting the argument <code>lattice=TRUE</code> we obtain a plot of the development, including the prediction and estimated standard errors by occurrence period:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="ChapLossReserves.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CL, <span class="at">lattice=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="ChapLossReserves.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CL, <span class="at">lattice=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="LossDataAnalytics_files/figure-html/PlotLattice-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>

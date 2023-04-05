@@ -32,6 +32,7 @@ library("pdftools")
 library(dplyr)
 library("GofCens")
 library("Metrics")
+library("webexercises")
 
 # Install as needed
 #install.packages("actuar")
@@ -63,6 +64,7 @@ library("Metrics")
 #install.packages("kableExtra")
 #install.packages("magick")
 #install.packages("pdftools")
+#install.packages("webexercises")
 
 
 

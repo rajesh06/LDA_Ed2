@@ -9,9 +9,13 @@ bookdown::pdf_book:
   keep_tex: yes
 bookdown::epub_book: default
 bookdown::gitbook:
-  css: style.css
+  css: 
+    -  style.css
+    -  includeWebex/webex.css
   includes:
-    in_header: ShowHide2022.js
+    in_header: 
+      -  ShowHide2022.js
+      -  includeWebex/webex.js
   config:
     toc:
       collapse: subsection

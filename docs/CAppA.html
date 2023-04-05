@@ -304,6 +304,177 @@ function openTab(evt, tabName) {
 document.getElementById("defaultOpen").click();
 </script>
 
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
 
 
 <style type="text/css">
@@ -395,6 +566,7 @@ div.csl-indent {
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="includeWebex/webex.css" type="text/css" />
 </head>
 
 <body>
@@ -575,10 +747,14 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html"><i class="fa fa-check"></i><b>6</b> Aggregate Loss Models</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a></li>
+<li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.2.1</b> Moments and Distribution</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#aggregate-loss-distribution"><i class="fa fa-check"></i><b>6.2.2</b> Aggregate Loss Distribution</a></li>
+</ul></li>
 <li class="chapter" data-level="6.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:CRM"><i class="fa fa-check"></i><b>6.3</b> Collective Risk Model</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
+<li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution-1"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#stop-loss-insurance"><i class="fa fa-check"></i><b>6.3.2</b> Stop-loss Insurance</a></li>
 <li class="chapter" data-level="6.3.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#closed-form-distributions"><i class="fa fa-check"></i><b>6.3.3</b> Closed-form Distributions</a></li>
 <li class="chapter" data-level="6.3.4" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:Tweedie"><i class="fa fa-check"></i><b>6.3.4</b> Tweedie Distribution</a></li>
@@ -596,9 +772,9 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#AL-further-reading-and-resources"><i class="fa fa-check"></i><b>6.6</b> Further Resources and Contributors</a>
 <ul>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 5.A.1. Individual Risk Model Properties</a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 5.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.3.-moment-generating-function-of-aggregate-loss-s_n-in-example-5.3.8"><i class="fa fa-check"></i>TS 5.A.3. Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span> in Example 5.3.8</a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 6.A.1. Individual Risk Model Properties</a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 6.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.3.-moment-generating-function-of-aggregate-loss-s_n-in-example-6.3.8"><i class="fa fa-check"></i>TS 6.A.3. Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span> in Example 6.3.8</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ChapSimulation.html"><a href="ChapSimulation.html"><i class="fa fa-check"></i><b>7</b> Simulation and Resampling</a>
@@ -1028,12 +1204,12 @@ div.csl-indent {
 </tbody>
 </table>
 
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="CAppA.html#cb237-1" aria-hidden="true" tabindex="-1"></a>ClaimLev <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/CLAIMLEVEL.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb237-2"><a href="CAppA.html#cb237-2" aria-hidden="true" tabindex="-1"></a>ClaimLevBC10<span class="ot">&lt;-</span><span class="fu">subset</span>(ClaimLev,Year<span class="sc">==</span><span class="dv">2010</span>); </span>
-<span id="cb237-3"><a href="CAppA.html#cb237-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Sample size: &quot;</span>, <span class="fu">nrow</span>(ClaimLevBC10), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb237-4"><a href="CAppA.html#cb237-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb237-5"><a href="CAppA.html#cb237-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ClaimLevBC10<span class="sc">$</span>Claim, <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Claims&quot;</span>)</span>
-<span id="cb237-6"><a href="CAppA.html#cb237-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(ClaimLevBC10<span class="sc">$</span>Claim), <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Logarithmic Claims&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="CAppA.html#cb247-1" aria-hidden="true" tabindex="-1"></a>ClaimLev <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/CLAIMLEVEL.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb247-2"><a href="CAppA.html#cb247-2" aria-hidden="true" tabindex="-1"></a>ClaimLevBC10<span class="ot">&lt;-</span><span class="fu">subset</span>(ClaimLev,Year<span class="sc">==</span><span class="dv">2010</span>); </span>
+<span id="cb247-3"><a href="CAppA.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Sample size: &quot;</span>, <span class="fu">nrow</span>(ClaimLevBC10), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb247-4"><a href="CAppA.html#cb247-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb247-5"><a href="CAppA.html#cb247-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ClaimLevBC10<span class="sc">$</span>Claim, <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Claims&quot;</span>)</span>
+<span id="cb247-6"><a href="CAppA.html#cb247-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(ClaimLevBC10<span class="sc">$</span>Claim), <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Logarithmic Claims&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ClaimDistn1"></span>
 <img src="LossDataAnalytics_files/figure-html/ClaimDistn1-1.png" alt="Distribution of Claims" width="80%" />
 <p class="caption">
@@ -1410,59 +1586,59 @@ Figure 16.2: <strong>Fitted Claims Distribution</strong>
 </h5>
 <div id="toggleCode.FIT" style="display: none">
 <p>R Code for Fitted Claims Distributions</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="CAppA.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R Code to fit several claims distributions</span></span>
-<span id="cb240-2"><a href="CAppA.html#cb240-2" aria-hidden="true" tabindex="-1"></a>ClaimLev <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/CLAIMLEVEL.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>); <span class="fu">nrow</span>(ClaimLev)</span>
-<span id="cb240-3"><a href="CAppA.html#cb240-3" aria-hidden="true" tabindex="-1"></a>ClaimData<span class="ot">&lt;-</span><span class="fu">subset</span>(ClaimLev,Year<span class="sc">==</span><span class="dv">2010</span>); </span>
-<span id="cb240-4"><a href="CAppA.html#cb240-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Use &quot;VGAM&quot; library for estimation of parameters </span></span>
-<span id="cb240-5"><a href="CAppA.html#cb240-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span>
-<span id="cb240-6"><a href="CAppA.html#cb240-6" aria-hidden="true" tabindex="-1"></a>fit.LN <span class="ot">&lt;-</span> <span class="fu">vglm</span>(Claim <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family=</span>lognormal, <span class="at">data =</span> ClaimData)</span>
-<span id="cb240-7"><a href="CAppA.html#cb240-7" aria-hidden="true" tabindex="-1"></a>fit.gamma <span class="ot">&lt;-</span> <span class="fu">vglm</span>(Claim <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family=</span>gamma2, <span class="at">data =</span> ClaimData)</span>
-<span id="cb240-8"><a href="CAppA.html#cb240-8" aria-hidden="true" tabindex="-1"></a>  theta.gamma<span class="ot">&lt;-</span><span class="fu">exp</span>(<span class="fu">coef</span>(fit.gamma)[<span class="dv">1</span>])<span class="sc">/</span><span class="fu">exp</span>(<span class="fu">coef</span>(fit.gamma)[<span class="dv">2</span>]) </span>
-<span id="cb240-9"><a href="CAppA.html#cb240-9" aria-hidden="true" tabindex="-1"></a>  alpha.gamma<span class="ot">&lt;-</span><span class="fu">exp</span>(<span class="fu">coef</span>(fit.gamma)[<span class="dv">2</span>])</span>
-<span id="cb240-10"><a href="CAppA.html#cb240-10" aria-hidden="true" tabindex="-1"></a>fit.exp <span class="ot">&lt;-</span> <span class="fu">vglm</span>(Claim <span class="sc">~</span> <span class="dv">1</span>, exponential, <span class="at">data =</span> ClaimData)</span>
-<span id="cb240-11"><a href="CAppA.html#cb240-11" aria-hidden="true" tabindex="-1"></a>fit.pareto <span class="ot">&lt;-</span> <span class="fu">vglm</span>(Claim <span class="sc">~</span> <span class="dv">1</span>, paretoII, <span class="at">loc=</span><span class="dv">0</span>, <span class="at">data =</span> ClaimData)</span>
-<span id="cb240-12"><a href="CAppA.html#cb240-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-13"><a href="CAppA.html#cb240-13" aria-hidden="true" tabindex="-1"></a><span class="do">###################################################</span></span>
-<span id="cb240-14"><a href="CAppA.html#cb240-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  Inference assuming a GB2 Distribution - this is more complicated</span></span>
-<span id="cb240-15"><a href="CAppA.html#cb240-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The likelihood function of GB2 distribution (negative for optimization)</span></span>
-<span id="cb240-16"><a href="CAppA.html#cb240-16" aria-hidden="true" tabindex="-1"></a>likgb2 <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
-<span id="cb240-17"><a href="CAppA.html#cb240-17" aria-hidden="true" tabindex="-1"></a>  a1 <span class="ot">&lt;-</span> param[<span class="dv">1</span>]</span>
-<span id="cb240-18"><a href="CAppA.html#cb240-18" aria-hidden="true" tabindex="-1"></a>  a2 <span class="ot">&lt;-</span> param[<span class="dv">2</span>]</span>
-<span id="cb240-19"><a href="CAppA.html#cb240-19" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> param[<span class="dv">3</span>]</span>
-<span id="cb240-20"><a href="CAppA.html#cb240-20" aria-hidden="true" tabindex="-1"></a>  sigma <span class="ot">&lt;-</span> param[<span class="dv">4</span>]</span>
-<span id="cb240-21"><a href="CAppA.html#cb240-21" aria-hidden="true" tabindex="-1"></a>  yt <span class="ot">&lt;-</span> (<span class="fu">log</span>(ClaimData<span class="sc">$</span>Claim)<span class="sc">-</span>mu)<span class="sc">/</span>sigma</span>
-<span id="cb240-22"><a href="CAppA.html#cb240-22" aria-hidden="true" tabindex="-1"></a>  logexpyt<span class="ot">&lt;-</span><span class="fu">ifelse</span>(yt<span class="sc">&gt;</span><span class="dv">23</span>,yt,<span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(yt)))</span>
-<span id="cb240-23"><a href="CAppA.html#cb240-23" aria-hidden="true" tabindex="-1"></a>  logdens <span class="ot">&lt;-</span> a1<span class="sc">*</span>yt <span class="sc">-</span> <span class="fu">log</span>(sigma) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">beta</span>(a1,a2)) <span class="sc">-</span> (a1<span class="sc">+</span>a2)<span class="sc">*</span>logexpyt <span class="sc">-</span><span class="fu">log</span>(ClaimData<span class="sc">$</span>Claim) </span>
-<span id="cb240-24"><a href="CAppA.html#cb240-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="sc">-</span><span class="fu">sum</span>(logdens))</span>
-<span id="cb240-25"><a href="CAppA.html#cb240-25" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb240-26"><a href="CAppA.html#cb240-26" aria-hidden="true" tabindex="-1"></a><span class="co">#  &quot;optim&quot; is a general purpose minimization function</span></span>
-<span id="cb240-27"><a href="CAppA.html#cb240-27" aria-hidden="true" tabindex="-1"></a>gb2bop <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>),likgb2,<span class="at">method=</span><span class="fu">c</span>(<span class="st">&quot;L-BFGS-B&quot;</span>),</span>
-<span id="cb240-28"><a href="CAppA.html#cb240-28" aria-hidden="true" tabindex="-1"></a>                <span class="at">lower=</span><span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">0.01</span>,<span class="sc">-</span><span class="dv">500</span>,<span class="fl">0.01</span>),<span class="at">upper=</span><span class="fu">c</span>(<span class="dv">500</span>,<span class="dv">500</span>,<span class="dv">500</span>,<span class="dv">500</span>),<span class="at">hessian=</span><span class="cn">TRUE</span>)</span>
-<span id="cb240-29"><a href="CAppA.html#cb240-29" aria-hidden="true" tabindex="-1"></a><span class="do">###################################################</span></span>
-<span id="cb240-30"><a href="CAppA.html#cb240-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the fit using densities (on a logarithmic scale)</span></span>
-<span id="cb240-31"><a href="CAppA.html#cb240-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">log</span>(ClaimData<span class="sc">$</span>Claim)), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.36</span>),<span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Log Expenditures&quot;</span>)</span>
-<span id="cb240-32"><a href="CAppA.html#cb240-32" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">15</span>,<span class="at">by=</span><span class="fl">0.01</span>)</span>
-<span id="cb240-33"><a href="CAppA.html#cb240-33" aria-hidden="true" tabindex="-1"></a>fexp_ex <span class="ot">=</span> <span class="fu">dgamma</span>(<span class="fu">exp</span>(x), <span class="at">scale =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fu">coef</span>(fit.exp)), <span class="at">shape =</span> <span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(x)</span>
-<span id="cb240-34"><a href="CAppA.html#cb240-34" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,fexp_ex, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb240-35"><a href="CAppA.html#cb240-35" aria-hidden="true" tabindex="-1"></a>fgamma_ex <span class="ot">=</span> <span class="fu">dgamma</span>(<span class="fu">exp</span>(x), <span class="at">shape =</span> alpha.gamma, <span class="at">scale=</span>theta.gamma)<span class="sc">*</span><span class="fu">exp</span>(x)</span>
-<span id="cb240-36"><a href="CAppA.html#cb240-36" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,fgamma_ex,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb240-37"><a href="CAppA.html#cb240-37" aria-hidden="true" tabindex="-1"></a>fpareto_ex <span class="ot">=</span> <span class="fu">dparetoII</span>(<span class="fu">exp</span>(x),<span class="at">loc=</span><span class="dv">0</span>,<span class="at">shape =</span> <span class="fu">exp</span>(<span class="fu">coef</span>(fit.pareto)[<span class="dv">2</span>]), <span class="at">scale =</span> <span class="fu">exp</span>(<span class="fu">coef</span>(fit.pareto)[<span class="dv">1</span>]))<span class="sc">*</span><span class="fu">exp</span>(x)</span>
-<span id="cb240-38"><a href="CAppA.html#cb240-38" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,fpareto_ex,<span class="at">col=</span><span class="st">&quot;purple&quot;</span>)</span>
-<span id="cb240-39"><a href="CAppA.html#cb240-39" aria-hidden="true" tabindex="-1"></a>flnorm_ex <span class="ot">=</span> <span class="fu">dlnorm</span>(<span class="fu">exp</span>(x), <span class="at">mean =</span> <span class="fu">coef</span>(fit.LN)[<span class="dv">1</span>], <span class="at">sd =</span> <span class="fu">exp</span>(<span class="fu">coef</span>(fit.LN)[<span class="dv">2</span>]))<span class="sc">*</span><span class="fu">exp</span>(x)</span>
-<span id="cb240-40"><a href="CAppA.html#cb240-40" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,flnorm_ex, <span class="at">col=</span><span class="st">&quot;lightblue&quot;</span>)</span>
-<span id="cb240-41"><a href="CAppA.html#cb240-41" aria-hidden="true" tabindex="-1"></a><span class="co"># density for GB II</span></span>
-<span id="cb240-42"><a href="CAppA.html#cb240-42" aria-hidden="true" tabindex="-1"></a>gb2density <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb240-43"><a href="CAppA.html#cb240-43" aria-hidden="true" tabindex="-1"></a>  a1 <span class="ot">&lt;-</span> gb2bop<span class="sc">$</span>par[<span class="dv">1</span>]</span>
-<span id="cb240-44"><a href="CAppA.html#cb240-44" aria-hidden="true" tabindex="-1"></a>  a2 <span class="ot">&lt;-</span> gb2bop<span class="sc">$</span>par[<span class="dv">2</span>]</span>
-<span id="cb240-45"><a href="CAppA.html#cb240-45" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> gb2bop<span class="sc">$</span>par[<span class="dv">3</span>]</span>
-<span id="cb240-46"><a href="CAppA.html#cb240-46" aria-hidden="true" tabindex="-1"></a>  sigma <span class="ot">&lt;-</span> gb2bop<span class="sc">$</span>par[<span class="dv">4</span>]</span>
-<span id="cb240-47"><a href="CAppA.html#cb240-47" aria-hidden="true" tabindex="-1"></a>  xt <span class="ot">&lt;-</span> (<span class="fu">log</span>(x)<span class="sc">-</span>mu)<span class="sc">/</span>sigma</span>
-<span id="cb240-48"><a href="CAppA.html#cb240-48" aria-hidden="true" tabindex="-1"></a>  logexpxt<span class="ot">&lt;-</span><span class="fu">ifelse</span>(xt<span class="sc">&gt;</span><span class="dv">23</span>,yt,<span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(xt)))</span>
-<span id="cb240-49"><a href="CAppA.html#cb240-49" aria-hidden="true" tabindex="-1"></a>  logdens <span class="ot">&lt;-</span> a1<span class="sc">*</span>xt <span class="sc">-</span> <span class="fu">log</span>(sigma) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">beta</span>(a1,a2)) <span class="sc">-</span> (a1<span class="sc">+</span>a2)<span class="sc">*</span>logexpxt <span class="sc">-</span><span class="fu">log</span>(x) </span>
-<span id="cb240-50"><a href="CAppA.html#cb240-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(logdens)</span>
-<span id="cb240-51"><a href="CAppA.html#cb240-51" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb240-52"><a href="CAppA.html#cb240-52" aria-hidden="true" tabindex="-1"></a>fGB2_ex <span class="ot">=</span> <span class="fu">gb2density</span>(<span class="fu">exp</span>(x))<span class="sc">*</span><span class="fu">exp</span>(x)</span>
-<span id="cb240-53"><a href="CAppA.html#cb240-53" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,fGB2_ex, <span class="at">col=</span><span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="CAppA.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R Code to fit several claims distributions</span></span>
+<span id="cb250-2"><a href="CAppA.html#cb250-2" aria-hidden="true" tabindex="-1"></a>ClaimLev <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/CLAIMLEVEL.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>); <span class="fu">nrow</span>(ClaimLev)</span>
+<span id="cb250-3"><a href="CAppA.html#cb250-3" aria-hidden="true" tabindex="-1"></a>ClaimData<span class="ot">&lt;-</span><span class="fu">subset</span>(ClaimLev,Year<span class="sc">==</span><span class="dv">2010</span>); </span>
+<span id="cb250-4"><a href="CAppA.html#cb250-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Use &quot;VGAM&quot; library for estimation of parameters </span></span>
+<span id="cb250-5"><a href="CAppA.html#cb250-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span>
+<span id="cb250-6"><a href="CAppA.html#cb250-6" aria-hidden="true" tabindex="-1"></a>fit.LN <span class="ot">&lt;-</span> <span class="fu">vglm</span>(Claim <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family=</span>lognormal, <span class="at">data =</span> ClaimData)</span>
+<span id="cb250-7"><a href="CAppA.html#cb250-7" aria-hidden="true" tabindex="-1"></a>fit.gamma <span class="ot">&lt;-</span> <span class="fu">vglm</span>(Claim <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family=</span>gamma2, <span class="at">data =</span> ClaimData)</span>
+<span id="cb250-8"><a href="CAppA.html#cb250-8" aria-hidden="true" tabindex="-1"></a>  theta.gamma<span class="ot">&lt;-</span><span class="fu">exp</span>(<span class="fu">coef</span>(fit.gamma)[<span class="dv">1</span>])<span class="sc">/</span><span class="fu">exp</span>(<span class="fu">coef</span>(fit.gamma)[<span class="dv">2</span>]) </span>
+<span id="cb250-9"><a href="CAppA.html#cb250-9" aria-hidden="true" tabindex="-1"></a>  alpha.gamma<span class="ot">&lt;-</span><span class="fu">exp</span>(<span class="fu">coef</span>(fit.gamma)[<span class="dv">2</span>])</span>
+<span id="cb250-10"><a href="CAppA.html#cb250-10" aria-hidden="true" tabindex="-1"></a>fit.exp <span class="ot">&lt;-</span> <span class="fu">vglm</span>(Claim <span class="sc">~</span> <span class="dv">1</span>, exponential, <span class="at">data =</span> ClaimData)</span>
+<span id="cb250-11"><a href="CAppA.html#cb250-11" aria-hidden="true" tabindex="-1"></a>fit.pareto <span class="ot">&lt;-</span> <span class="fu">vglm</span>(Claim <span class="sc">~</span> <span class="dv">1</span>, paretoII, <span class="at">loc=</span><span class="dv">0</span>, <span class="at">data =</span> ClaimData)</span>
+<span id="cb250-12"><a href="CAppA.html#cb250-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb250-13"><a href="CAppA.html#cb250-13" aria-hidden="true" tabindex="-1"></a><span class="do">###################################################</span></span>
+<span id="cb250-14"><a href="CAppA.html#cb250-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  Inference assuming a GB2 Distribution - this is more complicated</span></span>
+<span id="cb250-15"><a href="CAppA.html#cb250-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The likelihood function of GB2 distribution (negative for optimization)</span></span>
+<span id="cb250-16"><a href="CAppA.html#cb250-16" aria-hidden="true" tabindex="-1"></a>likgb2 <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
+<span id="cb250-17"><a href="CAppA.html#cb250-17" aria-hidden="true" tabindex="-1"></a>  a1 <span class="ot">&lt;-</span> param[<span class="dv">1</span>]</span>
+<span id="cb250-18"><a href="CAppA.html#cb250-18" aria-hidden="true" tabindex="-1"></a>  a2 <span class="ot">&lt;-</span> param[<span class="dv">2</span>]</span>
+<span id="cb250-19"><a href="CAppA.html#cb250-19" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> param[<span class="dv">3</span>]</span>
+<span id="cb250-20"><a href="CAppA.html#cb250-20" aria-hidden="true" tabindex="-1"></a>  sigma <span class="ot">&lt;-</span> param[<span class="dv">4</span>]</span>
+<span id="cb250-21"><a href="CAppA.html#cb250-21" aria-hidden="true" tabindex="-1"></a>  yt <span class="ot">&lt;-</span> (<span class="fu">log</span>(ClaimData<span class="sc">$</span>Claim)<span class="sc">-</span>mu)<span class="sc">/</span>sigma</span>
+<span id="cb250-22"><a href="CAppA.html#cb250-22" aria-hidden="true" tabindex="-1"></a>  logexpyt<span class="ot">&lt;-</span><span class="fu">ifelse</span>(yt<span class="sc">&gt;</span><span class="dv">23</span>,yt,<span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(yt)))</span>
+<span id="cb250-23"><a href="CAppA.html#cb250-23" aria-hidden="true" tabindex="-1"></a>  logdens <span class="ot">&lt;-</span> a1<span class="sc">*</span>yt <span class="sc">-</span> <span class="fu">log</span>(sigma) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">beta</span>(a1,a2)) <span class="sc">-</span> (a1<span class="sc">+</span>a2)<span class="sc">*</span>logexpyt <span class="sc">-</span><span class="fu">log</span>(ClaimData<span class="sc">$</span>Claim) </span>
+<span id="cb250-24"><a href="CAppA.html#cb250-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="sc">-</span><span class="fu">sum</span>(logdens))</span>
+<span id="cb250-25"><a href="CAppA.html#cb250-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb250-26"><a href="CAppA.html#cb250-26" aria-hidden="true" tabindex="-1"></a><span class="co">#  &quot;optim&quot; is a general purpose minimization function</span></span>
+<span id="cb250-27"><a href="CAppA.html#cb250-27" aria-hidden="true" tabindex="-1"></a>gb2bop <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>),likgb2,<span class="at">method=</span><span class="fu">c</span>(<span class="st">&quot;L-BFGS-B&quot;</span>),</span>
+<span id="cb250-28"><a href="CAppA.html#cb250-28" aria-hidden="true" tabindex="-1"></a>                <span class="at">lower=</span><span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">0.01</span>,<span class="sc">-</span><span class="dv">500</span>,<span class="fl">0.01</span>),<span class="at">upper=</span><span class="fu">c</span>(<span class="dv">500</span>,<span class="dv">500</span>,<span class="dv">500</span>,<span class="dv">500</span>),<span class="at">hessian=</span><span class="cn">TRUE</span>)</span>
+<span id="cb250-29"><a href="CAppA.html#cb250-29" aria-hidden="true" tabindex="-1"></a><span class="do">###################################################</span></span>
+<span id="cb250-30"><a href="CAppA.html#cb250-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the fit using densities (on a logarithmic scale)</span></span>
+<span id="cb250-31"><a href="CAppA.html#cb250-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">log</span>(ClaimData<span class="sc">$</span>Claim)), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.36</span>),<span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Log Expenditures&quot;</span>)</span>
+<span id="cb250-32"><a href="CAppA.html#cb250-32" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">15</span>,<span class="at">by=</span><span class="fl">0.01</span>)</span>
+<span id="cb250-33"><a href="CAppA.html#cb250-33" aria-hidden="true" tabindex="-1"></a>fexp_ex <span class="ot">=</span> <span class="fu">dgamma</span>(<span class="fu">exp</span>(x), <span class="at">scale =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fu">coef</span>(fit.exp)), <span class="at">shape =</span> <span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(x)</span>
+<span id="cb250-34"><a href="CAppA.html#cb250-34" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,fexp_ex, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb250-35"><a href="CAppA.html#cb250-35" aria-hidden="true" tabindex="-1"></a>fgamma_ex <span class="ot">=</span> <span class="fu">dgamma</span>(<span class="fu">exp</span>(x), <span class="at">shape =</span> alpha.gamma, <span class="at">scale=</span>theta.gamma)<span class="sc">*</span><span class="fu">exp</span>(x)</span>
+<span id="cb250-36"><a href="CAppA.html#cb250-36" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,fgamma_ex,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb250-37"><a href="CAppA.html#cb250-37" aria-hidden="true" tabindex="-1"></a>fpareto_ex <span class="ot">=</span> <span class="fu">dparetoII</span>(<span class="fu">exp</span>(x),<span class="at">loc=</span><span class="dv">0</span>,<span class="at">shape =</span> <span class="fu">exp</span>(<span class="fu">coef</span>(fit.pareto)[<span class="dv">2</span>]), <span class="at">scale =</span> <span class="fu">exp</span>(<span class="fu">coef</span>(fit.pareto)[<span class="dv">1</span>]))<span class="sc">*</span><span class="fu">exp</span>(x)</span>
+<span id="cb250-38"><a href="CAppA.html#cb250-38" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,fpareto_ex,<span class="at">col=</span><span class="st">&quot;purple&quot;</span>)</span>
+<span id="cb250-39"><a href="CAppA.html#cb250-39" aria-hidden="true" tabindex="-1"></a>flnorm_ex <span class="ot">=</span> <span class="fu">dlnorm</span>(<span class="fu">exp</span>(x), <span class="at">mean =</span> <span class="fu">coef</span>(fit.LN)[<span class="dv">1</span>], <span class="at">sd =</span> <span class="fu">exp</span>(<span class="fu">coef</span>(fit.LN)[<span class="dv">2</span>]))<span class="sc">*</span><span class="fu">exp</span>(x)</span>
+<span id="cb250-40"><a href="CAppA.html#cb250-40" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,flnorm_ex, <span class="at">col=</span><span class="st">&quot;lightblue&quot;</span>)</span>
+<span id="cb250-41"><a href="CAppA.html#cb250-41" aria-hidden="true" tabindex="-1"></a><span class="co"># density for GB II</span></span>
+<span id="cb250-42"><a href="CAppA.html#cb250-42" aria-hidden="true" tabindex="-1"></a>gb2density <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb250-43"><a href="CAppA.html#cb250-43" aria-hidden="true" tabindex="-1"></a>  a1 <span class="ot">&lt;-</span> gb2bop<span class="sc">$</span>par[<span class="dv">1</span>]</span>
+<span id="cb250-44"><a href="CAppA.html#cb250-44" aria-hidden="true" tabindex="-1"></a>  a2 <span class="ot">&lt;-</span> gb2bop<span class="sc">$</span>par[<span class="dv">2</span>]</span>
+<span id="cb250-45"><a href="CAppA.html#cb250-45" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> gb2bop<span class="sc">$</span>par[<span class="dv">3</span>]</span>
+<span id="cb250-46"><a href="CAppA.html#cb250-46" aria-hidden="true" tabindex="-1"></a>  sigma <span class="ot">&lt;-</span> gb2bop<span class="sc">$</span>par[<span class="dv">4</span>]</span>
+<span id="cb250-47"><a href="CAppA.html#cb250-47" aria-hidden="true" tabindex="-1"></a>  xt <span class="ot">&lt;-</span> (<span class="fu">log</span>(x)<span class="sc">-</span>mu)<span class="sc">/</span>sigma</span>
+<span id="cb250-48"><a href="CAppA.html#cb250-48" aria-hidden="true" tabindex="-1"></a>  logexpxt<span class="ot">&lt;-</span><span class="fu">ifelse</span>(xt<span class="sc">&gt;</span><span class="dv">23</span>,yt,<span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(xt)))</span>
+<span id="cb250-49"><a href="CAppA.html#cb250-49" aria-hidden="true" tabindex="-1"></a>  logdens <span class="ot">&lt;-</span> a1<span class="sc">*</span>xt <span class="sc">-</span> <span class="fu">log</span>(sigma) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">beta</span>(a1,a2)) <span class="sc">-</span> (a1<span class="sc">+</span>a2)<span class="sc">*</span>logexpxt <span class="sc">-</span><span class="fu">log</span>(x) </span>
+<span id="cb250-50"><a href="CAppA.html#cb250-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(logdens)</span>
+<span id="cb250-51"><a href="CAppA.html#cb250-51" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb250-52"><a href="CAppA.html#cb250-52" aria-hidden="true" tabindex="-1"></a>fGB2_ex <span class="ot">=</span> <span class="fu">gb2density</span>(<span class="fu">exp</span>(x))<span class="sc">*</span><span class="fu">exp</span>(x)</span>
+<span id="cb250-53"><a href="CAppA.html#cb250-53" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,fGB2_ex, <span class="at">col=</span><span class="st">&quot;green&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="contributors-11" class="section level4 unnumbered hasAnchor">

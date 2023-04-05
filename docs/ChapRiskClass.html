@@ -304,6 +304,177 @@ function openTab(evt, tabName) {
 document.getElementById("defaultOpen").click();
 </script>
 
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
 
 
 <style type="text/css">
@@ -395,6 +566,7 @@ div.csl-indent {
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="includeWebex/webex.css" type="text/css" />
 </head>
 
 <body>
@@ -575,10 +747,14 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html"><i class="fa fa-check"></i><b>6</b> Aggregate Loss Models</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a></li>
+<li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.2.1</b> Moments and Distribution</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#aggregate-loss-distribution"><i class="fa fa-check"></i><b>6.2.2</b> Aggregate Loss Distribution</a></li>
+</ul></li>
 <li class="chapter" data-level="6.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:CRM"><i class="fa fa-check"></i><b>6.3</b> Collective Risk Model</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
+<li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution-1"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#stop-loss-insurance"><i class="fa fa-check"></i><b>6.3.2</b> Stop-loss Insurance</a></li>
 <li class="chapter" data-level="6.3.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#closed-form-distributions"><i class="fa fa-check"></i><b>6.3.3</b> Closed-form Distributions</a></li>
 <li class="chapter" data-level="6.3.4" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:Tweedie"><i class="fa fa-check"></i><b>6.3.4</b> Tweedie Distribution</a></li>
@@ -596,9 +772,9 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#AL-further-reading-and-resources"><i class="fa fa-check"></i><b>6.6</b> Further Resources and Contributors</a>
 <ul>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 5.A.1. Individual Risk Model Properties</a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 5.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.3.-moment-generating-function-of-aggregate-loss-s_n-in-example-5.3.8"><i class="fa fa-check"></i>TS 5.A.3. Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span> in Example 5.3.8</a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 6.A.1. Individual Risk Model Properties</a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 6.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.3.-moment-generating-function-of-aggregate-loss-s_n-in-example-6.3.8"><i class="fa fa-check"></i>TS 6.A.3. Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span> in Example 6.3.8</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ChapSimulation.html"><a href="ChapSimulation.html"><i class="fa fa-check"></i><b>7</b> Simulation and Resampling</a>
@@ -1401,28 +1577,28 @@ As a result, the relativities are given by</p>
 <a id="displayCode.RiskClass.1" href="javascript:togglecode('toggleCode.RiskClass.1','displayCode.RiskClass.1');"><i><strong>Show R Code</strong></i></a>
 </h5>
 <div id="toggleCode.RiskClass.1" style="display: none">
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="ChapRiskClass.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> mydat1<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;eg1_v1a.csv&quot;</span>)</span>
-<span id="cb132-2"><a href="ChapRiskClass.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> mydat1</span>
-<span id="cb132-3"><a href="ChapRiskClass.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  Vtype Agebnd Expsr Claims</span>
-<span id="cb132-4"><a href="ChapRiskClass.html#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">1</span>      <span class="dv">1</span>  <span class="fl">89.1</span>      <span class="dv">9</span></span>
-<span id="cb132-5"><a href="ChapRiskClass.html#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>     <span class="dv">1</span>      <span class="dv">2</span> <span class="fl">208.5</span>      <span class="dv">8</span></span>
-<span id="cb132-6"><a href="ChapRiskClass.html#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>     <span class="dv">1</span>      <span class="dv">3</span> <span class="fl">155.2</span>      <span class="dv">6</span></span>
-<span id="cb132-7"><a href="ChapRiskClass.html#cb132-7" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>     <span class="dv">2</span>      <span class="dv">1</span>  <span class="fl">19.3</span>      <span class="dv">1</span></span>
-<span id="cb132-8"><a href="ChapRiskClass.html#cb132-8" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>     <span class="dv">2</span>      <span class="dv">2</span> <span class="fl">360.4</span>     <span class="dv">13</span></span>
-<span id="cb132-9"><a href="ChapRiskClass.html#cb132-9" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>     <span class="dv">2</span>      <span class="dv">3</span> <span class="fl">276.7</span>      <span class="dv">6</span></span>
-<span id="cb132-10"><a href="ChapRiskClass.html#cb132-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> VtypeF <span class="ot">&lt;-</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Vtype), <span class="at">ref=</span><span class="st">&quot;1&quot;</span>) <span class="co"># treat Vtype as factors with 1 as base.</span></span>
-<span id="cb132-11"><a href="ChapRiskClass.html#cb132-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> AgebndF <span class="ot">&lt;-</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Agebnd), <span class="at">ref=</span><span class="st">&quot;1&quot;</span>) <span class="co"># treat Age band as factors.</span></span>
-<span id="cb132-12"><a href="ChapRiskClass.html#cb132-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Pois_reg1 <span class="ot">=</span> <span class="fu">glm</span>(Claims <span class="sc">~</span> VtypeF <span class="sc">+</span> AgebndF,</span>
-<span id="cb132-13"><a href="ChapRiskClass.html#cb132-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> mydat1, <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> log), <span class="at">offset =</span> <span class="fu">log</span>(Expsr) )</span>
-<span id="cb132-14"><a href="ChapRiskClass.html#cb132-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Pois_reg1</span>
-<span id="cb132-15"><a href="ChapRiskClass.html#cb132-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-16"><a href="ChapRiskClass.html#cb132-16" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb132-17"><a href="ChapRiskClass.html#cb132-17" aria-hidden="true" tabindex="-1"></a>(Intercept)      VtypeF2     AgebndF2     AgebndF3  </span>
-<span id="cb132-18"><a href="ChapRiskClass.html#cb132-18" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span><span class="fl">2.3359</span>      <span class="sc">-</span><span class="fl">0.3004</span>      <span class="sc">-</span><span class="fl">0.7837</span>      <span class="sc">-</span><span class="fl">1.0655</span>  </span>
-<span id="cb132-19"><a href="ChapRiskClass.html#cb132-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-20"><a href="ChapRiskClass.html#cb132-20" aria-hidden="true" tabindex="-1"></a>Degrees of Freedom<span class="sc">:</span> <span class="dv">5</span> <span class="fu">Total</span> (i.e. Null);  <span class="dv">2</span> Residual</span>
-<span id="cb132-21"><a href="ChapRiskClass.html#cb132-21" aria-hidden="true" tabindex="-1"></a>Null Deviance<span class="sc">:</span>      <span class="fl">8.774</span> </span>
-<span id="cb132-22"><a href="ChapRiskClass.html#cb132-22" aria-hidden="true" tabindex="-1"></a>Residual Deviance<span class="sc">:</span> <span class="fl">0.6514</span>   AIC<span class="sc">:</span> <span class="fl">30.37</span></span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="ChapRiskClass.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> mydat1<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;eg1_v1a.csv&quot;</span>)</span>
+<span id="cb142-2"><a href="ChapRiskClass.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> mydat1</span>
+<span id="cb142-3"><a href="ChapRiskClass.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  Vtype Agebnd Expsr Claims</span>
+<span id="cb142-4"><a href="ChapRiskClass.html#cb142-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">1</span>      <span class="dv">1</span>  <span class="fl">89.1</span>      <span class="dv">9</span></span>
+<span id="cb142-5"><a href="ChapRiskClass.html#cb142-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>     <span class="dv">1</span>      <span class="dv">2</span> <span class="fl">208.5</span>      <span class="dv">8</span></span>
+<span id="cb142-6"><a href="ChapRiskClass.html#cb142-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>     <span class="dv">1</span>      <span class="dv">3</span> <span class="fl">155.2</span>      <span class="dv">6</span></span>
+<span id="cb142-7"><a href="ChapRiskClass.html#cb142-7" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>     <span class="dv">2</span>      <span class="dv">1</span>  <span class="fl">19.3</span>      <span class="dv">1</span></span>
+<span id="cb142-8"><a href="ChapRiskClass.html#cb142-8" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>     <span class="dv">2</span>      <span class="dv">2</span> <span class="fl">360.4</span>     <span class="dv">13</span></span>
+<span id="cb142-9"><a href="ChapRiskClass.html#cb142-9" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>     <span class="dv">2</span>      <span class="dv">3</span> <span class="fl">276.7</span>      <span class="dv">6</span></span>
+<span id="cb142-10"><a href="ChapRiskClass.html#cb142-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> VtypeF <span class="ot">&lt;-</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Vtype), <span class="at">ref=</span><span class="st">&quot;1&quot;</span>) <span class="co"># treat Vtype as factors with 1 as base.</span></span>
+<span id="cb142-11"><a href="ChapRiskClass.html#cb142-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> AgebndF <span class="ot">&lt;-</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Agebnd), <span class="at">ref=</span><span class="st">&quot;1&quot;</span>) <span class="co"># treat Age band as factors.</span></span>
+<span id="cb142-12"><a href="ChapRiskClass.html#cb142-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Pois_reg1 <span class="ot">=</span> <span class="fu">glm</span>(Claims <span class="sc">~</span> VtypeF <span class="sc">+</span> AgebndF,</span>
+<span id="cb142-13"><a href="ChapRiskClass.html#cb142-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> mydat1, <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> log), <span class="at">offset =</span> <span class="fu">log</span>(Expsr) )</span>
+<span id="cb142-14"><a href="ChapRiskClass.html#cb142-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Pois_reg1</span>
+<span id="cb142-15"><a href="ChapRiskClass.html#cb142-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-16"><a href="ChapRiskClass.html#cb142-16" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb142-17"><a href="ChapRiskClass.html#cb142-17" aria-hidden="true" tabindex="-1"></a>(Intercept)      VtypeF2     AgebndF2     AgebndF3  </span>
+<span id="cb142-18"><a href="ChapRiskClass.html#cb142-18" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span><span class="fl">2.3359</span>      <span class="sc">-</span><span class="fl">0.3004</span>      <span class="sc">-</span><span class="fl">0.7837</span>      <span class="sc">-</span><span class="fl">1.0655</span>  </span>
+<span id="cb142-19"><a href="ChapRiskClass.html#cb142-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-20"><a href="ChapRiskClass.html#cb142-20" aria-hidden="true" tabindex="-1"></a>Degrees of Freedom<span class="sc">:</span> <span class="dv">5</span> <span class="fu">Total</span> (i.e. Null);  <span class="dv">2</span> Residual</span>
+<span id="cb142-21"><a href="ChapRiskClass.html#cb142-21" aria-hidden="true" tabindex="-1"></a>Null Deviance<span class="sc">:</span>      <span class="fl">8.774</span> </span>
+<span id="cb142-22"><a href="ChapRiskClass.html#cb142-22" aria-hidden="true" tabindex="-1"></a>Residual Deviance<span class="sc">:</span> <span class="fl">0.6514</span>   AIC<span class="sc">:</span> <span class="fl">30.37</span></span></code></pre></div>
 </div>
 <hr />
 <p><strong>Example 10.2. Poisson regression for Singapore insurance claims data</strong></p>
@@ -1482,42 +1658,42 @@ As a result, the relativities are given by</p>
 <a id="displayCode.RiskClass.2" href="javascript:togglecode('toggleCode.RiskClass.2','displayCode.RiskClass.2');"><i><strong>Show R Code</strong></i></a>
 </h5>
 <div id="toggleCode.RiskClass.2" style="display: none">
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="ChapRiskClass.html#cb133-1" aria-hidden="true" tabindex="-1"></a>mydat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;SingaporeAuto.csv&quot;</span>,  <span class="at">quote =</span> <span class="st">&quot;&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb133-2"><a href="ChapRiskClass.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(mydat)</span>
-<span id="cb133-3"><a href="ChapRiskClass.html#cb133-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-4"><a href="ChapRiskClass.html#cb133-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create vehicle type as factor</span></span>
-<span id="cb133-5"><a href="ChapRiskClass.html#cb133-5" aria-hidden="true" tabindex="-1"></a>TypeA <span class="ot">=</span> <span class="dv">1</span> <span class="sc">*</span> (VehicleType <span class="sc">==</span> <span class="st">&quot;A&quot;</span>)</span>
-<span id="cb133-6"><a href="ChapRiskClass.html#cb133-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(VehicleType)</span>
-<span id="cb133-7"><a href="ChapRiskClass.html#cb133-7" aria-hidden="true" tabindex="-1"></a>VtypeF <span class="ot">&lt;-</span> <span class="fu">as.character</span>(VehicleType)</span>
-<span id="cb133-8"><a href="ChapRiskClass.html#cb133-8" aria-hidden="true" tabindex="-1"></a>VtypeF[VtypeF <span class="sc">!=</span> <span class="st">&quot;A&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;O&quot;</span></span>
-<span id="cb133-9"><a href="ChapRiskClass.html#cb133-9" aria-hidden="true" tabindex="-1"></a>VtypeF <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(VtypeF), <span class="at">ref=</span><span class="st">&quot;A&quot;</span>)</span>
-<span id="cb133-10"><a href="ChapRiskClass.html#cb133-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-11"><a href="ChapRiskClass.html#cb133-11" aria-hidden="true" tabindex="-1"></a><span class="co"># create gender as factor</span></span>
-<span id="cb133-12"><a href="ChapRiskClass.html#cb133-12" aria-hidden="true" tabindex="-1"></a>Female <span class="ot">=</span> <span class="dv">1</span> <span class="sc">*</span> (SexInsured <span class="sc">==</span> <span class="st">&quot;F&quot;</span> )</span>
-<span id="cb133-13"><a href="ChapRiskClass.html#cb133-13" aria-hidden="true" tabindex="-1"></a>Sex <span class="ot">=</span> <span class="fu">as.character</span>(SexInsured)</span>
-<span id="cb133-14"><a href="ChapRiskClass.html#cb133-14" aria-hidden="true" tabindex="-1"></a>Sex[Sex <span class="sc">!=</span> <span class="st">&quot;F&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;M&quot;</span></span>
-<span id="cb133-15"><a href="ChapRiskClass.html#cb133-15" aria-hidden="true" tabindex="-1"></a>SexF <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Sex), <span class="at">ref =</span> <span class="st">&quot;F&quot;</span>)</span>
-<span id="cb133-16"><a href="ChapRiskClass.html#cb133-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-17"><a href="ChapRiskClass.html#cb133-17" aria-hidden="true" tabindex="-1"></a><span class="co"># create driver age as factor</span></span>
-<span id="cb133-18"><a href="ChapRiskClass.html#cb133-18" aria-hidden="true" tabindex="-1"></a>AgeCat <span class="ot">=</span> <span class="fu">pmax</span>(AgeCat <span class="sc">-</span> <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb133-19"><a href="ChapRiskClass.html#cb133-19" aria-hidden="true" tabindex="-1"></a>AgeCatF <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(AgeCat), <span class="at">ref =</span> <span class="st">&quot;0&quot;</span>)</span>
-<span id="cb133-20"><a href="ChapRiskClass.html#cb133-20" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(AgeCatF) <span class="co"># No policy in the first age band</span></span>
-<span id="cb133-21"><a href="ChapRiskClass.html#cb133-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-22"><a href="ChapRiskClass.html#cb133-22" aria-hidden="true" tabindex="-1"></a><span class="co"># create vehicle age as factor</span></span>
-<span id="cb133-23"><a href="ChapRiskClass.html#cb133-23" aria-hidden="true" tabindex="-1"></a>VAgeCatF <span class="ot">=</span> <span class="fu">relevel</span>( <span class="fu">factor</span>(VAgeCat), <span class="at">ref =</span> <span class="st">&quot;0&quot;</span> )</span>
-<span id="cb133-24"><a href="ChapRiskClass.html#cb133-24" aria-hidden="true" tabindex="-1"></a>VAgecat1 <span class="ot">=</span> <span class="fu">factor</span>(VAgecat1, <span class="at">labels =</span> </span>
-<span id="cb133-25"><a href="ChapRiskClass.html#cb133-25" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="st">&quot;Vage0-2&quot;</span>, <span class="st">&quot;Vage3-5&quot;</span>, <span class="st">&quot;Vage6-10&quot;</span>, <span class="st">&quot;Vage11-15&quot;</span>, <span class="st">&quot;Vage15+&quot;</span>) )</span>
-<span id="cb133-26"><a href="ChapRiskClass.html#cb133-26" aria-hidden="true" tabindex="-1"></a>VAgecat1F <span class="ot">=</span> <span class="fu">relevel</span>( <span class="fu">factor</span>(VAgecat1), <span class="at">ref =</span> <span class="st">&quot;Vage0-2&quot;</span> )</span>
-<span id="cb133-27"><a href="ChapRiskClass.html#cb133-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-28"><a href="ChapRiskClass.html#cb133-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Poisson reg model</span></span>
-<span id="cb133-29"><a href="ChapRiskClass.html#cb133-29" aria-hidden="true" tabindex="-1"></a>Pois_reg2 <span class="ot">=</span> <span class="fu">glm</span>(Clm_Count <span class="sc">~</span> SexF <span class="sc">+</span> TypeA<span class="sc">:</span>AgeCatF <span class="sc">+</span> VAgecat1F, </span>
-<span id="cb133-30"><a href="ChapRiskClass.html#cb133-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">offset =</span> LNWEIGHT, <span class="fu">poisson</span>(<span class="at">link =</span> log) )</span>
-<span id="cb133-31"><a href="ChapRiskClass.html#cb133-31" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Pois_reg2) </span>
-<span id="cb133-32"><a href="ChapRiskClass.html#cb133-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-33"><a href="ChapRiskClass.html#cb133-33" aria-hidden="true" tabindex="-1"></a><span class="co"># compute relativities</span></span>
-<span id="cb133-34"><a href="ChapRiskClass.html#cb133-34" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(Pois_reg2<span class="sc">$</span>coefficients)</span>
-<span id="cb133-35"><a href="ChapRiskClass.html#cb133-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb133-36"><a href="ChapRiskClass.html#cb133-36" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(mydat)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="ChapRiskClass.html#cb143-1" aria-hidden="true" tabindex="-1"></a>mydat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;SingaporeAuto.csv&quot;</span>,  <span class="at">quote =</span> <span class="st">&quot;&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb143-2"><a href="ChapRiskClass.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(mydat)</span>
+<span id="cb143-3"><a href="ChapRiskClass.html#cb143-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-4"><a href="ChapRiskClass.html#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create vehicle type as factor</span></span>
+<span id="cb143-5"><a href="ChapRiskClass.html#cb143-5" aria-hidden="true" tabindex="-1"></a>TypeA <span class="ot">=</span> <span class="dv">1</span> <span class="sc">*</span> (VehicleType <span class="sc">==</span> <span class="st">&quot;A&quot;</span>)</span>
+<span id="cb143-6"><a href="ChapRiskClass.html#cb143-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(VehicleType)</span>
+<span id="cb143-7"><a href="ChapRiskClass.html#cb143-7" aria-hidden="true" tabindex="-1"></a>VtypeF <span class="ot">&lt;-</span> <span class="fu">as.character</span>(VehicleType)</span>
+<span id="cb143-8"><a href="ChapRiskClass.html#cb143-8" aria-hidden="true" tabindex="-1"></a>VtypeF[VtypeF <span class="sc">!=</span> <span class="st">&quot;A&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;O&quot;</span></span>
+<span id="cb143-9"><a href="ChapRiskClass.html#cb143-9" aria-hidden="true" tabindex="-1"></a>VtypeF <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(VtypeF), <span class="at">ref=</span><span class="st">&quot;A&quot;</span>)</span>
+<span id="cb143-10"><a href="ChapRiskClass.html#cb143-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-11"><a href="ChapRiskClass.html#cb143-11" aria-hidden="true" tabindex="-1"></a><span class="co"># create gender as factor</span></span>
+<span id="cb143-12"><a href="ChapRiskClass.html#cb143-12" aria-hidden="true" tabindex="-1"></a>Female <span class="ot">=</span> <span class="dv">1</span> <span class="sc">*</span> (SexInsured <span class="sc">==</span> <span class="st">&quot;F&quot;</span> )</span>
+<span id="cb143-13"><a href="ChapRiskClass.html#cb143-13" aria-hidden="true" tabindex="-1"></a>Sex <span class="ot">=</span> <span class="fu">as.character</span>(SexInsured)</span>
+<span id="cb143-14"><a href="ChapRiskClass.html#cb143-14" aria-hidden="true" tabindex="-1"></a>Sex[Sex <span class="sc">!=</span> <span class="st">&quot;F&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;M&quot;</span></span>
+<span id="cb143-15"><a href="ChapRiskClass.html#cb143-15" aria-hidden="true" tabindex="-1"></a>SexF <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Sex), <span class="at">ref =</span> <span class="st">&quot;F&quot;</span>)</span>
+<span id="cb143-16"><a href="ChapRiskClass.html#cb143-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-17"><a href="ChapRiskClass.html#cb143-17" aria-hidden="true" tabindex="-1"></a><span class="co"># create driver age as factor</span></span>
+<span id="cb143-18"><a href="ChapRiskClass.html#cb143-18" aria-hidden="true" tabindex="-1"></a>AgeCat <span class="ot">=</span> <span class="fu">pmax</span>(AgeCat <span class="sc">-</span> <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb143-19"><a href="ChapRiskClass.html#cb143-19" aria-hidden="true" tabindex="-1"></a>AgeCatF <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(AgeCat), <span class="at">ref =</span> <span class="st">&quot;0&quot;</span>)</span>
+<span id="cb143-20"><a href="ChapRiskClass.html#cb143-20" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(AgeCatF) <span class="co"># No policy in the first age band</span></span>
+<span id="cb143-21"><a href="ChapRiskClass.html#cb143-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-22"><a href="ChapRiskClass.html#cb143-22" aria-hidden="true" tabindex="-1"></a><span class="co"># create vehicle age as factor</span></span>
+<span id="cb143-23"><a href="ChapRiskClass.html#cb143-23" aria-hidden="true" tabindex="-1"></a>VAgeCatF <span class="ot">=</span> <span class="fu">relevel</span>( <span class="fu">factor</span>(VAgeCat), <span class="at">ref =</span> <span class="st">&quot;0&quot;</span> )</span>
+<span id="cb143-24"><a href="ChapRiskClass.html#cb143-24" aria-hidden="true" tabindex="-1"></a>VAgecat1 <span class="ot">=</span> <span class="fu">factor</span>(VAgecat1, <span class="at">labels =</span> </span>
+<span id="cb143-25"><a href="ChapRiskClass.html#cb143-25" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="st">&quot;Vage0-2&quot;</span>, <span class="st">&quot;Vage3-5&quot;</span>, <span class="st">&quot;Vage6-10&quot;</span>, <span class="st">&quot;Vage11-15&quot;</span>, <span class="st">&quot;Vage15+&quot;</span>) )</span>
+<span id="cb143-26"><a href="ChapRiskClass.html#cb143-26" aria-hidden="true" tabindex="-1"></a>VAgecat1F <span class="ot">=</span> <span class="fu">relevel</span>( <span class="fu">factor</span>(VAgecat1), <span class="at">ref =</span> <span class="st">&quot;Vage0-2&quot;</span> )</span>
+<span id="cb143-27"><a href="ChapRiskClass.html#cb143-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-28"><a href="ChapRiskClass.html#cb143-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Poisson reg model</span></span>
+<span id="cb143-29"><a href="ChapRiskClass.html#cb143-29" aria-hidden="true" tabindex="-1"></a>Pois_reg2 <span class="ot">=</span> <span class="fu">glm</span>(Clm_Count <span class="sc">~</span> SexF <span class="sc">+</span> TypeA<span class="sc">:</span>AgeCatF <span class="sc">+</span> VAgecat1F, </span>
+<span id="cb143-30"><a href="ChapRiskClass.html#cb143-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">offset =</span> LNWEIGHT, <span class="fu">poisson</span>(<span class="at">link =</span> log) )</span>
+<span id="cb143-31"><a href="ChapRiskClass.html#cb143-31" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Pois_reg2) </span>
+<span id="cb143-32"><a href="ChapRiskClass.html#cb143-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-33"><a href="ChapRiskClass.html#cb143-33" aria-hidden="true" tabindex="-1"></a><span class="co"># compute relativities</span></span>
+<span id="cb143-34"><a href="ChapRiskClass.html#cb143-34" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(Pois_reg2<span class="sc">$</span>coefficients)</span>
+<span id="cb143-35"><a href="ChapRiskClass.html#cb143-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-36"><a href="ChapRiskClass.html#cb143-36" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(mydat)</span></code></pre></div>
 </div>
 <hr />
 <p>As a concluding remark, we comment that Poisson regression is not the only possible count regression model. Actually, the Poisson distribution can be restrictive in the sense that it has a single parameter and its mean and the variance are always equal. There are other count regression models that allow more flexible <a href="#" class="tooltip" style="color:green"><em>distributional structure</em><span style="font-size:8pt">The manner in which a statistical distribution is parameterized</span></a>, such as negative binomial regressions and zero-inflated (ZI) regressions; details of these alternative regressions can be found in other texts listed in the next section.</p>

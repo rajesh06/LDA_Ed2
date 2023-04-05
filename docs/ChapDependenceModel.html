@@ -304,6 +304,177 @@ function openTab(evt, tabName) {
 document.getElementById("defaultOpen").click();
 </script>
 
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
 
 
 <style type="text/css">
@@ -395,6 +566,7 @@ div.csl-indent {
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="includeWebex/webex.css" type="text/css" />
 </head>
 
 <body>
@@ -575,10 +747,14 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html"><i class="fa fa-check"></i><b>6</b> Aggregate Loss Models</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a></li>
+<li class="chapter" data-level="6.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#individual-risk-model"><i class="fa fa-check"></i><b>6.2</b> Individual Risk Model</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.2.1</b> Moments and Distribution</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#aggregate-loss-distribution"><i class="fa fa-check"></i><b>6.2.2</b> Aggregate Loss Distribution</a></li>
+</ul></li>
 <li class="chapter" data-level="6.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:CRM"><i class="fa fa-check"></i><b>6.3</b> Collective Risk Model</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
+<li class="chapter" data-level="6.3.1" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#moments-and-distribution-1"><i class="fa fa-check"></i><b>6.3.1</b> Moments and Distribution</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#stop-loss-insurance"><i class="fa fa-check"></i><b>6.3.2</b> Stop-loss Insurance</a></li>
 <li class="chapter" data-level="6.3.3" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#closed-form-distributions"><i class="fa fa-check"></i><b>6.3.3</b> Closed-form Distributions</a></li>
 <li class="chapter" data-level="6.3.4" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#S:AggLoss:Tweedie"><i class="fa fa-check"></i><b>6.3.4</b> Tweedie Distribution</a></li>
@@ -596,9 +772,9 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#AL-further-reading-and-resources"><i class="fa fa-check"></i><b>6.6</b> Further Resources and Contributors</a>
 <ul>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 5.A.1. Individual Risk Model Properties</a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 5.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
-<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-5.a.3.-moment-generating-function-of-aggregate-loss-s_n-in-example-5.3.8"><i class="fa fa-check"></i>TS 5.A.3. Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span> in Example 5.3.8</a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.1.-individual-risk-model-properties"><i class="fa fa-check"></i>TS 6.A.1. Individual Risk Model Properties</a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.2.-relationship-between-probability-generating-functions-of-x_i-and-x_it"><i class="fa fa-check"></i>TS 6.A.2. Relationship Between Probability Generating Functions of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_i^T\)</span></a></li>
+<li class="chapter" data-level="" data-path="ChapAggLossModels.html"><a href="ChapAggLossModels.html#ts-6.a.3.-moment-generating-function-of-aggregate-loss-s_n-in-example-6.3.8"><i class="fa fa-check"></i>TS 6.A.3. Moment Generating Function of Aggregate Loss <span class="math inline">\(S_N\)</span> in Example 6.3.8</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ChapSimulation.html"><a href="ChapSimulation.html"><i class="fa fa-check"></i><b>7</b> Simulation and Resampling</a>
@@ -1076,19 +1252,19 @@ r = \frac{\widehat{Cov}(X,Y)}{\sqrt{\widehat{Cov}(X,X)\widehat{Cov}(Y,Y)}}
 <a id="displayCode.pearson.1" href="javascript:togglecode('toggleCode.pearson.1','displayCode.pearson.1');"><i><strong>R Code for Pearson Correlation Statistic</strong></i></a>
 </h5>
 <div id="toggleCode.pearson.1" style="display: none">
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="ChapDependenceModel.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Pearson correlation between Claim and Coverage</span></span>
-<span id="cb213-2"><a href="ChapDependenceModel.html#cb213-2" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,Coverage, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;pearson&quot;</span>))</span>
-<span id="cb213-3"><a href="ChapDependenceModel.html#cb213-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(r,<span class="dv">2</span>)</span>
-<span id="cb213-4"><a href="ChapDependenceModel.html#cb213-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-5"><a href="ChapDependenceModel.html#cb213-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb213-6"><a href="ChapDependenceModel.html#cb213-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.31</span></span>
-<span id="cb213-7"><a href="ChapDependenceModel.html#cb213-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-8"><a href="ChapDependenceModel.html#cb213-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Pearson correlation between Claim and log(Coverage)</span></span>
-<span id="cb213-9"><a href="ChapDependenceModel.html#cb213-9" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,<span class="fu">log</span>(Coverage), <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;pearson&quot;</span>))</span>
-<span id="cb213-10"><a href="ChapDependenceModel.html#cb213-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(r,<span class="dv">2</span>)</span>
-<span id="cb213-11"><a href="ChapDependenceModel.html#cb213-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-12"><a href="ChapDependenceModel.html#cb213-12" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb213-13"><a href="ChapDependenceModel.html#cb213-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1</span></span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="ChapDependenceModel.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Pearson correlation between Claim and Coverage</span></span>
+<span id="cb223-2"><a href="ChapDependenceModel.html#cb223-2" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,Coverage, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;pearson&quot;</span>))</span>
+<span id="cb223-3"><a href="ChapDependenceModel.html#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(r,<span class="dv">2</span>)</span>
+<span id="cb223-4"><a href="ChapDependenceModel.html#cb223-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-5"><a href="ChapDependenceModel.html#cb223-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb223-6"><a href="ChapDependenceModel.html#cb223-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.31</span></span>
+<span id="cb223-7"><a href="ChapDependenceModel.html#cb223-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-8"><a href="ChapDependenceModel.html#cb223-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Pearson correlation between Claim and log(Coverage)</span></span>
+<span id="cb223-9"><a href="ChapDependenceModel.html#cb223-9" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,<span class="fu">log</span>(Coverage), <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;pearson&quot;</span>))</span>
+<span id="cb223-10"><a href="ChapDependenceModel.html#cb223-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(r,<span class="dv">2</span>)</span>
+<span id="cb223-11"><a href="ChapDependenceModel.html#cb223-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-12"><a href="ChapDependenceModel.html#cb223-12" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb223-13"><a href="ChapDependenceModel.html#cb223-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1</span></span></code></pre></div>
 </div>
 <p>From the <code>R</code> output above, <span class="math inline">\(r=0.31\)</span>, which indicates a positive association between <span class="math inline">\({\tt Claim}\)</span> and <span class="math inline">\({\tt Coverage}\)</span>. This means that as the coverage amount of a policy increases we expect claims to increase.</p>
 </div>
@@ -1109,19 +1285,19 @@ r_S = \frac{\widehat{Cov}(R(X),R(Y))}{\sqrt{\widehat{Cov}(R(X),R(X))\widehat{Cov
 <a id="displayCode.spearman.1" href="javascript:togglecode('toggleCode.spearman.1','displayCode.spearman.1');"><i><strong>R Code for Spearman Correlation Statistic</strong></i></a>
 </h5>
 <div id="toggleCode.spearman.1" style="display: none">
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="ChapDependenceModel.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Spearman correlation between Claim and Coverage </span><span class="al">###</span></span>
-<span id="cb214-2"><a href="ChapDependenceModel.html#cb214-2" aria-hidden="true" tabindex="-1"></a>rs<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,Coverage, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;spearman&quot;</span>))</span>
-<span id="cb214-3"><a href="ChapDependenceModel.html#cb214-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rs,<span class="dv">2</span>)</span>
-<span id="cb214-4"><a href="ChapDependenceModel.html#cb214-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb214-5"><a href="ChapDependenceModel.html#cb214-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb214-6"><a href="ChapDependenceModel.html#cb214-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.41</span></span>
-<span id="cb214-7"><a href="ChapDependenceModel.html#cb214-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb214-8"><a href="ChapDependenceModel.html#cb214-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Spearman correlation between Claim and log(Coverage) </span><span class="al">###</span></span>
-<span id="cb214-9"><a href="ChapDependenceModel.html#cb214-9" aria-hidden="true" tabindex="-1"></a>rs<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,<span class="fu">log</span>(Coverage), <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;spearman&quot;</span>))</span>
-<span id="cb214-10"><a href="ChapDependenceModel.html#cb214-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rs,<span class="dv">2</span>)</span>
-<span id="cb214-11"><a href="ChapDependenceModel.html#cb214-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb214-12"><a href="ChapDependenceModel.html#cb214-12" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb214-13"><a href="ChapDependenceModel.html#cb214-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.41</span></span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="ChapDependenceModel.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Spearman correlation between Claim and Coverage </span><span class="al">###</span></span>
+<span id="cb224-2"><a href="ChapDependenceModel.html#cb224-2" aria-hidden="true" tabindex="-1"></a>rs<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,Coverage, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;spearman&quot;</span>))</span>
+<span id="cb224-3"><a href="ChapDependenceModel.html#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rs,<span class="dv">2</span>)</span>
+<span id="cb224-4"><a href="ChapDependenceModel.html#cb224-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-5"><a href="ChapDependenceModel.html#cb224-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb224-6"><a href="ChapDependenceModel.html#cb224-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.41</span></span>
+<span id="cb224-7"><a href="ChapDependenceModel.html#cb224-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-8"><a href="ChapDependenceModel.html#cb224-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Spearman correlation between Claim and log(Coverage) </span><span class="al">###</span></span>
+<span id="cb224-9"><a href="ChapDependenceModel.html#cb224-9" aria-hidden="true" tabindex="-1"></a>rs<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,<span class="fu">log</span>(Coverage), <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;spearman&quot;</span>))</span>
+<span id="cb224-10"><a href="ChapDependenceModel.html#cb224-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rs,<span class="dv">2</span>)</span>
+<span id="cb224-11"><a href="ChapDependenceModel.html#cb224-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-12"><a href="ChapDependenceModel.html#cb224-12" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb224-13"><a href="ChapDependenceModel.html#cb224-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.41</span></span></code></pre></div>
 </div>
 <p>We can show that the Spearman correlation statistic is invariant under strictly increasing transformations. From the <code>R</code> Code for the Spearman correlation statistic above, <span class="math inline">\(r_S=0.41\)</span> between the <span class="math inline">\({\tt Coverage}\)</span> rating variable in logarithmic millions of dollars and <span class="math inline">\({\tt Claim}\)</span> amount variable in dollars.</p>
 </div>
@@ -1147,19 +1323,19 @@ r_S = \frac{\widehat{Cov}(R(X),R(Y))}{\sqrt{\widehat{Cov}(R(X),R(X))\widehat{Cov
 <a id="displayCode.kendall.1" href="javascript:togglecode('toggleCode.kendall.1','displayCode.kendall.1');"><i><strong>R Code for Kendall’s Tau</strong></i></a>
 </h5>
 <div id="toggleCode.kendall.1" style="display: none">
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="ChapDependenceModel.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Kendall&#39;s tau correlation between Claim and Coverage </span><span class="al">###</span></span>
-<span id="cb215-2"><a href="ChapDependenceModel.html#cb215-2" aria-hidden="true" tabindex="-1"></a>tau<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,Coverage, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;kendall&quot;</span>))</span>
-<span id="cb215-3"><a href="ChapDependenceModel.html#cb215-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tau,<span class="dv">2</span>)</span>
-<span id="cb215-4"><a href="ChapDependenceModel.html#cb215-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-5"><a href="ChapDependenceModel.html#cb215-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb215-6"><a href="ChapDependenceModel.html#cb215-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.32</span></span>
-<span id="cb215-7"><a href="ChapDependenceModel.html#cb215-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-8"><a href="ChapDependenceModel.html#cb215-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Kendall&#39;s tau correlation between Claim and log(Coverage) </span><span class="al">###</span></span>
-<span id="cb215-9"><a href="ChapDependenceModel.html#cb215-9" aria-hidden="true" tabindex="-1"></a>tau<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,<span class="fu">log</span>(Coverage), <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;kendall&quot;</span>))</span>
-<span id="cb215-10"><a href="ChapDependenceModel.html#cb215-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tau,<span class="dv">2</span>)</span>
-<span id="cb215-11"><a href="ChapDependenceModel.html#cb215-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-12"><a href="ChapDependenceModel.html#cb215-12" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb215-13"><a href="ChapDependenceModel.html#cb215-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.32</span></span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="ChapDependenceModel.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Kendall&#39;s tau correlation between Claim and Coverage </span><span class="al">###</span></span>
+<span id="cb225-2"><a href="ChapDependenceModel.html#cb225-2" aria-hidden="true" tabindex="-1"></a>tau<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,Coverage, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;kendall&quot;</span>))</span>
+<span id="cb225-3"><a href="ChapDependenceModel.html#cb225-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tau,<span class="dv">2</span>)</span>
+<span id="cb225-4"><a href="ChapDependenceModel.html#cb225-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-5"><a href="ChapDependenceModel.html#cb225-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb225-6"><a href="ChapDependenceModel.html#cb225-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.32</span></span>
+<span id="cb225-7"><a href="ChapDependenceModel.html#cb225-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-8"><a href="ChapDependenceModel.html#cb225-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Kendall&#39;s tau correlation between Claim and log(Coverage) </span><span class="al">###</span></span>
+<span id="cb225-9"><a href="ChapDependenceModel.html#cb225-9" aria-hidden="true" tabindex="-1"></a>tau<span class="ot">&lt;-</span><span class="fu">cor</span>(Claim,<span class="fu">log</span>(Coverage), <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;kendall&quot;</span>))</span>
+<span id="cb225-10"><a href="ChapDependenceModel.html#cb225-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tau,<span class="dv">2</span>)</span>
+<span id="cb225-11"><a href="ChapDependenceModel.html#cb225-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-12"><a href="ChapDependenceModel.html#cb225-12" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb225-13"><a href="ChapDependenceModel.html#cb225-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.32</span></span></code></pre></div>
 </div>
 <p>Also, to show that the Kendall’s tau is invariant under strictly increasing transformations, we see that <span class="math inline">\(\hat{\tau}=0.32\)</span> between the <span class="math inline">\({\tt Coverage}\)</span> rating variable in logarithmic millions of dollars and the <span class="math inline">\({\tt Claim}\)</span> amount variable in dollars.</p>
 </div>
@@ -1224,11 +1400,11 @@ Although these statistics provide the same information as is the original odds r
 <a id="displayCode.wald.1" href="javascript:togglecode('toggleCode.wald.1','displayCode.wald.1');"><i><strong>R Code for Odds Ratios</strong></i></a>
 </h5>
 <div id="toggleCode.wald.1" style="display: none">
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="ChapDependenceModel.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epitools)</span>
-<span id="cb216-2"><a href="ChapDependenceModel.html#cb216-2" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsratio</span>(NoClaimCredit, Fire5,<span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;wald&quot;</span>))<span class="sc">$</span>measure</span>
-<span id="cb216-3"><a href="ChapDependenceModel.html#cb216-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb216-4"><a href="ChapDependenceModel.html#cb216-4" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb216-5"><a href="ChapDependenceModel.html#cb216-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.79</span></span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="ChapDependenceModel.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epitools)</span>
+<span id="cb226-2"><a href="ChapDependenceModel.html#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsratio</span>(NoClaimCredit, Fire5,<span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;wald&quot;</span>))<span class="sc">$</span>measure</span>
+<span id="cb226-3"><a href="ChapDependenceModel.html#cb226-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-4"><a href="ChapDependenceModel.html#cb226-4" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb226-5"><a href="ChapDependenceModel.html#cb226-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.79</span></span></code></pre></div>
 </div>
 </div>
 <div id="categorical-variables" class="section level4 hasAnchor" number="15.2.3.2">
@@ -1276,19 +1452,19 @@ Under the null hypothesis of independence, we have <span class="math inline">\(\
 <a id="displayCode.chi.1" href="javascript:togglecode('toggleCode.chi.1','displayCode.chi.1');"><i><strong>R Code for Pearson Chi-square Statistic</strong></i></a>
 </h5>
 <div id="toggleCode.chi.1" style="display: none">
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="ChapDependenceModel.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb217-2"><a href="ChapDependenceModel.html#cb217-2" aria-hidden="true" tabindex="-1"></a>table <span class="ot">=</span> <span class="fu">table</span>(EntityType, NoClaimCredit)</span>
-<span id="cb217-3"><a href="ChapDependenceModel.html#cb217-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table)</span>
-<span id="cb217-4"><a href="ChapDependenceModel.html#cb217-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-5"><a href="ChapDependenceModel.html#cb217-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-6"><a href="ChapDependenceModel.html#cb217-6" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb217-7"><a href="ChapDependenceModel.html#cb217-7" aria-hidden="true" tabindex="-1"></a><span class="sc">------------------------------------</span></span>
-<span id="cb217-8"><a href="ChapDependenceModel.html#cb217-8" aria-hidden="true" tabindex="-1"></a> Test statistic   df     P value    </span>
-<span id="cb217-9"><a href="ChapDependenceModel.html#cb217-9" aria-hidden="true" tabindex="-1"></a><span class="sc">----------------</span> <span class="sc">----</span> <span class="sc">--------------</span></span>
-<span id="cb217-10"><a href="ChapDependenceModel.html#cb217-10" aria-hidden="true" tabindex="-1"></a>     <span class="fl">344.2</span>        <span class="dv">5</span>   <span class="fl">3.15e-72</span> <span class="sc">*</span> <span class="er">*</span> <span class="er">*</span></span>
-<span id="cb217-11"><a href="ChapDependenceModel.html#cb217-11" aria-hidden="true" tabindex="-1"></a><span class="sc">------------------------------------</span></span>
-<span id="cb217-12"><a href="ChapDependenceModel.html#cb217-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-13"><a href="ChapDependenceModel.html#cb217-13" aria-hidden="true" tabindex="-1"></a>Table<span class="sc">:</span> Pearson<span class="st">&#39;s Chi-squared test</span></span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="ChapDependenceModel.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb227-2"><a href="ChapDependenceModel.html#cb227-2" aria-hidden="true" tabindex="-1"></a>table <span class="ot">=</span> <span class="fu">table</span>(EntityType, NoClaimCredit)</span>
+<span id="cb227-3"><a href="ChapDependenceModel.html#cb227-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table)</span>
+<span id="cb227-4"><a href="ChapDependenceModel.html#cb227-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-5"><a href="ChapDependenceModel.html#cb227-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-6"><a href="ChapDependenceModel.html#cb227-6" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb227-7"><a href="ChapDependenceModel.html#cb227-7" aria-hidden="true" tabindex="-1"></a><span class="sc">------------------------------------</span></span>
+<span id="cb227-8"><a href="ChapDependenceModel.html#cb227-8" aria-hidden="true" tabindex="-1"></a> Test statistic   df     P value    </span>
+<span id="cb227-9"><a href="ChapDependenceModel.html#cb227-9" aria-hidden="true" tabindex="-1"></a><span class="sc">----------------</span> <span class="sc">----</span> <span class="sc">--------------</span></span>
+<span id="cb227-10"><a href="ChapDependenceModel.html#cb227-10" aria-hidden="true" tabindex="-1"></a>     <span class="fl">344.2</span>        <span class="dv">5</span>   <span class="fl">3.15e-72</span> <span class="sc">*</span> <span class="er">*</span> <span class="er">*</span></span>
+<span id="cb227-11"><a href="ChapDependenceModel.html#cb227-11" aria-hidden="true" tabindex="-1"></a><span class="sc">------------------------------------</span></span>
+<span id="cb227-12"><a href="ChapDependenceModel.html#cb227-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-13"><a href="ChapDependenceModel.html#cb227-13" aria-hidden="true" tabindex="-1"></a>Table<span class="sc">:</span> Pearson<span class="st">&#39;s Chi-squared test</span></span></code></pre></div>
 </div>
 <p>As the p-value is less than the .05 significance level, we reject the null hypothesis that <span class="math inline">\({\tt EntityType}\)</span> is independent of <span class="math inline">\({\tt NoClaimCredit}\)</span>.</p>
 <p>Furthermore, you can obtain the likelihood ratio test statistic, using the <code>likelihood.test()</code> function from the <code>Deducer</code> library in <code>R</code>. From below, we test whether <span class="math inline">\({\tt EntityType}\)</span> is independent of <span class="math inline">\({\tt NoClaimCredit}\)</span> from the LGPIF data. The same conclusion is drawn as the Pearson chi-square test.</p>
@@ -1296,17 +1472,17 @@ Under the null hypothesis of independence, we have <span class="math inline">\(\
 <a id="displayCode.lik.1" href="javascript:togglecode('toggleCode.lik.1','displayCode.lik.1');"><i><strong>R Code for Likelihood Ratio Test Statistic</strong></i></a>
 </h5>
 <div id="toggleCode.lik.1" style="display: none">
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="ChapDependenceModel.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Deducer)</span>
-<span id="cb218-2"><a href="ChapDependenceModel.html#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="fu">likelihood.test</span>(EntityType, NoClaimCredit)</span>
-<span id="cb218-3"><a href="ChapDependenceModel.html#cb218-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb218-4"><a href="ChapDependenceModel.html#cb218-4" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb218-5"><a href="ChapDependenceModel.html#cb218-5" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
-<span id="cb218-6"><a href="ChapDependenceModel.html#cb218-6" aria-hidden="true" tabindex="-1"></a> Test statistic   X<span class="sc">-</span>squared df   P value </span>
-<span id="cb218-7"><a href="ChapDependenceModel.html#cb218-7" aria-hidden="true" tabindex="-1"></a><span class="sc">----------------</span> <span class="sc">--------------</span> <span class="sc">---------</span></span>
-<span id="cb218-8"><a href="ChapDependenceModel.html#cb218-8" aria-hidden="true" tabindex="-1"></a>     <span class="fl">378.7</span>             <span class="dv">5</span>         <span class="dv">0</span> <span class="sc">*</span> <span class="er">*</span> <span class="er">*</span> </span>
-<span id="cb218-9"><a href="ChapDependenceModel.html#cb218-9" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
-<span id="cb218-10"><a href="ChapDependenceModel.html#cb218-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb218-11"><a href="ChapDependenceModel.html#cb218-11" aria-hidden="true" tabindex="-1"></a>Table<span class="sc">:</span> Log likelihood <span class="fu">ratio</span> (G<span class="sc">-</span>test) test of independence without correction</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="ChapDependenceModel.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Deducer)</span>
+<span id="cb228-2"><a href="ChapDependenceModel.html#cb228-2" aria-hidden="true" tabindex="-1"></a><span class="fu">likelihood.test</span>(EntityType, NoClaimCredit)</span>
+<span id="cb228-3"><a href="ChapDependenceModel.html#cb228-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-4"><a href="ChapDependenceModel.html#cb228-4" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb228-5"><a href="ChapDependenceModel.html#cb228-5" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
+<span id="cb228-6"><a href="ChapDependenceModel.html#cb228-6" aria-hidden="true" tabindex="-1"></a> Test statistic   X<span class="sc">-</span>squared df   P value </span>
+<span id="cb228-7"><a href="ChapDependenceModel.html#cb228-7" aria-hidden="true" tabindex="-1"></a><span class="sc">----------------</span> <span class="sc">--------------</span> <span class="sc">---------</span></span>
+<span id="cb228-8"><a href="ChapDependenceModel.html#cb228-8" aria-hidden="true" tabindex="-1"></a>     <span class="fl">378.7</span>             <span class="dv">5</span>         <span class="dv">0</span> <span class="sc">*</span> <span class="er">*</span> <span class="er">*</span> </span>
+<span id="cb228-9"><a href="ChapDependenceModel.html#cb228-9" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
+<span id="cb228-10"><a href="ChapDependenceModel.html#cb228-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-11"><a href="ChapDependenceModel.html#cb228-11" aria-hidden="true" tabindex="-1"></a>Table<span class="sc">:</span> Log likelihood <span class="fu">ratio</span> (G<span class="sc">-</span>test) test of independence without correction</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1352,17 +1528,17 @@ Under the null hypothesis of independence, we have <span class="math inline">\(\
 <a id="displayCode.poly.1" href="javascript:togglecode('toggleCode.poly.1','displayCode.poly.1');"><i><strong>R Code for Polychoric Correlation</strong></i></a>
 </h5>
 <div id="toggleCode.poly.1" style="display: none">
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="ChapDependenceModel.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb219-2"><a href="ChapDependenceModel.html#cb219-2" aria-hidden="true" tabindex="-1"></a>AlarmCredit<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(<span class="fu">ifelse</span>(Insample<span class="sc">$</span>AC00<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;1&quot;</span>,</span>
-<span id="cb219-3"><a href="ChapDependenceModel.html#cb219-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">ifelse</span>(Insample<span class="sc">$</span>AC05<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;2&quot;</span>,</span>
-<span id="cb219-4"><a href="ChapDependenceModel.html#cb219-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">ifelse</span>(Insample<span class="sc">$</span>AC10<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;3&quot;</span>,</span>
-<span id="cb219-5"><a href="ChapDependenceModel.html#cb219-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">ifelse</span>(Insample<span class="sc">$</span>AC15<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;4&quot;</span>,<span class="dv">0</span>)))))</span>
-<span id="cb219-6"><a href="ChapDependenceModel.html#cb219-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">table</span>(AlarmCredit,NoClaimCredit)</span>
-<span id="cb219-7"><a href="ChapDependenceModel.html#cb219-7" aria-hidden="true" tabindex="-1"></a>rhoN<span class="ot">&lt;-</span><span class="fu">polychoric</span>(x,<span class="at">correct=</span><span class="cn">FALSE</span>)<span class="sc">$</span>rho</span>
-<span id="cb219-8"><a href="ChapDependenceModel.html#cb219-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rhoN,<span class="dv">2</span>)</span>
-<span id="cb219-9"><a href="ChapDependenceModel.html#cb219-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb219-10"><a href="ChapDependenceModel.html#cb219-10" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb219-11"><a href="ChapDependenceModel.html#cb219-11" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">0.14</span></span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="ChapDependenceModel.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb229-2"><a href="ChapDependenceModel.html#cb229-2" aria-hidden="true" tabindex="-1"></a>AlarmCredit<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(<span class="fu">ifelse</span>(Insample<span class="sc">$</span>AC00<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;1&quot;</span>,</span>
+<span id="cb229-3"><a href="ChapDependenceModel.html#cb229-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">ifelse</span>(Insample<span class="sc">$</span>AC05<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;2&quot;</span>,</span>
+<span id="cb229-4"><a href="ChapDependenceModel.html#cb229-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">ifelse</span>(Insample<span class="sc">$</span>AC10<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;3&quot;</span>,</span>
+<span id="cb229-5"><a href="ChapDependenceModel.html#cb229-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">ifelse</span>(Insample<span class="sc">$</span>AC15<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;4&quot;</span>,<span class="dv">0</span>)))))</span>
+<span id="cb229-6"><a href="ChapDependenceModel.html#cb229-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">table</span>(AlarmCredit,NoClaimCredit)</span>
+<span id="cb229-7"><a href="ChapDependenceModel.html#cb229-7" aria-hidden="true" tabindex="-1"></a>rhoN<span class="ot">&lt;-</span><span class="fu">polychoric</span>(x,<span class="at">correct=</span><span class="cn">FALSE</span>)<span class="sc">$</span>rho</span>
+<span id="cb229-8"><a href="ChapDependenceModel.html#cb229-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rhoN,<span class="dv">2</span>)</span>
+<span id="cb229-9"><a href="ChapDependenceModel.html#cb229-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-10"><a href="ChapDependenceModel.html#cb229-10" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb229-11"><a href="ChapDependenceModel.html#cb229-11" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">0.14</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1405,12 +1581,12 @@ Under the null hypothesis of independence, we have <span class="math inline">\(\
 <a id="displayCode.bis.1" href="javascript:togglecode('toggleCode.bis.1','displayCode.bis.1');"><i><strong>R Code for Biserial Correlation</strong></i></a>
 </h5>
 <div id="toggleCode.bis.1" style="display: none">
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="ChapDependenceModel.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb220-2"><a href="ChapDependenceModel.html#cb220-2" aria-hidden="true" tabindex="-1"></a>rhoN<span class="ot">&lt;-</span><span class="fu">biserial</span>(Claim,NoClaimCredit)</span>
-<span id="cb220-3"><a href="ChapDependenceModel.html#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rhoN,<span class="dv">2</span>)</span>
-<span id="cb220-4"><a href="ChapDependenceModel.html#cb220-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb220-5"><a href="ChapDependenceModel.html#cb220-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb220-6"><a href="ChapDependenceModel.html#cb220-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">0.04</span></span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="ChapDependenceModel.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb230-2"><a href="ChapDependenceModel.html#cb230-2" aria-hidden="true" tabindex="-1"></a>rhoN<span class="ot">&lt;-</span><span class="fu">biserial</span>(Claim,NoClaimCredit)</span>
+<span id="cb230-3"><a href="ChapDependenceModel.html#cb230-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rhoN,<span class="dv">2</span>)</span>
+<span id="cb230-4"><a href="ChapDependenceModel.html#cb230-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-5"><a href="ChapDependenceModel.html#cb230-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb230-6"><a href="ChapDependenceModel.html#cb230-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">0.04</span></span></code></pre></div>
 </div>
 <div id="surveyElement142">
 
@@ -1509,13 +1685,13 @@ Figure 15.2: <strong>Scatter Plot of LOSS and ALAE</strong>
 <a id="displayCode.ScaHis.1" href="javascript:togglecode('toggleCode.ScaHis.1','displayCode.ScaHis.1');"><i><strong>R Code for Loss versus Expense Scatterplots</strong></i></a>
 </h5>
 <div id="toggleCode.ScaHis.1" style="display: none">
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="ChapDependenceModel.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(copula)</span>
-<span id="cb221-2"><a href="ChapDependenceModel.html#cb221-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(loss) <span class="co"># loss data from copula library</span></span>
-<span id="cb221-3"><a href="ChapDependenceModel.html#cb221-3" aria-hidden="true" tabindex="-1"></a>LOSS <span class="ot">&lt;-</span> loss<span class="sc">$</span>loss</span>
-<span id="cb221-4"><a href="ChapDependenceModel.html#cb221-4" aria-hidden="true" tabindex="-1"></a>ALAE <span class="ot">&lt;-</span> loss<span class="sc">$</span>alae</span>
-<span id="cb221-5"><a href="ChapDependenceModel.html#cb221-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb221-6"><a href="ChapDependenceModel.html#cb221-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LOSS, ALAE, <span class="at">cex=</span>.<span class="dv">5</span>) <span class="co"># dollar scale</span></span>
-<span id="cb221-7"><a href="ChapDependenceModel.html#cb221-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(LOSS), <span class="fu">log</span>(ALAE),<span class="at">cex=</span>.<span class="dv">5</span>) <span class="co"># log scale</span></span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="ChapDependenceModel.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(copula)</span>
+<span id="cb231-2"><a href="ChapDependenceModel.html#cb231-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(loss) <span class="co"># loss data from copula library</span></span>
+<span id="cb231-3"><a href="ChapDependenceModel.html#cb231-3" aria-hidden="true" tabindex="-1"></a>LOSS <span class="ot">&lt;-</span> loss<span class="sc">$</span>loss</span>
+<span id="cb231-4"><a href="ChapDependenceModel.html#cb231-4" aria-hidden="true" tabindex="-1"></a>ALAE <span class="ot">&lt;-</span> loss<span class="sc">$</span>alae</span>
+<span id="cb231-5"><a href="ChapDependenceModel.html#cb231-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb231-6"><a href="ChapDependenceModel.html#cb231-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LOSS, ALAE, <span class="at">cex=</span>.<span class="dv">5</span>) <span class="co"># dollar scale</span></span>
+<span id="cb231-7"><a href="ChapDependenceModel.html#cb231-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(LOSS), <span class="fu">log</span>(ALAE),<span class="at">cex=</span>.<span class="dv">5</span>) <span class="co"># log scale</span></span></code></pre></div>
 </div>
 </div>
 <div id="marginal-models" class="section level3 hasAnchor" number="15.4.2">
@@ -1530,28 +1706,28 @@ F(y)=1- \left( 1 + \frac{\theta}{y+ \theta} \right) ^{\alpha}.
 <a id="displayCode.Reg.1" href="javascript:togglecode('toggleCode.Reg.1','displayCode.Reg.1');"><i><strong>R Code for Pareto Fitting of ALAE</strong></i></a>
 </h5>
 <div id="toggleCode.Reg.1" style="display: none">
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="ChapDependenceModel.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span>
-<span id="cb222-2"><a href="ChapDependenceModel.html#cb222-2" aria-hidden="true" tabindex="-1"></a>fit.ALAE <span class="ot">&lt;-</span> <span class="fu">vglm</span>(ALAE <span class="sc">~</span> <span class="dv">1</span>, <span class="fu">paretoII</span>(<span class="at">location=</span><span class="dv">0</span>, <span class="at">lscale=</span><span class="st">&quot;loge&quot;</span>, <span class="at">lshape=</span><span class="st">&quot;loge&quot;</span>)) <span class="co"># fit the model by vlgm function</span></span>
-<span id="cb222-3"><a href="ChapDependenceModel.html#cb222-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit.ALAE, <span class="at">matrix=</span><span class="cn">TRUE</span>) <span class="co"># extract fitted model coefficients, matrix=TRUE gives logarithm of estimated parameters instead of default normal scale estimates</span></span>
-<span id="cb222-4"><a href="ChapDependenceModel.html#cb222-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-5"><a href="ChapDependenceModel.html#cb222-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span> </span>
-<span id="cb222-6"><a href="ChapDependenceModel.html#cb222-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">loge</span>(scale) <span class="fu">loge</span>(shape)</span>
-<span id="cb222-7"><a href="ChapDependenceModel.html#cb222-7" aria-hidden="true" tabindex="-1"></a> (Intercept)     <span class="fl">9.624673</span>   <span class="fl">0.7988753</span></span>
-<span id="cb222-8"><a href="ChapDependenceModel.html#cb222-8" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb222-9"><a href="ChapDependenceModel.html#cb222-9" aria-hidden="true" tabindex="-1"></a>                  scale        shape </span>
-<span id="cb222-10"><a href="ChapDependenceModel.html#cb222-10" aria-hidden="true" tabindex="-1"></a> (Intercept)  <span class="fl">15133.603598</span>     <span class="fl">2.223039</span> </span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="ChapDependenceModel.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span>
+<span id="cb232-2"><a href="ChapDependenceModel.html#cb232-2" aria-hidden="true" tabindex="-1"></a>fit.ALAE <span class="ot">&lt;-</span> <span class="fu">vglm</span>(ALAE <span class="sc">~</span> <span class="dv">1</span>, <span class="fu">paretoII</span>(<span class="at">location=</span><span class="dv">0</span>, <span class="at">lscale=</span><span class="st">&quot;loge&quot;</span>, <span class="at">lshape=</span><span class="st">&quot;loge&quot;</span>)) <span class="co"># fit the model by vlgm function</span></span>
+<span id="cb232-3"><a href="ChapDependenceModel.html#cb232-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit.ALAE, <span class="at">matrix=</span><span class="cn">TRUE</span>) <span class="co"># extract fitted model coefficients, matrix=TRUE gives logarithm of estimated parameters instead of default normal scale estimates</span></span>
+<span id="cb232-4"><a href="ChapDependenceModel.html#cb232-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-5"><a href="ChapDependenceModel.html#cb232-5" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span> </span>
+<span id="cb232-6"><a href="ChapDependenceModel.html#cb232-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">loge</span>(scale) <span class="fu">loge</span>(shape)</span>
+<span id="cb232-7"><a href="ChapDependenceModel.html#cb232-7" aria-hidden="true" tabindex="-1"></a> (Intercept)     <span class="fl">9.624673</span>   <span class="fl">0.7988753</span></span>
+<span id="cb232-8"><a href="ChapDependenceModel.html#cb232-8" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb232-9"><a href="ChapDependenceModel.html#cb232-9" aria-hidden="true" tabindex="-1"></a>                  scale        shape </span>
+<span id="cb232-10"><a href="ChapDependenceModel.html#cb232-10" aria-hidden="true" tabindex="-1"></a> (Intercept)  <span class="fl">15133.603598</span>     <span class="fl">2.223039</span> </span></code></pre></div>
 </div>
 <p>We repeat this procedure to fit the marginal distribution of the <span class="math inline">\({\tt LOSS}\)</span> variable. Because the loss variable also seems right-skewed and heavy-tailed data, we also model the marginal distribution with the Pareto distribution (although with different parameters).</p>
 <h5 style="text-align: center;">
 <a id="displayCode.ParFit.1" href="javascript:togglecode('toggleCode.ParFit.1','displayCode.ParFit.1');"><i><strong>R Code for Pareto Fitting of LOSS</strong></i></a>
 </h5>
 <div id="toggleCode.ParFit.1" style="display: none">
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="ChapDependenceModel.html#cb223-1" aria-hidden="true" tabindex="-1"></a>fit.LOSS <span class="ot">&lt;-</span> <span class="fu">vglm</span>(LOSS <span class="sc">~</span> <span class="dv">1</span>, paretoII, <span class="at">trace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb223-2"><a href="ChapDependenceModel.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Coef</span>(fit.LOSS)</span>
-<span id="cb223-3"><a href="ChapDependenceModel.html#cb223-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-4"><a href="ChapDependenceModel.html#cb223-4" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span> </span>
-<span id="cb223-5"><a href="ChapDependenceModel.html#cb223-5" aria-hidden="true" tabindex="-1"></a>       scale        shape </span>
-<span id="cb223-6"><a href="ChapDependenceModel.html#cb223-6" aria-hidden="true" tabindex="-1"></a><span class="fl">16228.14797</span>     <span class="fl">1.23766</span></span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="ChapDependenceModel.html#cb233-1" aria-hidden="true" tabindex="-1"></a>fit.LOSS <span class="ot">&lt;-</span> <span class="fu">vglm</span>(LOSS <span class="sc">~</span> <span class="dv">1</span>, paretoII, <span class="at">trace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb233-2"><a href="ChapDependenceModel.html#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Coef</span>(fit.LOSS)</span>
+<span id="cb233-3"><a href="ChapDependenceModel.html#cb233-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb233-4"><a href="ChapDependenceModel.html#cb233-4" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span> </span>
+<span id="cb233-5"><a href="ChapDependenceModel.html#cb233-5" aria-hidden="true" tabindex="-1"></a>       scale        shape </span>
+<span id="cb233-6"><a href="ChapDependenceModel.html#cb233-6" aria-hidden="true" tabindex="-1"></a><span class="fl">16228.14797</span>     <span class="fl">1.23766</span></span></code></pre></div>
 </div>
 <p><a id=tab:15.6></a></p>
 <p>Table 15.6. <strong>Summary of Pareto Maximum Likelihood Fitted Parameters from the LGPIF Data</strong></p>
@@ -1598,12 +1774,12 @@ Figure 15.4: <strong>Histogram of Transformed Loss.</strong> The left-hand panel
 <a id="displayCode.transalae.1" href="javascript:togglecode('toggleCode.transalae.1','displayCode.transalae.1');"><i><strong>R Code for Histograms of Transformed Variables</strong></i></a>
 </h5>
 <div id="toggleCode.transalae.1" style="display: none">
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="ChapDependenceModel.html#cb224-1" aria-hidden="true" tabindex="-1"></a>theta.LOSS <span class="ot">=</span> <span class="fu">Coef</span>(fit.LOSS)[<span class="dv">1</span>]</span>
-<span id="cb224-2"><a href="ChapDependenceModel.html#cb224-2" aria-hidden="true" tabindex="-1"></a>alpha.LOSS <span class="ot">=</span> <span class="fu">Coef</span>(fit.LOSS)[<span class="dv">2</span>]</span>
-<span id="cb224-3"><a href="ChapDependenceModel.html#cb224-3" aria-hidden="true" tabindex="-1"></a>u2 <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">+</span> (LOSS<span class="sc">/</span>theta.LOSS))<span class="sc">^</span>(<span class="sc">-</span>alpha.LOSS)</span>
-<span id="cb224-4"><a href="ChapDependenceModel.html#cb224-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb224-5"><a href="ChapDependenceModel.html#cb224-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(u2, <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb224-6"><a href="ChapDependenceModel.html#cb224-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">qnorm</span>(u2), <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="ChapDependenceModel.html#cb234-1" aria-hidden="true" tabindex="-1"></a>theta.LOSS <span class="ot">=</span> <span class="fu">Coef</span>(fit.LOSS)[<span class="dv">1</span>]</span>
+<span id="cb234-2"><a href="ChapDependenceModel.html#cb234-2" aria-hidden="true" tabindex="-1"></a>alpha.LOSS <span class="ot">=</span> <span class="fu">Coef</span>(fit.LOSS)[<span class="dv">2</span>]</span>
+<span id="cb234-3"><a href="ChapDependenceModel.html#cb234-3" aria-hidden="true" tabindex="-1"></a>u2 <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">+</span> (LOSS<span class="sc">/</span>theta.LOSS))<span class="sc">^</span>(<span class="sc">-</span>alpha.LOSS)</span>
+<span id="cb234-4"><a href="ChapDependenceModel.html#cb234-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb234-5"><a href="ChapDependenceModel.html#cb234-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(u2, <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb234-6"><a href="ChapDependenceModel.html#cb234-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">qnorm</span>(u2), <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="joint-modeling-with-copula-function" class="section level3 hasAnchor" number="15.4.4">
@@ -1620,14 +1796,14 @@ Figure 15.5: Left: Scatter plot for transformed variables. Right:Scatter plot fo
 <a id="displayCode.Cor.1" href="javascript:togglecode('toggleCode.Cor.1','displayCode.Cor.1');"><i><strong>R Code for Scatter Plots and Correlation</strong></i></a>
 </h5>
 <div id="toggleCode.Cor.1" style="display: none">
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="ChapDependenceModel.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb225-2"><a href="ChapDependenceModel.html#cb225-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(u1, u2, <span class="at">cex =</span> <span class="fl">0.5</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>,<span class="fl">1.1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>,<span class="fl">1.1</span>),</span>
-<span id="cb225-3"><a href="ChapDependenceModel.html#cb225-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Transformed ALAE&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Transformed LOSS&quot;</span>)</span>
-<span id="cb225-4"><a href="ChapDependenceModel.html#cb225-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">qnorm</span>(u1), <span class="fu">qnorm</span>(u2), <span class="at">xlab =</span> <span class="fu">expression</span>(<span class="st">&quot;qnorm&quot;</span>(u[<span class="dv">1</span>])) , <span class="at">ylab =</span><span class="fu">expression</span>(<span class="st">&quot;qnorm&quot;</span>(u[<span class="dv">2</span>])) )</span></code></pre></div>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="ChapDependenceModel.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(u1, u2, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span>
-<span id="cb226-2"><a href="ChapDependenceModel.html#cb226-2" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span> </span>
-<span id="cb226-3"><a href="ChapDependenceModel.html#cb226-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb226-4"><a href="ChapDependenceModel.html#cb226-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.451872</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="ChapDependenceModel.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb235-2"><a href="ChapDependenceModel.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(u1, u2, <span class="at">cex =</span> <span class="fl">0.5</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>,<span class="fl">1.1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>,<span class="fl">1.1</span>),</span>
+<span id="cb235-3"><a href="ChapDependenceModel.html#cb235-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Transformed ALAE&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Transformed LOSS&quot;</span>)</span>
+<span id="cb235-4"><a href="ChapDependenceModel.html#cb235-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">qnorm</span>(u1), <span class="fu">qnorm</span>(u2), <span class="at">xlab =</span> <span class="fu">expression</span>(<span class="st">&quot;qnorm&quot;</span>(u[<span class="dv">1</span>])) , <span class="at">ylab =</span><span class="fu">expression</span>(<span class="st">&quot;qnorm&quot;</span>(u[<span class="dv">2</span>])) )</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="ChapDependenceModel.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(u1, u2, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span>
+<span id="cb236-2"><a href="ChapDependenceModel.html#cb236-2" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span> </span>
+<span id="cb236-3"><a href="ChapDependenceModel.html#cb236-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb236-4"><a href="ChapDependenceModel.html#cb236-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.451872</span></span></code></pre></div>
 </div>
 <p>The right-hand panel of Figure <a href="ChapDependenceModel.html#fig:Scatter">15.2</a> shows us there is a positive dependency between these two random variables. This can be summarized using, for example, Spearman’s rho that turns out to be 0.451. As we learned in Section <a href="ChapDependenceModel.html#Sec:Spearman">15.2.2.1</a>, this statistics depends only on the order of the two variables through their respective ranks. Therefore, the statistic is the same for (1) the original data in Figure <a href="ChapDependenceModel.html#fig:Scatter">15.2</a>, (2) the data transformed to uniform scales in the left-hand panel of Figure <a href="ChapDependenceModel.html#fig:Scatter2">15.5</a>, and (3) the normal scores in the right-hand panel of Figure <a href="ChapDependenceModel.html#fig:Scatter2">15.5</a>.</p>
 <p>The next step is to calculate estimates of the copula parameters. One option is to use traditional maximum likelihood and determine all the parameters at the same time which can be computationally burdensome. Even in our simple example, this means maximizing a (log) likelihood function over five parameters, two for the marginal <span class="math inline">\({\tt ALAE}\)</span> distribution, two for the marginal <span class="math inline">\({\tt LOSS}\)</span> distribution, and one for the copula. A widely alternative, known as the <em>inference for margins (IFM)</em> approach, is to simply use the fitted marginal distributions, <span class="math inline">\(u_1\)</span> and <span class="math inline">\(u_2\)</span>, as inputs when determining the copula. This is the approach taken here. In the following code, you will see that it turns how that the fitted copula parameter <span class="math inline">\(\hat{\gamma} = 3.114\)</span>.</p>
@@ -1635,19 +1811,19 @@ Figure 15.5: Left: Scatter plot for transformed variables. Right:Scatter plot fo
 <a id="displayCode.FrankCopula.1" href="javascript:togglecode('toggleCode.FrankCopula.1','displayCode.FrankCopula.1');"><i><strong>R Code for IFM Fitting with Frank’s Copula</strong></i></a>
 </h5>
 <div id="toggleCode.FrankCopula.1" style="display: none">
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="ChapDependenceModel.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transformed data matrix uu</span></span>
-<span id="cb227-2"><a href="ChapDependenceModel.html#cb227-2" aria-hidden="true" tabindex="-1"></a>uu <span class="ot">=</span> <span class="fu">cbind</span>(u1,u2) </span>
-<span id="cb227-3"><a href="ChapDependenceModel.html#cb227-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Frank&#39;s copula object with arbitrary parameter value</span></span>
-<span id="cb227-4"><a href="ChapDependenceModel.html#cb227-4" aria-hidden="true" tabindex="-1"></a>frank.cop <span class="ot">&lt;-</span> <span class="fu">archmCopula</span>(<span class="st">&quot;frank&quot;</span>, <span class="at">param=</span> <span class="fu">c</span>(<span class="dv">5</span>), <span class="at">dim =</span> <span class="dv">2</span>) </span>
-<span id="cb227-5"><a href="ChapDependenceModel.html#cb227-5" aria-hidden="true" tabindex="-1"></a><span class="co"># fit copula using ML method, starting value 0.4</span></span>
-<span id="cb227-6"><a href="ChapDependenceModel.html#cb227-6" aria-hidden="true" tabindex="-1"></a>fit.ml <span class="ot">&lt;-</span> <span class="fu">fitCopula</span>(frank.cop, uu, <span class="at">method=</span><span class="st">&quot;ml&quot;</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="fl">0.4</span>))</span>
-<span id="cb227-7"><a href="ChapDependenceModel.html#cb227-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-8"><a href="ChapDependenceModel.html#cb227-8" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">fitCopula</span>(copula, <span class="at">data =</span> data, <span class="at">method =</span> <span class="st">&quot;ml&quot;</span>, <span class="at">start =</span> ..<span class="dv">2</span>)</span>
-<span id="cb227-9"><a href="ChapDependenceModel.html#cb227-9" aria-hidden="true" tabindex="-1"></a>Fit based on <span class="st">&quot;maximum likelihood&quot;</span> and <span class="dv">1500</span> <span class="dv">2</span><span class="sc">-</span>dimensional observations.</span>
-<span id="cb227-10"><a href="ChapDependenceModel.html#cb227-10" aria-hidden="true" tabindex="-1"></a>Frank copula, dim. d <span class="ot">=</span> <span class="dv">2</span> </span>
-<span id="cb227-11"><a href="ChapDependenceModel.html#cb227-11" aria-hidden="true" tabindex="-1"></a>      Estimate Std. Error</span>
-<span id="cb227-12"><a href="ChapDependenceModel.html#cb227-12" aria-hidden="true" tabindex="-1"></a>alpha    <span class="fl">3.114</span>      <span class="fl">0.169</span></span>
-<span id="cb227-13"><a href="ChapDependenceModel.html#cb227-13" aria-hidden="true" tabindex="-1"></a>The maximized loglikelihood is <span class="fl">172.6</span> </span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="ChapDependenceModel.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transformed data matrix uu</span></span>
+<span id="cb237-2"><a href="ChapDependenceModel.html#cb237-2" aria-hidden="true" tabindex="-1"></a>uu <span class="ot">=</span> <span class="fu">cbind</span>(u1,u2) </span>
+<span id="cb237-3"><a href="ChapDependenceModel.html#cb237-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Frank&#39;s copula object with arbitrary parameter value</span></span>
+<span id="cb237-4"><a href="ChapDependenceModel.html#cb237-4" aria-hidden="true" tabindex="-1"></a>frank.cop <span class="ot">&lt;-</span> <span class="fu">archmCopula</span>(<span class="st">&quot;frank&quot;</span>, <span class="at">param=</span> <span class="fu">c</span>(<span class="dv">5</span>), <span class="at">dim =</span> <span class="dv">2</span>) </span>
+<span id="cb237-5"><a href="ChapDependenceModel.html#cb237-5" aria-hidden="true" tabindex="-1"></a><span class="co"># fit copula using ML method, starting value 0.4</span></span>
+<span id="cb237-6"><a href="ChapDependenceModel.html#cb237-6" aria-hidden="true" tabindex="-1"></a>fit.ml <span class="ot">&lt;-</span> <span class="fu">fitCopula</span>(frank.cop, uu, <span class="at">method=</span><span class="st">&quot;ml&quot;</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="fl">0.4</span>))</span>
+<span id="cb237-7"><a href="ChapDependenceModel.html#cb237-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb237-8"><a href="ChapDependenceModel.html#cb237-8" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span> <span class="fu">fitCopula</span>(copula, <span class="at">data =</span> data, <span class="at">method =</span> <span class="st">&quot;ml&quot;</span>, <span class="at">start =</span> ..<span class="dv">2</span>)</span>
+<span id="cb237-9"><a href="ChapDependenceModel.html#cb237-9" aria-hidden="true" tabindex="-1"></a>Fit based on <span class="st">&quot;maximum likelihood&quot;</span> and <span class="dv">1500</span> <span class="dv">2</span><span class="sc">-</span>dimensional observations.</span>
+<span id="cb237-10"><a href="ChapDependenceModel.html#cb237-10" aria-hidden="true" tabindex="-1"></a>Frank copula, dim. d <span class="ot">=</span> <span class="dv">2</span> </span>
+<span id="cb237-11"><a href="ChapDependenceModel.html#cb237-11" aria-hidden="true" tabindex="-1"></a>      Estimate Std. Error</span>
+<span id="cb237-12"><a href="ChapDependenceModel.html#cb237-12" aria-hidden="true" tabindex="-1"></a>alpha    <span class="fl">3.114</span>      <span class="fl">0.169</span></span>
+<span id="cb237-13"><a href="ChapDependenceModel.html#cb237-13" aria-hidden="true" tabindex="-1"></a>The maximized loglikelihood is <span class="fl">172.6</span> </span></code></pre></div>
 </div>
 <p>To visualize the fitted Frank’s copula, the distribution function and density function perspective plots are drawn in Figure <a href="ChapDependenceModel.html#fig:FrankCop">15.6</a>.</p>
 
@@ -1661,10 +1837,10 @@ Figure 15.6: Left: Plot for distribution function for Franks Copula. Right:Plot 
 <a id="displayCode.DistriPlot.1" href="javascript:togglecode('toggleCode.DistriPlot.1','displayCode.DistriPlot.1');"><i><strong>R Code for Frank’s Copula Plots</strong></i></a>
 </h5>
 <div id="toggleCode.DistriPlot.1" style="display: none">
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="ChapDependenceModel.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="co">#par(mfrow=c(1,2))</span></span>
-<span id="cb228-2"><a href="ChapDependenceModel.html#cb228-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">3.2</span>,<span class="dv">3</span>,.<span class="dv">2</span>,.<span class="dv">2</span>),<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb228-3"><a href="ChapDependenceModel.html#cb228-3" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(frank.cop, pCopula, <span class="at">theta=</span><span class="dv">50</span>, <span class="at">zlab=</span><span class="st">&quot;C(u,v)&quot;</span>, <span class="at">xlab =</span><span class="st">&quot;u&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;v&quot;</span>, <span class="at">cex.lab=</span><span class="fl">0.9</span>, <span class="at">cex.axis =</span> <span class="fl">0.5</span>)</span>
-<span id="cb228-4"><a href="ChapDependenceModel.html#cb228-4" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(frank.cop, dCopula, <span class="at">theta=</span><span class="dv">0</span>, <span class="at">zlab=</span><span class="st">&quot;c(u,v)&quot;</span>,  <span class="at">xlab =</span><span class="st">&quot;u&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;v&quot;</span>, <span class="at">cex.lab=</span><span class="fl">0.9</span>, <span class="at">cex.axis =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="ChapDependenceModel.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co">#par(mfrow=c(1,2))</span></span>
+<span id="cb238-2"><a href="ChapDependenceModel.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">3.2</span>,<span class="dv">3</span>,.<span class="dv">2</span>,.<span class="dv">2</span>),<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb238-3"><a href="ChapDependenceModel.html#cb238-3" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(frank.cop, pCopula, <span class="at">theta=</span><span class="dv">50</span>, <span class="at">zlab=</span><span class="st">&quot;C(u,v)&quot;</span>, <span class="at">xlab =</span><span class="st">&quot;u&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;v&quot;</span>, <span class="at">cex.lab=</span><span class="fl">0.9</span>, <span class="at">cex.axis =</span> <span class="fl">0.5</span>)</span>
+<span id="cb238-4"><a href="ChapDependenceModel.html#cb238-4" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(frank.cop, dCopula, <span class="at">theta=</span><span class="dv">0</span>, <span class="at">zlab=</span><span class="st">&quot;c(u,v)&quot;</span>,  <span class="at">xlab =</span><span class="st">&quot;u&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;v&quot;</span>, <span class="at">cex.lab=</span><span class="fl">0.9</span>, <span class="at">cex.axis =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1706,17 +1882,17 @@ Figure 15.7: <strong>Bivariate Normal Probability Density Function Plots.</stron
 <a id="displayCode.DistriPlot.2" href="javascript:togglecode('toggleCode.DistriPlot.2','displayCode.DistriPlot.2');"><i><strong>R Code for Normal pdf and Normal Copula pdf Plots</strong></i></a>
 </h5>
 <div id="toggleCode.DistriPlot.2" style="display: none">
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="ChapDependenceModel.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb229-2"><a href="ChapDependenceModel.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  BIVARIATE NORMAL DF WITH RHO = 0.25</span></span>
-<span id="cb229-3"><a href="ChapDependenceModel.html#cb229-3" aria-hidden="true" tabindex="-1"></a>norm.pdf <span class="ot">&lt;-</span> <span class="fu">mvdc</span>(<span class="fu">normalCopula</span>(<span class="fl">0.25</span>), <span class="fu">c</span>(<span class="st">&quot;norm&quot;</span>, <span class="st">&quot;norm&quot;</span>),</span>
-<span id="cb229-4"><a href="ChapDependenceModel.html#cb229-4" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span><span class="dv">1</span>), <span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span><span class="dv">1</span>)))</span>
-<span id="cb229-5"><a href="ChapDependenceModel.html#cb229-5" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(norm.pdf, dMvdc, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>),   </span>
-<span id="cb229-6"><a href="ChapDependenceModel.html#cb229-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">zlab =</span> <span class="fu">expression</span>(<span class="st">&quot;\U03A6&quot;</span>),</span>
-<span id="cb229-7"><a href="ChapDependenceModel.html#cb229-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span><span class="st">&quot;x&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;y&quot;</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>, <span class="at">cex.axis =</span> <span class="fl">0.3</span>)</span>
-<span id="cb229-8"><a href="ChapDependenceModel.html#cb229-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  BIVARIATE NORMAL COPULA WITH RHO = 0.25</span></span>
-<span id="cb229-9"><a href="ChapDependenceModel.html#cb229-9" aria-hidden="true" tabindex="-1"></a>norm.cop <span class="ot">&lt;-</span> <span class="fu">ellipCopula</span>(<span class="st">&quot;normal&quot;</span>, <span class="at">param =</span> <span class="fu">c</span>(<span class="fl">0.25</span>),<span class="at">dim =</span> <span class="dv">2</span>, <span class="at">dispstr =</span> <span class="st">&quot;un&quot;</span>)</span>
-<span id="cb229-10"><a href="ChapDependenceModel.html#cb229-10" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(norm.cop, dCopula, <span class="at">theta =</span> <span class="dv">30</span>, <span class="at">zlab=</span><span class="st">&quot;c(u,v)&quot;</span>,</span>
-<span id="cb229-11"><a href="ChapDependenceModel.html#cb229-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span><span class="st">&quot;u&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;v&quot;</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>, <span class="at">cex.axis =</span> <span class="fl">0.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="ChapDependenceModel.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb239-2"><a href="ChapDependenceModel.html#cb239-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  BIVARIATE NORMAL DF WITH RHO = 0.25</span></span>
+<span id="cb239-3"><a href="ChapDependenceModel.html#cb239-3" aria-hidden="true" tabindex="-1"></a>norm.pdf <span class="ot">&lt;-</span> <span class="fu">mvdc</span>(<span class="fu">normalCopula</span>(<span class="fl">0.25</span>), <span class="fu">c</span>(<span class="st">&quot;norm&quot;</span>, <span class="st">&quot;norm&quot;</span>),</span>
+<span id="cb239-4"><a href="ChapDependenceModel.html#cb239-4" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span><span class="dv">1</span>), <span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span><span class="dv">1</span>)))</span>
+<span id="cb239-5"><a href="ChapDependenceModel.html#cb239-5" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(norm.pdf, dMvdc, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>),   </span>
+<span id="cb239-6"><a href="ChapDependenceModel.html#cb239-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">zlab =</span> <span class="fu">expression</span>(<span class="st">&quot;\U03A6&quot;</span>),</span>
+<span id="cb239-7"><a href="ChapDependenceModel.html#cb239-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span><span class="st">&quot;x&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;y&quot;</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>, <span class="at">cex.axis =</span> <span class="fl">0.3</span>)</span>
+<span id="cb239-8"><a href="ChapDependenceModel.html#cb239-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  BIVARIATE NORMAL COPULA WITH RHO = 0.25</span></span>
+<span id="cb239-9"><a href="ChapDependenceModel.html#cb239-9" aria-hidden="true" tabindex="-1"></a>norm.cop <span class="ot">&lt;-</span> <span class="fu">ellipCopula</span>(<span class="st">&quot;normal&quot;</span>, <span class="at">param =</span> <span class="fu">c</span>(<span class="fl">0.25</span>),<span class="at">dim =</span> <span class="dv">2</span>, <span class="at">dispstr =</span> <span class="st">&quot;un&quot;</span>)</span>
+<span id="cb239-10"><a href="ChapDependenceModel.html#cb239-10" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(norm.cop, dCopula, <span class="at">theta =</span> <span class="dv">30</span>, <span class="at">zlab=</span><span class="st">&quot;c(u,v)&quot;</span>,</span>
+<span id="cb239-11"><a href="ChapDependenceModel.html#cb239-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span><span class="st">&quot;u&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;v&quot;</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>, <span class="at">cex.axis =</span> <span class="fl">0.3</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="t--and-elliptical-copulas" class="section level3 hasAnchor" number="15.5.2">
@@ -1817,11 +1993,11 @@ Figure 15.8: <strong>Perfect Positive and Perfect Negative Dependence Plots</str
 <a id="displayCode.plot.1" href="javascript:togglecode('toggleCode.plot.1','displayCode.plot.1');"><i><strong>R Code for the Fréchet-Höeffding Bounds for Two Random Variables</strong></i></a>
 </h5>
 <div id="toggleCode.plot.1" style="display: none">
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="ChapDependenceModel.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1980</span>)</span>
-<span id="cb230-2"><a href="ChapDependenceModel.html#cb230-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span>
-<span id="cb230-3"><a href="ChapDependenceModel.html#cb230-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb230-4"><a href="ChapDependenceModel.html#cb230-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cbind</span>(U,<span class="dv">1</span><span class="sc">-</span>U), <span class="at">xlab=</span><span class="fu">quote</span>(U[<span class="dv">1</span>]), <span class="at">ylab=</span><span class="fu">quote</span>(U[<span class="dv">2</span>]),<span class="at">main=</span><span class="st">&quot;Perfect Negative Dependency&quot;</span>) <span class="co"># W for p=2</span></span>
-<span id="cb230-5"><a href="ChapDependenceModel.html#cb230-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span> (<span class="fu">cbind</span>(U,U), <span class="at">xlab=</span><span class="fu">quote</span>(U[<span class="dv">1</span>]),<span class="at">ylab=</span><span class="fu">quote</span>(U[<span class="dv">2</span>]),<span class="at">main=</span><span class="st">&quot;Perfect Positive Dependency&quot;</span>)  <span class="co">#M for p=2</span></span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="ChapDependenceModel.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1980</span>)</span>
+<span id="cb240-2"><a href="ChapDependenceModel.html#cb240-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span>
+<span id="cb240-3"><a href="ChapDependenceModel.html#cb240-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb240-4"><a href="ChapDependenceModel.html#cb240-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cbind</span>(U,<span class="dv">1</span><span class="sc">-</span>U), <span class="at">xlab=</span><span class="fu">quote</span>(U[<span class="dv">1</span>]), <span class="at">ylab=</span><span class="fu">quote</span>(U[<span class="dv">2</span>]),<span class="at">main=</span><span class="st">&quot;Perfect Negative Dependency&quot;</span>) <span class="co"># W for p=2</span></span>
+<span id="cb240-5"><a href="ChapDependenceModel.html#cb240-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span> (<span class="fu">cbind</span>(U,U), <span class="at">xlab=</span><span class="fu">quote</span>(U[<span class="dv">1</span>]),<span class="at">ylab=</span><span class="fu">quote</span>(U[<span class="dv">2</span>]),<span class="at">main=</span><span class="st">&quot;Perfect Positive Dependency&quot;</span>)  <span class="co">#M for p=2</span></span></code></pre></div>
 </div>
 </div>
 <div id="Sec:MeasuresAssociation" class="section level4 hasAnchor" number="15.5.4.2">
@@ -1842,12 +2018,12 @@ Figure 15.8: <strong>Perfect Positive and Perfect Negative Dependence Plots</str
 <a id="displayCode.fittedCop.1" href="javascript:togglecode('toggleCode.fittedCop.1','displayCode.fittedCop.1');"><i><strong>R Code for Spearman’s Correlation Using Frank’s Copula</strong></i></a>
 </h5>
 <div id="toggleCode.fittedCop.1" style="display: none">
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="ChapDependenceModel.html#cb231-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">param =</span> fit.ml<span class="sc">@</span>estimate)</span>
-<span id="cb231-2"><a href="ChapDependenceModel.html#cb231-2" aria-hidden="true" tabindex="-1"></a>frank.cop <span class="ot">&lt;-</span> <span class="fu">archmCopula</span>(<span class="st">&quot;frank&quot;</span>, <span class="at">param=</span> param, <span class="at">dim =</span> <span class="dv">2</span>)</span>
-<span id="cb231-3"><a href="ChapDependenceModel.html#cb231-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rho</span>(frank.cop) </span>
-<span id="cb231-4"><a href="ChapDependenceModel.html#cb231-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb231-5"><a href="ChapDependenceModel.html#cb231-5" aria-hidden="true" tabindex="-1"></a>Output <span class="sc">:</span> </span>
-<span id="cb231-6"><a href="ChapDependenceModel.html#cb231-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.4622722</span></span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="ChapDependenceModel.html#cb241-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">param =</span> fit.ml<span class="sc">@</span>estimate)</span>
+<span id="cb241-2"><a href="ChapDependenceModel.html#cb241-2" aria-hidden="true" tabindex="-1"></a>frank.cop <span class="ot">&lt;-</span> <span class="fu">archmCopula</span>(<span class="st">&quot;frank&quot;</span>, <span class="at">param=</span> param, <span class="at">dim =</span> <span class="dv">2</span>)</span>
+<span id="cb241-3"><a href="ChapDependenceModel.html#cb241-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rho</span>(frank.cop) </span>
+<span id="cb241-4"><a href="ChapDependenceModel.html#cb241-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-5"><a href="ChapDependenceModel.html#cb241-5" aria-hidden="true" tabindex="-1"></a>Output <span class="sc">:</span> </span>
+<span id="cb241-6"><a href="ChapDependenceModel.html#cb241-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.4622722</span></span></code></pre></div>
 </div>
 </div>
 <div id="tail-dependency" class="section level4 hasAnchor" number="15.5.4.3">
@@ -1884,23 +2060,23 @@ t-  &amp; 0.10   &amp; 0.10    \\
 <a id="displayCode.Tail.1" href="javascript:togglecode('toggleCode.Tail.1','displayCode.Tail.1');"><i><strong>R Code for Tail Copula Functions for Different Copulas</strong></i></a>
 </h5>
 <div id="toggleCode.Tail.1" style="display: none">
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="ChapDependenceModel.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(copula)</span>
-<span id="cb232-2"><a href="ChapDependenceModel.html#cb232-2" aria-hidden="true" tabindex="-1"></a>U1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.5</span>, <span class="at">by=</span><span class="fl">0.002</span>)</span>
-<span id="cb232-3"><a href="ChapDependenceModel.html#cb232-3" aria-hidden="true" tabindex="-1"></a>U2 <span class="ot">=</span> <span class="fu">seq</span>(<span class="fl">0.5</span>,<span class="dv">1</span>, <span class="at">by=</span><span class="fl">0.002</span>)</span>
-<span id="cb232-4"><a href="ChapDependenceModel.html#cb232-4" aria-hidden="true" tabindex="-1"></a>U <span class="ot">=</span> <span class="fu">rbind</span>(U1, U2)</span>
-<span id="cb232-5"><a href="ChapDependenceModel.html#cb232-5" aria-hidden="true" tabindex="-1"></a>TailFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(Tailcop) {</span>
-<span id="cb232-6"><a href="ChapDependenceModel.html#cb232-6" aria-hidden="true" tabindex="-1"></a>  lowertail <span class="ot">&lt;-</span> <span class="fu">pCopula</span>(<span class="fu">cbind</span>(U1,U1), Tailcop)<span class="sc">/</span>U1</span>
-<span id="cb232-7"><a href="ChapDependenceModel.html#cb232-7" aria-hidden="true" tabindex="-1"></a>  uppertail <span class="ot">&lt;-</span> (<span class="dv">1-2</span><span class="sc">*</span>U2 <span class="sc">+</span><span class="fu">pCopula</span>(<span class="fu">cbind</span>(U2,U2), Tailcop))<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>U2)</span>
-<span id="cb232-8"><a href="ChapDependenceModel.html#cb232-8" aria-hidden="true" tabindex="-1"></a>  jointtail <span class="ot">&lt;-</span> <span class="fu">rbind</span>(lowertail,uppertail)</span>
-<span id="cb232-9"><a href="ChapDependenceModel.html#cb232-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb232-10"><a href="ChapDependenceModel.html#cb232-10" aria-hidden="true" tabindex="-1"></a>Tailcop1 <span class="ot">&lt;-</span> <span class="fu">archmCopula</span>(<span class="at">family =</span> <span class="st">&quot;frank&quot;</span>, <span class="at">param=</span> <span class="fu">c</span>(<span class="fl">0.05</span>), <span class="at">dim =</span> <span class="dv">2</span>)</span>
-<span id="cb232-11"><a href="ChapDependenceModel.html#cb232-11" aria-hidden="true" tabindex="-1"></a>Tailcop2 <span class="ot">&lt;-</span> <span class="fu">archmCopula</span>(<span class="at">family =</span> <span class="st">&quot;gumbel&quot;</span>,<span class="at">param =</span> <span class="dv">3</span>)</span>
-<span id="cb232-12"><a href="ChapDependenceModel.html#cb232-12" aria-hidden="true" tabindex="-1"></a>Tailcop3 <span class="ot">&lt;-</span> <span class="fu">ellipCopula</span>(<span class="st">&quot;normal&quot;</span>, <span class="at">param =</span> <span class="fu">c</span>(<span class="fl">0.25</span>),<span class="at">dim =</span> <span class="dv">2</span>, <span class="at">dispstr =</span> <span class="st">&quot;un&quot;</span>)</span>
-<span id="cb232-13"><a href="ChapDependenceModel.html#cb232-13" aria-hidden="true" tabindex="-1"></a>Tailcop4 <span class="ot">&lt;-</span> <span class="fu">ellipCopula</span>(<span class="st">&quot;t&quot;</span>, <span class="at">param =</span> <span class="fu">c</span>(<span class="fl">0.25</span>),<span class="at">dim =</span> <span class="dv">2</span>, <span class="at">dispstr =</span> <span class="st">&quot;un&quot;</span>, <span class="at">df=</span><span class="dv">5</span>)</span>
-<span id="cb232-14"><a href="ChapDependenceModel.html#cb232-14" aria-hidden="true" tabindex="-1"></a>jointtail1 <span class="ot">&lt;-</span> <span class="fu">TailFunction</span>(Tailcop1)</span>
-<span id="cb232-15"><a href="ChapDependenceModel.html#cb232-15" aria-hidden="true" tabindex="-1"></a>jointtail2 <span class="ot">&lt;-</span> <span class="fu">TailFunction</span>(Tailcop2)</span>
-<span id="cb232-16"><a href="ChapDependenceModel.html#cb232-16" aria-hidden="true" tabindex="-1"></a>jointtail3 <span class="ot">&lt;-</span> <span class="fu">TailFunction</span>(Tailcop3)</span>
-<span id="cb232-17"><a href="ChapDependenceModel.html#cb232-17" aria-hidden="true" tabindex="-1"></a>jointtail4 <span class="ot">&lt;-</span> <span class="fu">TailFunction</span>(Tailcop4)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="ChapDependenceModel.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(copula)</span>
+<span id="cb242-2"><a href="ChapDependenceModel.html#cb242-2" aria-hidden="true" tabindex="-1"></a>U1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.5</span>, <span class="at">by=</span><span class="fl">0.002</span>)</span>
+<span id="cb242-3"><a href="ChapDependenceModel.html#cb242-3" aria-hidden="true" tabindex="-1"></a>U2 <span class="ot">=</span> <span class="fu">seq</span>(<span class="fl">0.5</span>,<span class="dv">1</span>, <span class="at">by=</span><span class="fl">0.002</span>)</span>
+<span id="cb242-4"><a href="ChapDependenceModel.html#cb242-4" aria-hidden="true" tabindex="-1"></a>U <span class="ot">=</span> <span class="fu">rbind</span>(U1, U2)</span>
+<span id="cb242-5"><a href="ChapDependenceModel.html#cb242-5" aria-hidden="true" tabindex="-1"></a>TailFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(Tailcop) {</span>
+<span id="cb242-6"><a href="ChapDependenceModel.html#cb242-6" aria-hidden="true" tabindex="-1"></a>  lowertail <span class="ot">&lt;-</span> <span class="fu">pCopula</span>(<span class="fu">cbind</span>(U1,U1), Tailcop)<span class="sc">/</span>U1</span>
+<span id="cb242-7"><a href="ChapDependenceModel.html#cb242-7" aria-hidden="true" tabindex="-1"></a>  uppertail <span class="ot">&lt;-</span> (<span class="dv">1-2</span><span class="sc">*</span>U2 <span class="sc">+</span><span class="fu">pCopula</span>(<span class="fu">cbind</span>(U2,U2), Tailcop))<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>U2)</span>
+<span id="cb242-8"><a href="ChapDependenceModel.html#cb242-8" aria-hidden="true" tabindex="-1"></a>  jointtail <span class="ot">&lt;-</span> <span class="fu">rbind</span>(lowertail,uppertail)</span>
+<span id="cb242-9"><a href="ChapDependenceModel.html#cb242-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb242-10"><a href="ChapDependenceModel.html#cb242-10" aria-hidden="true" tabindex="-1"></a>Tailcop1 <span class="ot">&lt;-</span> <span class="fu">archmCopula</span>(<span class="at">family =</span> <span class="st">&quot;frank&quot;</span>, <span class="at">param=</span> <span class="fu">c</span>(<span class="fl">0.05</span>), <span class="at">dim =</span> <span class="dv">2</span>)</span>
+<span id="cb242-11"><a href="ChapDependenceModel.html#cb242-11" aria-hidden="true" tabindex="-1"></a>Tailcop2 <span class="ot">&lt;-</span> <span class="fu">archmCopula</span>(<span class="at">family =</span> <span class="st">&quot;gumbel&quot;</span>,<span class="at">param =</span> <span class="dv">3</span>)</span>
+<span id="cb242-12"><a href="ChapDependenceModel.html#cb242-12" aria-hidden="true" tabindex="-1"></a>Tailcop3 <span class="ot">&lt;-</span> <span class="fu">ellipCopula</span>(<span class="st">&quot;normal&quot;</span>, <span class="at">param =</span> <span class="fu">c</span>(<span class="fl">0.25</span>),<span class="at">dim =</span> <span class="dv">2</span>, <span class="at">dispstr =</span> <span class="st">&quot;un&quot;</span>)</span>
+<span id="cb242-13"><a href="ChapDependenceModel.html#cb242-13" aria-hidden="true" tabindex="-1"></a>Tailcop4 <span class="ot">&lt;-</span> <span class="fu">ellipCopula</span>(<span class="st">&quot;t&quot;</span>, <span class="at">param =</span> <span class="fu">c</span>(<span class="fl">0.25</span>),<span class="at">dim =</span> <span class="dv">2</span>, <span class="at">dispstr =</span> <span class="st">&quot;un&quot;</span>, <span class="at">df=</span><span class="dv">5</span>)</span>
+<span id="cb242-14"><a href="ChapDependenceModel.html#cb242-14" aria-hidden="true" tabindex="-1"></a>jointtail1 <span class="ot">&lt;-</span> <span class="fu">TailFunction</span>(Tailcop1)</span>
+<span id="cb242-15"><a href="ChapDependenceModel.html#cb242-15" aria-hidden="true" tabindex="-1"></a>jointtail2 <span class="ot">&lt;-</span> <span class="fu">TailFunction</span>(Tailcop2)</span>
+<span id="cb242-16"><a href="ChapDependenceModel.html#cb242-16" aria-hidden="true" tabindex="-1"></a>jointtail3 <span class="ot">&lt;-</span> <span class="fu">TailFunction</span>(Tailcop3)</span>
+<span id="cb242-17"><a href="ChapDependenceModel.html#cb242-17" aria-hidden="true" tabindex="-1"></a>jointtail4 <span class="ot">&lt;-</span> <span class="fu">TailFunction</span>(Tailcop4)</span></code></pre></div>
 </div>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:DepTails"></span>
@@ -1913,15 +2089,15 @@ Figure 15.9: <strong>Tail Dependence Plots</strong>
 <a id="displayCode.Tailplot.1" href="javascript:togglecode('toggleCode.Tailplot.1','displayCode.Tailplot.1');"><i><strong>R Code for Tail Dependence Plot for Different Copulas</strong></i></a>
 </h5>
 <div id="toggleCode.Tailplot.1" style="display: none">
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="ChapDependenceModel.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(U,jointtail1, <span class="at">cex=</span>.<span class="dv">2</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">ylab=</span><span class="st">&quot;Tail Dependence&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb233-2"><a href="ChapDependenceModel.html#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(U,jointtail2, <span class="at">type=</span><span class="st">&quot;p&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>, <span class="at">cex=</span>.<span class="dv">2</span>)</span>
-<span id="cb233-3"><a href="ChapDependenceModel.html#cb233-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(U,jointtail3, <span class="at">type=</span><span class="st">&quot;p&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>, <span class="at">cex=</span>.<span class="dv">2</span>)</span>
-<span id="cb233-4"><a href="ChapDependenceModel.html#cb233-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(U,jointtail4, <span class="at">type=</span><span class="st">&quot;p&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>, <span class="at">cex=</span>.<span class="dv">2</span>)</span>
-<span id="cb233-5"><a href="ChapDependenceModel.html#cb233-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">0.75</span>, <span class="fl">0.1</span>, <span class="st">&quot;Frank&quot;</span>, <span class="at">cex=</span><span class="fl">1.3</span>)        <span class="co">#1</span></span>
-<span id="cb233-6"><a href="ChapDependenceModel.html#cb233-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">0.1</span>, <span class="fl">0.8</span>, <span class="st">&quot;Gumbel&quot;</span>, <span class="at">cex=</span><span class="fl">1.3</span>)        <span class="co">#2</span></span>
-<span id="cb233-7"><a href="ChapDependenceModel.html#cb233-7" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">0.25</span>, <span class="fl">0.1</span>, <span class="st">&quot;normal&quot;</span>, <span class="at">cex=</span><span class="fl">1.3</span>)       <span class="co">#3</span></span>
-<span id="cb233-8"><a href="ChapDependenceModel.html#cb233-8" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(.<span class="dv">17</span>, <span class="fl">0.1</span>, .<span class="dv">07</span>, <span class="fl">0.12</span>,<span class="at">code=</span><span class="dv">2</span>, <span class="at">angle=</span><span class="dv">20</span>, <span class="at">length=</span><span class="fl">0.1</span>)</span>
-<span id="cb233-9"><a href="ChapDependenceModel.html#cb233-9" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>, <span class="st">&quot;t with 5 df&quot;</span>, <span class="at">cex=</span><span class="fl">1.3</span>)   <span class="co">#4</span></span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="ChapDependenceModel.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(U,jointtail1, <span class="at">cex=</span>.<span class="dv">2</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">ylab=</span><span class="st">&quot;Tail Dependence&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb243-2"><a href="ChapDependenceModel.html#cb243-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(U,jointtail2, <span class="at">type=</span><span class="st">&quot;p&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>, <span class="at">cex=</span>.<span class="dv">2</span>)</span>
+<span id="cb243-3"><a href="ChapDependenceModel.html#cb243-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(U,jointtail3, <span class="at">type=</span><span class="st">&quot;p&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>, <span class="at">cex=</span>.<span class="dv">2</span>)</span>
+<span id="cb243-4"><a href="ChapDependenceModel.html#cb243-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(U,jointtail4, <span class="at">type=</span><span class="st">&quot;p&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>, <span class="at">cex=</span>.<span class="dv">2</span>)</span>
+<span id="cb243-5"><a href="ChapDependenceModel.html#cb243-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">0.75</span>, <span class="fl">0.1</span>, <span class="st">&quot;Frank&quot;</span>, <span class="at">cex=</span><span class="fl">1.3</span>)        <span class="co">#1</span></span>
+<span id="cb243-6"><a href="ChapDependenceModel.html#cb243-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">0.1</span>, <span class="fl">0.8</span>, <span class="st">&quot;Gumbel&quot;</span>, <span class="at">cex=</span><span class="fl">1.3</span>)        <span class="co">#2</span></span>
+<span id="cb243-7"><a href="ChapDependenceModel.html#cb243-7" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">0.25</span>, <span class="fl">0.1</span>, <span class="st">&quot;normal&quot;</span>, <span class="at">cex=</span><span class="fl">1.3</span>)       <span class="co">#3</span></span>
+<span id="cb243-8"><a href="ChapDependenceModel.html#cb243-8" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(.<span class="dv">17</span>, <span class="fl">0.1</span>, .<span class="dv">07</span>, <span class="fl">0.12</span>,<span class="at">code=</span><span class="dv">2</span>, <span class="at">angle=</span><span class="dv">20</span>, <span class="at">length=</span><span class="fl">0.1</span>)</span>
+<span id="cb243-9"><a href="ChapDependenceModel.html#cb243-9" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>, <span class="st">&quot;t with 5 df&quot;</span>, <span class="at">cex=</span><span class="fl">1.3</span>)   <span class="co">#4</span></span></code></pre></div>
 </div>
 <div id="surveyElement145">
 
@@ -1974,86 +2150,86 @@ Figure 15.9: <strong>Tail Dependence Plots</strong>
 <a id="displayCode.SimG.1" href="javascript:togglecode('toggleCode.SimG.1','displayCode.SimG.1');"><i><strong>R Code for Simulation Using Gaussian Copula</strong></i></a>
 </h5>
 <div id="toggleCode.SimG.1" style="display: none">
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="ChapDependenceModel.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For the gamma distributions, use</span></span>
-<span id="cb234-2"><a href="ChapDependenceModel.html#cb234-2" aria-hidden="true" tabindex="-1"></a>alpha1 <span class="ot">&lt;-</span> <span class="dv">2</span>;      theta1 <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb234-3"><a href="ChapDependenceModel.html#cb234-3" aria-hidden="true" tabindex="-1"></a>alpha2 <span class="ot">&lt;-</span> <span class="dv">2</span>;      theta2 <span class="ot">&lt;-</span> <span class="dv">200</span></span>
-<span id="cb234-4"><a href="ChapDependenceModel.html#cb234-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For the Pareto distributions, use</span></span>
-<span id="cb234-5"><a href="ChapDependenceModel.html#cb234-5" aria-hidden="true" tabindex="-1"></a>alpha3 <span class="ot">&lt;-</span> <span class="dv">2</span>;      theta3 <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb234-6"><a href="ChapDependenceModel.html#cb234-6" aria-hidden="true" tabindex="-1"></a>alpha4 <span class="ot">&lt;-</span> <span class="dv">3</span>;      theta4 <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
-<span id="cb234-7"><a href="ChapDependenceModel.html#cb234-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Deductibles</span></span>
-<span id="cb234-8"><a href="ChapDependenceModel.html#cb234-8" aria-hidden="true" tabindex="-1"></a>d1     <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb234-9"><a href="ChapDependenceModel.html#cb234-9" aria-hidden="true" tabindex="-1"></a>d2     <span class="ot">&lt;-</span> <span class="dv">200</span></span>
-<span id="cb234-10"><a href="ChapDependenceModel.html#cb234-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-11"><a href="ChapDependenceModel.html#cb234-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-12"><a href="ChapDependenceModel.html#cb234-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate the risks</span></span>
-<span id="cb234-13"><a href="ChapDependenceModel.html#cb234-13" aria-hidden="true" tabindex="-1"></a>nSim <span class="ot">&lt;-</span> <span class="dv">10000</span>  <span class="co">#number of simulations</span></span>
-<span id="cb234-14"><a href="ChapDependenceModel.html#cb234-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2017</span>) <span class="co">#set seed to reproduce work </span></span>
-<span id="cb234-15"><a href="ChapDependenceModel.html#cb234-15" aria-hidden="true" tabindex="-1"></a>X1 <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(nSim,alpha1,<span class="at">scale =</span> theta1)  </span>
-<span id="cb234-16"><a href="ChapDependenceModel.html#cb234-16" aria-hidden="true" tabindex="-1"></a>X2 <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(nSim,alpha2,<span class="at">scale =</span> theta2)  </span>
-<span id="cb234-17"><a href="ChapDependenceModel.html#cb234-17" aria-hidden="true" tabindex="-1"></a><span class="co"># For the Pareto Distribution, use</span></span>
-<span id="cb234-18"><a href="ChapDependenceModel.html#cb234-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span>
-<span id="cb234-19"><a href="ChapDependenceModel.html#cb234-19" aria-hidden="true" tabindex="-1"></a>X3 <span class="ot">&lt;-</span> <span class="fu">rparetoII</span>(nSim,<span class="at">scale=</span>theta3,<span class="at">shape=</span>alpha3)</span>
-<span id="cb234-20"><a href="ChapDependenceModel.html#cb234-20" aria-hidden="true" tabindex="-1"></a>X4 <span class="ot">&lt;-</span> <span class="fu">rparetoII</span>(nSim,<span class="at">scale=</span>theta4,<span class="at">shape=</span>alpha4)</span>
-<span id="cb234-21"><a href="ChapDependenceModel.html#cb234-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Portfolio Risks</span></span>
-<span id="cb234-22"><a href="ChapDependenceModel.html#cb234-22" aria-hidden="true" tabindex="-1"></a>S         <span class="ot">&lt;-</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3 <span class="sc">+</span> X4</span>
-<span id="cb234-23"><a href="ChapDependenceModel.html#cb234-23" aria-hidden="true" tabindex="-1"></a>Sretained <span class="ot">&lt;-</span> <span class="fu">pmin</span>(X1,d1) <span class="sc">+</span> <span class="fu">pmin</span>(X2,d2)</span>
-<span id="cb234-24"><a href="ChapDependenceModel.html#cb234-24" aria-hidden="true" tabindex="-1"></a>Sinsurer  <span class="ot">&lt;-</span> S <span class="sc">-</span> Sretained</span>
-<span id="cb234-25"><a href="ChapDependenceModel.html#cb234-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-26"><a href="ChapDependenceModel.html#cb234-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected Claim Amounts</span></span>
-<span id="cb234-27"><a href="ChapDependenceModel.html#cb234-27" aria-hidden="true" tabindex="-1"></a>ExpVec <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.matrix</span>(<span class="fu">c</span>(<span class="fu">mean</span>(Sretained),<span class="fu">mean</span>(Sinsurer),<span class="fu">mean</span>(S))))</span>
-<span id="cb234-28"><a href="ChapDependenceModel.html#cb234-28" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ExpVec) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Retained&quot;</span>, <span class="st">&quot;Insurer&quot;</span>,<span class="st">&quot;Total&quot;</span>)</span>
-<span id="cb234-29"><a href="ChapDependenceModel.html#cb234-29" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(ExpVec,<span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb234-30"><a href="ChapDependenceModel.html#cb234-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-31"><a href="ChapDependenceModel.html#cb234-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantiles</span></span>
-<span id="cb234-32"><a href="ChapDependenceModel.html#cb234-32" aria-hidden="true" tabindex="-1"></a>quantMat <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb234-33"><a href="ChapDependenceModel.html#cb234-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(Sretained, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)),</span>
-<span id="cb234-34"><a href="ChapDependenceModel.html#cb234-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(Sinsurer,  <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)),</span>
-<span id="cb234-35"><a href="ChapDependenceModel.html#cb234-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(S       ,  <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)))</span>
-<span id="cb234-36"><a href="ChapDependenceModel.html#cb234-36" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(quantMat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Retained&quot;</span>, <span class="st">&quot;Insurer&quot;</span>,<span class="st">&quot;Total&quot;</span>)</span>
-<span id="cb234-37"><a href="ChapDependenceModel.html#cb234-37" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(quantMat,<span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb234-38"><a href="ChapDependenceModel.html#cb234-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-39"><a href="ChapDependenceModel.html#cb234-39" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(S), <span class="at">main=</span><span class="st">&quot;Density of Total Portfolio Risk S&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;S&quot;</span>)</span>
-<span id="cb234-40"><a href="ChapDependenceModel.html#cb234-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-41"><a href="ChapDependenceModel.html#cb234-41" aria-hidden="true" tabindex="-1"></a><span class="do">### Normal Copula ##</span></span>
-<span id="cb234-42"><a href="ChapDependenceModel.html#cb234-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span>
-<span id="cb234-43"><a href="ChapDependenceModel.html#cb234-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(copula)</span>
-<span id="cb234-44"><a href="ChapDependenceModel.html#cb234-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GB2)</span>
-<span id="cb234-45"><a href="ChapDependenceModel.html#cb234-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statmod)</span>
-<span id="cb234-46"><a href="ChapDependenceModel.html#cb234-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(numDeriv)</span>
-<span id="cb234-47"><a href="ChapDependenceModel.html#cb234-47" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2017</span>)</span>
-<span id="cb234-48"><a href="ChapDependenceModel.html#cb234-48" aria-hidden="true" tabindex="-1"></a>parm<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>)</span>
-<span id="cb234-49"><a href="ChapDependenceModel.html#cb234-49" aria-hidden="true" tabindex="-1"></a>nc <span class="ot">&lt;-</span> <span class="fu">normalCopula</span>(parm, <span class="at">dim =</span> <span class="dv">4</span>, <span class="at">dispstr =</span> <span class="st">&quot;un&quot;</span>)</span>
-<span id="cb234-50"><a href="ChapDependenceModel.html#cb234-50" aria-hidden="true" tabindex="-1"></a>mcc <span class="ot">&lt;-</span> <span class="fu">mvdc</span>(nc, <span class="at">margins =</span> <span class="fu">c</span>(<span class="st">&quot;gamma&quot;</span>, <span class="st">&quot;gamma&quot;</span>,<span class="st">&quot;paretoII&quot;</span>,<span class="st">&quot;paretoII&quot;</span>), </span>
-<span id="cb234-51"><a href="ChapDependenceModel.html#cb234-51" aria-hidden="true" tabindex="-1"></a>            <span class="at">paramMargins =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">scale =</span> theta1, <span class="at">shape=</span>alpha1),</span>
-<span id="cb234-52"><a href="ChapDependenceModel.html#cb234-52" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">list</span>(<span class="at">scale =</span> theta2, <span class="at">shape=</span>alpha2),</span>
-<span id="cb234-53"><a href="ChapDependenceModel.html#cb234-53" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">list</span>(<span class="at">scale =</span> theta3, <span class="at">shape=</span>alpha3),</span>
-<span id="cb234-54"><a href="ChapDependenceModel.html#cb234-54" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">list</span>(<span class="at">scale =</span> theta4, <span class="at">shape=</span>alpha4)))</span>
-<span id="cb234-55"><a href="ChapDependenceModel.html#cb234-55" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rMvdc</span>(nSim, <span class="at">mvdc =</span> mcc)</span>
-<span id="cb234-56"><a href="ChapDependenceModel.html#cb234-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-57"><a href="ChapDependenceModel.html#cb234-57" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">&lt;-</span>X[,<span class="dv">1</span>]</span>
-<span id="cb234-58"><a href="ChapDependenceModel.html#cb234-58" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">&lt;-</span>X[,<span class="dv">2</span>]</span>
-<span id="cb234-59"><a href="ChapDependenceModel.html#cb234-59" aria-hidden="true" tabindex="-1"></a>X3<span class="ot">&lt;-</span>X[,<span class="dv">3</span>]</span>
-<span id="cb234-60"><a href="ChapDependenceModel.html#cb234-60" aria-hidden="true" tabindex="-1"></a>X4<span class="ot">&lt;-</span>X[,<span class="dv">4</span>]</span>
-<span id="cb234-61"><a href="ChapDependenceModel.html#cb234-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-62"><a href="ChapDependenceModel.html#cb234-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Portfolio Risks</span></span>
-<span id="cb234-63"><a href="ChapDependenceModel.html#cb234-63" aria-hidden="true" tabindex="-1"></a>S         <span class="ot">&lt;-</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3 <span class="sc">+</span> X4</span>
-<span id="cb234-64"><a href="ChapDependenceModel.html#cb234-64" aria-hidden="true" tabindex="-1"></a>Sretained <span class="ot">&lt;-</span> <span class="fu">pmin</span>(X1,d1) <span class="sc">+</span> <span class="fu">pmin</span>(X2,d2)</span>
-<span id="cb234-65"><a href="ChapDependenceModel.html#cb234-65" aria-hidden="true" tabindex="-1"></a>Sinsurer  <span class="ot">&lt;-</span> S <span class="sc">-</span> Sretained</span>
-<span id="cb234-66"><a href="ChapDependenceModel.html#cb234-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-67"><a href="ChapDependenceModel.html#cb234-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected Claim Amounts</span></span>
-<span id="cb234-68"><a href="ChapDependenceModel.html#cb234-68" aria-hidden="true" tabindex="-1"></a>ExpVec <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.matrix</span>(<span class="fu">c</span>(<span class="fu">mean</span>(Sretained),<span class="fu">mean</span>(Sinsurer),<span class="fu">mean</span>(S))))</span>
-<span id="cb234-69"><a href="ChapDependenceModel.html#cb234-69" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ExpVec) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Retained&quot;</span>, <span class="st">&quot;Insurer&quot;</span>,<span class="st">&quot;Total&quot;</span>)</span>
-<span id="cb234-70"><a href="ChapDependenceModel.html#cb234-70" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(ExpVec,<span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb234-71"><a href="ChapDependenceModel.html#cb234-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-72"><a href="ChapDependenceModel.html#cb234-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantiles</span></span>
-<span id="cb234-73"><a href="ChapDependenceModel.html#cb234-73" aria-hidden="true" tabindex="-1"></a>quantMat <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb234-74"><a href="ChapDependenceModel.html#cb234-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(Sretained, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)),</span>
-<span id="cb234-75"><a href="ChapDependenceModel.html#cb234-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(Sinsurer,  <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)),</span>
-<span id="cb234-76"><a href="ChapDependenceModel.html#cb234-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(S       ,  <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)))</span>
-<span id="cb234-77"><a href="ChapDependenceModel.html#cb234-77" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(quantMat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Retained&quot;</span>, <span class="st">&quot;Insurer&quot;</span>,<span class="st">&quot;Total&quot;</span>)</span>
-<span id="cb234-78"><a href="ChapDependenceModel.html#cb234-78" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(quantMat,<span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb234-79"><a href="ChapDependenceModel.html#cb234-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-80"><a href="ChapDependenceModel.html#cb234-80" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(S), <span class="at">main=</span><span class="st">&quot;Density of Total Portfolio Risk S&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;S&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="ChapDependenceModel.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For the gamma distributions, use</span></span>
+<span id="cb244-2"><a href="ChapDependenceModel.html#cb244-2" aria-hidden="true" tabindex="-1"></a>alpha1 <span class="ot">&lt;-</span> <span class="dv">2</span>;      theta1 <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb244-3"><a href="ChapDependenceModel.html#cb244-3" aria-hidden="true" tabindex="-1"></a>alpha2 <span class="ot">&lt;-</span> <span class="dv">2</span>;      theta2 <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb244-4"><a href="ChapDependenceModel.html#cb244-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For the Pareto distributions, use</span></span>
+<span id="cb244-5"><a href="ChapDependenceModel.html#cb244-5" aria-hidden="true" tabindex="-1"></a>alpha3 <span class="ot">&lt;-</span> <span class="dv">2</span>;      theta3 <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb244-6"><a href="ChapDependenceModel.html#cb244-6" aria-hidden="true" tabindex="-1"></a>alpha4 <span class="ot">&lt;-</span> <span class="dv">3</span>;      theta4 <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
+<span id="cb244-7"><a href="ChapDependenceModel.html#cb244-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Deductibles</span></span>
+<span id="cb244-8"><a href="ChapDependenceModel.html#cb244-8" aria-hidden="true" tabindex="-1"></a>d1     <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb244-9"><a href="ChapDependenceModel.html#cb244-9" aria-hidden="true" tabindex="-1"></a>d2     <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb244-10"><a href="ChapDependenceModel.html#cb244-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-11"><a href="ChapDependenceModel.html#cb244-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-12"><a href="ChapDependenceModel.html#cb244-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate the risks</span></span>
+<span id="cb244-13"><a href="ChapDependenceModel.html#cb244-13" aria-hidden="true" tabindex="-1"></a>nSim <span class="ot">&lt;-</span> <span class="dv">10000</span>  <span class="co">#number of simulations</span></span>
+<span id="cb244-14"><a href="ChapDependenceModel.html#cb244-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2017</span>) <span class="co">#set seed to reproduce work </span></span>
+<span id="cb244-15"><a href="ChapDependenceModel.html#cb244-15" aria-hidden="true" tabindex="-1"></a>X1 <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(nSim,alpha1,<span class="at">scale =</span> theta1)  </span>
+<span id="cb244-16"><a href="ChapDependenceModel.html#cb244-16" aria-hidden="true" tabindex="-1"></a>X2 <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(nSim,alpha2,<span class="at">scale =</span> theta2)  </span>
+<span id="cb244-17"><a href="ChapDependenceModel.html#cb244-17" aria-hidden="true" tabindex="-1"></a><span class="co"># For the Pareto Distribution, use</span></span>
+<span id="cb244-18"><a href="ChapDependenceModel.html#cb244-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span>
+<span id="cb244-19"><a href="ChapDependenceModel.html#cb244-19" aria-hidden="true" tabindex="-1"></a>X3 <span class="ot">&lt;-</span> <span class="fu">rparetoII</span>(nSim,<span class="at">scale=</span>theta3,<span class="at">shape=</span>alpha3)</span>
+<span id="cb244-20"><a href="ChapDependenceModel.html#cb244-20" aria-hidden="true" tabindex="-1"></a>X4 <span class="ot">&lt;-</span> <span class="fu">rparetoII</span>(nSim,<span class="at">scale=</span>theta4,<span class="at">shape=</span>alpha4)</span>
+<span id="cb244-21"><a href="ChapDependenceModel.html#cb244-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Portfolio Risks</span></span>
+<span id="cb244-22"><a href="ChapDependenceModel.html#cb244-22" aria-hidden="true" tabindex="-1"></a>S         <span class="ot">&lt;-</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3 <span class="sc">+</span> X4</span>
+<span id="cb244-23"><a href="ChapDependenceModel.html#cb244-23" aria-hidden="true" tabindex="-1"></a>Sretained <span class="ot">&lt;-</span> <span class="fu">pmin</span>(X1,d1) <span class="sc">+</span> <span class="fu">pmin</span>(X2,d2)</span>
+<span id="cb244-24"><a href="ChapDependenceModel.html#cb244-24" aria-hidden="true" tabindex="-1"></a>Sinsurer  <span class="ot">&lt;-</span> S <span class="sc">-</span> Sretained</span>
+<span id="cb244-25"><a href="ChapDependenceModel.html#cb244-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-26"><a href="ChapDependenceModel.html#cb244-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected Claim Amounts</span></span>
+<span id="cb244-27"><a href="ChapDependenceModel.html#cb244-27" aria-hidden="true" tabindex="-1"></a>ExpVec <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.matrix</span>(<span class="fu">c</span>(<span class="fu">mean</span>(Sretained),<span class="fu">mean</span>(Sinsurer),<span class="fu">mean</span>(S))))</span>
+<span id="cb244-28"><a href="ChapDependenceModel.html#cb244-28" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ExpVec) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Retained&quot;</span>, <span class="st">&quot;Insurer&quot;</span>,<span class="st">&quot;Total&quot;</span>)</span>
+<span id="cb244-29"><a href="ChapDependenceModel.html#cb244-29" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(ExpVec,<span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb244-30"><a href="ChapDependenceModel.html#cb244-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-31"><a href="ChapDependenceModel.html#cb244-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantiles</span></span>
+<span id="cb244-32"><a href="ChapDependenceModel.html#cb244-32" aria-hidden="true" tabindex="-1"></a>quantMat <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb244-33"><a href="ChapDependenceModel.html#cb244-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(Sretained, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)),</span>
+<span id="cb244-34"><a href="ChapDependenceModel.html#cb244-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(Sinsurer,  <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)),</span>
+<span id="cb244-35"><a href="ChapDependenceModel.html#cb244-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(S       ,  <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)))</span>
+<span id="cb244-36"><a href="ChapDependenceModel.html#cb244-36" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(quantMat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Retained&quot;</span>, <span class="st">&quot;Insurer&quot;</span>,<span class="st">&quot;Total&quot;</span>)</span>
+<span id="cb244-37"><a href="ChapDependenceModel.html#cb244-37" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(quantMat,<span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb244-38"><a href="ChapDependenceModel.html#cb244-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-39"><a href="ChapDependenceModel.html#cb244-39" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(S), <span class="at">main=</span><span class="st">&quot;Density of Total Portfolio Risk S&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;S&quot;</span>)</span>
+<span id="cb244-40"><a href="ChapDependenceModel.html#cb244-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-41"><a href="ChapDependenceModel.html#cb244-41" aria-hidden="true" tabindex="-1"></a><span class="do">### Normal Copula ##</span></span>
+<span id="cb244-42"><a href="ChapDependenceModel.html#cb244-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span>
+<span id="cb244-43"><a href="ChapDependenceModel.html#cb244-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(copula)</span>
+<span id="cb244-44"><a href="ChapDependenceModel.html#cb244-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GB2)</span>
+<span id="cb244-45"><a href="ChapDependenceModel.html#cb244-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statmod)</span>
+<span id="cb244-46"><a href="ChapDependenceModel.html#cb244-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(numDeriv)</span>
+<span id="cb244-47"><a href="ChapDependenceModel.html#cb244-47" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2017</span>)</span>
+<span id="cb244-48"><a href="ChapDependenceModel.html#cb244-48" aria-hidden="true" tabindex="-1"></a>parm<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>)</span>
+<span id="cb244-49"><a href="ChapDependenceModel.html#cb244-49" aria-hidden="true" tabindex="-1"></a>nc <span class="ot">&lt;-</span> <span class="fu">normalCopula</span>(parm, <span class="at">dim =</span> <span class="dv">4</span>, <span class="at">dispstr =</span> <span class="st">&quot;un&quot;</span>)</span>
+<span id="cb244-50"><a href="ChapDependenceModel.html#cb244-50" aria-hidden="true" tabindex="-1"></a>mcc <span class="ot">&lt;-</span> <span class="fu">mvdc</span>(nc, <span class="at">margins =</span> <span class="fu">c</span>(<span class="st">&quot;gamma&quot;</span>, <span class="st">&quot;gamma&quot;</span>,<span class="st">&quot;paretoII&quot;</span>,<span class="st">&quot;paretoII&quot;</span>), </span>
+<span id="cb244-51"><a href="ChapDependenceModel.html#cb244-51" aria-hidden="true" tabindex="-1"></a>            <span class="at">paramMargins =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">scale =</span> theta1, <span class="at">shape=</span>alpha1),</span>
+<span id="cb244-52"><a href="ChapDependenceModel.html#cb244-52" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">list</span>(<span class="at">scale =</span> theta2, <span class="at">shape=</span>alpha2),</span>
+<span id="cb244-53"><a href="ChapDependenceModel.html#cb244-53" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">list</span>(<span class="at">scale =</span> theta3, <span class="at">shape=</span>alpha3),</span>
+<span id="cb244-54"><a href="ChapDependenceModel.html#cb244-54" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">list</span>(<span class="at">scale =</span> theta4, <span class="at">shape=</span>alpha4)))</span>
+<span id="cb244-55"><a href="ChapDependenceModel.html#cb244-55" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rMvdc</span>(nSim, <span class="at">mvdc =</span> mcc)</span>
+<span id="cb244-56"><a href="ChapDependenceModel.html#cb244-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-57"><a href="ChapDependenceModel.html#cb244-57" aria-hidden="true" tabindex="-1"></a>X1<span class="ot">&lt;-</span>X[,<span class="dv">1</span>]</span>
+<span id="cb244-58"><a href="ChapDependenceModel.html#cb244-58" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">&lt;-</span>X[,<span class="dv">2</span>]</span>
+<span id="cb244-59"><a href="ChapDependenceModel.html#cb244-59" aria-hidden="true" tabindex="-1"></a>X3<span class="ot">&lt;-</span>X[,<span class="dv">3</span>]</span>
+<span id="cb244-60"><a href="ChapDependenceModel.html#cb244-60" aria-hidden="true" tabindex="-1"></a>X4<span class="ot">&lt;-</span>X[,<span class="dv">4</span>]</span>
+<span id="cb244-61"><a href="ChapDependenceModel.html#cb244-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-62"><a href="ChapDependenceModel.html#cb244-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Portfolio Risks</span></span>
+<span id="cb244-63"><a href="ChapDependenceModel.html#cb244-63" aria-hidden="true" tabindex="-1"></a>S         <span class="ot">&lt;-</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3 <span class="sc">+</span> X4</span>
+<span id="cb244-64"><a href="ChapDependenceModel.html#cb244-64" aria-hidden="true" tabindex="-1"></a>Sretained <span class="ot">&lt;-</span> <span class="fu">pmin</span>(X1,d1) <span class="sc">+</span> <span class="fu">pmin</span>(X2,d2)</span>
+<span id="cb244-65"><a href="ChapDependenceModel.html#cb244-65" aria-hidden="true" tabindex="-1"></a>Sinsurer  <span class="ot">&lt;-</span> S <span class="sc">-</span> Sretained</span>
+<span id="cb244-66"><a href="ChapDependenceModel.html#cb244-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-67"><a href="ChapDependenceModel.html#cb244-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected Claim Amounts</span></span>
+<span id="cb244-68"><a href="ChapDependenceModel.html#cb244-68" aria-hidden="true" tabindex="-1"></a>ExpVec <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.matrix</span>(<span class="fu">c</span>(<span class="fu">mean</span>(Sretained),<span class="fu">mean</span>(Sinsurer),<span class="fu">mean</span>(S))))</span>
+<span id="cb244-69"><a href="ChapDependenceModel.html#cb244-69" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ExpVec) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Retained&quot;</span>, <span class="st">&quot;Insurer&quot;</span>,<span class="st">&quot;Total&quot;</span>)</span>
+<span id="cb244-70"><a href="ChapDependenceModel.html#cb244-70" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(ExpVec,<span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb244-71"><a href="ChapDependenceModel.html#cb244-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-72"><a href="ChapDependenceModel.html#cb244-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantiles</span></span>
+<span id="cb244-73"><a href="ChapDependenceModel.html#cb244-73" aria-hidden="true" tabindex="-1"></a>quantMat <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb244-74"><a href="ChapDependenceModel.html#cb244-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(Sretained, <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)),</span>
+<span id="cb244-75"><a href="ChapDependenceModel.html#cb244-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(Sinsurer,  <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)),</span>
+<span id="cb244-76"><a href="ChapDependenceModel.html#cb244-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(S       ,  <span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>, <span class="fl">0.99</span>)))</span>
+<span id="cb244-77"><a href="ChapDependenceModel.html#cb244-77" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(quantMat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Retained&quot;</span>, <span class="st">&quot;Insurer&quot;</span>,<span class="st">&quot;Total&quot;</span>)</span>
+<span id="cb244-78"><a href="ChapDependenceModel.html#cb244-78" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(quantMat,<span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb244-79"><a href="ChapDependenceModel.html#cb244-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-80"><a href="ChapDependenceModel.html#cb244-80" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(S), <span class="at">main=</span><span class="st">&quot;Density of Total Portfolio Risk S&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;S&quot;</span>)</span></code></pre></div>
 </div>
 <div id="surveyElement146">
 
@@ -2102,24 +2278,24 @@ Figure 15.9: <strong>Tail Dependence Plots</strong>
 <a id="displayCode.beta.1" href="javascript:togglecode('toggleCode.beta.1','displayCode.beta.1');"><i><strong>R Code for Blomqvist’s Beta</strong></i></a>
 </h5>
 <div id="toggleCode.beta.1" style="display: none">
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="ChapDependenceModel.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Blomqvist&#39;s beta correlation between Claim and Coverage </span><span class="al">###</span></span>
-<span id="cb235-2"><a href="ChapDependenceModel.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(copula)</span>
-<span id="cb235-3"><a href="ChapDependenceModel.html#cb235-3" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">length</span>(Claim)</span>
-<span id="cb235-4"><a href="ChapDependenceModel.html#cb235-4" aria-hidden="true" tabindex="-1"></a>U<span class="ot">&lt;-</span><span class="fu">cbind</span>(((n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>n<span class="sc">*</span><span class="fu">pobs</span>(Claim)),((n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>n<span class="sc">*</span><span class="fu">pobs</span>(Coverage)))</span>
-<span id="cb235-5"><a href="ChapDependenceModel.html#cb235-5" aria-hidden="true" tabindex="-1"></a>beta<span class="ot">&lt;-</span><span class="fu">betan</span>(U, <span class="at">scaling=</span><span class="cn">FALSE</span>)</span>
-<span id="cb235-6"><a href="ChapDependenceModel.html#cb235-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(beta,<span class="dv">2</span>)</span>
-<span id="cb235-7"><a href="ChapDependenceModel.html#cb235-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb235-8"><a href="ChapDependenceModel.html#cb235-8" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb235-9"><a href="ChapDependenceModel.html#cb235-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.3</span></span>
-<span id="cb235-10"><a href="ChapDependenceModel.html#cb235-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb235-11"><a href="ChapDependenceModel.html#cb235-11" aria-hidden="true" tabindex="-1"></a><span class="do">### Blomqvist&#39;s beta correlation between Claim and log(Coverage) </span><span class="al">###</span></span>
-<span id="cb235-12"><a href="ChapDependenceModel.html#cb235-12" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">length</span>(Claim)</span>
-<span id="cb235-13"><a href="ChapDependenceModel.html#cb235-13" aria-hidden="true" tabindex="-1"></a>Fx<span class="ot">&lt;-</span><span class="fu">cbind</span>(((n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>n<span class="sc">*</span><span class="fu">pobs</span>(Claim)),((n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>n<span class="sc">*</span><span class="fu">pobs</span>(<span class="fu">log</span>(Coverage))))</span>
-<span id="cb235-14"><a href="ChapDependenceModel.html#cb235-14" aria-hidden="true" tabindex="-1"></a>beta<span class="ot">&lt;-</span><span class="fu">betan</span>(Fx, <span class="at">scaling=</span><span class="cn">FALSE</span>)</span>
-<span id="cb235-15"><a href="ChapDependenceModel.html#cb235-15" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(beta,<span class="dv">2</span>)</span>
-<span id="cb235-16"><a href="ChapDependenceModel.html#cb235-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb235-17"><a href="ChapDependenceModel.html#cb235-17" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb235-18"><a href="ChapDependenceModel.html#cb235-18" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.3</span></span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="ChapDependenceModel.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Blomqvist&#39;s beta correlation between Claim and Coverage </span><span class="al">###</span></span>
+<span id="cb245-2"><a href="ChapDependenceModel.html#cb245-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(copula)</span>
+<span id="cb245-3"><a href="ChapDependenceModel.html#cb245-3" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">length</span>(Claim)</span>
+<span id="cb245-4"><a href="ChapDependenceModel.html#cb245-4" aria-hidden="true" tabindex="-1"></a>U<span class="ot">&lt;-</span><span class="fu">cbind</span>(((n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>n<span class="sc">*</span><span class="fu">pobs</span>(Claim)),((n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>n<span class="sc">*</span><span class="fu">pobs</span>(Coverage)))</span>
+<span id="cb245-5"><a href="ChapDependenceModel.html#cb245-5" aria-hidden="true" tabindex="-1"></a>beta<span class="ot">&lt;-</span><span class="fu">betan</span>(U, <span class="at">scaling=</span><span class="cn">FALSE</span>)</span>
+<span id="cb245-6"><a href="ChapDependenceModel.html#cb245-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(beta,<span class="dv">2</span>)</span>
+<span id="cb245-7"><a href="ChapDependenceModel.html#cb245-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-8"><a href="ChapDependenceModel.html#cb245-8" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb245-9"><a href="ChapDependenceModel.html#cb245-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.3</span></span>
+<span id="cb245-10"><a href="ChapDependenceModel.html#cb245-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-11"><a href="ChapDependenceModel.html#cb245-11" aria-hidden="true" tabindex="-1"></a><span class="do">### Blomqvist&#39;s beta correlation between Claim and log(Coverage) </span><span class="al">###</span></span>
+<span id="cb245-12"><a href="ChapDependenceModel.html#cb245-12" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">length</span>(Claim)</span>
+<span id="cb245-13"><a href="ChapDependenceModel.html#cb245-13" aria-hidden="true" tabindex="-1"></a>Fx<span class="ot">&lt;-</span><span class="fu">cbind</span>(((n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>n<span class="sc">*</span><span class="fu">pobs</span>(Claim)),((n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>n<span class="sc">*</span><span class="fu">pobs</span>(<span class="fu">log</span>(Coverage))))</span>
+<span id="cb245-14"><a href="ChapDependenceModel.html#cb245-14" aria-hidden="true" tabindex="-1"></a>beta<span class="ot">&lt;-</span><span class="fu">betan</span>(Fx, <span class="at">scaling=</span><span class="cn">FALSE</span>)</span>
+<span id="cb245-15"><a href="ChapDependenceModel.html#cb245-15" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(beta,<span class="dv">2</span>)</span>
+<span id="cb245-16"><a href="ChapDependenceModel.html#cb245-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-17"><a href="ChapDependenceModel.html#cb245-17" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb245-18"><a href="ChapDependenceModel.html#cb245-18" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.3</span></span></code></pre></div>
 </div>
 <p>In addition, to show that the Blomqvist’s beta is invariant under strictly increasing transformations, <span class="math inline">\(\beta_B=0.3\)</span> between the <span class="math inline">\({\tt Coverage}\)</span> rating variable in logarithmic millions of dollars and <span class="math inline">\({\tt Claim}\)</span> amount variable in dollars.</p>
 </div>
@@ -2177,11 +2353,11 @@ where <span class="math inline">\(\hat{\pi}_X = (n-n_{0\centerdot})/n\)</span> a
 <a id="displayCode.spearT.1" href="javascript:togglecode('toggleCode.spearT.1','displayCode.spearT.1');"><i><strong>R Code for Ties-corrected Spearman Correlation</strong></i></a>
 </h5>
 <div id="toggleCode.spearT.1" style="display: none">
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="ChapDependenceModel.html#cb236-1" aria-hidden="true" tabindex="-1"></a>rs_ties<span class="ot">&lt;-</span><span class="fu">cor</span>(AlarmCredit,NoClaimCredit, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;spearman&quot;</span>))</span>
-<span id="cb236-2"><a href="ChapDependenceModel.html#cb236-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rs_ties,<span class="dv">2</span>)</span>
-<span id="cb236-3"><a href="ChapDependenceModel.html#cb236-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb236-4"><a href="ChapDependenceModel.html#cb236-4" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
-<span id="cb236-5"><a href="ChapDependenceModel.html#cb236-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">0.09</span></span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="ChapDependenceModel.html#cb246-1" aria-hidden="true" tabindex="-1"></a>rs_ties<span class="ot">&lt;-</span><span class="fu">cor</span>(AlarmCredit,NoClaimCredit, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;spearman&quot;</span>))</span>
+<span id="cb246-2"><a href="ChapDependenceModel.html#cb246-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(rs_ties,<span class="dv">2</span>)</span>
+<span id="cb246-3"><a href="ChapDependenceModel.html#cb246-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-4"><a href="ChapDependenceModel.html#cb246-4" aria-hidden="true" tabindex="-1"></a>Output<span class="sc">:</span></span>
+<span id="cb246-5"><a href="ChapDependenceModel.html#cb246-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">0.09</span></span></code></pre></div>
 </div>
 
 </div>
