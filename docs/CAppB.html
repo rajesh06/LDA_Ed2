@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 17 Appendix B: Iterated Expectations | Loss Data Analytics</title>
   <meta name="description" content="Chapter 17 Appendix B: Iterated Expectations | Loss Data Analytics is an interactive, online, freely available text. - The online version will contain many interactive objects (quizzes, computer demonstrations, interactive graphs, video, and the like) to promote deeper learning. - A subset of the book will be available in pdf format for low-cost printing. - The online text will be available in multiple languages to promote access to a worldwide audience." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 17 Appendix B: Iterated Expectations | Loss Data Analytics" />
   <meta property="og:type" content="book" />
@@ -515,7 +515,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -528,7 +528,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -805,16 +805,38 @@ div.csl-indent {
 <li class="chapter" data-level="7.5.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#ts-7.a.-bootstrap-applications-in-predictive-modeling"><i class="fa fa-check"></i><b>7.5.1</b> TS 7.A. Bootstrap Applications in Predictive Modeling</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html"><i class="fa fa-check"></i><b>8</b> Bayesian Inference</a>
+<li class="chapter" data-level="8" data-path="ChBayes.html"><a href="ChBayes.html"><i class="fa fa-check"></i><b>8</b> Bayesian Inference and Modeling</a>
 <ul>
-<li class="chapter" data-level="8.0.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:IntroBayes"><i class="fa fa-check"></i><b>8.0.1</b> Introduction to Bayesian Inference</a></li>
-<li class="chapter" data-level="8.0.2" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#bayesian-model"><i class="fa fa-check"></i><b>8.0.2</b> Bayesian Model</a></li>
-<li class="chapter" data-level="8.0.3" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#bayesian-inference"><i class="fa fa-check"></i><b>8.0.3</b> Bayesian Inference</a></li>
-<li class="chapter" data-level="8.0.4" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:ConjugateDistributions"><i class="fa fa-check"></i><b>8.0.4</b> Conjugate Distributions</a></li>
-<li class="chapter" data-level="8.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:MCMC"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Markov Chain (MCMC)</a>
+<li class="chapter" data-level="8.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecIntro"><i class="fa fa-check"></i><b>8.1</b> A Gentle Introduction to Bayesian Statistics</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#metropolis-hastings"><i class="fa fa-check"></i><b>8.1.1</b> Metropolis Hastings</a></li>
-<li class="chapter" data-level="8.1.2" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#gibbs-sampler"><i class="fa fa-check"></i><b>8.1.2</b> Gibbs Sampler</a></li>
+<li class="chapter" data-level="8.1.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubSecBayesVsFreq"><i class="fa fa-check"></i><b>8.1.1</b> Bayesian versus Frequentist Statistics</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ChBayes.html"><a href="ChBayes.html#a-brief-history-lesson"><i class="fa fa-check"></i><b>8.1.2</b> A Brief History Lesson</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecBayesRule"><i class="fa fa-check"></i><b>8.1.3</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ChBayes.html"><a href="ChBayes.html#an-introductory-example-of-bayes-rule"><i class="fa fa-check"></i><b>8.1.4</b> An Introductory Example of Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecBuildingBlocks"><i class="fa fa-check"></i><b>8.2</b> Building Blocks of Bayesian Inference</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecPosterior"><i class="fa fa-check"></i><b>8.2.1</b> Posterior Distribution</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ChBayes.html"><a href="ChBayes.html#likelihood-function"><i class="fa fa-check"></i><b>8.2.2</b> Likelihood Function</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecPrior"><i class="fa fa-check"></i><b>8.2.3</b> Prior Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecConjugate"><i class="fa fa-check"></i><b>8.3</b> Conjugate Families</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecBetaBin"><i class="fa fa-check"></i><b>8.3.1</b> The Beta–Binomial Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.2" data-path="ChBayes.html"><a href="ChBayes.html#the-gammapoisson-conjugate-family"><i class="fa fa-check"></i><b>8.3.2</b> The Gamma–Poisson Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.3" data-path="ChBayes.html"><a href="ChBayes.html#the-normalnormal-conjugate-family"><i class="fa fa-check"></i><b>8.3.3</b> The Normal–Normal Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.4" data-path="ChBayes.html"><a href="ChBayes.html#criticism-of-conjugate-family-models"><i class="fa fa-check"></i><b>8.3.4</b> Criticism of Conjugate Family Models</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecPosterior"><i class="fa fa-check"></i><b>8.4</b> Posterior Simulation</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="ChBayes.html"><a href="ChBayes.html#introduction-to-markov-chain-monte-carlo-methods"><i class="fa fa-check"></i><b>8.4.1</b> Introduction to Markov Chain Monte Carlo Methods</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ChBayes.html"><a href="ChBayes.html#the-gibbs-sampler"><i class="fa fa-check"></i><b>8.4.2</b> The Gibbs Sampler</a></li>
+<li class="chapter" data-level="8.4.3" data-path="ChBayes.html"><a href="ChBayes.html#the-metropolishastings-algorithm"><i class="fa fa-check"></i><b>8.4.3</b> The Metropolis–Hastings Algorithm</a></li>
+<li class="chapter" data-level="8.4.4" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecDiag"><i class="fa fa-check"></i><b>8.4.4</b> Markov Chain Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecFurther"><i class="fa fa-check"></i><b>8.5</b> Further Resources and Contributors</a>
+<ul>
+<li class="chapter" data-level="" data-path="ChBayes.html"><a href="ChBayes.html#contributors-7"><i class="fa fa-check"></i>Contributors</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html"><i class="fa fa-check"></i><b>9</b> Premium Foundations</a>
@@ -1386,7 +1408,7 @@ N =
 </div>
 <div id="S:AppConjugateDistributions" class="section level2 hasAnchor" number="17.3">
 <h2><span class="header-section-number">17.3</span> Conjugate Distributions<a href="CAppB.html#S:AppConjugateDistributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As described in Section <a href="ChapBayesInference.html#S:IntroBayes">8.0.1</a>, for conjugate distributions the posterior and the prior come from the same family of distributions. In insurance applications, this broadly occurs in a “family of distribution families” known as the linear exponential family which we introduce first.</p>
+<p>As described in Section <a href="#S:IntroBayes"><strong>??</strong></a>, for conjugate distributions the posterior and the prior come from the same family of distributions. In insurance applications, this broadly occurs in a “family of distribution families” known as the linear exponential family which we introduce first.</p>
 <div id="linear-exponential-family" class="section level3 hasAnchor" number="17.3.1">
 <h3><span class="header-section-number">17.3.1</span> Linear Exponential Family<a href="CAppB.html#linear-exponential-family" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Definition.</strong> The distribution of the <em>linear exponential family</em> is</p>
@@ -1405,23 +1427,23 @@ f( x; \gamma ,\theta ) =
 \hline
              &amp;             &amp; \text{Density or} &amp; &amp; &amp; \\
 \text{Distribution} &amp; \text{Parameters} &amp; \text{Mass Function} &amp; \text{Components} \\
-\hline \text{General} &amp; \gamma,~ \theta &amp; 
-\exp \left( \frac{x\gamma -b(\gamma )}{\theta} +S\left( x,\theta \right) \right) &amp; 
+\hline \text{General} &amp; \gamma,~ \theta &amp;
+\exp \left( \frac{x\gamma -b(\gamma )}{\theta} +S\left( x,\theta \right) \right) &amp;
 \gamma,~ \theta, b(\gamma), S(x, \theta)\\
- \text{Normal} &amp; \mu, \sigma^2  &amp;
-\frac{1}{\sigma \sqrt{2\pi }}\exp \left(-\frac{(x-\mu )^{2}}{2\sigma ^{2}}\right) &amp; 
+\text{Normal} &amp; \mu, \sigma^2  &amp;
+\frac{1}{\sigma \sqrt{2\pi }}\exp \left(-\frac{(x-\mu )^{2}}{2\sigma ^{2}}\right) &amp;
 \mu, \sigma^2, \frac{\gamma^2}{2}, - \left(\frac{x^2}{2\theta} + \frac{\log(2 \pi
 \theta)}{2} \right) \\
-\text{Binomal} &amp; \pi &amp; 
-{n \choose x} \pi ^x (1-\pi)^{n-x} &amp; 
+\text{Binomal} &amp; \pi &amp;
+{n \choose x} \pi ^x (1-\pi)^{n-x} &amp;
 \log
 \left(\frac{\pi}{1-\pi} \right), 1, n \log(1+e^{\gamma} ),  \\
 &amp;  &amp;  &amp;  \log {n \choose x} \\
-\text{Poisson} &amp; \lambda &amp; 
-\frac{\lambda^x}{x!} \exp(-\lambda)  &amp; 
+\text{Poisson} &amp; \lambda &amp;
+\frac{\lambda^x}{x!} \exp(-\lambda)  &amp;
 \log \lambda, 1, e^{\gamma}, - \log (x!)  \\
-\text{Negative } &amp; 
-r,p &amp;  \frac{\Gamma(x+r)}{x!\Gamma(r)} p^r ( 1-p)^x &amp; 
+\text{Negative } &amp;
+r,p &amp;  \frac{\Gamma(x+r)}{x!\Gamma(r)} p^r ( 1-p)^x &amp;
 \log(1-p), 1, -r \log(1-e^{\gamma}), \\
 ~~~\text{Binomial}^{\ast} &amp; &amp; &amp; ~~~\log \left[ \frac{\Gamma(x+r)}{x!
 \Gamma(r)} \right] \\
@@ -1431,11 +1453,11 @@ x^{\alpha -1 }\exp(-x/ \theta)  &amp; - \frac{1}{\alpha \gamma},
 &amp; &amp; &amp;  - \log \left( \Gamma(\theta ^{-1}) \right) +
 (\theta^{-1} - 1) \log x &amp; &amp; \\ \hline
 \end{array}\\
-^{\ast} \text{This assumes that the parameter r is fixed but need not be an integer.}\\ 
+^{\ast} \text{This assumes that the parameter r is fixed but need not be an integer.}\\
 \end{matrix}
 }
 \]</span></p>
-<p>The Tweedie (see Section <a href="ChapAggLossModels.html#S:AggLoss:Tweedie">6.3.4</a>) and inverse Gaussian distributions are also members of the linear exponential family. The linear exponential family of distribution families is extensively used as the basis of generalized linear models as described in, for example, <span class="citation"><a href="#ref-frees2009regression" role="doc-biblioref">Frees</a> (<a href="#ref-frees2009regression" role="doc-biblioref">2009</a>)</span>.</p>
+<p>The Tweedie (see Section <a href="ChapAggLossModels.html#S:AggLoss:Tweedie">6.3.4</a>) and inverse Gaussian distributions are also members of the linear exponential family. The linear exponential family of distribution families is extensively used as the basis of generalized linear models as described in, for example, <span class="citation">Edward W. Frees (<a href="#ref-frees2009regression" role="doc-biblioref">2009</a>)</span>.</p>
 </div>
 <div id="S:IterExp:Conjugate" class="section level3 hasAnchor" number="17.3.2">
 <h3><span class="header-section-number">17.3.2</span> Conjugate Distributions<a href="CAppB.html#S:IterExp:Conjugate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1458,12 +1480,12 @@ where <span class="math inline">\(C_1\)</span> is a normalizing constant. Thus, 
 <span class="math display">\[
 \pi(\gamma,\tau) = C \exp\left\{
 \gamma a_1 - a_2 e^{\gamma} \right\}=
-C ~ 
+C ~
 \left(
 e^{\gamma}\right)^{a_1}
 \exp\left(-a_2e^{\gamma} \right).
 \]</span>
-From the table of exponential family distributions, we recognize this to be a gamma distribution. That is, we have that the prior distribution of <span class="math inline">\(\lambda = e^{\gamma}\)</span> is a gamma distribution with parameters <span class="math inline">\(\alpha_{prior} = a_1+1\)</span> and <span class="math inline">\(\theta_{prior}^{-1}=a_2\)</span>. The posterior distribution is a gamma distribution with parameters <span class="math inline">\(\alpha_{post} =a_1+x+1=\alpha_{prior}+x\)</span> and <span class="math inline">\(\theta_{post}^{-1}=a_2+1 = \theta_{prior}^{-1}+1\)</span>. This is consistent with our Section <a href="ChapBayesInference.html#S:ConjugateDistributions">8.0.4</a> result.</p>
+From the table of exponential family distributions, we recognize this to be a gamma distribution. That is, we have that the prior distribution of <span class="math inline">\(\lambda = e^{\gamma}\)</span> is a gamma distribution with parameters <span class="math inline">\(\alpha_{prior} = a_1+1\)</span> and <span class="math inline">\(\theta_{prior}^{-1}=a_2\)</span>. The posterior distribution is a gamma distribution with parameters <span class="math inline">\(\alpha_{post} =a_1+x+1=\alpha_{prior}+x\)</span> and <span class="math inline">\(\theta_{post}^{-1}=a_2+1 = \theta_{prior}^{-1}+1\)</span>. This is consistent with our Section <a href="#S:ConjugateDistributions"><strong>??</strong></a> result.</p>
 <hr />
 <p><strong>Special case. Normal-Normal Model.</strong>
 Consider a normal likelihood so that <span class="math inline">\(b(\gamma) = \gamma^2/2\)</span> and the scale parameter is <span class="math inline">\(\sigma^2\)</span>. Thus, we have
@@ -1478,14 +1500,14 @@ The prior distribution of <span class="math inline">\(\gamma\)</span> is normal 
 <span class="math display">\[
 \pi(\gamma,\tau) = C \exp\left\{
 \gamma a_1 - n a_2 \log(1+e^{\gamma}) \right\}=
-C ~ 
+C ~
 \left(
 \frac{e^{\gamma}}{1+e^{\gamma}}\right)^{a_1}
 \left(1-\frac{e^{\gamma}}{1+e^{\gamma}}\right)^{-na_2+a_1}.
 \]</span></p>
 <p>This is a beta distribution. As in the other cases, prior parameters <span class="math inline">\(a_1\)</span> and <span class="math inline">\(a_2\)</span> are updated to become posterior parameters <span class="math inline">\(a_1+x\)</span> and <span class="math inline">\(a_2+1\)</span>.</p>
-<div id="contributors-12" class="section level4 unnumbered hasAnchor">
-<h4>Contributors<a href="CAppB.html#contributors-12" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="contributors-13" class="section level4 unnumbered hasAnchor">
+<h4>Contributors<a href="CAppB.html#contributors-13" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>Lei (Larry) Hua</strong>, Northern Illinois University, and <strong>Edward W. (Jed) Frees</strong>, University of Wisconsin-Madison, are the principal authors of the initial version of this chapter. Email: <a href="mailto:lhua@niu.edu" class="email">lhua@niu.edu</a> or <a href="mailto:jfrees@bus.wisc.edu" class="email">jfrees@bus.wisc.edu</a> for chapter comments and suggested improvements.</li>
 </ul>
@@ -1566,7 +1588,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

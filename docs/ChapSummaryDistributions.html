@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 19 Appendix D: Summary of Distributions | Loss Data Analytics</title>
   <meta name="description" content="Chapter 19 Appendix D: Summary of Distributions | Loss Data Analytics is an interactive, online, freely available text. - The online version will contain many interactive objects (quizzes, computer demonstrations, interactive graphs, video, and the like) to promote deeper learning. - A subset of the book will be available in pdf format for low-cost printing. - The online text will be available in multiple languages to promote access to a worldwide audience." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 19 Appendix D: Summary of Distributions | Loss Data Analytics" />
   <meta property="og:type" content="book" />
@@ -515,7 +515,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -528,7 +528,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -805,16 +805,38 @@ div.csl-indent {
 <li class="chapter" data-level="7.5.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#ts-7.a.-bootstrap-applications-in-predictive-modeling"><i class="fa fa-check"></i><b>7.5.1</b> TS 7.A. Bootstrap Applications in Predictive Modeling</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html"><i class="fa fa-check"></i><b>8</b> Bayesian Inference</a>
+<li class="chapter" data-level="8" data-path="ChBayes.html"><a href="ChBayes.html"><i class="fa fa-check"></i><b>8</b> Bayesian Inference and Modeling</a>
 <ul>
-<li class="chapter" data-level="8.0.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:IntroBayes"><i class="fa fa-check"></i><b>8.0.1</b> Introduction to Bayesian Inference</a></li>
-<li class="chapter" data-level="8.0.2" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#bayesian-model"><i class="fa fa-check"></i><b>8.0.2</b> Bayesian Model</a></li>
-<li class="chapter" data-level="8.0.3" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#bayesian-inference"><i class="fa fa-check"></i><b>8.0.3</b> Bayesian Inference</a></li>
-<li class="chapter" data-level="8.0.4" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:ConjugateDistributions"><i class="fa fa-check"></i><b>8.0.4</b> Conjugate Distributions</a></li>
-<li class="chapter" data-level="8.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:MCMC"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Markov Chain (MCMC)</a>
+<li class="chapter" data-level="8.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecIntro"><i class="fa fa-check"></i><b>8.1</b> A Gentle Introduction to Bayesian Statistics</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#metropolis-hastings"><i class="fa fa-check"></i><b>8.1.1</b> Metropolis Hastings</a></li>
-<li class="chapter" data-level="8.1.2" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#gibbs-sampler"><i class="fa fa-check"></i><b>8.1.2</b> Gibbs Sampler</a></li>
+<li class="chapter" data-level="8.1.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubSecBayesVsFreq"><i class="fa fa-check"></i><b>8.1.1</b> Bayesian versus Frequentist Statistics</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ChBayes.html"><a href="ChBayes.html#a-brief-history-lesson"><i class="fa fa-check"></i><b>8.1.2</b> A Brief History Lesson</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecBayesRule"><i class="fa fa-check"></i><b>8.1.3</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ChBayes.html"><a href="ChBayes.html#an-introductory-example-of-bayes-rule"><i class="fa fa-check"></i><b>8.1.4</b> An Introductory Example of Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecBuildingBlocks"><i class="fa fa-check"></i><b>8.2</b> Building Blocks of Bayesian Inference</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecPosterior"><i class="fa fa-check"></i><b>8.2.1</b> Posterior Distribution</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ChBayes.html"><a href="ChBayes.html#likelihood-function"><i class="fa fa-check"></i><b>8.2.2</b> Likelihood Function</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecPrior"><i class="fa fa-check"></i><b>8.2.3</b> Prior Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecConjugate"><i class="fa fa-check"></i><b>8.3</b> Conjugate Families</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecBetaBin"><i class="fa fa-check"></i><b>8.3.1</b> The Beta–Binomial Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.2" data-path="ChBayes.html"><a href="ChBayes.html#the-gammapoisson-conjugate-family"><i class="fa fa-check"></i><b>8.3.2</b> The Gamma–Poisson Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.3" data-path="ChBayes.html"><a href="ChBayes.html#the-normalnormal-conjugate-family"><i class="fa fa-check"></i><b>8.3.3</b> The Normal–Normal Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.4" data-path="ChBayes.html"><a href="ChBayes.html#criticism-of-conjugate-family-models"><i class="fa fa-check"></i><b>8.3.4</b> Criticism of Conjugate Family Models</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecPosterior"><i class="fa fa-check"></i><b>8.4</b> Posterior Simulation</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="ChBayes.html"><a href="ChBayes.html#introduction-to-markov-chain-monte-carlo-methods"><i class="fa fa-check"></i><b>8.4.1</b> Introduction to Markov Chain Monte Carlo Methods</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ChBayes.html"><a href="ChBayes.html#the-gibbs-sampler"><i class="fa fa-check"></i><b>8.4.2</b> The Gibbs Sampler</a></li>
+<li class="chapter" data-level="8.4.3" data-path="ChBayes.html"><a href="ChBayes.html#the-metropolishastings-algorithm"><i class="fa fa-check"></i><b>8.4.3</b> The Metropolis–Hastings Algorithm</a></li>
+<li class="chapter" data-level="8.4.4" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecDiag"><i class="fa fa-check"></i><b>8.4.4</b> Markov Chain Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecFurther"><i class="fa fa-check"></i><b>8.5</b> Further Resources and Contributors</a>
+<ul>
+<li class="chapter" data-level="" data-path="ChBayes.html"><a href="ChBayes.html#contributors-7"><i class="fa fa-check"></i>Contributors</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html"><i class="fa fa-check"></i><b>9</b> Premium Foundations</a>
@@ -1209,7 +1231,7 @@ Poisson
 \hline
   \small{\text{Distribution function}} &amp; \text{ppois}(p=, lambda=\lambda) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qpois}(q=, lambda=\lambda) \\ 
+  \small{\text{Quantile function}} &amp; \text{qpois}(q=, lambda=\lambda) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rpois}(n=, lambda=\lambda) \\
 \hline
@@ -1261,7 +1283,7 @@ Geometric
 \hline
   \small{\text{Distribution function}} &amp; \text{pgeom}(p=, prob=\frac{1}{1+\beta}) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qgeom}(q=, prob=\frac{1}{1+\beta}) \\ 
+  \small{\text{Quantile function}} &amp; \text{qgeom}(q=, prob=\frac{1}{1+\beta}) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rgeom}(n=, prob=\frac{1}{1+\beta}) \\
 \hline
@@ -1314,7 +1336,7 @@ Binomial
 \hline
   \small{\text{Distribution function}} &amp; \text{pbinom}(p=, size=m, prob=q) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qbinom}(q=, size=m, prob=q) \\ 
+  \small{\text{Quantile function}} &amp; \text{qbinom}(q=, size=m, prob=q) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rbinom}(n=, size=m, prob=q) \\
 \hline
@@ -1366,7 +1388,7 @@ Negative Binomial
 \hline
   \small{\text{Distribution function}} &amp; \text{pnbinom}(p=, size=r, prob=\frac{1}{1+\beta}) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qnbinom}(q=, size=r, prob=\frac{1}{1+\beta}) \\ 
+  \small{\text{Quantile function}} &amp; \text{qnbinom}(q=, size=r, prob=\frac{1}{1+\beta}) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rnbinom}(n=, size=r, prob=\frac{1}{1+\beta}) \\
 \hline
@@ -1429,7 +1451,7 @@ Zero Truncated Poisson
 \hline
   \small{\text{Distribution function}} &amp; \text{pztpois}(p=, lambda=\lambda) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qztpois}(q=, lambda=\lambda) \\ 
+  \small{\text{Quantile function}} &amp; \text{qztpois}(q=, lambda=\lambda) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rztpois}(n=, lambda=\lambda) \\
 \hline
@@ -1481,7 +1503,7 @@ Zero Truncated Geometric
 \hline
   \small{\text{Distribution function}} &amp; \text{pztgeom}(p=, prob=\frac{1}{1+\beta}) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qztgeom}(q=, prob=\frac{1}{1+\beta}) \\ 
+  \small{\text{Quantile function}} &amp; \text{qztgeom}(q=, prob=\frac{1}{1+\beta}) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rztgeom}(n=, prob=\frac{1}{1+\beta}) \\
 \hline
@@ -1534,7 +1556,7 @@ Zero Truncated Binomial
 \hline
   \small{\text{Distribution function}} &amp; \text{pztbinom}(p=, size=m, prob=p) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qztbinom}(q=, size=m, prob=p) \\ 
+  \small{\text{Quantile function}} &amp; \text{qztbinom}(q=, size=m, prob=p) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rztbinom}(n=, size=m, prob=p) \\
 \hline
@@ -1586,7 +1608,7 @@ Zero Truncated Negative Binomial
 \hline
   \small{\text{Distribution function}} &amp; \text{pztnbinom}(p=, size=r, prob=\frac{1}{1+\beta}) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qztnbinom}(q=, size=r, prob=\frac{1}{1+\beta}) \\ 
+  \small{\text{Quantile function}} &amp; \text{qztnbinom}(q=, size=r, prob=\frac{1}{1+\beta}) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rztnbinom}(n=, size=r, prob=\frac{1}{1+\beta}) \\
 \hline
@@ -1638,7 +1660,7 @@ Logarithmic
 \hline
   \small{\text{Distribution function}} &amp; \text{pnbinom}(p=,prob=\frac{\beta}{1+\beta}) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qnbinom}(q=,prob=\frac{\beta}{1+\beta}) \\ 
+  \small{\text{Quantile function}} &amp; \text{qnbinom}(q=,prob=\frac{\beta}{1+\beta}) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rnbinom}(n=,prob=\frac{\beta}{1+\beta}) \\
 \hline
@@ -1659,7 +1681,7 @@ Logarithmic
 <button class="tablinks" onclick="openTab(event, '1pB')">Inv Exponential</button>
 <button class="tablinks" onclick="openTab(event, 'odC')">Single Parameter Pareto</button></p>
 </div>
-<div id="1pA" class="tabcontent">
+<div id="id_1pA" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Exponential
@@ -1674,12 +1696,12 @@ Exponential
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0 \\
 \hline
   \small{\text{Probability density}} &amp; \frac{1}{\theta}e^{-x/\theta} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; 1-e^{-x/\theta} \\
    ~~F(x) &amp; \\
 \hline
- \textit{k}^{th}~\small{\text{raw moment}}  &amp; \theta^k\Gamma(k+1) \\
+\textit{k}^{th}~\small{\text{raw moment}}  &amp; \theta^k\Gamma(k+1) \\
   ~~\mathrm{E}[X^k]  &amp; k&gt;-1 \\
 \hline
   VaR_p(x) &amp; -\theta \ln (1-p) \\
@@ -1701,7 +1723,7 @@ Exponential
 \hline
   \small{\text{Distribution function}} &amp; \text{pexp}(p=, rate=1/\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qexp}(q=, rate=1/\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qexp}(q=, rate=1/\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rexp}(n=, rate=1/\theta) \\
 \hline
@@ -1709,13 +1731,13 @@ Exponential
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="ChapSummaryDistributions.html#cb251-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb251-2"><a href="ChapSummaryDistributions.html#cb251-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb251-3"><a href="ChapSummaryDistributions.html#cb251-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dexp</span>(X,<span class="at">rate=</span><span class="dv">1</span><span class="sc">/</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb251-4"><a href="ChapSummaryDistributions.html#cb251-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Exponential Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-256-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="ChapSummaryDistributions.html#cb269-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb269-2"><a href="ChapSummaryDistributions.html#cb269-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb269-3"><a href="ChapSummaryDistributions.html#cb269-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dexp</span>(X, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span>theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb269-4"><a href="ChapSummaryDistributions.html#cb269-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Exponential Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-250-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="1pB" class="tabcontent">
+<div id="id_1pB" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Inverse Exponential
@@ -1730,7 +1752,7 @@ Inverse Exponential
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0 \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\theta e^{-\theta/x}}{x^2} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; e^{-\theta/x} \\
    ~~F(x) &amp; \\
@@ -1754,7 +1776,7 @@ Inverse Exponential
 \hline
   \small{\text{Distribution function}} &amp; \text{pinvexp}(p=, scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qinvexp}(q=, scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qinvexp}(q=, scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rinvexp}(n=, scale=\theta) \\
 \hline
@@ -1762,11 +1784,11 @@ Inverse Exponential
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="ChapSummaryDistributions.html#cb252-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
-<span id="cb252-2"><a href="ChapSummaryDistributions.html#cb252-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb252-3"><a href="ChapSummaryDistributions.html#cb252-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvexp</span>(X, <span class="at">rate =</span>  <span class="dv">1</span><span class="sc">/</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb252-4"><a href="ChapSummaryDistributions.html#cb252-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Exponential Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-257-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="ChapSummaryDistributions.html#cb270-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb270-2"><a href="ChapSummaryDistributions.html#cb270-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb270-3"><a href="ChapSummaryDistributions.html#cb270-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dinvexp</span>(X, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span>theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb270-4"><a href="ChapSummaryDistributions.html#cb270-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Inverse Exponential Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-251-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="odC" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -1783,7 +1805,7 @@ Single Parameter Pareto
   \small{\text{Parameter assumptions}} &amp; \theta~\text{is known},~x&gt;\theta, \alpha &gt; 0 \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\alpha\theta^\alpha}{x^{\alpha+1}} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; 1-(\theta/x)^\alpha \\
    ~~F(x) &amp; \\
@@ -1808,7 +1830,7 @@ Single Parameter Pareto
 \hline
   \small{\text{Distribution function}} &amp; \text{ppareto1}(p=, shape=\alpha,min=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qpareto1}(q=, shape=\alpha,min=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qpareto1}(q=, shape=\alpha,min=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rpareto1}(n=, shape=\alpha,min=\theta) \\
 \hline
@@ -1816,12 +1838,12 @@ Single Parameter Pareto
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="ChapSummaryDistributions.html#cb253-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb253-2"><a href="ChapSummaryDistributions.html#cb253-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb253-3"><a href="ChapSummaryDistributions.html#cb253-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb253-4"><a href="ChapSummaryDistributions.html#cb253-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dpareto1</span>(X,<span class="at">shape=</span>alpha,<span class="at">min=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb253-5"><a href="ChapSummaryDistributions.html#cb253-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Single Parameter Pareto Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-258-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="ChapSummaryDistributions.html#cb271-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb271-2"><a href="ChapSummaryDistributions.html#cb271-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb271-3"><a href="ChapSummaryDistributions.html#cb271-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb271-4"><a href="ChapSummaryDistributions.html#cb271-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dpareto1</span>(X, <span class="at">shape =</span> alpha, <span class="at">min =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb271-5"><a href="ChapSummaryDistributions.html#cb271-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Single Parameter Pareto Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-252-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="two-parameter-distributions" class="section level3 hasAnchor" number="19.2.2">
@@ -1838,7 +1860,7 @@ Single Parameter Pareto
 <button class="tablinks" onclick="openTab(event, '2pI')">Uniform</button>
 <button class="tablinks" onclick="openTab(event, '2pJ')">Normal</button></p>
 </div>
-<div id="2pA" class="tabcontent">
+<div id="id_2pA" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Pareto
@@ -1853,7 +1875,7 @@ Pareto
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, \alpha&gt;0 \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\alpha\theta^\alpha}{(x+\theta)^{\alpha+1}} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; 1-\Big(\frac{\theta}{x+\theta}\Big)^\alpha \\
    ~~F(x) &amp; \\
@@ -1883,7 +1905,7 @@ Pareto
 \hline
   \small{\text{Distribution function}} &amp; \text{ppareto}(p=, shape=\alpha,scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qpareto}(q=, shape=\alpha,scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qpareto}(q=, shape=\alpha,scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rpareto}(n=, shape=\alpha,scale=\theta) \\
 \hline
@@ -1891,14 +1913,14 @@ Pareto
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="ChapSummaryDistributions.html#cb254-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb254-2"><a href="ChapSummaryDistributions.html#cb254-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">200</span></span>
-<span id="cb254-3"><a href="ChapSummaryDistributions.html#cb254-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb254-4"><a href="ChapSummaryDistributions.html#cb254-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span>actuar<span class="sc">::</span><span class="fu">dpareto</span>(X,<span class="at">shape=</span>alpha,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb254-5"><a href="ChapSummaryDistributions.html#cb254-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Pareto Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-259-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="ChapSummaryDistributions.html#cb272-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb272-2"><a href="ChapSummaryDistributions.html#cb272-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb272-3"><a href="ChapSummaryDistributions.html#cb272-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb272-4"><a href="ChapSummaryDistributions.html#cb272-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> actuar<span class="sc">::</span><span class="fu">dpareto</span>(X, <span class="at">shape =</span> alpha, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb272-5"><a href="ChapSummaryDistributions.html#cb272-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Pareto Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-253-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pB" class="tabcontent">
+<div id="id_2pB" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Inverse Pareto
@@ -1913,7 +1935,7 @@ Inverse Pareto
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, \tau&gt;0 \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\tau\theta x^{\tau-1}}{(x+\theta)^\tau-1} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \Big(\frac{x}{x+\theta}\Big)^\tau \\
    ~~F(x) &amp; \\
@@ -1938,7 +1960,7 @@ Inverse Pareto
 \hline
   \small{\text{Distribution function}} &amp; \text{pinvpareto}(p=, shape=\tau,scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qinvpareto}(q=, shape=\tau,scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qinvpareto}(q=, shape=\tau,scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rinvpareto}(n=, shape=\tau,scale=\theta) \\
 \hline
@@ -1946,14 +1968,14 @@ Inverse Pareto
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="ChapSummaryDistributions.html#cb255-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb255-2"><a href="ChapSummaryDistributions.html#cb255-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb255-3"><a href="ChapSummaryDistributions.html#cb255-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">3000</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb255-4"><a href="ChapSummaryDistributions.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvpareto</span>(X,<span class="at">shape=</span>tau,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb255-5"><a href="ChapSummaryDistributions.html#cb255-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Pareto Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-260-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="ChapSummaryDistributions.html#cb273-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb273-2"><a href="ChapSummaryDistributions.html#cb273-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb273-3"><a href="ChapSummaryDistributions.html#cb273-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">3000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb273-4"><a href="ChapSummaryDistributions.html#cb273-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dinvpareto</span>(X, <span class="at">shape =</span> tau, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb273-5"><a href="ChapSummaryDistributions.html#cb273-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Inverse Pareto Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-254-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pC" class="tabcontent">
+<div id="id_2pC" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Loglogistic
@@ -1968,7 +1990,7 @@ Loglogistic
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, \gamma &gt; 0, u=\frac{(x/\theta)^\gamma}{1+(x/\theta)^\gamma} \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\gamma(x/\theta)^\gamma}{x[1+(x/\theta)^\gamma]^2} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; u \\
    ~~F(x) &amp; \\
@@ -1983,17 +2005,17 @@ Loglogistic
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="ChapSummaryDistributions.html#cb256-1" aria-hidden="true" tabindex="-1"></a>dloglogistic <span class="ot">&lt;-</span> <span class="cf">function</span>(x, gamma, theta){</span>
-<span id="cb256-2"><a href="ChapSummaryDistributions.html#cb256-2" aria-hidden="true" tabindex="-1"></a>  p<span class="ot">=</span>gamma<span class="sc">*</span>(x<span class="sc">/</span>theta)<span class="sc">^</span>gamma<span class="sc">/</span>(x<span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span>(x<span class="sc">/</span>theta)<span class="sc">^</span>gamma)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb256-3"><a href="ChapSummaryDistributions.html#cb256-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
-<span id="cb256-4"><a href="ChapSummaryDistributions.html#cb256-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb256-5"><a href="ChapSummaryDistributions.html#cb256-5" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb256-6"><a href="ChapSummaryDistributions.html#cb256-6" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb256-7"><a href="ChapSummaryDistributions.html#cb256-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb256-8"><a href="ChapSummaryDistributions.html#cb256-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dloglogistic</span>(X,<span class="at">gamma=</span>gamma,<span class="at">theta=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-261-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="ChapSummaryDistributions.html#cb274-1" aria-hidden="true" tabindex="-1"></a>dloglogistic <span class="ot">&lt;-</span> <span class="cf">function</span>(x, gamma, theta) {</span>
+<span id="cb274-2"><a href="ChapSummaryDistributions.html#cb274-2" aria-hidden="true" tabindex="-1"></a>    p <span class="ot">=</span> gamma <span class="sc">*</span> (x<span class="sc">/</span>theta)<span class="sc">^</span>gamma<span class="sc">/</span>(x <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> (x<span class="sc">/</span>theta)<span class="sc">^</span>gamma)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb274-3"><a href="ChapSummaryDistributions.html#cb274-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(p)</span>
+<span id="cb274-4"><a href="ChapSummaryDistributions.html#cb274-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb274-5"><a href="ChapSummaryDistributions.html#cb274-5" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb274-6"><a href="ChapSummaryDistributions.html#cb274-6" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb274-7"><a href="ChapSummaryDistributions.html#cb274-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb274-8"><a href="ChapSummaryDistributions.html#cb274-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dloglogistic</span>(X, <span class="at">gamma =</span> gamma, <span class="at">theta =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-255-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pD" class="tabcontent">
+<div id="id_2pD" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Paralogistic
@@ -2008,7 +2030,7 @@ Paralogistic
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, \alpha&gt;0, u=\frac{1}{1+(x/\theta)^\alpha} \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\alpha^2(x/\theta)^\alpha}{x[1+(x/\theta)^\alpha]^{\alpha+1}} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; 1-u^\alpha \\
    ~~F(x) &amp; \\
@@ -2033,7 +2055,7 @@ Paralogistic
 \hline
   \small{\text{Distribution function}} &amp; \text{pparalogis}(p=, shape=\alpha,scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qparalogis}(q=, shape=\alpha,scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qparalogis}(q=, shape=\alpha,scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rparalogis}(n=, shape=\alpha,scale=\theta) \\
 \hline
@@ -2041,14 +2063,14 @@ Paralogistic
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="ChapSummaryDistributions.html#cb257-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb257-2"><a href="ChapSummaryDistributions.html#cb257-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb257-3"><a href="ChapSummaryDistributions.html#cb257-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb257-4"><a href="ChapSummaryDistributions.html#cb257-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dparalogis</span>(X,<span class="at">shape=</span>alpha,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb257-5"><a href="ChapSummaryDistributions.html#cb257-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Paralogistic Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-262-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="ChapSummaryDistributions.html#cb275-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb275-2"><a href="ChapSummaryDistributions.html#cb275-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb275-3"><a href="ChapSummaryDistributions.html#cb275-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb275-4"><a href="ChapSummaryDistributions.html#cb275-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dparalogis</span>(X, <span class="at">shape =</span> alpha, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb275-5"><a href="ChapSummaryDistributions.html#cb275-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Paralogistic Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-256-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pE" class="tabcontent">
+<div id="id_2pE" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Gamma
@@ -2063,7 +2085,7 @@ Gamma
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0,~\alpha&gt;0 \\
 \hline
   \small{\text{Probability density}} &amp; \frac{1}{\theta^{\alpha}\Gamma(\alpha)}x^{\alpha-1}e^{-x/\theta} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \Gamma(\alpha;\frac{x}{\theta}) \\
    ~~F(x) &amp; \\
@@ -2086,7 +2108,7 @@ Gamma
 \hline
   \small{\text{Distribution function}} &amp; \text{pgamma}(p=, shape=\alpha,scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qgamma}(q=, shape=\alpha,scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qgamma}(q=, shape=\alpha,scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rgamma}(n=, shape=\alpha,scale=\theta) \\
 \hline
@@ -2094,14 +2116,14 @@ Gamma
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="ChapSummaryDistributions.html#cb258-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb258-2"><a href="ChapSummaryDistributions.html#cb258-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb258-3"><a href="ChapSummaryDistributions.html#cb258-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb258-4"><a href="ChapSummaryDistributions.html#cb258-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dgamma</span>(X,<span class="at">shape=</span>alpha,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb258-5"><a href="ChapSummaryDistributions.html#cb258-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Gamma Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-263-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="ChapSummaryDistributions.html#cb276-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb276-2"><a href="ChapSummaryDistributions.html#cb276-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb276-3"><a href="ChapSummaryDistributions.html#cb276-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb276-4"><a href="ChapSummaryDistributions.html#cb276-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dgamma</span>(X, <span class="at">shape =</span> alpha, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb276-5"><a href="ChapSummaryDistributions.html#cb276-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Gamma Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-257-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pF" class="tabcontent">
+<div id="id_2pF" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Inverse Gamma
@@ -2114,7 +2136,7 @@ Inverse Gamma
   \text{Name} &amp; \text{Function} \\
 \hline
   \small{\text{Probability density}} &amp; \frac{(\theta/x)^\alpha e^{-\theta/x}}{x\Gamma(\alpha)} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; 1-\Gamma(\alpha;\theta/x) \\
    ~~F(x) &amp; \\
@@ -2139,7 +2161,7 @@ Inverse Gamma
 \hline
   \small{\text{Distribution function}} &amp; \text{pinvgamma}(p=, shape=\alpha,scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qinvgamma}(q=, shape=\alpha,scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qinvgamma}(q=, shape=\alpha,scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rinvgamma}(n=, shape=\alpha,scale=\theta) \\
 \hline
@@ -2147,14 +2169,14 @@ Inverse Gamma
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="ChapSummaryDistributions.html#cb259-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb259-2"><a href="ChapSummaryDistributions.html#cb259-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb259-3"><a href="ChapSummaryDistributions.html#cb259-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">400</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb259-4"><a href="ChapSummaryDistributions.html#cb259-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvgamma</span>(X,<span class="at">shape=</span>alpha,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb259-5"><a href="ChapSummaryDistributions.html#cb259-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Gamma Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-264-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="ChapSummaryDistributions.html#cb277-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb277-2"><a href="ChapSummaryDistributions.html#cb277-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb277-3"><a href="ChapSummaryDistributions.html#cb277-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">400</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb277-4"><a href="ChapSummaryDistributions.html#cb277-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dinvgamma</span>(X, <span class="at">shape =</span> alpha, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb277-5"><a href="ChapSummaryDistributions.html#cb277-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Inverse Gamma Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-258-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pG" class="tabcontent">
+<div id="id_2pG" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Weibull
@@ -2169,7 +2191,7 @@ Weibull
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0,\alpha&gt;0 \\
 \hline\
   \small{\text{Probability density}} &amp; \frac{\alpha \Big(\frac{x}{\theta}\Big)^\alpha \exp\Big(-\Big(\frac{x}{\theta}\Big)^\alpha\Big)}{x} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; 1-\exp\Big(-\Big(\frac{x}{\theta}\Big)^\alpha\Big) \\
    ~~F(x) &amp; \\
@@ -2194,7 +2216,7 @@ Weibull
 \hline
   \small{\text{Distribution function}} &amp; \text{pweibull}(p=, shape=\alpha,scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qweibull}(q=, shape=\alpha,scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qweibull}(q=, shape=\alpha,scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rweibull}(n=, shape=\alpha,scale=\theta) \\
 \hline
@@ -2202,14 +2224,14 @@ Weibull
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="ChapSummaryDistributions.html#cb260-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb260-2"><a href="ChapSummaryDistributions.html#cb260-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb260-3"><a href="ChapSummaryDistributions.html#cb260-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb260-4"><a href="ChapSummaryDistributions.html#cb260-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dweibull</span>(X,<span class="at">shape=</span>alpha, <span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb260-5"><a href="ChapSummaryDistributions.html#cb260-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Weibull Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-265-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="ChapSummaryDistributions.html#cb278-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb278-2"><a href="ChapSummaryDistributions.html#cb278-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb278-3"><a href="ChapSummaryDistributions.html#cb278-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb278-4"><a href="ChapSummaryDistributions.html#cb278-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dweibull</span>(X, <span class="at">shape =</span> alpha, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb278-5"><a href="ChapSummaryDistributions.html#cb278-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Weibull Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-259-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pH" class="tabcontent">
+<div id="id_2pH" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Inverse Weibull
@@ -2224,12 +2246,12 @@ Inverse Weibull
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0,\tau&gt;0 \\
 \hline\
   \small{\text{Probability density}} &amp; \frac{\tau(\theta/x)^\tau \exp\Big(-\Big(\frac{\theta}{x}\Big)^\tau\Big)}{x} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \exp\Big(-\Big(\frac{\theta}{x}\Big)^\tau\Big) \\
    ~~F(x) &amp; \\
 \hline
- \textit{k}^{th}~\small{\text{raw moment}} &amp; \theta^k\Gamma(1-(k/\tau)) \\
+\textit{k}^{th}~\small{\text{raw moment}} &amp; \theta^k\Gamma(1-(k/\tau)) \\
   ~~\mathrm{E}[X^k]  &amp; k&lt;\tau \\
 \hline
   \mathrm{E}[(X\wedge x)^k] &amp; \theta^k\Gamma(1-(k/\tau))[1-\Gamma(1-(k/\tau);(\theta/x)^\tau)]+x^k[1-e^{-(\theta/x)^\tau}] \\
@@ -2249,7 +2271,7 @@ Inverse Weibull
 \hline
   \small{\text{Distribution function}} &amp; \text{pinvweibull}(p=, shape=\tau,scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qinvweibull}(q=, shape=\tau,scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qinvweibull}(q=, shape=\tau,scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rinvweibull}(n=, shape=\tau,scale=\theta) \\
 \hline
@@ -2257,14 +2279,14 @@ Inverse Weibull
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="ChapSummaryDistributions.html#cb261-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb261-2"><a href="ChapSummaryDistributions.html#cb261-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb261-3"><a href="ChapSummaryDistributions.html#cb261-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb261-4"><a href="ChapSummaryDistributions.html#cb261-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvweibull</span>(X,<span class="at">shape=</span>tau,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb261-5"><a href="ChapSummaryDistributions.html#cb261-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Weibull Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-266-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="ChapSummaryDistributions.html#cb279-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb279-2"><a href="ChapSummaryDistributions.html#cb279-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb279-3"><a href="ChapSummaryDistributions.html#cb279-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb279-4"><a href="ChapSummaryDistributions.html#cb279-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dinvweibull</span>(X, <span class="at">shape =</span> tau, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb279-5"><a href="ChapSummaryDistributions.html#cb279-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Inverse Weibull Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-260-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pI" class="tabcontent">
+<div id="id_2pI" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Uniform
@@ -2282,7 +2304,7 @@ Uniform
   \text{f(x)} &amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \frac{x-\alpha}{\beta-\alpha} \\
- ~~F(x) &amp; \\
+~~F(x) &amp; \\
 \hline
   \text{Mean} &amp; \frac{\beta+\alpha}{2} \\
   \text{E[X]} &amp; \\
@@ -2307,7 +2329,7 @@ Uniform
 \hline
   \small{\text{Distribution function}} &amp; \text{punif}(p=, min=a, max=b) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qunif}(q=, min=a, max=b) \\ 
+  \small{\text{Quantile function}} &amp; \text{qunif}(q=, min=a, max=b) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{runif}(n=, min=a, max=b) \\
 \hline
@@ -2315,14 +2337,14 @@ Uniform
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="ChapSummaryDistributions.html#cb262-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb262-2"><a href="ChapSummaryDistributions.html#cb262-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb262-3"><a href="ChapSummaryDistributions.html#cb262-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(alpha,beta,<span class="dv">1</span>)</span>
-<span id="cb262-4"><a href="ChapSummaryDistributions.html#cb262-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dunif</span>(X,alpha,beta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb262-5"><a href="ChapSummaryDistributions.html#cb262-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Continuous Uniform Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-267-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="ChapSummaryDistributions.html#cb280-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb280-2"><a href="ChapSummaryDistributions.html#cb280-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb280-3"><a href="ChapSummaryDistributions.html#cb280-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(alpha, beta, <span class="dv">1</span>)</span>
+<span id="cb280-4"><a href="ChapSummaryDistributions.html#cb280-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dunif</span>(X, alpha, beta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb280-5"><a href="ChapSummaryDistributions.html#cb280-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Continuous Uniform Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-261-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pJ" class="tabcontent">
+<div id="id_2pJ" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Normal
@@ -2340,7 +2362,7 @@ Normal
   \text{f(x)} &amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \Phi\left(\frac{x-\mu}{\sigma}\right) \\
- ~~F(x) &amp; \\
+~~F(x) &amp; \\
 \hline
   \text{Mean} &amp; \mu \\
   \text{E[X]} &amp; \\
@@ -2365,7 +2387,7 @@ Normal
 \hline
   \small{\text{Distribution function}} &amp; \text{pnorm}(p=, mean=\mu, sd=\sigma) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qnorm}(q=, mean=\mu, sd=\sigma) \\ 
+  \small{\text{Quantile function}} &amp; \text{qnorm}(q=, mean=\mu, sd=\sigma) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rnorm}(n=, mean=\mu, sd=\sigma) \\
 \hline
@@ -2373,14 +2395,14 @@ Normal
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="ChapSummaryDistributions.html#cb263-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb263-2"><a href="ChapSummaryDistributions.html#cb263-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb263-3"><a href="ChapSummaryDistributions.html#cb263-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">200</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb263-4"><a href="ChapSummaryDistributions.html#cb263-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dnorm</span>(X,<span class="at">mean=</span>mu,<span class="at">sd=</span>sigma),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb263-5"><a href="ChapSummaryDistributions.html#cb263-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Normal Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-268-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="ChapSummaryDistributions.html#cb281-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb281-2"><a href="ChapSummaryDistributions.html#cb281-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb281-3"><a href="ChapSummaryDistributions.html#cb281-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">200</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb281-4"><a href="ChapSummaryDistributions.html#cb281-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dnorm</span>(X, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb281-5"><a href="ChapSummaryDistributions.html#cb281-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Normal Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-262-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="2pK" class="tabcontent">
+<div id="id_2pK" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Cauchy
@@ -2395,7 +2417,7 @@ Cauchy
   \small{\text{Parameter assumptions}} &amp; -\infty &lt;\alpha &lt;\infty, \beta&gt;0 \\
 \hline
   \small{\text{Probability density}} &amp; \frac{1}{\pi\beta}[1+\left( \frac{x-\alpha}{\beta}\right)^2]^{-1} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
 \end{array}
 \end{matrix}
@@ -2411,7 +2433,7 @@ Cauchy
 \hline
   \small{\text{Distribution function}} &amp; \text{pcauchy}(p=, location=\alpha, scale=\beta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qcauchy}(q=, location=\alpha, scale=\beta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qcauchy}(q=, location=\alpha, scale=\beta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rcauchy}(n=, location=\alpha, scale=\beta) \\
 \hline
@@ -2419,12 +2441,12 @@ Cauchy
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="ChapSummaryDistributions.html#cb264-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb264-2"><a href="ChapSummaryDistributions.html#cb264-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb264-3"><a href="ChapSummaryDistributions.html#cb264-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb264-4"><a href="ChapSummaryDistributions.html#cb264-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dcauchy</span>(X,<span class="at">location=</span>alpha,<span class="at">scale=</span>beta),</span>
-<span id="cb264-5"><a href="ChapSummaryDistributions.html#cb264-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Cauchy Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-269-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="ChapSummaryDistributions.html#cb282-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb282-2"><a href="ChapSummaryDistributions.html#cb282-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb282-3"><a href="ChapSummaryDistributions.html#cb282-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb282-4"><a href="ChapSummaryDistributions.html#cb282-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dcauchy</span>(X, <span class="at">location =</span> alpha, <span class="at">scale =</span> beta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb282-5"><a href="ChapSummaryDistributions.html#cb282-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Cauchy Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-263-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="three-parameter-distributions" class="section level3 hasAnchor" number="19.2.3">
@@ -2434,7 +2456,7 @@ Cauchy
 <button class="tablinks" onclick="openTab(event, '3pB')">Burr</button>
 <button class="tablinks" onclick="openTab(event, '3pC')">Inv Burr</button></p>
 </div>
-<div id="3pA" class="tabcontent">
+<div id="id_3pA" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Generalized Pareto
@@ -2449,7 +2471,7 @@ Generalized Pareto
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, \alpha&gt;0, \tau&gt;0, u=\frac{x}{x+\theta} \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\Gamma(\alpha+\tau)}{\Gamma(\alpha)\Gamma(\tau)}\frac{\theta^\alpha x^{\tau-1}}{(x+\theta)^{\alpha+\tau}} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \beta(\tau,\alpha;u) \\
    ~~F(x) &amp; \\
@@ -2474,7 +2496,7 @@ Generalized Pareto
 \hline
   \small{\text{Distribution function}} &amp; \text{pgenpareto}(q=, shape1=\alpha, shape2=\tau, scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qgenpareto}(p=, shape1=\alpha, shape2=\tau, scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qgenpareto}(p=, shape1=\alpha, shape2=\tau, scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rgenpareto}(r=, shape1=\alpha, shape2=\tau, scale=\theta) \\
 \hline
@@ -2482,15 +2504,15 @@ Generalized Pareto
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="ChapSummaryDistributions.html#cb265-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb265-2"><a href="ChapSummaryDistributions.html#cb265-2" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb265-3"><a href="ChapSummaryDistributions.html#cb265-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb265-4"><a href="ChapSummaryDistributions.html#cb265-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb265-5"><a href="ChapSummaryDistributions.html#cb265-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dgenpareto</span>(X,<span class="at">shape1=</span>alpha,<span class="at">shape2=</span>tau,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb265-6"><a href="ChapSummaryDistributions.html#cb265-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Generalized Pareto Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-270-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="ChapSummaryDistributions.html#cb283-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb283-2"><a href="ChapSummaryDistributions.html#cb283-2" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb283-3"><a href="ChapSummaryDistributions.html#cb283-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb283-4"><a href="ChapSummaryDistributions.html#cb283-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb283-5"><a href="ChapSummaryDistributions.html#cb283-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dgenpareto</span>(X, <span class="at">shape1 =</span> alpha, <span class="at">shape2 =</span> tau, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb283-6"><a href="ChapSummaryDistributions.html#cb283-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Generalized Pareto Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-264-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="3pB" class="tabcontent">
+<div id="id_3pB" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Burr
@@ -2505,7 +2527,7 @@ Burr
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, \alpha&gt;0, \gamma&gt;0, u=\frac{1}{1+(x/\theta)^\gamma} \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\alpha\gamma(x/\theta)^\gamma}{x[1+(x/\theta)^\gamma]^{\alpha+1}} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; 1-u^\alpha \\
    ~~F(x) &amp; \\
@@ -2530,7 +2552,7 @@ Burr
 \hline
   \small{\text{Distribution function}} &amp; \text{pburr}(p=, shape1=\alpha, shape2=\gamma, scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qburr}(q=, shape1=\alpha, shape2=\gamma, scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qburr}(q=, shape1=\alpha, shape2=\gamma, scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rburr}(n=, shape1=\alpha, shape2=\gamma, scale=\theta) \\
 \hline
@@ -2538,15 +2560,15 @@ Burr
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="ChapSummaryDistributions.html#cb266-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb266-2"><a href="ChapSummaryDistributions.html#cb266-2" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb266-3"><a href="ChapSummaryDistributions.html#cb266-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb266-4"><a href="ChapSummaryDistributions.html#cb266-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb266-5"><a href="ChapSummaryDistributions.html#cb266-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dburr</span>(X,<span class="at">shape1=</span>alpha,<span class="at">shape2=</span>gamma,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb266-6"><a href="ChapSummaryDistributions.html#cb266-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Burr Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-271-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="ChapSummaryDistributions.html#cb284-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb284-2"><a href="ChapSummaryDistributions.html#cb284-2" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb284-3"><a href="ChapSummaryDistributions.html#cb284-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb284-4"><a href="ChapSummaryDistributions.html#cb284-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb284-5"><a href="ChapSummaryDistributions.html#cb284-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dburr</span>(X, <span class="at">shape1 =</span> alpha, <span class="at">shape2 =</span> gamma, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb284-6"><a href="ChapSummaryDistributions.html#cb284-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Burr Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-265-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="3pC" class="tabcontent">
+<div id="id_3pC" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
 <h3>
 Inverse Burr
@@ -2561,7 +2583,7 @@ Inverse Burr
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, \tau&gt;0, \gamma&gt;0, u=\frac{(x/\theta)^\gamma}{1+(x/\theta)^\gamma} \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\tau\gamma(x/\theta)^{\tau \gamma}}{x[1+(x/\theta)^\gamma]^{\tau+1}} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; u^\tau \\
    ~~F(x) &amp; \\
@@ -2586,7 +2608,7 @@ Inverse Burr
 \hline
   \small{\text{Distribution function}} &amp; \text{pinvburr}(p=, shape1=\tau, shape2=\gamma, scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qinvburr}(q=, shape1=\tau, shape2=\gamma, scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qinvburr}(q=, shape1=\tau, shape2=\gamma, scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rinvburr}(n=, shape1=\tau, shape2=\gamma, scale=\theta) \\
 \hline
@@ -2594,13 +2616,13 @@ Inverse Burr
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="ChapSummaryDistributions.html#cb267-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb267-2"><a href="ChapSummaryDistributions.html#cb267-2" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb267-3"><a href="ChapSummaryDistributions.html#cb267-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb267-4"><a href="ChapSummaryDistributions.html#cb267-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb267-5"><a href="ChapSummaryDistributions.html#cb267-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvburr</span>(X,<span class="at">shape1=</span>tau,<span class="at">shape2=</span>gamma,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb267-6"><a href="ChapSummaryDistributions.html#cb267-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Burr Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-272-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="ChapSummaryDistributions.html#cb285-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb285-2"><a href="ChapSummaryDistributions.html#cb285-2" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb285-3"><a href="ChapSummaryDistributions.html#cb285-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb285-4"><a href="ChapSummaryDistributions.html#cb285-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb285-5"><a href="ChapSummaryDistributions.html#cb285-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dinvburr</span>(X, <span class="at">shape1 =</span> tau, <span class="at">shape2 =</span> gamma, <span class="at">scale =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb285-6"><a href="ChapSummaryDistributions.html#cb285-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Inverse Burr Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-266-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="four-parameter-distribution" class="section level3 hasAnchor" number="19.2.4">
@@ -2657,7 +2679,7 @@ Lognormal
   \small{\text{Parameter assumptions}} &amp; -\infty &lt;\mu &lt;\infty, \sigma&gt;0 \\
 \hline
   \small{\text{Probability density}} &amp; \frac{1}{x\sqrt{2\pi}\sigma} \exp\left( -\frac{(\ln x-\mu)^2}{2\sigma^2}\right) \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \Phi\left(\frac{\ln (x)-\mu}{\sigma}\right) \\
    ~~F(x) &amp; \\
@@ -2672,15 +2694,15 @@ Lognormal
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="ChapSummaryDistributions.html#cb268-1" aria-hidden="true" tabindex="-1"></a>dlognorm <span class="ot">&lt;-</span> <span class="cf">function</span>(x,mu,sigma){</span>
-<span id="cb268-2"><a href="ChapSummaryDistributions.html#cb268-2" aria-hidden="true" tabindex="-1"></a>  p<span class="ot">=</span>(<span class="dv">1</span><span class="sc">/</span>(x<span class="sc">*</span>sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi)))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>((<span class="fu">log</span>(x)<span class="sc">-</span>mu)<span class="sc">/</span>sigma)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb268-3"><a href="ChapSummaryDistributions.html#cb268-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
-<span id="cb268-4"><a href="ChapSummaryDistributions.html#cb268-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb268-5"><a href="ChapSummaryDistributions.html#cb268-5" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb268-6"><a href="ChapSummaryDistributions.html#cb268-6" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">12</span></span>
-<span id="cb268-7"><a href="ChapSummaryDistributions.html#cb268-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb268-8"><a href="ChapSummaryDistributions.html#cb268-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dlognorm</span>(X,<span class="at">mu=</span>mu,<span class="at">sigma=</span>sigma),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-273-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="ChapSummaryDistributions.html#cb286-1" aria-hidden="true" tabindex="-1"></a>dlognorm <span class="ot">&lt;-</span> <span class="cf">function</span>(x, mu, sigma) {</span>
+<span id="cb286-2"><a href="ChapSummaryDistributions.html#cb286-2" aria-hidden="true" tabindex="-1"></a>    p <span class="ot">=</span> (<span class="dv">1</span><span class="sc">/</span>(x <span class="sc">*</span> sigma <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> pi))) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>((<span class="fu">log</span>(x) <span class="sc">-</span> mu)<span class="sc">/</span>sigma)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb286-3"><a href="ChapSummaryDistributions.html#cb286-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(p)</span>
+<span id="cb286-4"><a href="ChapSummaryDistributions.html#cb286-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb286-5"><a href="ChapSummaryDistributions.html#cb286-5" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb286-6"><a href="ChapSummaryDistributions.html#cb286-6" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb286-7"><a href="ChapSummaryDistributions.html#cb286-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb286-8"><a href="ChapSummaryDistributions.html#cb286-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dlognorm</span>(X, <span class="at">mu =</span> mu, <span class="at">sigma =</span> sigma), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-267-1.png" width="672" style="display: block; margin: auto;" /></p>
 </p>
 </div>
 <div id="odB" class="tabcontent">
@@ -2698,7 +2720,7 @@ Inverse Gaussian
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, \mu&gt;0, z=\frac{x-\mu}{\mu}~,~y=\frac{x+\mu}{\mu} \\
 \hline
   \small{\text{Probability density}} &amp; \Big(\frac{\theta}{2\pi x^3}\Big)^{1/2}\exp\Big(\frac{-\theta z^2}{2x}\Big) \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \Phi\Big[z\Big(\frac{\theta}{x}\Big)^{1/2}\Big]+\exp\Big(\frac{2\theta}{\mu}\Big)\Phi\Big[-y\Big(\frac{\theta}{x}\Big)^{1/2}\Big] \\
    ~~F(x) &amp; \\
@@ -2725,7 +2747,7 @@ Inverse Gaussian
 \hline
   \small{\text{Distribution function}} &amp; \text{pinvgauss}(p=, mean=\mu,dispersion=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qinvgauss}(q=, mean=\mu,dispersion=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qinvgauss}(q=, mean=\mu,dispersion=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rinvgauss}(n=, mean=\mu,dispersion=\theta) \\
 \hline
@@ -2733,12 +2755,12 @@ Inverse Gaussian
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="ChapSummaryDistributions.html#cb269-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb269-2"><a href="ChapSummaryDistributions.html#cb269-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb269-3"><a href="ChapSummaryDistributions.html#cb269-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">100</span>,<span class="at">by=</span><span class="dv">1</span>)</span>
-<span id="cb269-4"><a href="ChapSummaryDistributions.html#cb269-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dinvgauss</span>(X,<span class="at">mean=</span>mu,<span class="at">dispersion=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb269-5"><a href="ChapSummaryDistributions.html#cb269-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Inverse Gaussian Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-274-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="ChapSummaryDistributions.html#cb287-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb287-2"><a href="ChapSummaryDistributions.html#cb287-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb287-3"><a href="ChapSummaryDistributions.html#cb287-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb287-4"><a href="ChapSummaryDistributions.html#cb287-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dinvgauss</span>(X, <span class="at">mean =</span> mu, <span class="at">dispersion =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb287-5"><a href="ChapSummaryDistributions.html#cb287-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Inverse Gaussian Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-268-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="distributions-with-finite-support" class="section level3 hasAnchor" number="19.2.6">
@@ -2763,12 +2785,12 @@ Beta
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, ~a&gt;0,~b&gt;0, u=\frac{x}{\theta},~0&lt;x&lt;\theta \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} u^a(1-u)^{b-1}\frac{1}{x} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \beta(a,b;u) \\
    ~~F(x) &amp; \\
 \hline
-  \textit{k}^{th}~\small{\text{raw moment}} &amp; \frac{\theta^k 
+  \textit{k}^{th}~\small{\text{raw moment}} &amp; \frac{\theta^k
   \Gamma(a+b)\Gamma(a+k)}{\Gamma(a)\Gamma(a+b+k)} \\
   ~~\mathrm{E}[X^k]  &amp; k&gt;-a \\
 \hline
@@ -2789,20 +2811,20 @@ Beta
 \hline
   \small{\text{Distribution function}} &amp; \text{pbeta}(p=, shape1=a,shape2=b,ncp=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qbeta}(q=, shape1=a,shape2=b,ncp=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qbeta}(q=, shape1=a,shape2=b,ncp=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rbeta}(n=, shape1=a,shape2=b,ncp=\theta) \\
 \hline
 \end{array}
 \end{matrix}
 \]</span></p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="ChapSummaryDistributions.html#cb270-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb270-2"><a href="ChapSummaryDistributions.html#cb270-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb270-3"><a href="ChapSummaryDistributions.html#cb270-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb270-4"><a href="ChapSummaryDistributions.html#cb270-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">1</span>,<span class="at">by=</span>.<span class="dv">0001</span>)</span>
-<span id="cb270-5"><a href="ChapSummaryDistributions.html#cb270-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dbeta</span>(X,<span class="at">shape1=</span>a,<span class="at">shape2=</span>b,<span class="at">ncp=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb270-6"><a href="ChapSummaryDistributions.html#cb270-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Beta Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-275-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="ChapSummaryDistributions.html#cb288-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb288-2"><a href="ChapSummaryDistributions.html#cb288-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb288-3"><a href="ChapSummaryDistributions.html#cb288-3" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb288-4"><a href="ChapSummaryDistributions.html#cb288-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.0001</span>)</span>
+<span id="cb288-5"><a href="ChapSummaryDistributions.html#cb288-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dbeta</span>(X, <span class="at">shape1 =</span> a, <span class="at">shape2 =</span> b, <span class="at">ncp =</span> theta), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>,</span>
+<span id="cb288-6"><a href="ChapSummaryDistributions.html#cb288-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Beta Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-269-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="fsB" class="tabcontent">
 <p><span class="topright" onclick="this.parentElement.style.display=&#39;none&#39;"><button>Hide</button></span></p>
@@ -2819,7 +2841,7 @@ Generalized Beta
   \small{\text{Parameter assumptions}} &amp; \theta&gt;0, a&gt;0, b&gt;0, \tau&gt;0, 0&lt;x&lt;\theta~,~u=(x/\theta)^\tau \\
 \hline
   \small{\text{Probability density}} &amp; \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}u^\alpha(1-u)^{b-1}\frac{\tau}{x} \\
- ~~ \small{\text{function }} f(x)&amp; \\
+~~ \small{\text{function }} f(x)&amp; \\
 \hline
   \small{\text{Distribution function}} &amp; \beta(a,b;u) \\
    ~~F(x) &amp; \\
@@ -2843,7 +2865,7 @@ Generalized Beta
 \hline
   \small{\text{Distribution function}} &amp; \text{pgenbeta}(p=, shape1=a,shape2=b,shape3=\tau,scale=\theta) \\
 \hline
-  \small{\text{Quantile function}} &amp; \text{qgenbeta}(q=, shape1=a,shape2=b,shape3=\tau,scale=\theta) \\ 
+  \small{\text{Quantile function}} &amp; \text{qgenbeta}(q=, shape1=a,shape2=b,shape3=\tau,scale=\theta) \\
 \hline
   \small{\text{Random sampling function}} &amp; \text{rgenbeta}(n=, shape1=a,shape2=b,shape3=\tau,scale=\theta) \\
 \hline
@@ -2851,14 +2873,14 @@ Generalized Beta
 \end{matrix}
 \]</span></p>
 <p><strong>Illustrative Graph</strong></p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="ChapSummaryDistributions.html#cb271-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb271-2"><a href="ChapSummaryDistributions.html#cb271-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb271-3"><a href="ChapSummaryDistributions.html#cb271-3" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb271-4"><a href="ChapSummaryDistributions.html#cb271-4" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb271-5"><a href="ChapSummaryDistributions.html#cb271-5" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb271-6"><a href="ChapSummaryDistributions.html#cb271-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dgenbeta</span>(X,<span class="at">shape1=</span>a,<span class="at">shape2=</span>b,<span class="at">shape3=</span>tau,<span class="at">scale=</span>theta),<span class="at">type=</span><span class="st">&quot;l&quot;</span>,</span>
-<span id="cb271-7"><a href="ChapSummaryDistributions.html#cb271-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Probability density&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">main=</span><span class="st">&quot;Generalized Beta Distribution&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-276-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="ChapSummaryDistributions.html#cb289-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb289-2"><a href="ChapSummaryDistributions.html#cb289-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb289-3"><a href="ChapSummaryDistributions.html#cb289-3" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb289-4"><a href="ChapSummaryDistributions.html#cb289-4" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb289-5"><a href="ChapSummaryDistributions.html#cb289-5" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb289-6"><a href="ChapSummaryDistributions.html#cb289-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> X, <span class="at">y =</span> <span class="fu">dgenbeta</span>(X, <span class="at">shape1 =</span> a, <span class="at">shape2 =</span> b, <span class="at">shape3 =</span> tau, <span class="at">scale =</span> theta),</span>
+<span id="cb289-7"><a href="ChapSummaryDistributions.html#cb289-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability density&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Generalized Beta Distribution&quot;</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-270-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -2883,7 +2905,7 @@ Functions
 \hline
   \text{Distribuion} &amp; \text{Function} \\
 \hline
-  \text{GB2} &amp; 
+  \text{GB2} &amp;
   \frac{\theta\Gamma(\tau+1)\Gamma(\alpha-1)}{\Gamma(\alpha)\Gamma(\tau)}\beta(\tau+1,\alpha-1;\frac{x}{x+\beta})+x[1-\beta(\tau,\alpha;\frac{x}{x+\beta})] \\
 \hline
   \text{Burr} &amp; \frac{\theta\Gamma(1+\frac{1}{\gamma})\Gamma(\alpha-\frac{1}{\gamma})}{\Gamma(\alpha)}\beta(1+\frac{1}{\gamma},\alpha-\frac{1}{\gamma};1-\frac{1}{1+(x/\theta)^\gamma})+x\Big(\frac{1}{1+(x/\theta)^\gamma}\Big)^\alpha \\
@@ -2940,7 +2962,7 @@ Illustrative Graph
 \hline
   \text{Distribution} &amp; \text{Parameters} &amp; \mathrm{E}[X] &amp; E[X\wedge100] &amp; E[X\wedge250] &amp; E[X\wedge500] &amp;E[X\wedge1000] \\
 \hline
-  \text{Pareto} &amp; \alpha = 3, \theta = 200 &amp; 100 &amp; 55.55 &amp;80.25 &amp; 91.84 &amp; 97.22  \\ 
+  \text{Pareto} &amp; \alpha = 3, \theta = 200 &amp; 100 &amp; 55.55 &amp;80.25 &amp; 91.84 &amp; 97.22  \\
 \hline
   \text{Exponential} &amp; \theta = 100 &amp; 100 &amp; 63.21 &amp; 91.79 &amp; 99.33 &amp; 99.99 \\
 \hline
@@ -2953,7 +2975,7 @@ Illustrative Graph
 \end{array}
 \end{matrix}
 \]</span></p>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-277-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-271-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 
 </div>
@@ -3024,7 +3046,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

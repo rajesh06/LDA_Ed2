@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 14 Experience Rating using Bonus-Malus | Loss Data Analytics</title>
   <meta name="description" content="Chapter 14 Experience Rating using Bonus-Malus | Loss Data Analytics is an interactive, online, freely available text. - The online version will contain many interactive objects (quizzes, computer demonstrations, interactive graphs, video, and the like) to promote deeper learning. - A subset of the book will be available in pdf format for low-cost printing. - The online text will be available in multiple languages to promote access to a worldwide audience." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 14 Experience Rating using Bonus-Malus | Loss Data Analytics" />
   <meta property="og:type" content="book" />
@@ -515,7 +515,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -528,7 +528,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -805,16 +805,38 @@ div.csl-indent {
 <li class="chapter" data-level="7.5.1" data-path="ChapSimulation.html"><a href="ChapSimulation.html#ts-7.a.-bootstrap-applications-in-predictive-modeling"><i class="fa fa-check"></i><b>7.5.1</b> TS 7.A. Bootstrap Applications in Predictive Modeling</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html"><i class="fa fa-check"></i><b>8</b> Bayesian Inference</a>
+<li class="chapter" data-level="8" data-path="ChBayes.html"><a href="ChBayes.html"><i class="fa fa-check"></i><b>8</b> Bayesian Inference and Modeling</a>
 <ul>
-<li class="chapter" data-level="8.0.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:IntroBayes"><i class="fa fa-check"></i><b>8.0.1</b> Introduction to Bayesian Inference</a></li>
-<li class="chapter" data-level="8.0.2" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#bayesian-model"><i class="fa fa-check"></i><b>8.0.2</b> Bayesian Model</a></li>
-<li class="chapter" data-level="8.0.3" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#bayesian-inference"><i class="fa fa-check"></i><b>8.0.3</b> Bayesian Inference</a></li>
-<li class="chapter" data-level="8.0.4" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:ConjugateDistributions"><i class="fa fa-check"></i><b>8.0.4</b> Conjugate Distributions</a></li>
-<li class="chapter" data-level="8.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#S:MCMC"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Markov Chain (MCMC)</a>
+<li class="chapter" data-level="8.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecIntro"><i class="fa fa-check"></i><b>8.1</b> A Gentle Introduction to Bayesian Statistics</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#metropolis-hastings"><i class="fa fa-check"></i><b>8.1.1</b> Metropolis Hastings</a></li>
-<li class="chapter" data-level="8.1.2" data-path="ChapBayesInference.html"><a href="ChapBayesInference.html#gibbs-sampler"><i class="fa fa-check"></i><b>8.1.2</b> Gibbs Sampler</a></li>
+<li class="chapter" data-level="8.1.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubSecBayesVsFreq"><i class="fa fa-check"></i><b>8.1.1</b> Bayesian versus Frequentist Statistics</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ChBayes.html"><a href="ChBayes.html#a-brief-history-lesson"><i class="fa fa-check"></i><b>8.1.2</b> A Brief History Lesson</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecBayesRule"><i class="fa fa-check"></i><b>8.1.3</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="8.1.4" data-path="ChBayes.html"><a href="ChBayes.html#an-introductory-example-of-bayes-rule"><i class="fa fa-check"></i><b>8.1.4</b> An Introductory Example of Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecBuildingBlocks"><i class="fa fa-check"></i><b>8.2</b> Building Blocks of Bayesian Inference</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecPosterior"><i class="fa fa-check"></i><b>8.2.1</b> Posterior Distribution</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ChBayes.html"><a href="ChBayes.html#likelihood-function"><i class="fa fa-check"></i><b>8.2.2</b> Likelihood Function</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecPrior"><i class="fa fa-check"></i><b>8.2.3</b> Prior Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecConjugate"><i class="fa fa-check"></i><b>8.3</b> Conjugate Families</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecBetaBin"><i class="fa fa-check"></i><b>8.3.1</b> The Beta–Binomial Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.2" data-path="ChBayes.html"><a href="ChBayes.html#the-gammapoisson-conjugate-family"><i class="fa fa-check"></i><b>8.3.2</b> The Gamma–Poisson Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.3" data-path="ChBayes.html"><a href="ChBayes.html#the-normalnormal-conjugate-family"><i class="fa fa-check"></i><b>8.3.3</b> The Normal–Normal Conjugate Family</a></li>
+<li class="chapter" data-level="8.3.4" data-path="ChBayes.html"><a href="ChBayes.html#criticism-of-conjugate-family-models"><i class="fa fa-check"></i><b>8.3.4</b> Criticism of Conjugate Family Models</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecPosterior"><i class="fa fa-check"></i><b>8.4</b> Posterior Simulation</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="ChBayes.html"><a href="ChBayes.html#introduction-to-markov-chain-monte-carlo-methods"><i class="fa fa-check"></i><b>8.4.1</b> Introduction to Markov Chain Monte Carlo Methods</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ChBayes.html"><a href="ChBayes.html#the-gibbs-sampler"><i class="fa fa-check"></i><b>8.4.2</b> The Gibbs Sampler</a></li>
+<li class="chapter" data-level="8.4.3" data-path="ChBayes.html"><a href="ChBayes.html#the-metropolishastings-algorithm"><i class="fa fa-check"></i><b>8.4.3</b> The Metropolis–Hastings Algorithm</a></li>
+<li class="chapter" data-level="8.4.4" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SubsecDiag"><i class="fa fa-check"></i><b>8.4.4</b> Markov Chain Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="ChBayes.html"><a href="ChBayes.html#ChBayes:SecFurther"><i class="fa fa-check"></i><b>8.5</b> Further Resources and Contributors</a>
+<ul>
+<li class="chapter" data-level="" data-path="ChBayes.html"><a href="ChBayes.html#contributors-7"><i class="fa fa-check"></i>Contributors</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="ChapPremiumFoundations.html"><a href="ChapPremiumFoundations.html"><i class="fa fa-check"></i><b>9</b> Premium Foundations</a>
@@ -1162,7 +1184,7 @@ determination of <em>a posteriori</em> premium rating to complement <em>a priori
 <div id="S:ERBM:Intro" class="section level2 hasAnchor" number="14.1">
 <h2><span class="header-section-number">14.1</span> Introduction<a href="ChapBonusMalus.html#S:ERBM:Intro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="#" class="tooltip" style="color:green"><em>Bonus-malus system</em><span style="font-size:8pt">A type of rating mechanism where insured premiums are adjusted based on their individual loss experience history</span></a>, which is used interchangeably as “no-fault
-discount,” “merit rating,” “experience rating” or “no-claim discount” in
+discount”, “merit rating”, “experience rating” or “no-claim discount” in
 different countries, is based on penalizing insureds who are responsible
 for one or more claims by a premium surcharge (malus), and rewarding insureds
 with a premium discount (bonus) if they do not have any claims.
@@ -1237,7 +1259,7 @@ For an illustration purpose, <a href="#fig:14.1">Figure 14.1</a>
 shows the classes and the transition diagram for the Malaysian <em>NCD</em> system.</p>
 <p><a id=fig:14.1></a></p>
 
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-121"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-115"></span>
 <img src="Figures/FigureTransitionMsia.png" alt="Transition Diagram for NCD Classes (Malaysia)" width="45%" /><img src="Figures/gridMalayTable.png" alt="Transition Diagram for NCD Classes (Malaysia)" width="45%" />
 <p class="caption">
 Figure 14.1: <strong>Transition Diagram for NCD Classes (Malaysia)</strong>
@@ -1281,7 +1303,7 @@ of -1/+1, that is, a class of bonus for a claim-free year, and a class of malus
 for each claim reported.</p>
 <p><a id=fig:14.2></a></p>
 
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-123"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-117"></span>
 <img src="Figures/FigureTransitionBrazil.png" alt="Transition Diagram for NCD Classes (Brazil)" width="45%" /><img src="Figures/gridBrazilTable.png" alt="Transition Diagram for NCD Classes (Brazil)" width="45%" />
 <p class="caption">
 Figure 14.2: <strong>Transition Diagram for <em>NCD</em> Classes (Brazil)</strong>
@@ -1379,10 +1401,10 @@ p_{ij}(0,m+n)=\sum_{l\in S} p_{il}(0,m)p_{lj}(m,m+n)=\sum_{l\in S}p_{il}^{(m)}p_
 <p>In the context of <em>BMS</em>, the transition of the <em>NCD</em> classes is governed by the transition probability in a given year. The transition of the <em>NCD</em> classes is also a time-homogeneous Markov Chain since the set of transition rules is fixed and independent of time. We can represent the one-step transition probabilities by a <span class="math inline">\(k \times k\)</span> <em>transition matrix</em> <span class="math inline">\({\bf P}=(p_{ij})\)</span> that corresponds to <em>NCD</em> classes <span class="math inline">\(0,1,2,\ldots,k-1\)</span>.</p>
 <p><span class="math display">\[
 \small{
-{\bf P} = 
+{\bf P} =
 \left[ {\begin{array}{*{20}c}
 p_{00} &amp; p_{01} &amp; \ldots &amp; &amp; &amp; p_{0k-1} \\
-p_{10} &amp; p_{11} &amp; \ldots &amp; &amp; &amp; p_{1k-1} \\ 
+p_{10} &amp; p_{11} &amp; \ldots &amp; &amp; &amp; p_{1k-1} \\
 \vdots &amp; \ddots &amp; &amp; &amp; &amp; \vdots \\
 p_{k-10} &amp; p_{k-11} &amp; \cdots &amp; &amp; &amp; p_{k-1k-1}   
 \end{array} } \right]
@@ -1404,7 +1426,7 @@ one or more claims within the year, the probability of transitioning back to sta
 represented by the following <span class="math inline">\(6\times 6\)</span> transition matrix:</p>
 <p><span class="math display">\[
 \small{
-{\bf P} = 
+{\bf P} =
 \left[ {\begin{array}{*{20}c}
 p_{00}&amp;p_{01}&amp;0&amp;0&amp;0&amp;0\\
 p_{10}&amp;0&amp;p_{12}&amp;0&amp;0&amp;0\\
@@ -1412,7 +1434,7 @@ p_{20}&amp;0&amp;0&amp;p_{23}&amp;0&amp;0\\
 p_{30}&amp;0&amp;0&amp;0&amp;p_{34}&amp;0\\
 p_{40}&amp;0&amp;0&amp;0&amp;0&amp;p_{45}\\
 p_{50}&amp;0&amp;0&amp;0&amp;0&amp;p_{55}
-\end{array} }\right] = 
+\end{array} }\right] =
 \left[ {\begin{array}{*{20}c}
 {1 - p_{01}}&amp;p_{01}&amp;0&amp;0&amp;0&amp;0\\
 {1 - p_{12}}&amp;0&amp;p_{12}&amp;0&amp;0&amp;0\\
@@ -1441,7 +1463,7 @@ state, and one or more probabilities for moving one-class backward. The
 transition matrix is:</p>
 <p><span class="math display">\[
 \small{
-{\bf P} = 
+{\bf P} =
 \left[ {\begin{array}{*{20}{c}}
 {1 - p_{01}}&amp;p_{01}&amp;0&amp;0&amp;0&amp;0&amp;0\\
 {1 - p_{12}}&amp;0&amp;p_{12}&amp;0&amp;0&amp;0&amp;0\\
@@ -1465,7 +1487,7 @@ Provide the transition matrix for the <em>NCD</em> system in Switzerland.</p>
 <p>From <a href="#tab:14.3">Table 14.1</a> and Figure <a href="ChapBonusMalus.html#fig:TransitionSwitz">14.3</a>, the probability of a no-claim year is equal to the probability of moving one-class forward, whereas the probability of having one or more claims within the year is equal to the probability of moving four-classes backward for each claim. The transition matrix is:</p>
 <p><span class="math display">\[
 \small{
-{\bf P} = 
+{\bf P} =
 \left[
 {\begin{array}{*{12}{c}}
 1 - {p_{01}} &amp; p_{01} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots\\
@@ -1516,7 +1538,7 @@ Find the stationary distribution for the <em>NCD</em> system in Malaysia assumin
 The transition matrix can be re-written as:</p>
 <p><span class="math display">\[
 \small{
-{\bf P} = 
+{\bf P} =
 \left[ {\begin{array}{*{20}c}
 {1 - p_{0}}&amp;p_{0}&amp;0&amp;0&amp;0&amp;0\\
 {1 - p_{0}}&amp;0&amp;p_{0}&amp;0&amp;0&amp;0\\
@@ -1565,26 +1587,18 @@ insureds will eventually belong to class 5.</p>
 <p>We can use the left eigenvector of a transition matrix to calculate a stationary distribution. The following <code>R</code> code can be used to
 calculate the left eigenvector:</p>
 <p><strong>1. Create a Transition Matrix</strong></p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="ChapBonusMalus.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create transition matrix</span></span>
-<span id="cb188-2"><a href="ChapBonusMalus.html#cb188-2" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.1</span>,<span class="fl">0.9</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb188-3"><a href="ChapBonusMalus.html#cb188-3" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="fl">0.9</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb188-4"><a href="ChapBonusMalus.html#cb188-4" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb188-5"><a href="ChapBonusMalus.html#cb188-5" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9</span>,<span class="dv">0</span>,</span>
-<span id="cb188-6"><a href="ChapBonusMalus.html#cb188-6" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9</span>,</span>
-<span id="cb188-7"><a href="ChapBonusMalus.html#cb188-7" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9</span>)</span>
-<span id="cb188-8"><a href="ChapBonusMalus.html#cb188-8" aria-hidden="true" tabindex="-1"></a>(TP <span class="ot">&lt;-</span> <span class="fu">matrix</span>(entries,<span class="at">nrow=</span><span class="dv">6</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="ChapBonusMalus.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create transition matrix</span></span>
+<span id="cb206-2"><a href="ChapBonusMalus.html#cb206-2" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">0</span>, <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.1</span>,</span>
+<span id="cb206-3"><a href="ChapBonusMalus.html#cb206-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9</span>, <span class="fl">0.1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9</span>)</span>
+<span id="cb206-4"><a href="ChapBonusMalus.html#cb206-4" aria-hidden="true" tabindex="-1"></a>(TP <span class="ot">&lt;-</span> <span class="fu">matrix</span>(entries, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.LeftEigen.1" href="javascript:togglecode('toggleCode.LeftEigen.1','displayCode.LeftEigen.1');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.LeftEigen.1" style="display: none">
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="ChapBonusMalus.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create transition matrix</span></span>
-<span id="cb189-2"><a href="ChapBonusMalus.html#cb189-2" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.1</span>,<span class="fl">0.9</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb189-3"><a href="ChapBonusMalus.html#cb189-3" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="fl">0.9</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb189-4"><a href="ChapBonusMalus.html#cb189-4" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb189-5"><a href="ChapBonusMalus.html#cb189-5" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9</span>,<span class="dv">0</span>,</span>
-<span id="cb189-6"><a href="ChapBonusMalus.html#cb189-6" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9</span>,</span>
-<span id="cb189-7"><a href="ChapBonusMalus.html#cb189-7" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9</span>)</span>
-<span id="cb189-8"><a href="ChapBonusMalus.html#cb189-8" aria-hidden="true" tabindex="-1"></a>(TP <span class="ot">&lt;-</span> <span class="fu">matrix</span>(entries,<span class="at">nrow=</span><span class="dv">6</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="ChapBonusMalus.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create transition matrix</span></span>
+<span id="cb207-2"><a href="ChapBonusMalus.html#cb207-2" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">0</span>, <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.1</span>,</span>
+<span id="cb207-3"><a href="ChapBonusMalus.html#cb207-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9</span>, <span class="fl">0.1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9</span>)</span>
+<span id="cb207-4"><a href="ChapBonusMalus.html#cb207-4" aria-hidden="true" tabindex="-1"></a>(TP <span class="ot">&lt;-</span> <span class="fu">matrix</span>(entries, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5] [,6]
 [1,]  0.1  0.9  0.0  0.0  0.0  0.0
 [2,]  0.1  0.0  0.9  0.0  0.0  0.0
@@ -1594,22 +1608,22 @@ calculate the left eigenvector:</p>
 [6,]  0.1  0.0  0.0  0.0  0.0  0.9</code></pre>
 </div>
 <p><strong>2. Calculate eigenvalues and eigenvectors using the <code>eigen</code> function</strong></p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="ChapBonusMalus.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co">#hint -- left eigenvector is the same as right eigenvector of transpose </span></span>
-<span id="cb191-2"><a href="ChapBonusMalus.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="co">#of transition matrix</span></span>
-<span id="cb191-3"><a href="ChapBonusMalus.html#cb191-3" aria-hidden="true" tabindex="-1"></a>eigenTP <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">t</span>(TP))</span>
-<span id="cb191-4"><a href="ChapBonusMalus.html#cb191-4" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(eigenTP<span class="sc">$</span>values, <span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb191-5"><a href="ChapBonusMalus.html#cb191-5" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(eigenTP<span class="sc">$</span>vectors, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="ChapBonusMalus.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hint -- left eigenvector is the same as right eigenvector of transpose of</span></span>
+<span id="cb209-2"><a href="ChapBonusMalus.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="co"># transition matrix</span></span>
+<span id="cb209-3"><a href="ChapBonusMalus.html#cb209-3" aria-hidden="true" tabindex="-1"></a>eigenTP <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">t</span>(TP))</span>
+<span id="cb209-4"><a href="ChapBonusMalus.html#cb209-4" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(eigenTP<span class="sc">$</span>values, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb209-5"><a href="ChapBonusMalus.html#cb209-5" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(eigenTP<span class="sc">$</span>vectors, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.LeftEigen.2" href="javascript:togglecode('toggleCode.LeftEigen.2','displayCode.LeftEigen.2');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.LeftEigen.2" style="display: none">
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="ChapBonusMalus.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co">#hint -- left eigenvector is the same as right eigenvector of transpose </span></span>
-<span id="cb192-2"><a href="ChapBonusMalus.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="co">#of transition matrix</span></span>
-<span id="cb192-3"><a href="ChapBonusMalus.html#cb192-3" aria-hidden="true" tabindex="-1"></a>eigenTP <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">t</span>(TP))</span>
-<span id="cb192-4"><a href="ChapBonusMalus.html#cb192-4" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(eigenTP<span class="sc">$</span>values, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="ChapBonusMalus.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hint -- left eigenvector is the same as right eigenvector of transpose of</span></span>
+<span id="cb210-2"><a href="ChapBonusMalus.html#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="co"># transition matrix</span></span>
+<span id="cb210-3"><a href="ChapBonusMalus.html#cb210-3" aria-hidden="true" tabindex="-1"></a>eigenTP <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">t</span>(TP))</span>
+<span id="cb210-4"><a href="ChapBonusMalus.html#cb210-4" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(eigenTP<span class="sc">$</span>values, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>[1]  1.000000+0.000000i -0.000488+0.000355i -0.000488-0.000355i
 [4]  0.000187+0.000574i  0.000187-0.000574i  0.000603+0.000000i</code></pre>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="ChapBonusMalus.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(eigenTP<span class="sc">$</span>vectors, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="ChapBonusMalus.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(eigenTP<span class="sc">$</span>vectors, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>         [,1]                                  [,2]
 [1,] 0.162+0i  0.000000000000115+0.000000000000084i
 [2,] 0.145+0i -0.000000000066000-0.000000000203000i
@@ -1640,16 +1654,16 @@ calculate the left eigenvector:</p>
 [6,]  0.707000000000000+0.000000000000000i -0.707000000000000+0i</code></pre>
 </div>
 <p><strong>3. Calculate the left eigenvector</strong></p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="ChapBonusMalus.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co">#divide entry of first column by sum of elements, so that entries sum to 1</span></span>
-<span id="cb196-2"><a href="ChapBonusMalus.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="co">#provide answers in 4 decimal places</span></span>
-<span id="cb196-3"><a href="ChapBonusMalus.html#cb196-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[,<span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[,<span class="dv">1</span>]), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="ChapBonusMalus.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="co"># divide entry of first column by sum of elements, so that entries sum to 1</span></span>
+<span id="cb214-2"><a href="ChapBonusMalus.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="co"># provide answers in 4 decimal places</span></span>
+<span id="cb214-3"><a href="ChapBonusMalus.html#cb214-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[, <span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[, <span class="dv">1</span>]), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.LeftEigen.3" href="javascript:togglecode('toggleCode.LeftEigen.3','displayCode.LeftEigen.3');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.LeftEigen.3" style="display: none">
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="ChapBonusMalus.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co">#divide entry of first column by sum of elements, so that entries sum to 1</span></span>
-<span id="cb197-2"><a href="ChapBonusMalus.html#cb197-2" aria-hidden="true" tabindex="-1"></a><span class="co">#provide answers in 4 decimal places</span></span>
-<span id="cb197-3"><a href="ChapBonusMalus.html#cb197-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[,<span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[,<span class="dv">1</span>]), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="ChapBonusMalus.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="co"># divide entry of first column by sum of elements, so that entries sum to 1</span></span>
+<span id="cb215-2"><a href="ChapBonusMalus.html#cb215-2" aria-hidden="true" tabindex="-1"></a><span class="co"># provide answers in 4 decimal places</span></span>
+<span id="cb215-3"><a href="ChapBonusMalus.html#cb215-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[, <span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[, <span class="dv">1</span>]), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>[1] 0.10000+0i 0.09000+0i 0.08100+0i 0.07290+0i 0.06561+0i 0.59050+0i</code></pre>
 </div>
 <hr />
@@ -1663,7 +1677,7 @@ Find the stationary distribution for the <em>NCD</em> system in Brazil assuming 
 As given in Appendix Section <a href="ChapSummaryDistributions.html#S:DiscreteDistributions">19.1</a>, when the number of claims is Poisson distributed with parameter <span class="math inline">\(\lambda=0.10\)</span>, the probability of <span class="math inline">\(k\)</span> claims is <span class="math inline">\(p_k = \frac{e^{ - 0.1}{(0.1)}^k}{{k!}},{\rm{ }}k = 0,1,2,\ldots.\)</span></p>
 <p>The transition matrix is:</p>
 <p><span class="math display">\[
-{\small 
+{\small
 {\bf{P}} = \left[ {\begin{array}{*{20}{c}}
 {1 - {p_0}}&amp;{{p_0}}&amp;0&amp;0&amp;0&amp;0&amp;0\\
 {1 - {p_0}}&amp;0&amp;{{p_0}}&amp;0&amp;0&amp;0&amp;0\\
@@ -1672,7 +1686,7 @@ As given in Appendix Section <a href="ChapSummaryDistributions.html#S:DiscreteDi
 {1 - \sum_i {{p_i}}}&amp;{{p_3}}&amp;{{p_2}}&amp;{{p_1}}&amp;0&amp;{{p_0}}&amp;0\\
 {1 - \sum_i{{p_i}} }&amp;{{p_4}}&amp;{{p_3}}&amp;{{p_2}}&amp;{{p_1}}&amp;0&amp;{{p_0}}\\
 {1 - \sum_i {{p_i}}}&amp;{{p_5}}&amp;{{p_4}}&amp;{{p_3}}&amp;{{p_2}}&amp;{{p_1}}&amp;{{p_0}}
-\end{array}} \right] = 
+\end{array}} \right] =
 \left[ {\begin{array}{*{20}{c}}
 {0.0952}&amp;{0.9048}&amp;0&amp;0&amp;0&amp;0&amp;0\\
 {0.0952}&amp;0&amp;{0.9048}&amp;0&amp;0&amp;0&amp;0\\
@@ -1694,7 +1708,7 @@ As given in Appendix Section <a href="ChapSummaryDistributions.html#S:DiscreteDi
 {{\pi _4}}\\
 {{\pi_5}}\\
 {{\pi _6}}
-\end{array}} \right] = 
+\end{array}} \right] =
 \left[ {\begin{array}{*{20}{c}}
 {0.0000}\\
 {0.0000}\\
@@ -1721,10 +1735,10 @@ the <em>NCD</em> is <span class="math inline">\(m\)</span>.</p>
 <p><strong>Solution.</strong>
 Using the stationary probabilities from Example 14.4.2, the stationary final premium is:</p>
 <p><span class="math display">\[
-\begin{array}{l} = 
-\sum\limits_j \text{(premium)} \times 
-\text{(proportion in class } j \text{ in the long run)} \times \text{(1 - *NCD* in class } j)\\ 
-= m[{\pi _0}(1) + {\pi _1}(1 - 0.9) + {\pi _2}(1 - 0.15) + \ldots + {\pi _6}(1 - 0.35)]\\ 
+\begin{array}{l} =
+\sum\limits_j \text{(premium)} \times
+\text{(proportion in class } j \text{ in the long run)} \times \text{(1 - *NCD* in class } j)\\
+= m[{\pi _0}(1) + {\pi _1}(1 - 0.9) + {\pi _2}(1 - 0.15) + \ldots + {\pi _6}(1 - 0.35)]\\
 = m[0 + 0 + (0.0003)(0.85) + \ldots + (0.8894)(0.65)]\\
 = 0.6565m .
 \end{array}
@@ -1756,7 +1770,7 @@ Observe the premiums in 20 years under the <em>NCD</em> system in Malaysia, assu
 Under the Malaysian <em>NCD</em>, we use the Poisson probability <span class="math inline">\(p_k = \frac{e^{ - 0.1}{(0.1)}^k}{k!}\)</span>, only for <span class="math inline">\(k = 0,1\)</span>. Therefore, the transition matrix in the first year is:</p>
 <p><span class="math display">\[
 \small{
-{\bf{P}^{(1)}} = 
+{\bf{P}^{(1)}} =
 \left[{\begin{array}{*{20}{c}}
 {0.0952}&amp;{0.9048}&amp;0&amp;0&amp;0&amp;0\\
 {0.0952}&amp;0&amp;{0.9048}&amp;0&amp;0&amp;0\\
@@ -1769,8 +1783,8 @@ Under the Malaysian <em>NCD</em>, we use the Poisson probability <span class="ma
 \]</span></p>
 <p>The premium in the first year, after implementing the <em>NCD</em>, is:</p>
 <p><span class="math display">\[
-\begin{aligned} 
-&amp;= \sum\limits_j \text{(premium)} \times 
+\begin{aligned}
+&amp;= \sum\limits_j \text{(premium)} \times
 \text{(average proportion in class } j) \times \text{(1 - *NCD* in class }j) \\
 &amp;= m\left[ \frac{\sum\limits_i {p_{i0}}}{6}{(1)} +
 \frac{\sum\limits_i {p_{i1}}}{6}{(1 - 0.25)} + \ldots +
@@ -1792,26 +1806,20 @@ Under the Malaysian <em>NCD</em>, we use the Poisson probability <span class="ma
 <p>The following <code>R</code> code can be used to find the premium in the <em>n-</em>th year and the premiums in 20 years under the <em>NCD</em> system in Malaysia (to
 find the solution in Example 14.4.4).</p>
 <p><strong>1. Create a Transition Matrix</strong></p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="ChapBonusMalus.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create transition matrix</span></span>
-<span id="cb199-2"><a href="ChapBonusMalus.html#cb199-2" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.0952</span>,<span class="fl">0.9048</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb199-3"><a href="ChapBonusMalus.html#cb199-3" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb199-4"><a href="ChapBonusMalus.html#cb199-4" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb199-5"><a href="ChapBonusMalus.html#cb199-5" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>,<span class="dv">0</span>,</span>
-<span id="cb199-6"><a href="ChapBonusMalus.html#cb199-6" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>,</span>
-<span id="cb199-7"><a href="ChapBonusMalus.html#cb199-7" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>)</span>
-<span id="cb199-8"><a href="ChapBonusMalus.html#cb199-8" aria-hidden="true" tabindex="-1"></a>(TP <span class="ot">&lt;-</span> <span class="fu">matrix</span>(entries,<span class="at">nrow=</span><span class="dv">6</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="ChapBonusMalus.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create transition matrix</span></span>
+<span id="cb217-2"><a href="ChapBonusMalus.html#cb217-2" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.0952</span>, <span class="fl">0.9048</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.0952</span>, <span class="dv">0</span>, <span class="fl">0.9048</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.0952</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb217-3"><a href="ChapBonusMalus.html#cb217-3" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.9048</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.0952</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9048</span>, <span class="dv">0</span>, <span class="fl">0.0952</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9048</span>, <span class="fl">0.0952</span>,</span>
+<span id="cb217-4"><a href="ChapBonusMalus.html#cb217-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9048</span>)</span>
+<span id="cb217-5"><a href="ChapBonusMalus.html#cb217-5" aria-hidden="true" tabindex="-1"></a>(TP <span class="ot">&lt;-</span> <span class="fu">matrix</span>(entries, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.PremEvol.1" href="javascript:togglecode('toggleCode.PremEvol.1','displayCode.PremEvol.1');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.PremEvol.1" style="display: none">
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="ChapBonusMalus.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create transition matrix</span></span>
-<span id="cb200-2"><a href="ChapBonusMalus.html#cb200-2" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.0952</span>,<span class="fl">0.9048</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb200-3"><a href="ChapBonusMalus.html#cb200-3" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb200-4"><a href="ChapBonusMalus.html#cb200-4" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb200-5"><a href="ChapBonusMalus.html#cb200-5" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>,<span class="dv">0</span>,</span>
-<span id="cb200-6"><a href="ChapBonusMalus.html#cb200-6" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>,</span>
-<span id="cb200-7"><a href="ChapBonusMalus.html#cb200-7" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.0952</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.9048</span>)</span>
-<span id="cb200-8"><a href="ChapBonusMalus.html#cb200-8" aria-hidden="true" tabindex="-1"></a>(TP <span class="ot">&lt;-</span> <span class="fu">matrix</span>(entries,<span class="at">nrow=</span><span class="dv">6</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="ChapBonusMalus.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create transition matrix</span></span>
+<span id="cb218-2"><a href="ChapBonusMalus.html#cb218-2" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.0952</span>, <span class="fl">0.9048</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.0952</span>, <span class="dv">0</span>, <span class="fl">0.9048</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.0952</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb218-3"><a href="ChapBonusMalus.html#cb218-3" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.9048</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.0952</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9048</span>, <span class="dv">0</span>, <span class="fl">0.0952</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9048</span>, <span class="fl">0.0952</span>,</span>
+<span id="cb218-4"><a href="ChapBonusMalus.html#cb218-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.9048</span>)</span>
+<span id="cb218-5"><a href="ChapBonusMalus.html#cb218-5" aria-hidden="true" tabindex="-1"></a>(TP <span class="ot">&lt;-</span> <span class="fu">matrix</span>(entries, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>       [,1]   [,2]   [,3]   [,4]   [,5]   [,6]
 [1,] 0.0952 0.9048 0.0000 0.0000 0.0000 0.0000
 [2,] 0.0952 0.0000 0.9048 0.0000 0.0000 0.0000
@@ -1821,24 +1829,32 @@ find the solution in Example 14.4.4).</p>
 [6,] 0.0952 0.0000 0.0000 0.0000 0.0000 0.9048</code></pre>
 </div>
 <p><strong>2. Create a function for the <span class="math inline">\(n\)</span>th power of a square matrix</strong></p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="ChapBonusMalus.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create function for nth power of square matrix</span></span>
-<span id="cb202-2"><a href="ChapBonusMalus.html#cb202-2" aria-hidden="true" tabindex="-1"></a>powA <span class="ot">&lt;-</span> <span class="cf">function</span>(n) { </span>
-<span id="cb202-3"><a href="ChapBonusMalus.html#cb202-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">==</span><span class="dv">1</span>) <span class="fu">return</span> (TP)</span>
-<span id="cb202-4"><a href="ChapBonusMalus.html#cb202-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">==</span><span class="dv">2</span>) <span class="fu">return</span> (TP<span class="sc">%*%</span>TP)</span>
-<span id="cb202-5"><a href="ChapBonusMalus.html#cb202-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">&gt;</span><span class="dv">2</span>) <span class="fu">return</span> ( TP<span class="sc">%*%</span><span class="fu">powA</span>(n<span class="dv">-1</span>))}</span>
-<span id="cb202-6"><a href="ChapBonusMalus.html#cb202-6" aria-hidden="true" tabindex="-1"></a><span class="co">#example for n=3</span></span>
-<span id="cb202-7"><a href="ChapBonusMalus.html#cb202-7" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">powA</span>(<span class="dv">3</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="ChapBonusMalus.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create function for nth power of square matrix</span></span>
+<span id="cb220-2"><a href="ChapBonusMalus.html#cb220-2" aria-hidden="true" tabindex="-1"></a>powA <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb220-3"><a href="ChapBonusMalus.html#cb220-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb220-4"><a href="ChapBonusMalus.html#cb220-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(TP)</span>
+<span id="cb220-5"><a href="ChapBonusMalus.html#cb220-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb220-6"><a href="ChapBonusMalus.html#cb220-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(TP <span class="sc">%*%</span> TP)</span>
+<span id="cb220-7"><a href="ChapBonusMalus.html#cb220-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="sc">&gt;</span> <span class="dv">2</span>)</span>
+<span id="cb220-8"><a href="ChapBonusMalus.html#cb220-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(TP <span class="sc">%*%</span> <span class="fu">powA</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb220-9"><a href="ChapBonusMalus.html#cb220-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb220-10"><a href="ChapBonusMalus.html#cb220-10" aria-hidden="true" tabindex="-1"></a><span class="co"># example for n=3</span></span>
+<span id="cb220-11"><a href="ChapBonusMalus.html#cb220-11" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">powA</span>(<span class="dv">3</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.PremEvol.2" href="javascript:togglecode('toggleCode.PremEvol.2','displayCode.PremEvol.2');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.PremEvol.2" style="display: none">
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="ChapBonusMalus.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create function for nth power of square matrix</span></span>
-<span id="cb203-2"><a href="ChapBonusMalus.html#cb203-2" aria-hidden="true" tabindex="-1"></a>powA <span class="ot">&lt;-</span> <span class="cf">function</span>(n) { </span>
-<span id="cb203-3"><a href="ChapBonusMalus.html#cb203-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">==</span><span class="dv">1</span>) <span class="fu">return</span> (TP)</span>
-<span id="cb203-4"><a href="ChapBonusMalus.html#cb203-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">==</span><span class="dv">2</span>) <span class="fu">return</span> (TP<span class="sc">%*%</span>TP)</span>
-<span id="cb203-5"><a href="ChapBonusMalus.html#cb203-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n<span class="sc">&gt;</span><span class="dv">2</span>) <span class="fu">return</span> ( TP<span class="sc">%*%</span><span class="fu">powA</span>(n<span class="dv">-1</span>))}</span>
-<span id="cb203-6"><a href="ChapBonusMalus.html#cb203-6" aria-hidden="true" tabindex="-1"></a><span class="co">#example for n=3</span></span>
-<span id="cb203-7"><a href="ChapBonusMalus.html#cb203-7" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">powA</span>(<span class="dv">3</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="ChapBonusMalus.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create function for nth power of square matrix</span></span>
+<span id="cb221-2"><a href="ChapBonusMalus.html#cb221-2" aria-hidden="true" tabindex="-1"></a>powA <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb221-3"><a href="ChapBonusMalus.html#cb221-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb221-4"><a href="ChapBonusMalus.html#cb221-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(TP)</span>
+<span id="cb221-5"><a href="ChapBonusMalus.html#cb221-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb221-6"><a href="ChapBonusMalus.html#cb221-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(TP <span class="sc">%*%</span> TP)</span>
+<span id="cb221-7"><a href="ChapBonusMalus.html#cb221-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (n <span class="sc">&gt;</span> <span class="dv">2</span>)</span>
+<span id="cb221-8"><a href="ChapBonusMalus.html#cb221-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(TP <span class="sc">%*%</span> <span class="fu">powA</span>(n <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb221-9"><a href="ChapBonusMalus.html#cb221-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb221-10"><a href="ChapBonusMalus.html#cb221-10" aria-hidden="true" tabindex="-1"></a><span class="co"># example for n=3</span></span>
+<span id="cb221-11"><a href="ChapBonusMalus.html#cb221-11" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">powA</span>(<span class="dv">3</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>       [,1]   [,2]   [,3]  [,4]  [,5]  [,6]
 [1,] 0.0952 0.0861 0.0779 0.741 0.000 0.000
 [2,] 0.0952 0.0861 0.0779 0.000 0.741 0.000
@@ -1848,47 +1864,49 @@ find the solution in Example 14.4.4).</p>
 [6,] 0.0952 0.0861 0.0779 0.000 0.000 0.741</code></pre>
 </div>
 <p><strong>3. create function for premium in nth year</strong></p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="ChapBonusMalus.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define NCD percentage</span></span>
-<span id="cb205-2"><a href="ChapBonusMalus.html#cb205-2" aria-hidden="true" tabindex="-1"></a>NCD <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,.<span class="dv">75</span>,.<span class="dv">7</span>,.<span class="dv">6167</span>,.<span class="dv">55</span>,.<span class="dv">45</span>)</span>
-<span id="cb205-3"><a href="ChapBonusMalus.html#cb205-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-4"><a href="ChapBonusMalus.html#cb205-4" aria-hidden="true" tabindex="-1"></a><span class="co">#create function for premium in nth year</span></span>
-<span id="cb205-5"><a href="ChapBonusMalus.html#cb205-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb205-6"><a href="ChapBonusMalus.html#cb205-6" aria-hidden="true" tabindex="-1"></a>prem <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
-<span id="cb205-7"><a href="ChapBonusMalus.html#cb205-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(NCD))</span>
-<span id="cb205-8"><a href="ChapBonusMalus.html#cb205-8" aria-hidden="true" tabindex="-1"></a>         p[j] <span class="ot">=</span> <span class="fu">mean</span>(<span class="fu">powA</span>(n)[,j])</span>
-<span id="cb205-9"><a href="ChapBonusMalus.html#cb205-9" aria-hidden="true" tabindex="-1"></a>         <span class="dv">100</span><span class="sc">*</span><span class="fu">sum</span>(p<span class="sc">*</span>NCD)</span>
-<span id="cb205-10"><a href="ChapBonusMalus.html#cb205-10" aria-hidden="true" tabindex="-1"></a>         }</span>
-<span id="cb205-11"><a href="ChapBonusMalus.html#cb205-11" aria-hidden="true" tabindex="-1"></a><span class="co">#example for n=3</span></span>
-<span id="cb205-12"><a href="ChapBonusMalus.html#cb205-12" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">prem</span>(<span class="dv">3</span>), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="ChapBonusMalus.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define NCD percentage</span></span>
+<span id="cb223-2"><a href="ChapBonusMalus.html#cb223-2" aria-hidden="true" tabindex="-1"></a>NCD <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.75</span>, <span class="fl">0.7</span>, <span class="fl">0.6167</span>, <span class="fl">0.55</span>, <span class="fl">0.45</span>)</span>
+<span id="cb223-3"><a href="ChapBonusMalus.html#cb223-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-4"><a href="ChapBonusMalus.html#cb223-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create function for premium in nth year</span></span>
+<span id="cb223-5"><a href="ChapBonusMalus.html#cb223-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb223-6"><a href="ChapBonusMalus.html#cb223-6" aria-hidden="true" tabindex="-1"></a>prem <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb223-7"><a href="ChapBonusMalus.html#cb223-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(NCD)) p[j] <span class="ot">=</span> <span class="fu">mean</span>(<span class="fu">powA</span>(n)[, j])</span>
+<span id="cb223-8"><a href="ChapBonusMalus.html#cb223-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100</span> <span class="sc">*</span> <span class="fu">sum</span>(p <span class="sc">*</span> NCD)</span>
+<span id="cb223-9"><a href="ChapBonusMalus.html#cb223-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb223-10"><a href="ChapBonusMalus.html#cb223-10" aria-hidden="true" tabindex="-1"></a><span class="co"># example for n=3</span></span>
+<span id="cb223-11"><a href="ChapBonusMalus.html#cb223-11" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">prem</span>(<span class="dv">3</span>), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.PremEvol.3" href="javascript:togglecode('toggleCode.PremEvol.3','displayCode.PremEvol.3');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.PremEvol.3" style="display: none">
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="ChapBonusMalus.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define NCD percentage</span></span>
-<span id="cb206-2"><a href="ChapBonusMalus.html#cb206-2" aria-hidden="true" tabindex="-1"></a>NCD <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,.<span class="dv">75</span>,.<span class="dv">7</span>,.<span class="dv">6167</span>,.<span class="dv">55</span>,.<span class="dv">45</span>)</span>
-<span id="cb206-3"><a href="ChapBonusMalus.html#cb206-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb206-4"><a href="ChapBonusMalus.html#cb206-4" aria-hidden="true" tabindex="-1"></a><span class="co">#create function for premium in nth year</span></span>
-<span id="cb206-5"><a href="ChapBonusMalus.html#cb206-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb206-6"><a href="ChapBonusMalus.html#cb206-6" aria-hidden="true" tabindex="-1"></a>prem <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
-<span id="cb206-7"><a href="ChapBonusMalus.html#cb206-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(NCD))</span>
-<span id="cb206-8"><a href="ChapBonusMalus.html#cb206-8" aria-hidden="true" tabindex="-1"></a>         p[j] <span class="ot">=</span> <span class="fu">mean</span>(<span class="fu">powA</span>(n)[,j])</span>
-<span id="cb206-9"><a href="ChapBonusMalus.html#cb206-9" aria-hidden="true" tabindex="-1"></a>         <span class="dv">100</span><span class="sc">*</span><span class="fu">sum</span>(p<span class="sc">*</span>NCD)</span>
-<span id="cb206-10"><a href="ChapBonusMalus.html#cb206-10" aria-hidden="true" tabindex="-1"></a>         }</span>
-<span id="cb206-11"><a href="ChapBonusMalus.html#cb206-11" aria-hidden="true" tabindex="-1"></a><span class="co">#example for n=3</span></span>
-<span id="cb206-12"><a href="ChapBonusMalus.html#cb206-12" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">prem</span>(<span class="dv">3</span>), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="ChapBonusMalus.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define NCD percentage</span></span>
+<span id="cb224-2"><a href="ChapBonusMalus.html#cb224-2" aria-hidden="true" tabindex="-1"></a>NCD <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.75</span>, <span class="fl">0.7</span>, <span class="fl">0.6167</span>, <span class="fl">0.55</span>, <span class="fl">0.45</span>)</span>
+<span id="cb224-3"><a href="ChapBonusMalus.html#cb224-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-4"><a href="ChapBonusMalus.html#cb224-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create function for premium in nth year</span></span>
+<span id="cb224-5"><a href="ChapBonusMalus.html#cb224-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb224-6"><a href="ChapBonusMalus.html#cb224-6" aria-hidden="true" tabindex="-1"></a>prem <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb224-7"><a href="ChapBonusMalus.html#cb224-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(NCD)) p[j] <span class="ot">=</span> <span class="fu">mean</span>(<span class="fu">powA</span>(n)[, j])</span>
+<span id="cb224-8"><a href="ChapBonusMalus.html#cb224-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100</span> <span class="sc">*</span> <span class="fu">sum</span>(p <span class="sc">*</span> NCD)</span>
+<span id="cb224-9"><a href="ChapBonusMalus.html#cb224-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb224-10"><a href="ChapBonusMalus.html#cb224-10" aria-hidden="true" tabindex="-1"></a><span class="co"># example for n=3</span></span>
+<span id="cb224-11"><a href="ChapBonusMalus.html#cb224-11" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">prem</span>(<span class="dv">3</span>), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>[1] 58.06</code></pre>
 </div>
 <p><strong>4. Provide Premiums for 20 years</strong></p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="ChapBonusMalus.html#cb208-1" aria-hidden="true" tabindex="-1"></a>premium<span class="ot">=</span><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb208-2"><a href="ChapBonusMalus.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {premium[n] <span class="ot">=</span> <span class="fu">prem</span>(n) }</span>
-<span id="cb208-3"><a href="ChapBonusMalus.html#cb208-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(premium, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="ChapBonusMalus.html#cb226-1" aria-hidden="true" tabindex="-1"></a>premium <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb226-2"><a href="ChapBonusMalus.html#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {</span>
+<span id="cb226-3"><a href="ChapBonusMalus.html#cb226-3" aria-hidden="true" tabindex="-1"></a>    premium[n] <span class="ot">=</span> <span class="fu">prem</span>(n)</span>
+<span id="cb226-4"><a href="ChapBonusMalus.html#cb226-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb226-5"><a href="ChapBonusMalus.html#cb226-5" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(premium, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.PremEvol.4" href="javascript:togglecode('toggleCode.PremEvol.4','displayCode.PremEvol.4');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.PremEvol.4" style="display: none">
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="ChapBonusMalus.html#cb209-1" aria-hidden="true" tabindex="-1"></a>premium<span class="ot">=</span><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb209-2"><a href="ChapBonusMalus.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {premium[n] <span class="ot">=</span> <span class="fu">prem</span>(n) }</span>
-<span id="cb209-3"><a href="ChapBonusMalus.html#cb209-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(premium, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="ChapBonusMalus.html#cb227-1" aria-hidden="true" tabindex="-1"></a>premium <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb227-2"><a href="ChapBonusMalus.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {</span>
+<span id="cb227-3"><a href="ChapBonusMalus.html#cb227-3" aria-hidden="true" tabindex="-1"></a>    premium[n] <span class="ot">=</span> <span class="fu">prem</span>(n)</span>
+<span id="cb227-4"><a href="ChapBonusMalus.html#cb227-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb227-5"><a href="ChapBonusMalus.html#cb227-5" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(premium, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code> [1] 62.55 59.87 58.06 57.06 56.58 56.58 56.58 56.58 56.58 56.58 56.58 56.58
 [13] 56.58 56.58 56.58 56.58 56.58 56.58 56.58 56.58</code></pre>
 </div>
@@ -1944,7 +1962,7 @@ The transition matrix for the <em>NCD</em> system in Brazil is:</p>
 \]</span></p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:PremEvolution"></span>
-<img src="Figures/FigureEvolution.PNG" alt="Evolution of Premium (Malaysia and Brazil)" width="60%" />
+<img src="Figures/FigureEvolution.png" alt="Evolution of Premium (Malaysia and Brazil)" width="60%" />
 <p class="caption">
 Figure 14.4: <strong>Evolution of Premium (Malaysia and Brazil)</strong>
 </p>
@@ -2020,12 +2038,12 @@ Using <code>R</code>, the stationary probabilities are:</p>
 <p>The following <code>R</code> code can be used to calculate the total variation in the <span class="math inline">\(n\)</span>th year, and the total variations (convergence rates) in
 20 years under the <em>NCD</em> system in Malaysia (the solution in Example 14.4.6).</p>
 <p><strong>1. Recall the Transition Matrix</strong></p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="ChapBonusMalus.html#cb211-1" aria-hidden="true" tabindex="-1"></a>TP</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="ChapBonusMalus.html#cb229-1" aria-hidden="true" tabindex="-1"></a>TP</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.ConvRate.1" href="javascript:togglecode('toggleCode.ConvRate.1','displayCode.ConvRate.1');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.ConvRate.1" style="display: none">
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="ChapBonusMalus.html#cb212-1" aria-hidden="true" tabindex="-1"></a>TP</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="ChapBonusMalus.html#cb230-1" aria-hidden="true" tabindex="-1"></a>TP</span></code></pre></div>
 <pre><code>       [,1]   [,2]   [,3]   [,4]   [,5]   [,6]
 [1,] 0.0952 0.9048 0.0000 0.0000 0.0000 0.0000
 [2,] 0.0952 0.0000 0.9048 0.0000 0.0000 0.0000
@@ -2035,50 +2053,52 @@ Using <code>R</code>, the stationary probabilities are:</p>
 [6,] 0.0952 0.0000 0.0000 0.0000 0.0000 0.9048</code></pre>
 </div>
 <p><strong>2. Create stationary probabilities</strong></p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="ChapBonusMalus.html#cb214-1" aria-hidden="true" tabindex="-1"></a>SP <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[,<span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[,<span class="dv">1</span>])</span>
-<span id="cb214-2"><a href="ChapBonusMalus.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(SP, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="ChapBonusMalus.html#cb232-1" aria-hidden="true" tabindex="-1"></a>SP <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[, <span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[, <span class="dv">1</span>])</span>
+<span id="cb232-2"><a href="ChapBonusMalus.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(SP, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.ConvRate.2" href="javascript:togglecode('toggleCode.ConvRate.2','displayCode.ConvRate.2');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.ConvRate.2" style="display: none">
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="ChapBonusMalus.html#cb215-1" aria-hidden="true" tabindex="-1"></a>SP <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[,<span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[,<span class="dv">1</span>])</span>
-<span id="cb215-2"><a href="ChapBonusMalus.html#cb215-2" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(SP, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="ChapBonusMalus.html#cb233-1" aria-hidden="true" tabindex="-1"></a>SP <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[, <span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">eigen</span>(<span class="fu">t</span>(TP))<span class="sc">$</span>vectors[, <span class="dv">1</span>])</span>
+<span id="cb233-2"><a href="ChapBonusMalus.html#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(SP, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>[1] 0.0952+0i 0.0861+0i 0.0779+0i 0.0705+0i 0.0638+0i 0.6060+0i</code></pre>
 </div>
 <p><strong>3. Create a function for total variation in <span class="math inline">\(n\)</span>th year</strong></p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="ChapBonusMalus.html#cb217-1" aria-hidden="true" tabindex="-1"></a>TV<span class="ot">=</span><span class="cf">function</span>(n){</span>
-<span id="cb217-2"><a href="ChapBonusMalus.html#cb217-2" aria-hidden="true" tabindex="-1"></a>  dif  <span class="ot">=</span><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb217-3"><a href="ChapBonusMalus.html#cb217-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(SP))</span>
-<span id="cb217-4"><a href="ChapBonusMalus.html#cb217-4" aria-hidden="true" tabindex="-1"></a>  dif[j]<span class="ot">=</span><span class="fu">abs</span>(<span class="fu">mean</span>(<span class="fu">powA</span>(n)[,j])<span class="sc">-</span>SP[j])</span>
-<span id="cb217-5"><a href="ChapBonusMalus.html#cb217-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(dif)</span>
-<span id="cb217-6"><a href="ChapBonusMalus.html#cb217-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb217-7"><a href="ChapBonusMalus.html#cb217-7" aria-hidden="true" tabindex="-1"></a><span class="co">#example for n=1</span></span>
-<span id="cb217-8"><a href="ChapBonusMalus.html#cb217-8" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">TV</span>(<span class="dv">1</span>), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="ChapBonusMalus.html#cb235-1" aria-hidden="true" tabindex="-1"></a>TV <span class="ot">=</span> <span class="cf">function</span>(n) {</span>
+<span id="cb235-2"><a href="ChapBonusMalus.html#cb235-2" aria-hidden="true" tabindex="-1"></a>    dif <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb235-3"><a href="ChapBonusMalus.html#cb235-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(SP)) dif[j] <span class="ot">=</span> <span class="fu">abs</span>(<span class="fu">mean</span>(<span class="fu">powA</span>(n)[, j]) <span class="sc">-</span> SP[j])</span>
+<span id="cb235-4"><a href="ChapBonusMalus.html#cb235-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(dif)</span>
+<span id="cb235-5"><a href="ChapBonusMalus.html#cb235-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb235-6"><a href="ChapBonusMalus.html#cb235-6" aria-hidden="true" tabindex="-1"></a><span class="co"># example for n=1</span></span>
+<span id="cb235-7"><a href="ChapBonusMalus.html#cb235-7" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">TV</span>(<span class="dv">1</span>), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.ConvRate.3" href="javascript:togglecode('toggleCode.ConvRate.3','displayCode.ConvRate.3');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.ConvRate.3" style="display: none">
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="ChapBonusMalus.html#cb218-1" aria-hidden="true" tabindex="-1"></a>TV<span class="ot">=</span><span class="cf">function</span>(n){</span>
-<span id="cb218-2"><a href="ChapBonusMalus.html#cb218-2" aria-hidden="true" tabindex="-1"></a>  dif  <span class="ot">=</span><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb218-3"><a href="ChapBonusMalus.html#cb218-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(SP))</span>
-<span id="cb218-4"><a href="ChapBonusMalus.html#cb218-4" aria-hidden="true" tabindex="-1"></a>  dif[j]<span class="ot">=</span><span class="fu">abs</span>(<span class="fu">mean</span>(<span class="fu">powA</span>(n)[,j])<span class="sc">-</span>SP[j])</span>
-<span id="cb218-5"><a href="ChapBonusMalus.html#cb218-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(dif)</span>
-<span id="cb218-6"><a href="ChapBonusMalus.html#cb218-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb218-7"><a href="ChapBonusMalus.html#cb218-7" aria-hidden="true" tabindex="-1"></a><span class="co">#example for n=1</span></span>
-<span id="cb218-8"><a href="ChapBonusMalus.html#cb218-8" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">TV</span>(<span class="dv">1</span>), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="ChapBonusMalus.html#cb236-1" aria-hidden="true" tabindex="-1"></a>TV <span class="ot">=</span> <span class="cf">function</span>(n) {</span>
+<span id="cb236-2"><a href="ChapBonusMalus.html#cb236-2" aria-hidden="true" tabindex="-1"></a>    dif <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb236-3"><a href="ChapBonusMalus.html#cb236-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(SP)) dif[j] <span class="ot">=</span> <span class="fu">abs</span>(<span class="fu">mean</span>(<span class="fu">powA</span>(n)[, j]) <span class="sc">-</span> SP[j])</span>
+<span id="cb236-4"><a href="ChapBonusMalus.html#cb236-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(dif)</span>
+<span id="cb236-5"><a href="ChapBonusMalus.html#cb236-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb236-6"><a href="ChapBonusMalus.html#cb236-6" aria-hidden="true" tabindex="-1"></a><span class="co"># example for n=1</span></span>
+<span id="cb236-7"><a href="ChapBonusMalus.html#cb236-7" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">TV</span>(<span class="dv">1</span>), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>[1] 0.6096</code></pre>
 </div>
 <p><strong>4. Provide total variations (convergence rate) in 20 years</strong></p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="ChapBonusMalus.html#cb220-1" aria-hidden="true" tabindex="-1"></a>tot.var<span class="ot">=</span><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb220-2"><a href="ChapBonusMalus.html#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {tot.var[n] <span class="ot">=</span> <span class="fu">TV</span>(n)}</span>
-<span id="cb220-3"><a href="ChapBonusMalus.html#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(tot.var,<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="ChapBonusMalus.html#cb238-1" aria-hidden="true" tabindex="-1"></a>tot.var <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb238-2"><a href="ChapBonusMalus.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {</span>
+<span id="cb238-3"><a href="ChapBonusMalus.html#cb238-3" aria-hidden="true" tabindex="-1"></a>    tot.var[n] <span class="ot">=</span> <span class="fu">TV</span>(n)</span>
+<span id="cb238-4"><a href="ChapBonusMalus.html#cb238-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb238-5"><a href="ChapBonusMalus.html#cb238-5" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(tot.var, <span class="dv">4</span>)</span></code></pre></div>
 <h5 style="text-align: center;">
 <a id="displayCode.ConvRate.4" href="javascript:togglecode('toggleCode.ConvRate.4','displayCode.ConvRate.4');"><i><strong>Show R Output</strong></i></a>
 </h5>
 <div id="toggleCode.ConvRate.4" style="display: none">
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="ChapBonusMalus.html#cb221-1" aria-hidden="true" tabindex="-1"></a>tot.var<span class="ot">=</span><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb221-2"><a href="ChapBonusMalus.html#cb221-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {tot.var[n] <span class="ot">=</span> <span class="fu">TV</span>(n)}</span>
-<span id="cb221-3"><a href="ChapBonusMalus.html#cb221-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(tot.var,<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="ChapBonusMalus.html#cb239-1" aria-hidden="true" tabindex="-1"></a>tot.var <span class="ot">=</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb239-2"><a href="ChapBonusMalus.html#cb239-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {</span>
+<span id="cb239-3"><a href="ChapBonusMalus.html#cb239-3" aria-hidden="true" tabindex="-1"></a>    tot.var[n] <span class="ot">=</span> <span class="fu">TV</span>(n)</span>
+<span id="cb239-4"><a href="ChapBonusMalus.html#cb239-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb239-5"><a href="ChapBonusMalus.html#cb239-5" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(tot.var, <span class="dv">4</span>)</span></code></pre></div>
 <pre><code> [1] 6.096e-01 3.941e-01 2.252e-01 9.580e-02 1.943e-15 2.068e-15 2.193e-15
  [8] 2.304e-15 2.415e-15 2.415e-15 2.415e-15 2.415e-15 2.415e-15 2.415e-15
 [15] 2.415e-15 2.415e-15 2.415e-15 2.415e-15 2.415e-15 2.415e-15</code></pre>
@@ -2098,7 +2118,7 @@ Using <code>R</code> code, the total variations (or convergence rates) in 20 yea
 <hr />
 </div>
 <p>Examples 14.4.6-7 provide the degree of convergence for two different <em>BMS</em> (two different countries). The Malaysian <em>BMS</em> reaches full stationary
-only after five years, while the <em>BMS</em> in Brazil takes a longer period. As mentioned in <span class="citation"><a href="#ref-Lemaire98" role="doc-biblioref">Lemaire</a> (<a href="#ref-Lemaire98" role="doc-biblioref">1998</a>)</span>, a more sophisticated <em>BMS</em> would converge
+only after five years, while the <em>BMS</em> in Brazil takes a longer period. As mentioned in <span class="citation">Lemaire (<a href="#ref-Lemaire98" role="doc-biblioref">1998</a>)</span>, a more sophisticated <em>BMS</em> would converge
 more slowly, and is considered as a drawback as it takes a longer period to stabilize. The main objective of a <em>BMS</em> is to separate the good
 drivers from the bad drivers, and thus, it is desirable to have a classification process that can be finalized (or stabilized) as soon as
 possible.</p>
@@ -2111,15 +2131,15 @@ possible.</p>
 <p>In motor insurance ratemaking, BMS is a form of <em>a posteriori</em> rating mechanism to complement the use of <em>a priori</em> risk classification as described in Chapter <a href="ChapRiskClass.html#ChapRiskClass">10</a>. The <em>a priori</em> <strong><em>risk segmentation</em></strong> introduced in Section <a href="ChapRiskClass.html#S:RC:Introduction">10.1</a>
 divides portfolio of drivers into a number of homogeneous risk classes based on observable rating factors (see Section <a href="ChapPremiumFoundations.html#S:RatingFactors">9.4.2</a>),
 such that policyholders in the same risk class pay the same <em>a priori</em> premium. The underlying reason for utilizing BMS that relies on claims experience information is to deal with the <em>residual heterogeneity</em> within each homogeneous risk class (e.g., see the discussion before Example 2.6.2) since the observable variables are far from perfect in predicting the riskiness of driving behaviors.</p>
-<p>The ideal <em>a posteriori</em> mechanism is the credibility premium framework developed in Chapter <a href="ChapCredibility.html#ChapCredibility">11</a> and in particular Section <a href="ChapCredibility.html#S:Cred:BayesInf">11.5</a> (see also <span class="citation"><a href="#ref-DionneVanasse89" role="doc-biblioref">Dionne and Vanasse</a> (<a href="#ref-DionneVanasse89" role="doc-biblioref">1989</a>)</span>), whereby premiums are derived on an individual basis for each policyholder by incorporating both the <em>a priori</em> and <em>a posteriori</em> information. However, such individual premium determination is overly complex from a commercial standpoint for practical implementations by motor insurers. For this reason, <em>BMS</em> is the preferred solution and it consists of the following three building blocks: (a) <em>BMS</em> classes; (b) transition rules; (c) premium levels (also known as premium relativities or premium adjustment coefficients).</p>
+<p>The ideal <em>a posteriori</em> mechanism is the credibility premium framework developed in Chapter <a href="ChapCredibility.html#ChapCredibility">11</a> and in particular Section <a href="ChapCredibility.html#S:Cred:BayesInf">11.5</a> (see also <span class="citation">Dionne and Vanasse (<a href="#ref-DionneVanasse89" role="doc-biblioref">1989</a>)</span>), whereby premiums are derived on an individual basis for each policyholder by incorporating both the <em>a priori</em> and <em>a posteriori</em> information. However, such individual premium determination is overly complex from a commercial standpoint for practical implementations by motor insurers. For this reason, <em>BMS</em> is the preferred solution and it consists of the following three building blocks: (a) <em>BMS</em> classes; (b) transition rules; (c) premium levels (also known as premium relativities or premium adjustment coefficients).</p>
 <p>The first two building blocks are pre-specified in advance and have been discussed in previous sections, whereas the determination (instead of pre-determined as discussed in the cases of Malaysian, Brazilian and Swiss systems) of premium relativities are important for motor insurers precisely because of its complementary and correction nature to account for the imperfection or inaccuracies in the <em>a priori</em>
-risk classification. Note that the premium relativities under BMS are different from the relativity measure defined in Section <a href="ChapPremiumFoundations.html#S:RatingFactors">9.4.2</a>, which is the ratio between the expected risk of a given risk class to a baseline risk class, both of which are calculated from observable rating factors. In the following subsections, we briefly introduce the required modelling setup to study the determination of optimal relativities. We refer interested reader to <span class="citation"><a href="#ref-Denuit07" role="doc-biblioref">Denuit et al.</a> (<a href="#ref-Denuit07" role="doc-biblioref">2007</a>)</span> for a fuller discussion on the technical details.</p>
+risk classification. Note that the premium relativities under BMS are different from the relativity measure defined in Section <a href="ChapPremiumFoundations.html#S:RatingFactors">9.4.2</a>, which is the ratio between the expected risk of a given risk class to a baseline risk class, both of which are calculated from observable rating factors. In the following subsections, we briefly introduce the required modelling setup to study the determination of optimal relativities. We refer interested reader to <span class="citation">Denuit et al. (<a href="#ref-Denuit07" role="doc-biblioref">2007</a>)</span> for a fuller discussion on the technical details.</p>
 </div>
 <div id="a-priori-risk-classification" class="section level3 hasAnchor" number="14.5.2">
 <h3><span class="header-section-number">14.5.2</span> A Priori Risk Classification<a href="ChapBonusMalus.html#a-priori-risk-classification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us consider a portfolio of <span class="math inline">\(n\)</span> policies, where the risk exposure (see Section <a href="ChapPremiumFoundations.html#S:ExposureToRisk">9.4.1</a>) of driver <span class="math inline">\(i\)</span>
 is denoted as <span class="math inline">\(m_{i}\)</span> and the number of claims reported is represented by <span class="math inline">\(Y_{i}\)</span>, following from the notations used in Section <a href="ChapRiskClass.html#S:RC:PoissonRegression">10.2</a>. Let <span class="math inline">\({\bf x}_{i}^{T}=(x_{i1},x_{i2},\ldots, x_{iq})\)</span> be the vector of observable
-variables for <span class="math inline">\(i=1,2,\ldots, n\)</span>. The Poisson regression as developed in Section <a href="ChapRiskClass.html#S:RC:PoissonRegression">10.2</a> is commonly chosen to model <span class="math inline">\(Y_{i}\)</span> under the generalized linear models (GLM) framework, see Section 13.3.2.2 and also <span class="citation"><a href="#ref-McCullaghNelder89" role="doc-biblioref">McCullagh and Nelder</a> (<a href="#ref-McCullaghNelder89" role="doc-biblioref">1989</a>)</span>.</p>
+variables for <span class="math inline">\(i=1,2,\ldots, n\)</span>. The Poisson regression as developed in Section <a href="ChapRiskClass.html#S:RC:PoissonRegression">10.2</a> is commonly chosen to model <span class="math inline">\(Y_{i}\)</span> under the generalized linear models (GLM) framework, see Section 13.3.2.2 and also <span class="citation">McCullagh and Nelder (<a href="#ref-McCullaghNelder89" role="doc-biblioref">1989</a>)</span>.</p>
 <p>We can then express the predicted <em>a priori</em> expected claim frequency for policyholder <span class="math inline">\(i\)</span> as</p>
 <p><span class="math display">\[
 \mu_{i}=m_{i}\lambda_{i}=m_{i}\exp\left(\hat{\beta}_{0}+\sum\limits_{m=1}^{q}\hat{\beta}_{m}x_{im}\right) ,
@@ -2160,7 +2180,7 @@ EPV&amp;=\mathrm{E}(\mathrm{Var}(Y| \lambda_{i}))=\mathrm{E}(\lambda_{i}\Theta)=
 VHM&amp;=\mathrm{Var}(\mathrm{E}(Y| \lambda_{i}))=\mathrm{Var}(\lambda_{i}\Theta)=\frac{\lambda_{i}^{2}}{a},\\
 K&amp;=\frac{EPV}{VHM}=\frac{\lambda_{i}}{\frac{\lambda_{i}^{2}}{a}}=\frac{a}{\lambda_{i}},\\
 Z&amp;=\frac{n}{n+K}=\frac{n\lambda_{i}}{n\lambda_{i}+a},\\
-\bar{Y}&amp;=\frac{\sum_{j=1}^{n} y_{j}}{n}=\frac{\sum_{j=1}^{n} k_{j}}{n},\\ 
+\bar{Y}&amp;=\frac{\sum_{j=1}^{n} y_{j}}{n}=\frac{\sum_{j=1}^{n} k_{j}}{n},\\
 \mu&amp;=\mathrm{E}(\mathrm{E}(Y_{i}| \lambda_{i}))=\mathrm{E}(\lambda_{i}\Theta)=\lambda_{i},
 \end{align*}\]</span>
 and hence the credibility-weighted estimate as
@@ -2215,7 +2235,7 @@ parameter <span class="math inline">\(\theta\)</span>, the expression (not numer
 </div>
 <div id="determination-of-optimal-relativities" class="section level3 hasAnchor" number="14.5.5">
 <h3><span class="header-section-number">14.5.5</span> Determination of Optimal Relativities<a href="ChapBonusMalus.html#determination-of-optimal-relativities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The <strong><em>optimal relativity</em></strong> for each <em>BMS</em> level was first derived by <span class="citation"><a href="#ref-Norberg76" role="doc-biblioref">Norberg</a> (<a href="#ref-Norberg76" role="doc-biblioref">1976</a>)</span>
+<p>The <strong><em>optimal relativity</em></strong> for each <em>BMS</em> level was first derived by <span class="citation">Norberg (<a href="#ref-Norberg76" role="doc-biblioref">1976</a>)</span>
 through the minimization of the following objective function, which is more commonly
 known as the Norberg’s criterion:
 <span class="math display">\[\begin{equation*}
@@ -2223,12 +2243,12 @@ known as the Norberg’s criterion:
 \end{equation*}\]</span>
 where <span class="math inline">\(\hat{\lambda}\)</span> is the constant expected claim frequency for all policyholders
 in the absence of <em>a priori</em> risk classification and <span class="math inline">\(r_{L}\)</span> is the premium relativity for
-BMS level <span class="math inline">\(L\)</span>. <span class="citation"><a href="#ref-Pitrebois03" role="doc-biblioref">Pitrebois, Denuit, and Walhin</a> (<a href="#ref-Pitrebois03" role="doc-biblioref">2003</a>)</span> then incorporated the information of <em>a priori</em>
+BMS level <span class="math inline">\(L\)</span>. <span class="citation">Pitrebois, Denuit, and Walhin (<a href="#ref-Pitrebois03" role="doc-biblioref">2003</a>)</span> then incorporated the information of <em>a priori</em>
 risk classification into the optimization of the same objective function of
 <span class="math display">\[\begin{equation*}
 \min\mathrm{E}\left((\Theta-r_{L})^{2}\right)
 \end{equation*}\]</span>
-to derive <span class="math inline">\(r_{L}\)</span> analytically. <span class="citation"><a href="#ref-Tan15" role="doc-biblioref">Tan et al.</a> (<a href="#ref-Tan15" role="doc-biblioref">2015</a>)</span> further proposed the minimization of the following objective function
+to derive <span class="math inline">\(r_{L}\)</span> analytically. <span class="citation">Tan et al. (<a href="#ref-Tan15" role="doc-biblioref">2015</a>)</span> further proposed the minimization of the following objective function
 <span class="math display">\[\begin{equation}
 \min\mathrm{E}\left((\Lambda\Theta-\Lambda r_{L})^{2}\right), \text{ subject to } \mathrm{E}(r_{L})=1,
 \end{equation}\]</span>
@@ -2242,7 +2262,7 @@ under a financial balanced constraint (that is, the expected premium relativity 
 \end{align*}\]</span>
 It is crucially important that the optimal relativity has an average of 100%,
 so that the bonuses and maluses exactly offset each other to result in a
-financial equilibrium condition. Note that the approach considered by <span class="citation"><a href="#ref-Pitrebois03" role="doc-biblioref">Pitrebois, Denuit, and Walhin</a> (<a href="#ref-Pitrebois03" role="doc-biblioref">2003</a>)</span>
+financial equilibrium condition. Note that the approach considered by <span class="citation">Pitrebois, Denuit, and Walhin (<a href="#ref-Pitrebois03" role="doc-biblioref">2003</a>)</span>
 does not require the financial balanced constraint because the analytical solution
 to its objective function is given by <span class="math inline">\(r_{\ell}=\mathrm{E}(\Theta|L=\ell)\)</span>, so it
 follows that <span class="math inline">\(\mathrm{E}(r_{L})=\mathrm{E}\left(\mathrm{E}(\Theta|L)\right)=\mathrm{E}(\Theta)=1\)</span>
@@ -2288,7 +2308,7 @@ specified premium levels given earlier. In our illustrations, we also assume tha
 \]</span></p>
 <p>We also assume that the gamma parameter is fixed at <span class="math inline">\(a=1.5\)</span>. Note that while these modelling assumptions are simple, the purpose here is to demonstrate the
 determination of optimal relativities under a relatively simple setup, and that the optimization procedure for the <em>BMS</em> remains the same even if the
-<em>a priori</em> risk classification is performed extensively. We refer interested readers to the motor vehicle claims data as documented in <span class="citation"><a href="#ref-Dejong08" role="doc-biblioref">De Jong and Heller</a> (<a href="#ref-Dejong08" role="doc-biblioref">2008</a>)</span>
+<em>a priori</em> risk classification is performed extensively. We refer interested readers to the motor vehicle claims data as documented in <span class="citation">De Jong and Heller (<a href="#ref-Dejong08" role="doc-biblioref">2008</a>)</span>
 to conduct the <em>a priori</em> risk segmentation before proceeding to the determination of optimal relativities.</p>
 <p>Furthermore, as mentioned earlier, the inclusion of random effect parameter <span class="math inline">\(\theta\)</span> implies that the required expression (not numerical values) for
 stationary probabilities <span class="math inline">\(\pi_{\ell}^{\lambda}(\lambda\theta)\)</span> to be used
@@ -2370,17 +2390,17 @@ by solving the following constrained optimization with an inequality constraint<
 \min\mathrm{E}\left((\Lambda\Theta-\Lambda a-\Lambda bL)^{2}\right) \text{ subject to }
 a+b\mathrm{E}(L)\ge 1.
 \]</span></p>
-<p>We refer interested readers to <span class="citation"><a href="#ref-Tan16" role="doc-biblioref">Tan</a> (<a href="#ref-Tan16" role="doc-biblioref">2016</a>)</span> for a discussion on how to incorporate further commercial constraints and also on the solution to this optimization problem involving Kuhn-Tucker conditions.</p>
+<p>We refer interested readers to <span class="citation">Tan (<a href="#ref-Tan16" role="doc-biblioref">2016</a>)</span> for a discussion on how to incorporate further commercial constraints and also on the solution to this optimization problem involving Kuhn-Tucker conditions.</p>
 </div>
 </div>
 <div id="S:Further" class="section level2 hasAnchor" number="14.6">
 <h2><span class="header-section-number">14.6</span> Further Resources and Contributors<a href="ChapBonusMalus.html#S:Further" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="further-reading-and-references-1" class="section level3 hasAnchor" number="14.6.1">
 <h3><span class="header-section-number">14.6.1</span> Further Reading and References<a href="ChapBonusMalus.html#further-reading-and-references-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Note that our discussions in Section <a href="ChapBonusMalus.html#S:PremRtg">14.5</a> focus on the classical frequency-driven BMS, which implicitly assume that the information of frequency and severity are independent, consistent with the collective risk model as discussed in Section <a href="ChapAggLossModels.html#S:AggLoss:CRM">6.3</a>. However, a number of recent empirical studies (<span class="citation"><a href="#ref-Frees2016" role="doc-biblioref">Frees, Lee, and Yang</a> (<a href="#ref-Frees2016" role="doc-biblioref">2016b</a>)</span>; <span class="citation"><a href="#ref-Garrido2016" role="doc-biblioref">Garrido, Genest, and Schulz</a> (<a href="#ref-Garrido2016" role="doc-biblioref">2016</a>)</span>) point towards the need due to their significant dependence structure. In this regard, <span class="citation"><a href="#ref-Oh20b" role="doc-biblioref">Oh, Kim, and Ahn</a> (<a href="#ref-Oh20b" role="doc-biblioref">2020</a>)</span> and <span class="citation"><a href="#ref-Oh20a" role="doc-biblioref">Oh, Shi, and Ahn</a> (<a href="#ref-Oh20a" role="doc-biblioref">2020</a>)</span> propose recent BMS framework that allows for such frequency-severity dependence based on the bivariate random effect model, where the former utilize both frequency and severity information in the specification of transition rule.</p>
-<p>On the other hand, the framework presented in Section <a href="ChapBonusMalus.html#S:PremRtg">14.5</a> is found to suffer from a double-counting problem, which results in biased premiums due to the dual role of the <em>a priori</em> rating factors in affecting both the <em>a priori</em> risk classification as well as <em>a posteriori</em> experience rating. We refer interested readers to <span class="citation"><a href="#ref-Oh20c" role="doc-biblioref">Oh et al.</a> (<a href="#ref-Oh20c" role="doc-biblioref">2020</a>)</span> who propose to incorporate the estimation of <em>a priori</em> rate (in addition to the <em>a posteriori</em> rate) under a full optimization process to resolve the double-counting problem.</p>
-<div id="contributors-9" class="section level4 unnumbered hasAnchor">
-<h4>Contributors<a href="ChapBonusMalus.html#contributors-9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Note that our discussions in Section <a href="ChapBonusMalus.html#S:PremRtg">14.5</a> focus on the classical frequency-driven BMS, which implicitly assume that the information of frequency and severity are independent, consistent with the collective risk model as discussed in Section <a href="ChapAggLossModels.html#S:AggLoss:CRM">6.3</a>. However, a number of recent empirical studies (<span class="citation">Edward W. Frees, Lee, and Yang (<a href="#ref-Frees2016" role="doc-biblioref">2016b</a>)</span>; <span class="citation">Garrido, Genest, and Schulz (<a href="#ref-Garrido2016" role="doc-biblioref">2016</a>)</span>) point towards the need due to their significant dependence structure. In this regard, <span class="citation">Oh, Kim, and Ahn (<a href="#ref-Oh20b" role="doc-biblioref">2020</a>)</span> and <span class="citation">Oh, Shi, and Ahn (<a href="#ref-Oh20a" role="doc-biblioref">2020</a>)</span> propose recent BMS framework that allows for such frequency-severity dependence based on the bivariate random effect model, where the former utilize both frequency and severity information in the specification of transition rule.</p>
+<p>On the other hand, the framework presented in Section <a href="ChapBonusMalus.html#S:PremRtg">14.5</a> is found to suffer from a double-counting problem, which results in biased premiums due to the dual role of the <em>a priori</em> rating factors in affecting both the <em>a priori</em> risk classification as well as <em>a posteriori</em> experience rating. We refer interested readers to <span class="citation">Oh et al. (<a href="#ref-Oh20c" role="doc-biblioref">2020</a>)</span> who propose to incorporate the estimation of <em>a priori</em> rate (in addition to the <em>a posteriori</em> rate) under a full optimization process to resolve the double-counting problem.</p>
+<div id="contributors-10" class="section level4 unnumbered hasAnchor">
+<h4>Contributors<a href="ChapBonusMalus.html#contributors-10" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>Noriszura Ismail</strong>, Universiti Kebangsaan Malaysia and <strong>Chong It Tan</strong>, Macquarie University, are the principal authors of the initial version of this chapter. Email: <a href="mailto:ni@ukm.edu.my" class="email">ni@ukm.edu.my</a> or <a href="mailto:chongit.tan@mq.edu.au" class="email">chongit.tan@mq.edu.au</a> for chapter comments and suggested improvements.</li>
 <li>This chapter has not yet been reviewed. Write Noriszura, Chong It, or Jed Frees (<a href="mailto:jfrees@bus.wisc.edu" class="email">jfrees@bus.wisc.edu</a>) if you are interested.</li>
@@ -2504,7 +2524,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
