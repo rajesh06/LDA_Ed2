@@ -25,11 +25,11 @@ rmd_files: ["index.Rmd",
            "Chapters/ReviewStatInference.Rmd", 
            "Chapters/IteratedExpectations.Rmd", 
            "Chapters/MaximumLikeTheory.Rmd", 
-           "Chapters/DistributionTable.Rmd",
-          "Chapters/NotationConventions.Rmd",
+          "Chapters/DistributionTable.Rmd",
+         "Chapters/NotationConventions.Rmd",
 ##           "Chapters/DataResources.Rmd",
             "Chapters/DataResourcesNoKnitExtra.Rmd",
-#           "Chapters/PdfGlossary.Rmd",
+           "Chapters/PdfGlossary.Rmd",
            "Chapters/Bibliography.Rmd"]
            
 language:

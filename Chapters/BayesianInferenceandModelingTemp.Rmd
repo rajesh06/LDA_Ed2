@@ -126,27 +126,7 @@ Figure \@ref(fig:ChBayesBayesianTossAnimation) reports the analog of Figure \@re
 (ref:ChBayesBayesianTossAnimation) **Posterior probability density function of parameter $q$ as a function of the sample size**
 
 ```{r echo = FALSE, eval = FALSE}
-
-set.seed(1)
-nbheads <- c()
-for (i in 1:100) {
-  num_flips <- 5
-  coin <- c('heads', 'tails')
-  flips <- sample(coin, size = 5, replace = TRUE)
-  nbheads[i] <- sum(flips=="heads")
-}
-datanbheads <- data.frame(value=nbheads)
-
-set.seed(1)
-nbtotheads <- c(0)
-for (i in 2:1001) {
-  flip <- sample(coin, size = 1)
-  nbtotheads[i] = nbtotheads[i-1] + (flip == "heads")
-}
-nbtotheads <- nbtotheads[2:1001]
-relfreq <- nbtotheads/seq(from=1,to=1000)
-datanbtotheads <- data.frame(index=seq(from=1,to=1000),value=relfreq)
-
+library('gganimate','transformr')
 xs <- seq(from = 0, to = 1, by = 0.001)
 allposterior <- c()
 allxs <- c()
@@ -168,10 +148,10 @@ animp <- ggplot(dataallposterior, aes(x=x, y=y)) +
 save(animp, file= "../IntermediateCalcs/BayesChap/Example811Animate.Rdata")
 ```
 
-```{r ChBayesBayesianTossAnimation, fig.cap='(ref:ChBayesBayesianTossAnimation)', out.width = '80%', fig.asp = 0.75, eval = ANIMATION, echo=SHOW_PDF}
+```{r ChBayesBayesianTossAnimation, echo = FALSE, fig.cap='(ref:ChBayesBayesianTossAnimation)', out.width = '80%', fig.asp = 0.75, fig.align = 'center'}
 load(file= "IntermediateCalcs/BayesChap/Example811Animate.Rdata")
-# load(file= "../IntermediateCalcs/BayesChap/Example811Animate.Rdata")
 animate(animp, fps=5,nframes=200)
+
 
 ```
 
@@ -190,7 +170,7 @@ Thomas Bayes, an English statistician, philosopher and Presbyterian minister, ap
 (ref:ExampleFigure) **Portrait of an unknown Presbyterian clergyman identified as Thomas Bayes in @o1936history**
 
 ```{r ThomasBayes, fig.cap='(ref:ExampleFigure)', out.width = '33%', fig.align = 'center', echo = FALSE}
-knitr::include_graphics("Figures/ThomasBayes.png")
+knitr::include_graphics("Figures/Thomas_Bayes.gif")
 ```
 
 Thomas Bayes' work also helped Pierre-Simon Laplace, a famous French scholar and polymath, to develop and popularize the Bayesian interpretation of probability in the late 1700s and early 1800s. He also moved beyond Bayes' essay and generalized his framework. Laplace's efforts were followed by many, and Bayesian thinking continued to progress throughout the years with the help of statisticians like Bruno de Finetti, Harold Jeffreys, Dennis Lindley, and Leonard Jimmie Savage. 
@@ -346,15 +326,13 @@ Then,
 
 </div>
 
-
 ### An Introductory Example of Bayes' Rule
 
 The example above illustrates how to use Bayes' rule in an academic context; the focus of this book is, nonetheless, data analytics. We therefore also wish to illustrate Bayes' rule by using *real* data. In this introductory example, we use the Singapore auto data `sgautonb` of the R package `CASdatasets` that was already used in Chapter \@ref(ChapFrequency-Modeling) (see also Section \@ref(S:data-CASdatasets) for more details).
 
 ```{r ChBayesLoadSingaporeData, echo = TRUE, eval = TRUE}
-library(CASdatasets)
+library('CASdatasets')
 data(sgautonb)
-
 ```
 
 This dataset contains information about the number of car accidents and some risk factors (i.e., the type of the vehicle insured, the age of the vehicle, the sex of the policyholder, and the age of the policyholder grouped into seven categories).[^ChBayesFt6]

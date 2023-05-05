@@ -60,6 +60,10 @@ The project goal is to have the actuarial community author our textbooks in a co
 
 - **Katrien Antonio**, KU Leuven
 
+<img src = "ContributorPics\JFBegin.jpg" width = "150" height = "160" style = "float:right; margin-left: 10px; margin-top: 7px" />
+
+- **Jean-François Bégin** is an Assistant Professor in the Department of Statistics and Actuarial Science at Simon Fraser University in British Columbia, Canada. Bégin holds a PhD in Financial Engineering from HEC Montréal, Canada, and is a Fellow of the Society of Actuaries and of the Canadian Institute of Actuaries. His current research interests include financial modelling, financial econometrics, Bayesian statistics, filtering methods, credit risk, option pricing, and pension economics. Bégin has designed and taught a variety of actuarial finance and actuarial communication courses. 
+
 - **Jan Beirlant**, KU Leuven
 
 <img src = "ContributorPics\Charpentier.jpg" width = "150" height = "160" style = "float:right; margin-left: 10px; margin-top: 7px" />
@@ -153,6 +157,7 @@ The project goal is to have the actuarial community author our textbooks in a co
 Our goal is to have the actuarial community author our textbooks in a collaborative fashion. Part of the writing process involves many reviewers who generously donated their time to help make this book better. They are:
 
 - Yair Babab
+- David Back, Liberty Mutual
 - Chunsheng Ban,	Ohio State University
 - Vytaras Brazauskas,	University of Wisconsin - Milwaukee
 - Yvonne Chueh, Central Washington University

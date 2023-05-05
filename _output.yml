@@ -1,7 +1,6 @@
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
-    before_body: frontpage.tex
+    in_header: Format/preambleEWF.tex
   toc: TRUE
   toc_depth: '3'
   latex_engine: xelatex
@@ -10,7 +9,7 @@ bookdown::pdf_book:
 bookdown::epub_book: default
 bookdown::gitbook:
   css: 
-    -  style.css
+    -  Format/style.css
     -  includeWebex/webex.css
   includes:
     in_header: 

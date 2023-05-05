@@ -1,4 +1,3 @@
-
 --- 
 title: "Loss Data Analytics"
 author: "An open text authored by the Actuarial Community"
@@ -6,8 +5,9 @@ site: bookdown::bookdown_site
 output:
   bookdown::gitbook
 documentclass: book
+#documentclass: Format/krantz
 bibliography: ["References/LDAReference2023.bib"]
-biblio-style: econPeriod
+biblio-style: Format/econPeriod
 link-citations: yes
 github-repo: https://github.com/openacttexts/Loss-Data-Analytics
 description: "Loss Data Analytics is an interactive, online, freely available text.
@@ -18,9 +18,10 @@ description: "Loss Data Analytics is an interactive, online, freely available te
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(tidy = T, echo = TRUE, comment=NA, message = FALSE, warning = FALSE, fig.align="center")
+knitr::opts_chunk$set(tidy = T, echo = TRUE, comment=NA, message = FALSE, warning = FALSE, fig.align = "center")
+HtmlEval <- knitr:::is_html_output()
+PdfEval  <- knitr:::is_latex_output()
 #options(bookdown.render.file_scope = FALSE)
-#knitr::opts_chunk$set(echo = FALSE)
 #options(knitr.table.format = function() {if (knitr::is_latex_output()) 'latex' else 'pandoc'})
 
 ```

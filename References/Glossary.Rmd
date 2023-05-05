@@ -1,4 +1,79 @@
 
+
+```{r echo = FALSE}
+#  Some Switches
+QUIZ = TRUE
+ANIMATION = TRUE
+SHOW_PDF = TRUE
+ANIMATIONHOOK <- 'gifski'
+GLOSSARY = FALSE
+DIST_TABLES_LATEX = FALSE
+# Switches that control the number of animations in Chapter 6
+# Use these for html output
+numAnimation =  5#10#30     # Section 6.4 Importance Sampling
+numAnimation2 = 2#23    # Section 6.5.1 Hastings Metropolis 
+numAnimation3 = 2#100   # Section 6.5.2 Gibbs
+# Use these for pdf output - maybe later
+
+```
+
+```{r echo = FALSE}
+library(kableExtra)
+```
+
+```{r echo = FALSE}
+#  Default Widths for Latex
+ColWidth4  <- "1.8cm"
+ColWidth5  <- "1.6cm"
+ColWidth6  <- "1.4cm"
+ColWidth7  <- "1.3cm"
+ColWidth8  <- "1.1cm"
+ColWidth9  <- "1.0cm"
+ColWidth10 <- "0.9cm"
+ColWidth14 <- "0.5cm"
+  if (HtmlEval){
+ #  Default Widths for HTML
+     ColWidth4  <- "3.6cm"
+     ColWidth5  <- "3.2cm"
+     ColWidth6  <- "2.8cm"
+     ColWidth7  <- "2.6cm"
+     ColWidth8  <- "2.2cm"
+     ColWidth9  <- "2.0cm"
+     ColWidth10 <- "1.8cm"
+     ColWidth14 <- "1.0cm" }
+#  Function to Create a Style for Generating Tables
+TableGen1 <-function(TableData,TextTitle,Align=`r`, Digits=0, ColumnSpec=1,
+                     ColumnSpec0=1, ColWidth0= "2.5cm", 
+                     BorderRight=1, ColWidth= "1.5cm", latexFont = 10,
+                     Border_Right = FALSE){
+  if (HtmlEval){
+     TextTitle1 <- paste0('**', TextTitle,'**', collapse='')
+     if (is.na(TextTitle)){TextTitle1 <- NA}
+     kableExtra::kbl(TableData, caption=TextTitle1, align = Align,
+                     booktabs = T, digits=Digits) %>%
+     kableExtra::kable_classic(full_width = F, font = 12, html_font = "Cambria") %>%
+     kable_styling(bootstrap_options = c("striped", "condensed"))  %>%
+     kableExtra::column_spec(ColumnSpec0, width_min = ColWidth0) %>%
+     kableExtra::column_spec(ColumnSpec,  width_min = ColWidth)    %>%
+     kableExtra::column_spec(BorderRight, border_right = Border_Right)
+   } else  
+   { ColumnSpec <- ColumnSpec+1
+     TextTitle1 <- paste0('\\textbf{',TextTitle,'}', collapse='')
+     if (is.na(TextTitle)){TextTitle1 <- NA}
+     kableExtra::kbl(TableData, caption = TextTitle1, align = Align,
+                     booktabs = T, digits=Digits,escape = FALSE) %>%
+    kableExtra::kable_styling(latex_options = c("striped", "condensed") ,
+                              font = latexFont, protect_latex= TRUE)   %>%
+     kableExtra::column_spec(ColumnSpec, width =  ColWidth)     %>%
+    kableExtra::column_spec(BorderRight, border_right = Border_Right)
+   }  
+}
+  
+```
+
+
+
+
 ```{r echo = FALSE}
 Gloss_data <- read.csv("References/GlossFct.csv", header = TRUE)
 Gloss_data$Term = trimws(tolower(Gloss_data$Term))
@@ -35,21 +110,7 @@ Gloss <- function(term, section){
 
 ```
 
-```{r echo = FALSE}
-QUIZ = TRUE
-ANIMATION = TRUE
-SHOW_PDF = TRUE
-ANIMATIONHOOK <- 'gifski'
-GLOSSARY = FALSE
-DIST_TABLES_LATEX = FALSE
-# Switches that control the number of animations in Chapter 6
-# Use these for html output
-numAnimation =  5#10#30     # Section 6.4 Importance Sampling
-numAnimation2 = 2#23    # Section 6.5.1 Hastings Metropolis 
-numAnimation3 = 2#100   # Section 6.5.2 Gibbs
-# Use these for pdf output - maybe later
 
-```
 
 
 ```{r echo = FALSE}
