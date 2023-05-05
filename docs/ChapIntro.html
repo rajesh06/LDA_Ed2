@@ -565,7 +565,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="Format/style.css" type="text/css" />
 <link rel="stylesheet" href="includeWebex/webex.css" type="text/css" />
 </head>
 
@@ -1182,8 +1182,8 @@ div.csl-indent {
 <hr />
 <div id="nature-and-relevance-of-insurance" class="section level3 hasAnchor" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Nature and Relevance of Insurance<a href="ChapIntro.html#nature-and-relevance-of-insurance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This book introduces the process of using data to make decisions in an insurance context. It does not assume that readers are familiar with
-insurance but introduces insurance concepts as needed. If you are new to insurance, then it is probably easiest to think about an insurance policy that covers the contents of an apartment or house that you are renting (known as <a href="#" class="tooltip" style="color:green"><em>renters insurance</em><span style="font-size:8pt">Renters insurance is an insurance policy that covers the contents of an apartment or house that you are renting.</span></a>) or the contents and property of a building that is owned by you or a friend (known as <a href="#" class="tooltip" style="color:green"><em>homeowners insurance</em><span style="font-size:8pt">Homeowners insurance is an insurance policy that covers the contents and property of a building that is owned by you or a friend.</span></a>). Another common example is <a href="#" class="tooltip" style="color:green"><em>automobile insurance</em><span style="font-size:8pt">An insurance policy that covers damage to your vehicle, damage to other vehicles in the accident, as well as medical expenses of those injured in the accident.</span></a>. In the event of an accident, this policy may cover damage to your vehicle, damage to other vehicles in the accident, as well as medical expenses of those injured in the accident.</p>
+<p>This book introduces the process of using data to make decisions in an insurance context. It does not assume that readers are familiar with insurance but introduces insurance concepts as needed. Insurance is the exchange of a certain amount, known as a premium, for a promise to compensate another party upon the occurrence of an insured event.</p>
+<p>If you are new to insurance, then it is probably easiest to think about an insurance policy that covers the contents of an apartment or house that you are renting (known as <a href="#" class="tooltip" style="color:green"><em>renters insurance</em><span style="font-size:8pt">Renters insurance is an insurance policy that covers the contents of an apartment or house that you are renting.</span></a>) or the contents and property of a building that is owned by you or a friend (known as <a href="#" class="tooltip" style="color:green"><em>homeowners insurance</em><span style="font-size:8pt">Homeowners insurance is an insurance policy that covers the contents and property of a building that is owned by you or a friend.</span></a>). Another common example is <a href="#" class="tooltip" style="color:green"><em>automobile insurance</em><span style="font-size:8pt">An insurance policy that covers damage to your vehicle, damage to other vehicles in the accident, as well as medical expenses of those injured in the accident.</span></a>. In the event of an accident, this policy may cover damage to your vehicle, damage to other vehicles in the accident, as well as medical expenses of those injured in the accident.</p>
 <p>One way to think about the nature of insurance is who buys it. Renters, homeowners, and auto insurance are examples of <a href="#" class="tooltip" style="color:green"><em>personal insurance</em><span style="font-size:8pt">Insurance purchased by a person</span></a> in that these are policies issued to people. Businesses also buy insurance, such as coverage on their properties, and this is known as <a href="#" class="tooltip" style="color:green"><em>commercial insurance</em><span style="font-size:8pt"></span></a>. The seller, an insurance company, is also known as an insurer. Even insurance companies need insurance; this is known as <a href="#" class="tooltip" style="color:green"><em>reinsurance</em><span style="font-size:8pt">Insurance purchased by an insurer</span></a>.</p>
 <p>Another way to think about the nature of insurance is the type of risk being covered. In the U.S., policies such as renters and homeowners are known as
 <a href="#" class="tooltip" style="color:green"><em>property insurance</em><span style="font-size:8pt">Property insurance is a policy that protects the insured against loss or damage to real or personal property. the cause of loss might be fire, lightening, business interruption, loss of rents, glass breakage, tornado, windstorm, hail, water damage, explosion, riot, civil commotion, rain, or damage from aircraft or vehicles.</span></a> whereas a policy such as auto that covers medical damages to people is known as <a href="#" class="tooltip" style="color:green"><em>casualty insurance</em><span style="font-size:8pt">Causalty insurance is a form of liability insurance providing coverage for negligent acts and omissions. examples include workers compensation, errors and omissions, fidelity, crime, glass, boiler, and various malpractice coverages.</span></a>. In the rest of the world, these are both known as <a href="#" class="tooltip" style="color:green"><em>non-life</em><span style="font-size:8pt">Non-life insurance is any type of insurance where payments are not based on the death (or survivorship) of a named insured. examples include automobile, homeowners, and so on. also known as property and casualty or general insurance.</span></a> or general insurance, to distinguish them from <a href="#" class="tooltip" style="color:green"><em>life insurance</em><span style="font-size:8pt">Life insurance is a contract where the insurer promises to pay upon the death of an insured person. the person being paid is the beneficiary. </span></a>.</p>
@@ -1421,18 +1421,9 @@ from issue to date of payment can dominate frequency concerns. For example, for 
 <p>In this illustration, we restrict consideration to claims from coverage of building and contents; we do not consider claims from motor vehicles and specialized equipment owned by local entities (such as snow plowing machines). We also consider only claims that are closed, with obligations fully met.</p>
 <div id="S:OutComes" class="section level3 hasAnchor" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> Fund Claims Variables: Frequency and Severity<a href="ChapIntro.html#S:OutComes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>At a fundamental level, insurance companies accept premiums in exchange for promises to compensate a policyholder upon the occurrence
-of an insured event. <a href="#" class="tooltip" style="color:green"><em>Indemnification</em><span style="font-size:8pt">Indemnification is the compensation provided by the insurer.</span></a> is the compensation provided by the insurer for incurred hurt, loss, or damage that is covered by the policy. This compensation is also known as a <em>claim</em>. The extent of the payout, known as the <em>severity</em>, is a key financial expenditure for an insurer.</p>
-<p>In terms of money outgo, an insurer is indifferent to having ten claims of 100 when compared to one claim of 1,000. Nonetheless, it is common for
-insurers to study how often claims arise, known as the <em>frequency</em> of
-claims. The frequency is important for expenses, but it also influences
-contractual parameters (such as deductibles and policy limits that are described later) that are
-written on a per occurrence basis. Frequency is routinely monitored by insurance
-regulators and can be a key driver in the overall indemnification
-obligation of the insurer. We shall consider the frequency and severity as the two main claim variables that we wish to understand, model, and manage.</p>
-<p>To illustrate, in 2010 there were 1,110 policyholders in the property fund who experienced a total of 1,377 claims. <a href="#tab:1.1">Table 1.1</a> shows the distribution. Almost two-thirds (0.637) of the policyholders did not have any claims and an additional 18.8% had only one claim. The remaining 17.5%
-(=1 - 0.637 - 0.188) had more than one claim; the policyholder with the highest number recorded 239 claims. The average number of claims for
-this sample was 1.24 (=1377/1110).</p>
+<p>At a fundamental level, insurance companies accept premiums in exchange for promises to compensate a policyholder upon the occurrence of an insured event. <a href="#" class="tooltip" style="color:green"><em>Indemnification</em><span style="font-size:8pt">Indemnification is the compensation provided by the insurer.</span></a> is the compensation provided by the insurer for incurred hurt, loss, or damage that is covered by the policy. This compensation is also known as a <em>claim</em>. The extent of the payout, known as the <em>severity</em>, is a key financial expenditure for an insurer.</p>
+<p>In terms of money outgo to customers, an insurer is indifferent to having ten claims of 100 when compared to one claim of 1,000. Nonetheless, it is common for insurers to study how often claims arise, known as the <em>frequency</em> of claims. The frequency is important for expenses, but it also influences contractual parameters (such as deductibles and policy limits that are described later) that are written to limit amounts paid for each occurrence of an insured event. Frequency is routinely monitored by insurance regulators and can be a key driver in the overall indemnification obligation of the insurer. We shall consider the frequency and severity as the two main claim variables that we wish to understand, model, and manage.</p>
+<p>To illustrate, in 2010 there were 1,110 policyholders in the property fund who experienced a total of 1,377 claims. <a href="../docs/ChapIntro.html#tab:1.1">Table 1.1</a> shows the distribution. Almost two-thirds (0.637) of the policyholders did not have any claims and an additional 18.8% had only one claim. The remaining 17.5% (=1 - 0.637 - 0.188) had more than one claim; the policyholder with the highest number recorded 239 claims. The average number of claims for this sample was 1.24 (=1377/1110).</p>
 <p><a id=tab:1.1></a></p>
 <p>Table 1.1. <strong>2010 Claims Frequency Distribution</strong></p>
 <table>
@@ -1519,17 +1510,8 @@ this sample was 1.24 (=1377/1110).</p>
 <span id="cb2-2"><a href="ChapIntro.html#cb2-2" aria-hidden="true" tabindex="-1"></a>Insample2010 <span class="ot">&lt;-</span> <span class="fu">subset</span>(Insample, Year <span class="sc">==</span> <span class="dv">2010</span>)</span>
 <span id="cb2-3"><a href="ChapIntro.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Insample2010<span class="sc">$</span>Freq)</span></code></pre></div>
 </div>
-<p>For the severity distribution, a common approach is to examine the distribution of the sample of 1,377 claims. However, another common
-approach is to examine the distribution of the average claims of those policyholders with claims. In our 2010 sample, there were 403
-(=1110-707) such policyholders. For 209 of these policyholders with one claim, the average claim equals the only claim they experienced. For the
-policyholder with highest frequency, the average claim is an average over 239 separately reported claim events. This average is also known as the
-<a href="#" class="tooltip" style="color:green"><em>pure premium</em><span style="font-size:8pt">Pure premium is the total severity divided by the number of claims. it does not include insurance company expenses, premium taxes, contingencies, nor an allowance for profits. also called loss costs. some definitions include allocated loss adjustment expenses (alae).</span></a> or <em>loss cost</em>.</p>
-<p><a href="#tab:1.2">Table 1.2</a> summarizes the sample distribution of average severities from the 403 policyholders who made a claim; it shows that the average claim amount was 56,330 (all amounts are in U.S. Dollars). However, the average gives only a limited look at the distribution. More information can be
-gleaned from the summary statistics which show a very large claim in the amount of 12,920,000. Figure <a href="ChapIntro.html#fig:SeverityFig">1.2</a> provides further
-information about the distribution of sample claims, showing a distribution that is dominated by this single large claim so that the
-histogram is not very helpful. Even when removing the large claim, you will find a distribution that is skewed to the right. A generally
-accepted technique is to work with claims in logarithmic units especially for graphical purposes; the corresponding figure in the
-right-hand panel is much easier to interpret.</p>
+<p>For the severity distribution, a common approach is to examine the distribution of the sample of 1,377 claims. However, another common approach is to examine the distribution of the average claims of those policyholders with claims. In our 2010 sample, there were 403 (=1110-707) such policyholders. For 209 of these policyholders with one claim, the average claim equals the only claim they experienced. For the policyholder with highest frequency, the average claim is an average over 239 separately reported claim events.</p>
+<p><a href="../docs/ChapIntro.html#tab:1.2">Table 1.2</a> summarizes the sample distribution of average severities from the 403 policyholders who made a claim; it shows that the average claim amount was 56,330 (all amounts are in U.S. Dollars). However, the average gives only a limited look at the distribution. More information can be gleaned from the summary statistics which show a very large claim in the amount of 12,920,000. Figure <a href="ChapIntro.html#fig:SeverityFig">1.2</a> provides further information about the distribution of sample claims, showing a distribution that is dominated by this single large claim so that the histogram is not very helpful. Even when removing the large claim, you will find a distribution that is skewed to the right. A generally accepted technique is to work with claims in logarithmic units especially for graphical purposes; the corresponding figure in the right-hand panel is much easier to interpret.</p>
 <p><a id=tab:1.2></a></p>
 <p>Table 1.2. <strong>2010 Average Severity Distribution</strong></p>
 <table style="width:88%;">
@@ -1605,7 +1587,7 @@ typically yearn for more data. One common approach that we adopt here is
 to examine outcomes from multiple years, thus increasing the sample
 size. We will discuss the strengths and limitations of this strategy
 later but, at this juncture, we just wish to show the reader how it works.</p>
-<p>Specifically, <a href="#tab:1.3">Table 1.3</a> shows that we now consider
+<p>Specifically, <a href="../docs/ChapIntro.html#tab:1.3">Table 1.3</a> shows that we now consider
 policies over five years of data, 2006, …, 2010, inclusive. The
 data begins in 2006 because there was a shift in claim coding in 2005 so
 that comparisons with earlier years are not helpful. To mitigate the
@@ -1695,7 +1677,7 @@ Policyholders</th>
 <span id="cb4-15"><a href="ChapIntro.html#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Number of Policyholders&quot;</span>)</span>
 <span id="cb4-16"><a href="ChapIntro.html#cb4-16" aria-hidden="true" tabindex="-1"></a>Table1In</span></code></pre></div>
 </div>
-<p><a href="#tab:1.3">Table 1.3</a> shows that the average claim varies over time,
+<p><a href="../docs/ChapIntro.html#tab:1.3">Table 1.3</a> shows that the average claim varies over time,
 especially with the high 2010 value (that we saw was due to a single large claim)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The
 total number of policyholders is steadily declining and, conversely, the
 coverage is steadily increasing. The coverage variable is the amount of
@@ -1704,7 +1686,7 @@ the maximum possible payout of the insurer. For our immediate purposes,
 the coverage is our first rating variable. Other things being equal, we would
 expect that policyholders with larger coverage have larger claims.
 We will make this vague idea much more precise as we proceed, and also justify this expectation with data.</p>
-<p>For a different look at the 2006-2010 data, <a href="#tab:1.4">Table 1.4</a>
+<p>For a different look at the 2006-2010 data, <a href="../docs/ChapIntro.html#tab:1.4">Table 1.4</a>
 summarizes the distribution of our two outcomes, frequency and claims
 amount. In each case, the average exceeds the median, suggesting that
 the two distributions are right-skewed. In addition, the table
@@ -1789,7 +1771,7 @@ right-skewed distributions.</p>
 <span id="cb5-22"><a href="ChapIntro.html#cb5-22" aria-hidden="true" tabindex="-1"></a>Table2aa <span class="ot">&lt;-</span> <span class="fu">cbind</span>(Rowlable, <span class="fu">as.matrix</span>(Table2a))</span>
 <span id="cb5-23"><a href="ChapIntro.html#cb5-23" aria-hidden="true" tabindex="-1"></a>Table2aa</span></code></pre></div>
 </div>
-<p><a href="#tab:1.5">Table 1.5</a> describes the rating variables considered in this chapter. Hopefully, these are variables that you think might naturally be related to claims outcomes. You can learn more about them in <span class="citation">Edward W. Frees, Lee, and Yang (<a href="#ref-frees2016multivariate" role="doc-biblioref">2016a</a>)</span>. To handle the skewness, we henceforth focus on logarithmic transformations of coverage and deductibles.</p>
+<p><a href="../docs/ChapIntro.html#tab:1.5">Table 1.5</a> describes the rating variables considered in this chapter. Hopefully, these are variables that you think might naturally be related to claims outcomes. You can learn more about them in <span class="citation">Edward W. Frees, Lee, and Yang (<a href="#ref-frees2016multivariate" role="doc-biblioref">2016a</a>)</span>. To handle the skewness, we henceforth focus on logarithmic transformations of coverage and deductibles.</p>
 <p><a id=tab:1.5></a></p>
 <p>Table 1.5. <strong>Description of Rating Variables</strong></p>
 <p><span class="math display">\[{\small \begin{matrix}
@@ -1805,22 +1787,14 @@ Variable    &amp; Description \\
 &amp;  ~~~~   \text{for automatic smoke alarms in main rooms} \\
 \text{NoClaimCredit}    &amp; \text{Binary variable to indicate no claims in the past two years} \\
 \text{Fire5 }           &amp; \text{Binary variable to indicate the fire class is below 5} \\
-&amp; ~~~~ \text{(The range of fire class is 0 to 10)} \\
+&amp; ~~~~ \text{(The range of fire class is 1 to 10)} \\
 \hline
 \end{array}
 \end{matrix}}\]</span>
 <!-- <Description of Rating Variables>(\#tab:VarDesc)  --></p>
-<p>To get a sense of the relationship between the non-continuous rating variables and claims, <a href="../docs/ChapIntro.html#tab:1.6">Table 1.6</a> relates the claims outcomes to these
-categorical variables. <a href="../docs/ChapIntro.html#tab:1.6">Table 1.6</a> suggests substantial variation in the claim frequency and average severity of the claims by
-entity type. It also demonstrates higher frequency and severity for the
-<span class="math inline">\({\tt Fire5}\)</span> variable and the reverse for the <span class="math inline">\({\tt NoClaimCredit}\)</span> variable.
-The relationship for the <span class="math inline">\({\tt Fire5}\)</span> variable is counter-intuitive in that
-one would expect lower claim amounts for those policyholders in areas
-with better public protection (when the protection code is five or
-less). Naturally, there are other variables that influence this
-relationship. We will see that these background variables are accounted
-for in the subsequent multivariate regression analysis, which yields an
-intuitive, appealing (negative) sign for the <span class="math inline">\({\tt Fire5}\)</span> variable.</p>
+<p>For the <em>alarm credit</em> variable, a zero means that no automatic smoke alarms exist in any of the main rooms. In the same way, a 5 means they exist in some of the main rooms and a 10 means they exist in all of the main rooms. At the 15 level, facilities are monitored on a 24 hours per day, 7 days per week basis by a police, fire, or security company. A <em>fire rating</em> is a similar type of score. It reflects how prepared a community and area is for fires. While it mainly focuses on the local fire departments and water supply, there are other factors that contribute to an area’s score. This rating is used to determine how likely it is for a fire to do severe damage before help arrives with 1 being the best and 10 the worst.</p>
+<p>To get a sense of the relationship between the non-continuous rating variables and claims, <a href="../docs/ChapIntro.html#tab:1.6">Table 1.6</a> relates the claims outcomes to these categorical variables. <a href="../docs/ChapIntro.html#tab:1.6">Table 1.6</a> suggests substantial variation in the claim frequency and average severity of the claims by entity type. It also demonstrates higher frequency and severity for the <span class="math inline">\({\tt Fire5}\)</span> variable and the reverse for the <span class="math inline">\({\tt NoClaimCredit}\)</span> variable. The relationship for the <span class="math inline">\({\tt Fire5}\)</span> variable is counter-intuitive in that
+one would expect lower claim amounts for those policyholders in areas with better public protection (when the protection code is five or less). Naturally, there are other variables that influence this relationship. We will see that these background variables are accounted for in the subsequent multivariate regression analysis, which yields an intuitive, appealing (negative) sign for the <span class="math inline">\({\tt Fire5}\)</span> variable.</p>
 <p><a id=tab:1.6></a></p>
 <p>Table 1.6. <strong>Claims Summary by Entity Type, Fire Class, and No Claim Credit</strong></p>
 <table style="width:81%;">
@@ -1973,7 +1947,7 @@ Severity</th>
 <span id="cb6-39"><a href="ChapIntro.html#cb6-39" aria-hidden="true" tabindex="-1"></a>Table4 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(Rowlable, <span class="fu">as.matrix</span>(Tableaa))</span>
 <span id="cb6-40"><a href="ChapIntro.html#cb6-40" aria-hidden="true" tabindex="-1"></a>Table4</span></code></pre></div>
 </div>
-<p><a href="#tab:1.7">Table 1.7</a> shows the claims experience by alarm credit.
+<p><a href="../docs/ChapIntro.html#tab:1.7">Table 1.7</a> shows the claims experience by alarm credit.
 It underscores the difficulty of examining variables individually. For
 example, when looking at the experience for all entities, we see that
 policyholders with no alarm credit have on average lower frequency and
@@ -2239,9 +2213,7 @@ Policies</th>
 </div>
 <div id="fund-operations" class="section level3 hasAnchor" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> Fund Operations<a href="ChapIntro.html#fund-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We have now seen distributions of the Fund’s two outcome variables: a count variable for the number of claims, and a continuous variable for the claims amount. We have also introduced a continuous rating variable (coverage); a discrete quantitative variable (logarithmic deductibles); two binary rating variables (no claims credit and fire class); and two categorical rating variables (entity type and alarm credit). Subsequent chapters will
-explain how to analyze and model the distribution of these variables and their relationships. Before getting into these technical details, let us
-first think about where we want to go. General insurance company functional areas are described in Section <a href="ChapIntro.html#S:PredModApps">1.2</a>; we now consider how these areas might apply in the context of the property fund.</p>
+<p>We have now seen distributions of the Fund’s two outcome variables: a count variable for the number of claims, and a continuous variable for the claims amount. We have also introduced a continuous rating variable (logarithmic coverage); a discrete quantitative variable (logarithmic deductibles); two binary rating variables (no claims credit and fire class); and two categorical rating variables (entity type and alarm credit). Subsequent chapters will explain how to analyze and model the distribution of these variables and their relationships. Before getting into these technical details, let us first think about where we want to go. General insurance company functional areas are described in Section <a href="ChapIntro.html#S:PredModApps">1.2</a>; we now consider how these areas might apply in the context of the property fund.</p>
 <div id="initiating-insurance-1" class="section level4 unnumbered hasAnchor">
 <h4>Initiating Insurance<a href="ChapIntro.html#initiating-insurance-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Because this is a government sponsored fund, we do not have to worry
@@ -2261,7 +2233,7 @@ budgets.</p>
 fair. For example, <a href="../docs/ChapIntro.html#tab:1.6">Table 1.6</a> suggests that schools have
 higher aggregate claims than other entities and so should pay more. However,
 simply doing the calculation on an entity by entity basis is not right
-either. For example, we saw in <a href="#tab:1.7">Table 1.7</a> that had we
+either. For example, we saw in <a href="../docs/ChapIntro.html#tab:1.7">Table 1.7</a> that had we
 used this strategy, entities with a 15% alarm credit (for good behavior,
 having top alarm systems) would actually wind up paying more.</p>
 <p>So, we have the data for thinking about the appropriate rates to charge
@@ -2272,7 +2244,7 @@ classification</em>.</p>
 </div>
 <div id="renewing-insurance-1" class="section level4 unnumbered hasAnchor">
 <h4>Renewing Insurance<a href="ChapIntro.html#renewing-insurance-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Although property insurance is typically a one-year contract, <a href="#tab:1.3">Table 1.3</a> suggests that policyholders tend to renew; this is
+<p>Although property insurance is typically a one-year contract, <a href="../docs/ChapIntro.html#tab:1.3">Table 1.3</a> suggests that policyholders tend to renew; this is
 typical of general insurance. For renewing policyholders, in addition to
 their rating variables we have their claims history and this claims
 history can be a good predictor of future claims. For example,
@@ -2327,25 +2299,46 @@ much longer to develop. Chapter <a href="ChapLossReserves.html#ChapLossReserves"
 <h2><span class="header-section-number">1.4</span> Exercises<a href="ChapIntro.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>These exercises ask you to work with data using statistical software, such as <code>R</code> code. If you would like some practice with <code>R</code> code, please visit the <a href="https://openacttexts.github.io/LDACourse1/introduction-to-loss-data-analytics.html">first chapter of a <em>Short Course on Loss Data Analytics</em></a>. As another method of learning, you can also get practice executing ‘R’ code at our <a href="https://openacttexts.github.io/LDARcode/">Online Version R Code Site</a>.</p>
 <p><strong>Exercise 1.1. Corporate Travel.</strong> Universities purchase corporate travel policies to cover employees and students traveling on official university business for a wide variety of accidents and incidents while away from the campus or primary workplace. This broad coverage includes medical care and evacuation, loss of personal property, extraction for political and weather related reasons, and more. These data represent experience from the Australian National University (ANU) and additional details can be found in <a href="https://services.anu.edu.au/files/document-collection/TRAVEL%20INFORMATION%20-%20Travel%20Information%20Kit_July%202018.pdf">ANU’s corporate travel policy</a>. You can also learn more about this line of business from ANU’s insurer, <a href="https://www.chubb.com/au-en/business/business-travel-group-travel-insurance.html">Chubb Travel</a>. The data provided are maintained by the insurer, Chubb, and were accessed on 29 July 2022. You can retrieve the data by going to Appendix Section <a href="DataResources.html#Sec:DataTravel">21.2</a>.</p>
-<p><em>a. Claim Frequency.</em> The travel data history is long and stable. This coverage began on 1 November 2006. Table <a href="ChapIntro.html#tab:TravelClaims1">1.1</a> shows the count of claims for years 2015-2019, inclusive. Produce a comparable table of claims frequency for the entire period. Comment on the unusual frequency surrounding the COVID pandemic.</p>
+<p><em>a. Claim Frequency.</em> The travel data history is long and stable. This coverage began on 1 November 2006. <a href="../docs/ChapIntro.html#tab:1.8">Table 1.8</a> shows the count of claims for years 2015-2019, inclusive. Produce a comparable table of claims frequency for the entire period. Comment on the unusual frequency surrounding the COVID pandemic.</p>
+<p><a id=tab:1.8></a></p>
+<p>Table 1.8. <strong>2015-2019 Travel Claims Frequency</strong></p>
 <table>
-<caption><span id="tab:TravelClaims1">Table 1.1: </span><strong>2015-2019 Travel Claims Frequency</strong></caption>
 <thead>
-<tr class="header">
-<th align="center">2015</th>
-<th align="center">2016</th>
-<th align="center">2017</th>
-<th align="center">2018</th>
-<th align="center">2019</th>
+<tr>
+<th style="text-align:center;">
+2015
+</th>
+<th style="text-align:center;">
+2016
+</th>
+<th style="text-align:center;">
+2017
+</th>
+<th style="text-align:center;">
+2018
+</th>
+<th style="text-align:center;">
+2019
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">158</td>
-<td align="center">154</td>
-<td align="center">139</td>
-<td align="center">205</td>
-<td align="center">274</td>
+<tr>
+<td style="text-align:center;">
+158
+</td>
+<td style="text-align:center;">
+154
+</td>
+<td style="text-align:center;">
+139
+</td>
+<td style="text-align:center;">
+205
+</td>
+<td style="text-align:center;">
+274
+</td>
 </tr>
 </tbody>
 </table>
@@ -2367,63 +2360,111 @@ Figure 1.3: <strong>Distribution of Travel Losses by Year</strong>
 <span id="cb8-3"><a href="ChapIntro.html#cb8-3" aria-hidden="true" tabindex="-1"></a>tableTravel <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">table</span>(TravelClaims<span class="sc">$</span>UW.Year))</span>
 <span id="cb8-4"><a href="ChapIntro.html#cb8-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tableTravel, <span class="at">align =</span> <span class="st">&quot;cccccccc&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;**Travel Claims Frequency**&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-16">Table 1.2: </span><strong>Travel Claims Frequency</strong></caption>
-<colgroup>
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-</colgroup>
+<caption>
+<span id="tab:unnamed-chunk-18">Table 1.1: </span><strong>Travel Claims Frequency</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="center">2006</th>
-<th align="center">2007</th>
-<th align="center">2008</th>
-<th align="center">2009</th>
-<th align="center">2010</th>
-<th align="center">2011</th>
-<th align="center">2012</th>
-<th align="center">2013</th>
-<th align="center">2014</th>
-<th align="center">2015</th>
-<th align="center">2016</th>
-<th align="center">2017</th>
-<th align="center">2018</th>
-<th align="center">2019</th>
-<th align="center">2020</th>
-<th align="center">2021</th>
+<tr>
+<th style="text-align:center;">
+2006
+</th>
+<th style="text-align:center;">
+2007
+</th>
+<th style="text-align:center;">
+2008
+</th>
+<th style="text-align:center;">
+2009
+</th>
+<th style="text-align:center;">
+2010
+</th>
+<th style="text-align:center;">
+2011
+</th>
+<th style="text-align:center;">
+2012
+</th>
+<th style="text-align:center;">
+2013
+</th>
+<th style="text-align:center;">
+2014
+</th>
+<th style="text-align:center;">
+2015
+</th>
+<th style="text-align:center;">
+2016
+</th>
+<th style="text-align:center;">
+2017
+</th>
+<th style="text-align:center;">
+2018
+</th>
+<th style="text-align:center;">
+2019
+</th>
+<th style="text-align:center;">
+2020
+</th>
+<th style="text-align:center;">
+2021
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">41</td>
-<td align="center">74</td>
-<td align="center">102</td>
-<td align="center">166</td>
-<td align="center">158</td>
-<td align="center">141</td>
-<td align="center">143</td>
-<td align="center">161</td>
-<td align="center">158</td>
-<td align="center">158</td>
-<td align="center">154</td>
-<td align="center">139</td>
-<td align="center">205</td>
-<td align="center">274</td>
-<td align="center">1</td>
-<td align="center">32</td>
+<tr>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+74
+</td>
+<td style="text-align:center;">
+102
+</td>
+<td style="text-align:center;">
+166
+</td>
+<td style="text-align:center;">
+158
+</td>
+<td style="text-align:center;">
+141
+</td>
+<td style="text-align:center;">
+143
+</td>
+<td style="text-align:center;">
+161
+</td>
+<td style="text-align:center;">
+158
+</td>
+<td style="text-align:center;">
+158
+</td>
+<td style="text-align:center;">
+154
+</td>
+<td style="text-align:center;">
+139
+</td>
+<td style="text-align:center;">
+205
+</td>
+<td style="text-align:center;">
+274
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+32
+</td>
 </tr>
 </tbody>
 </table>
@@ -2431,61 +2472,106 @@ Figure 1.3: <strong>Distribution of Travel Losses by Year</strong>
 <span id="cb9-2"><a href="ChapIntro.html#cb9-2" aria-hidden="true" tabindex="-1"></a>TravelClaimsGT10 <span class="ot">&lt;-</span> <span class="fu">subset</span>(TravelClaims, Incurred.Loss <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
 <span id="cb9-3"><a href="ChapIntro.html#cb9-3" aria-hidden="true" tabindex="-1"></a>tableTravel1 <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">table</span>(TravelClaimsGT10<span class="sc">$</span>UW.Year))</span>
 <span id="cb9-4"><a href="ChapIntro.html#cb9-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tableTravel1, <span class="at">align =</span> <span class="st">&quot;cccccccc&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;**Travel Claims Frequency**&quot;</span>)</span></code></pre></div>
-<table style="width:100%;">
-<caption><span id="tab:unnamed-chunk-16">Table 1.2: </span><strong>Travel Claims Frequency</strong></caption>
-<colgroup>
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-<col width="6%" />
-</colgroup>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-18">Table 1.1: </span><strong>Travel Claims Frequency</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="center">2006</th>
-<th align="center">2007</th>
-<th align="center">2008</th>
-<th align="center">2009</th>
-<th align="center">2010</th>
-<th align="center">2011</th>
-<th align="center">2012</th>
-<th align="center">2013</th>
-<th align="center">2014</th>
-<th align="center">2015</th>
-<th align="center">2016</th>
-<th align="center">2017</th>
-<th align="center">2018</th>
-<th align="center">2019</th>
-<th align="center">2021</th>
+<tr>
+<th style="text-align:center;">
+2006
+</th>
+<th style="text-align:center;">
+2007
+</th>
+<th style="text-align:center;">
+2008
+</th>
+<th style="text-align:center;">
+2009
+</th>
+<th style="text-align:center;">
+2010
+</th>
+<th style="text-align:center;">
+2011
+</th>
+<th style="text-align:center;">
+2012
+</th>
+<th style="text-align:center;">
+2013
+</th>
+<th style="text-align:center;">
+2014
+</th>
+<th style="text-align:center;">
+2015
+</th>
+<th style="text-align:center;">
+2016
+</th>
+<th style="text-align:center;">
+2017
+</th>
+<th style="text-align:center;">
+2018
+</th>
+<th style="text-align:center;">
+2019
+</th>
+<th style="text-align:center;">
+2021
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">31</td>
-<td align="center">58</td>
-<td align="center">86</td>
-<td align="center">154</td>
-<td align="center">153</td>
-<td align="center">136</td>
-<td align="center">135</td>
-<td align="center">140</td>
-<td align="center">132</td>
-<td align="center">142</td>
-<td align="center">132</td>
-<td align="center">129</td>
-<td align="center">170</td>
-<td align="center">207</td>
-<td align="center">30</td>
+<tr>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+58
+</td>
+<td style="text-align:center;">
+86
+</td>
+<td style="text-align:center;">
+154
+</td>
+<td style="text-align:center;">
+153
+</td>
+<td style="text-align:center;">
+136
+</td>
+<td style="text-align:center;">
+135
+</td>
+<td style="text-align:center;">
+140
+</td>
+<td style="text-align:center;">
+132
+</td>
+<td style="text-align:center;">
+142
+</td>
+<td style="text-align:center;">
+132
+</td>
+<td style="text-align:center;">
+129
+</td>
+<td style="text-align:center;">
+170
+</td>
+<td style="text-align:center;">
+207
+</td>
+<td style="text-align:center;">
+30
+</td>
 </tr>
 </tbody>
 </table>
@@ -2493,31 +2579,57 @@ Figure 1.3: <strong>Distribution of Travel Losses by Year</strong>
 <span id="cb10-2"><a href="ChapIntro.html#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="ChapIntro.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> TravelClaimsGT10, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(UW.Year), <span class="at">y =</span> Incurred.Loss)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb10-4"><a href="ChapIntro.html#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ChapIntro.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d</span></span>
 <span id="cb11-2"><a href="ChapIntro.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="ChapIntro.html#cb11-3" aria-hidden="true" tabindex="-1"></a>sumTravelClaims <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">summary</span>(TravelClaimsGT10Short<span class="sc">$</span>Incurred.Loss))</span>
 <span id="cb11-4"><a href="ChapIntro.html#cb11-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(sumTravelClaims, <span class="at">align =</span> <span class="st">&quot;cccccccc&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;**Travel Claims Summary Statistics**&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-16">Table 1.2: </span><strong>Travel Claims Summary Statistics</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-18">Table 1.1: </span><strong>Travel Claims Summary Statistics</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="center">Min.</th>
-<th align="center">1st Qu.</th>
-<th align="center">Median</th>
-<th align="center">Mean</th>
-<th align="center">3rd Qu.</th>
-<th align="center">Max.</th>
+<tr>
+<th style="text-align:center;">
+Min.
+</th>
+<th style="text-align:center;">
+1st Qu.
+</th>
+<th style="text-align:center;">
+Median
+</th>
+<th style="text-align:center;">
+Mean
+</th>
+<th style="text-align:center;">
+3rd Qu.
+</th>
+<th style="text-align:center;">
+Max.
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">17.16</td>
-<td align="center">290.215</td>
-<td align="center">631.49</td>
-<td align="center">1701.953</td>
-<td align="center">1528.44</td>
-<td align="center">90727.64</td>
+<tr>
+<td style="text-align:center;">
+17.16
+</td>
+<td style="text-align:center;">
+290.215
+</td>
+<td style="text-align:center;">
+631.49
+</td>
+<td style="text-align:center;">
+1701.953
+</td>
+<td style="text-align:center;">
+1528.44
+</td>
+<td style="text-align:center;">
+90727.64
+</td>
 </tr>
 </tbody>
 </table>
@@ -2526,25 +2638,46 @@ Figure 1.3: <strong>Distribution of Travel Losses by Year</strong>
 <p><strong>Exercise 1.2. Group Personal Accident.</strong> Group personal accident insurance offers financial protection in case of injury or death resulting from an incident that occurs on the job. Group personal accident offers insurance coverage and liability insurance protection against accidental death or injury. The insurance covers students and ANU’s voluntary workers; ANU workers are covered through another system known as “workers’ compensation.”</p>
 <p>Several limits apply including 1,000,000 for the period of insurance, 600,000 for non-scheduled flights, and others. These limits were not reached in the data we consider. For this coverage, there is a “7 day excess” for weekly benefits but none for general benefits. The database documentation provided to us, and the data we provide, do not indicate whether the excess has been triggered; we have only paid claims. Because of the relatively small size of this class of insurance, we ignore the effects of deductibles for this line.</p>
 <p>The data provided to us are maintained by the insurer, Chubb. These data began in underwriting year 2007 and were accessed on 29 July 2022. You can retrieve the data by going to Appendix Section <a href="DataResources.html#Sec:DataGPA">21.3</a>.</p>
-<p><em>a. Claim Frequency.</em> From this data set, there are 148 incurred claims. Of these claims, there are 35 zeros and an additional 0 claims where the incurred claim is less than 10. We omit these claims in our analysis. Table <a href="ChapIntro.html#tab:GPAFreq1">1.3</a> shows the count of claims for years 2015-2019, inclusive. Produce a comparable table of claims frequency for the entire period, omitting claims that are less than 10.</p>
+<p><em>a. Claim Frequency.</em> From this data set, there are 148 incurred claims. Of these claims, there are 35 zeros and an additional 0 claims where the incurred claim is less than 10. We omit these claims in our analysis. <a href="../docs/ChapIntro.html#tab:1.9">Table 1.9</a> shows the count of claims for years 2015-2019, inclusive. Produce a comparable table of claims frequency for the entire period, omitting claims that are less than 10.</p>
+<p><a id=tab:1.9></a></p>
+<p>Table 1.9. <strong>2015-2019 Group Personal Accident Claims Frequency</strong></p>
 <table>
-<caption><span id="tab:GPAFreq1">Table 1.3: </span><strong>2015-2019 Group Personal Accident Claims Frequency</strong></caption>
 <thead>
-<tr class="header">
-<th align="center">2015</th>
-<th align="center">2016</th>
-<th align="center">2017</th>
-<th align="center">2018</th>
-<th align="center">2019</th>
+<tr>
+<th style="text-align:center;">
+2015
+</th>
+<th style="text-align:center;">
+2016
+</th>
+<th style="text-align:center;">
+2017
+</th>
+<th style="text-align:center;">
+2018
+</th>
+<th style="text-align:center;">
+2019
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">4</td>
-<td align="center">7</td>
-<td align="center">16</td>
-<td align="center">11</td>
-<td align="center">9</td>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+9
+</td>
 </tr>
 </tbody>
 </table>
@@ -2574,51 +2707,87 @@ Figure 1.5: <strong>Distribution of Group Personal Accident Losses by Year</stro
 <span id="cb12-4"><a href="ChapIntro.html#cb12-4" aria-hidden="true" tabindex="-1"></a>tableGPAFreq <span class="ot">&lt;-</span> <span class="fu">table</span>(GPAClaimsGT10<span class="sc">$</span>UW.Year)</span>
 <span id="cb12-5"><a href="ChapIntro.html#cb12-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">t</span>(tableGPAFreq), <span class="at">align =</span> <span class="st">&quot;cccccccc&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;**Group Personal Accident Claims Frequency**&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-18">Table 1.4: </span><strong>Group Personal Accident Claims Frequency</strong></caption>
-<colgroup>
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-<col width="8%" />
-</colgroup>
+<caption>
+<span id="tab:unnamed-chunk-20">Table 1.2: </span><strong>Group Personal Accident Claims Frequency</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="center">2010</th>
-<th align="center">2011</th>
-<th align="center">2012</th>
-<th align="center">2013</th>
-<th align="center">2014</th>
-<th align="center">2015</th>
-<th align="center">2016</th>
-<th align="center">2017</th>
-<th align="center">2018</th>
-<th align="center">2019</th>
-<th align="center">2020</th>
-<th align="center">2021</th>
+<tr>
+<th style="text-align:center;">
+2010
+</th>
+<th style="text-align:center;">
+2011
+</th>
+<th style="text-align:center;">
+2012
+</th>
+<th style="text-align:center;">
+2013
+</th>
+<th style="text-align:center;">
+2014
+</th>
+<th style="text-align:center;">
+2015
+</th>
+<th style="text-align:center;">
+2016
+</th>
+<th style="text-align:center;">
+2017
+</th>
+<th style="text-align:center;">
+2018
+</th>
+<th style="text-align:center;">
+2019
+</th>
+<th style="text-align:center;">
+2020
+</th>
+<th style="text-align:center;">
+2021
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">3</td>
-<td align="center">5</td>
-<td align="center">4</td>
-<td align="center">8</td>
-<td align="center">8</td>
-<td align="center">4</td>
-<td align="center">7</td>
-<td align="center">16</td>
-<td align="center">11</td>
-<td align="center">9</td>
-<td align="center">28</td>
-<td align="center">9</td>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+9
+</td>
 </tr>
 </tbody>
 </table>
@@ -2626,7 +2795,7 @@ Figure 1.5: <strong>Distribution of Group Personal Accident Losses by Year</stro
 <span id="cb13-2"><a href="ChapIntro.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
 <span id="cb13-3"><a href="ChapIntro.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GPAClaimsGT10<span class="sc">$</span>Incurred.Loss, <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Inclurred Claims&quot;</span>)</span>
 <span id="cb13-4"><a href="ChapIntro.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log10</span>(GPAClaimsGT10<span class="sc">$</span>Incurred.Loss), <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Logarithmic Incurred Claims&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="ChapIntro.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c</span></span>
 <span id="cb14-2"><a href="ChapIntro.html#cb14-2" aria-hidden="true" tabindex="-1"></a>sumGPAClaimsGT10 <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">summary</span>(GPAClaimsGT10<span class="sc">$</span>Incurred.Loss, <span class="at">digits =</span> <span class="dv">0</span>))</span>
 <span id="cb14-3"><a href="ChapIntro.html#cb14-3" aria-hidden="true" tabindex="-1"></a>LogsumGPAClaimsGT10 <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">summary</span>(<span class="fu">log10</span>(GPAClaimsGT10<span class="sc">$</span>Incurred.Loss), <span class="at">digits =</span> <span class="dv">4</span>))</span>
@@ -2634,52 +2803,86 @@ Figure 1.5: <strong>Distribution of Group Personal Accident Losses by Year</stro
 <span id="cb14-5"><a href="ChapIntro.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(tabSumStats) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Claims&quot;</span>, <span class="st">&quot;Log Claims&quot;</span>)</span>
 <span id="cb14-6"><a href="ChapIntro.html#cb14-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tabSumStats, <span class="at">align =</span> <span class="st">&quot;cccccccc&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;**Group Personal Accident Incurred Losses**&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-18">Table 1.4: </span><strong>Group Personal Accident Incurred Losses</strong></caption>
-<colgroup>
-<col width="16%" />
-<col width="11%" />
-<col width="13%" />
-<col width="11%" />
-<col width="14%" />
-<col width="14%" />
-<col width="16%" />
-</colgroup>
+<caption>
+<span id="tab:unnamed-chunk-20">Table 1.2: </span><strong>Group Personal Accident Incurred Losses</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="center">Min.</th>
-<th align="center">1st Qu.</th>
-<th align="center">Median</th>
-<th align="center">Mean</th>
-<th align="center">3rd Qu.</th>
-<th align="center">Max.</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Min.
+</th>
+<th style="text-align:center;">
+1st Qu.
+</th>
+<th style="text-align:center;">
+Median
+</th>
+<th style="text-align:center;">
+Mean
+</th>
+<th style="text-align:center;">
+3rd Qu.
+</th>
+<th style="text-align:center;">
+Max.
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Claims</td>
-<td align="center">90.000</td>
-<td align="center">500.000</td>
-<td align="center">1000</td>
-<td align="center">2000.000</td>
-<td align="center">2000.000</td>
-<td align="center">30000.000</td>
+<tr>
+<td style="text-align:left;">
+Claims
+</td>
+<td style="text-align:center;">
+90.000
+</td>
+<td style="text-align:center;">
+500.000
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+2000.000
+</td>
+<td style="text-align:center;">
+2000.000
+</td>
+<td style="text-align:center;">
+30000.000
+</td>
 </tr>
-<tr class="even">
-<td align="left">Log Claims</td>
-<td align="center">1.954</td>
-<td align="center">2.705</td>
-<td align="center">3</td>
-<td align="center">3.033</td>
-<td align="center">3.389</td>
-<td align="center">4.492</td>
+<tr>
+<td style="text-align:left;">
+Log Claims
+</td>
+<td style="text-align:center;">
+1.954
+</td>
+<td style="text-align:center;">
+2.705
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+3.033
+</td>
+<td style="text-align:center;">
+3.389
+</td>
+<td style="text-align:center;">
+4.492
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="ChapIntro.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d</span></span>
 <span id="cb15-2"><a href="ChapIntro.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> GPAClaimsGT10, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(UW.Year), <span class="at">y =</span> Incurred.Loss)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb15-3"><a href="ChapIntro.html#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-18-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-20-2.png" width="672" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 <p><strong>Exercise 1.3. Motor Vehicle.</strong> This policy covers ANU’s vehicles including cars, vans, utilities, and motorcycles. There are two parts to this coverage, one for comprehensive damage to the insured vehicles and a second for legal liability. The comprehensive coverage for loss or damage is essentially limited by the market value of the insured vehicle. For legal liability, there is a $50 Million upper limit for all claims arising from the one accident or series of accidents resulting from the one original cause. There is also another upper limit (that is lower than 50 million) when the vehicle is used for transportation of dangerous goods.</p>
@@ -2695,107 +2898,252 @@ Figure 1.5: <strong>Distribution of Group Personal Accident Losses by Year</stro
 <p><em>b. Claim Frequency.</em> Produce a table that shows the count of claims for the entire period.</p>
 <p><em>c. Loss Distributions over Time.</em> Produce a figure that shows the distribution of motor vehicle paid amounts over time and comment on the stability of the distribution.</p>
 <p><em>d. Year 2019</em>. In your analysis from the prior steps, you may have noticed the unusual aspects of year 2019. In that year, ANU suffered extensive damage from a hailstorm that increased the frequency of claims as well as the severity. Produce a histogram of paid claims for that year.</p>
-<p><em>e. Deductibles.</em> For each event, or series of events arising from the one originating cause, ANU bears the amount of the excess in respect of each and every insured vehicle, unless stated otherwise. The standard deductible (or excess) in the dataset is 1000. However, a cursory examination of the dataset shows tremendous variation by vehicle and over time.Replicate Table <a href="ChapIntro.html#tab:TableExcess">1.5</a> that shows, for each year, the number of claims with zero excess, positive excess less than 1000, an excess equal to 1000, and an excess greater than 1000.</p>
+<p><em>e. Deductibles.</em> For each event, or series of events arising from the one originating cause, ANU bears the amount of the excess in respect of each and every insured vehicle, unless stated otherwise. The standard deductible (or excess) in the dataset is 1000. However, a cursory examination of the dataset shows tremendous variation by vehicle and over time. Replicate <a href="../docs/ChapIntro.html#tab:1.10">Table 1.10</a> that shows, for each year, the number of claims with zero excess, positive excess less than 1000, an excess equal to 1000, and an excess greater than 1000.</p>
+<p><a id=tab:1.10></a></p>
+<p>Table 1.10. <strong>Motor Vehicle Excess by Year</strong></p>
 <table>
-<caption><span id="tab:TableExcess">Table 1.5: </span><strong>Motor Vehicle Excess by Year</strong></caption>
 <thead>
-<tr class="header">
-<th align="center">UW.Year</th>
-<th align="center">Num 0</th>
-<th align="center">Num 0-1000</th>
-<th align="center">Num = 1000</th>
-<th align="center">Num &gt;1000</th>
-<th align="center">Total</th>
+<tr>
+<th style="text-align:center;">
+UW.Year
+</th>
+<th style="text-align:center;">
+Num 0
+</th>
+<th style="text-align:center;">
+Num 0-1000
+</th>
+<th style="text-align:center;">
+Num = 1000
+</th>
+<th style="text-align:center;">
+Num &gt;1000
+</th>
+<th style="text-align:center;">
+Total
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">2011</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">7</td>
-<td align="center">0</td>
-<td align="center">9</td>
+<tr>
+<td style="text-align:center;">
+2011
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+9
+</td>
 </tr>
-<tr class="even">
-<td align="center">2012</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">13</td>
-<td align="center">0</td>
-<td align="center">16</td>
+<tr>
+<td style="text-align:center;">
+2012
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+16
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2013</td>
-<td align="center">4</td>
-<td align="center">1</td>
-<td align="center">22</td>
-<td align="center">0</td>
-<td align="center">27</td>
+<tr>
+<td style="text-align:center;">
+2013
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+27
+</td>
 </tr>
-<tr class="even">
-<td align="center">2014</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">11</td>
-<td align="center">0</td>
-<td align="center">11</td>
+<tr>
+<td style="text-align:center;">
+2014
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+11
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2015</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">14</td>
-<td align="center">0</td>
-<td align="center">16</td>
+<tr>
+<td style="text-align:center;">
+2015
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+16
+</td>
 </tr>
-<tr class="even">
-<td align="center">2016</td>
-<td align="center">6</td>
-<td align="center">1</td>
-<td align="center">19</td>
-<td align="center">0</td>
-<td align="center">26</td>
+<tr>
+<td style="text-align:center;">
+2016
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+26
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2017</td>
-<td align="center">16</td>
-<td align="center">0</td>
-<td align="center">4</td>
-<td align="center">1</td>
-<td align="center">21</td>
+<tr>
+<td style="text-align:center;">
+2017
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+21
+</td>
 </tr>
-<tr class="even">
-<td align="center">2018</td>
-<td align="center">19</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">20</td>
+<tr>
+<td style="text-align:center;">
+2018
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+20
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2019</td>
-<td align="center">99</td>
-<td align="center">0</td>
-<td align="center">6</td>
-<td align="center">0</td>
-<td align="center">105</td>
+<tr>
+<td style="text-align:center;">
+2019
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+105
+</td>
 </tr>
-<tr class="even">
-<td align="center">2020</td>
-<td align="center">5</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">5</td>
+<tr>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+5
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2021</td>
-<td align="center">10</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">10</td>
+<tr>
+<td style="text-align:center;">
+2021
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+10
+</td>
 </tr>
 </tbody>
 </table>
@@ -2821,59 +3169,92 @@ Figure 1.5: <strong>Distribution of Group Personal Accident Losses by Year</stro
 <span id="cb24-4"><a href="ChapIntro.html#cb24-4" aria-hidden="true" tabindex="-1"></a>tableAutoClaims <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">table</span>(AutoClaimsGT10<span class="sc">$</span>UW.Year))</span>
 <span id="cb24-5"><a href="ChapIntro.html#cb24-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tableAutoClaims, <span class="at">align =</span> <span class="st">&quot;cccccccc&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;**Motor Vehicle Claim Frequency**&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-20">Table 1.6: </span><strong>Motor Vehicle Claim Frequency</strong></caption>
-<colgroup>
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-</colgroup>
+<caption>
+<span id="tab:unnamed-chunk-22">Table 1.3: </span><strong>Motor Vehicle Claim Frequency</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="center">2011</th>
-<th align="center">2012</th>
-<th align="center">2013</th>
-<th align="center">2014</th>
-<th align="center">2015</th>
-<th align="center">2016</th>
-<th align="center">2017</th>
-<th align="center">2018</th>
-<th align="center">2019</th>
-<th align="center">2020</th>
-<th align="center">2021</th>
+<tr>
+<th style="text-align:center;">
+2011
+</th>
+<th style="text-align:center;">
+2012
+</th>
+<th style="text-align:center;">
+2013
+</th>
+<th style="text-align:center;">
+2014
+</th>
+<th style="text-align:center;">
+2015
+</th>
+<th style="text-align:center;">
+2016
+</th>
+<th style="text-align:center;">
+2017
+</th>
+<th style="text-align:center;">
+2018
+</th>
+<th style="text-align:center;">
+2019
+</th>
+<th style="text-align:center;">
+2020
+</th>
+<th style="text-align:center;">
+2021
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">10</td>
-<td align="center">17</td>
-<td align="center">27</td>
-<td align="center">11</td>
-<td align="center">16</td>
-<td align="center">26</td>
-<td align="center">21</td>
-<td align="center">20</td>
-<td align="center">105</td>
-<td align="center">5</td>
-<td align="center">10</td>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+105
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+10
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="ChapIntro.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c</span></span>
 <span id="cb25-2"><a href="ChapIntro.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> AutoClaimsGT10, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(UW.Year), <span class="at">y =</span> Motor.Net.Incurred)) <span class="sc">+</span></span>
 <span id="cb25-3"><a href="ChapIntro.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">&quot;log10&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-20-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-22-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="ChapIntro.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d</span></span>
 <span id="cb26-2"><a href="ChapIntro.html#cb26-2" aria-hidden="true" tabindex="-1"></a>AutoClaims2019 <span class="ot">&lt;-</span> <span class="fu">subset</span>(AutoClaimsGT10, UW.Year <span class="sc">==</span> <span class="dv">2019</span>)</span>
 <span id="cb26-3"><a href="ChapIntro.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(AutoClaims2019<span class="sc">$</span>Motor.Net.Incurred, <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;2019 Motor Vehicle Claims&quot;</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-20-2.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-22-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="ChapIntro.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e</span></span>
 <span id="cb27-2"><a href="ChapIntro.html#cb27-2" aria-hidden="true" tabindex="-1"></a>AutoClaimsGT10<span class="sc">$</span>Excess0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">*</span> (AutoClaimsGT10<span class="sc">$</span>Excess <span class="sc">==</span> <span class="dv">0</span>)</span>
 <span id="cb27-3"><a href="ChapIntro.html#cb27-3" aria-hidden="true" tabindex="-1"></a>AutoClaimsGT10<span class="sc">$</span>ExcessLT1000 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">*</span> (AutoClaimsGT10<span class="sc">$</span>Excess <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">*</span> (AutoClaimsGT10<span class="sc">$</span>Excess <span class="sc">&gt;</span></span>
@@ -2903,105 +3284,251 @@ Figure 1.5: <strong>Distribution of Group Personal Accident Losses by Year</stro
 <span id="cb27-27"><a href="ChapIntro.html#cb27-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-28"><a href="ChapIntro.html#cb27-28" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(TableOut, <span class="at">align =</span> <span class="st">&quot;cccccccc&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;**Motor Vehicle Excess by Year**&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-20">Table 1.6: </span><strong>Motor Vehicle Excess by Year</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-22">Table 1.3: </span><strong>Motor Vehicle Excess by Year</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="center">UW.Year</th>
-<th align="center">Num 0</th>
-<th align="center">Num 0-1000</th>
-<th align="center">Num = 1000</th>
-<th align="center">Num &gt;1000</th>
-<th align="center">Total</th>
+<tr>
+<th style="text-align:center;">
+UW.Year
+</th>
+<th style="text-align:center;">
+Num 0
+</th>
+<th style="text-align:center;">
+Num 0-1000
+</th>
+<th style="text-align:center;">
+Num = 1000
+</th>
+<th style="text-align:center;">
+Num &gt;1000
+</th>
+<th style="text-align:center;">
+Total
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">2011</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">7</td>
-<td align="center">0</td>
-<td align="center">9</td>
+<tr>
+<td style="text-align:center;">
+2011
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+9
+</td>
 </tr>
-<tr class="even">
-<td align="center">2012</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">13</td>
-<td align="center">0</td>
-<td align="center">16</td>
+<tr>
+<td style="text-align:center;">
+2012
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+16
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2013</td>
-<td align="center">4</td>
-<td align="center">1</td>
-<td align="center">22</td>
-<td align="center">0</td>
-<td align="center">27</td>
+<tr>
+<td style="text-align:center;">
+2013
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+27
+</td>
 </tr>
-<tr class="even">
-<td align="center">2014</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">11</td>
-<td align="center">0</td>
-<td align="center">11</td>
+<tr>
+<td style="text-align:center;">
+2014
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+11
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2015</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">14</td>
-<td align="center">0</td>
-<td align="center">16</td>
+<tr>
+<td style="text-align:center;">
+2015
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+16
+</td>
 </tr>
-<tr class="even">
-<td align="center">2016</td>
-<td align="center">6</td>
-<td align="center">1</td>
-<td align="center">19</td>
-<td align="center">0</td>
-<td align="center">26</td>
+<tr>
+<td style="text-align:center;">
+2016
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+26
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2017</td>
-<td align="center">16</td>
-<td align="center">0</td>
-<td align="center">4</td>
-<td align="center">1</td>
-<td align="center">21</td>
+<tr>
+<td style="text-align:center;">
+2017
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+21
+</td>
 </tr>
-<tr class="even">
-<td align="center">2018</td>
-<td align="center">19</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">20</td>
+<tr>
+<td style="text-align:center;">
+2018
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+20
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2019</td>
-<td align="center">99</td>
-<td align="center">0</td>
-<td align="center">6</td>
-<td align="center">0</td>
-<td align="center">105</td>
+<tr>
+<td style="text-align:center;">
+2019
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+105
+</td>
 </tr>
-<tr class="even">
-<td align="center">2020</td>
-<td align="center">5</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">5</td>
+<tr>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+5
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2021</td>
-<td align="center">10</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">10</td>
+<tr>
+<td style="text-align:center;">
+2021
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+10
+</td>
 </tr>
 </tbody>
 </table>
@@ -3013,144 +3540,329 @@ Figure 1.5: <strong>Distribution of Group Personal Accident Losses by Year</stro
 <div id="toggleExample.MotorData.1" style="display: none">
 <p>We provide summaries of this information simply so that readers can see what type of data are available for more in-depth analysis. Specifically, in addition to incurred losses, we also have the following information</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="ChapIntro.html#cb28-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">summary</span>(AutoClaims)[, <span class="sc">-</span><span class="dv">1</span>])</span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="1%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="6%" />
-<col width="9%" />
-<col width="6%" />
-<col width="6%" />
-<col width="7%" />
-<col width="9%" />
-<col width="8%" />
-<col width="10%" />
-<col width="9%" />
-</colgroup>
+<table>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">Loss.Date</th>
-<th align="left">Reported.Date</th>
-<th align="left">Motor.Fault</th>
-<th align="left">Driver.Age</th>
-<th align="left">Vehicle.Description</th>
-<th align="left">Loss.Postcode</th>
-<th align="left">Excess</th>
-<th align="left">Motor.Net.Paid</th>
-<th align="left">Outstanding.Estimate</th>
-<th align="left">Motor.Net.Incurred</th>
-<th align="left">Third.Party.Identified</th>
-<th align="left">Third.Party.Insured</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Loss.Date
+</th>
+<th style="text-align:left;">
+Reported.Date
+</th>
+<th style="text-align:left;">
+Motor.Fault
+</th>
+<th style="text-align:left;">
+Driver.Age
+</th>
+<th style="text-align:left;">
+Vehicle.Description
+</th>
+<th style="text-align:left;">
+Loss.Postcode
+</th>
+<th style="text-align:left;">
+Excess
+</th>
+<th style="text-align:left;">
+Motor.Net.Paid
+</th>
+<th style="text-align:left;">
+Outstanding.Estimate
+</th>
+<th style="text-align:left;">
+Motor.Net.Incurred
+</th>
+<th style="text-align:left;">
+Third.Party.Identified
+</th>
+<th style="text-align:left;">
+Third.Party.Insured
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">Length:318</td>
-<td align="left">Length:318</td>
-<td align="left">Length:318</td>
-<td align="left">Min. :18.00</td>
-<td align="left">Length:318</td>
-<td align="left">Min. : 200</td>
-<td align="left">Min. : 0.0</td>
-<td align="left">Min. : 0.0</td>
-<td align="left">Min. : 0.0</td>
-<td align="left">Min. : 0.0</td>
-<td align="left">Length:318</td>
-<td align="left">Length:318</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Length:318
+</td>
+<td style="text-align:left;">
+Length:318
+</td>
+<td style="text-align:left;">
+Length:318
+</td>
+<td style="text-align:left;">
+Min. :18.00
+</td>
+<td style="text-align:left;">
+Length:318
+</td>
+<td style="text-align:left;">
+Min. : 200
+</td>
+<td style="text-align:left;">
+Min. : 0.0
+</td>
+<td style="text-align:left;">
+Min. : 0.0
+</td>
+<td style="text-align:left;">
+Min. : 0.0
+</td>
+<td style="text-align:left;">
+Min. : 0.0
+</td>
+<td style="text-align:left;">
+Length:318
+</td>
+<td style="text-align:left;">
+Length:318
+</td>
 </tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Class :character</td>
-<td align="left">Class :character</td>
-<td align="left">Class :character</td>
-<td align="left">1st Qu.:28.00</td>
-<td align="left">Class :character</td>
-<td align="left">1st Qu.:2559</td>
-<td align="left">1st Qu.: 0.0</td>
-<td align="left">1st Qu.: 315.6</td>
-<td align="left">1st Qu.: 0.0</td>
-<td align="left">1st Qu.: 385.2</td>
-<td align="left">Class :character</td>
-<td align="left">Class :character</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Class :character
+</td>
+<td style="text-align:left;">
+Class :character
+</td>
+<td style="text-align:left;">
+Class :character
+</td>
+<td style="text-align:left;">
+1st Qu.:28.00
+</td>
+<td style="text-align:left;">
+Class :character
+</td>
+<td style="text-align:left;">
+1st Qu.:2559
+</td>
+<td style="text-align:left;">
+1st Qu.: 0.0
+</td>
+<td style="text-align:left;">
+1st Qu.: 315.6
+</td>
+<td style="text-align:left;">
+1st Qu.: 0.0
+</td>
+<td style="text-align:left;">
+1st Qu.: 385.2
+</td>
+<td style="text-align:left;">
+Class :character
+</td>
+<td style="text-align:left;">
+Class :character
+</td>
 </tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">Mode :character</td>
-<td align="left">Mode :character</td>
-<td align="left">Mode :character</td>
-<td align="left">Median :40.00</td>
-<td align="left">Mode :character</td>
-<td align="left">Median :2601</td>
-<td align="left">Median : 0.0</td>
-<td align="left">Median : 1787.8</td>
-<td align="left">Median : 0.0</td>
-<td align="left">Median : 1894.7</td>
-<td align="left">Mode :character</td>
-<td align="left">Mode :character</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Mode :character
+</td>
+<td style="text-align:left;">
+Mode :character
+</td>
+<td style="text-align:left;">
+Mode :character
+</td>
+<td style="text-align:left;">
+Median :40.00
+</td>
+<td style="text-align:left;">
+Mode :character
+</td>
+<td style="text-align:left;">
+Median :2601
+</td>
+<td style="text-align:left;">
+Median : 0.0
+</td>
+<td style="text-align:left;">
+Median : 1787.8
+</td>
+<td style="text-align:left;">
+Median : 0.0
+</td>
+<td style="text-align:left;">
+Median : 1894.7
+</td>
+<td style="text-align:left;">
+Mode :character
+</td>
+<td style="text-align:left;">
+Mode :character
+</td>
 </tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Mean :41.26</td>
-<td align="left">NA</td>
-<td align="left">Mean :2669</td>
-<td align="left">Mean : 337.3</td>
-<td align="left">Mean : 5299.6</td>
-<td align="left">Mean : 199.2</td>
-<td align="left">Mean : 5498.8</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Mean :41.26
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Mean :2669
+</td>
+<td style="text-align:left;">
+Mean : 337.3
+</td>
+<td style="text-align:left;">
+Mean : 5299.6
+</td>
+<td style="text-align:left;">
+Mean : 199.2
+</td>
+<td style="text-align:left;">
+Mean : 5498.8
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
 </tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">3rd Qu.:55.00</td>
-<td align="left">NA</td>
-<td align="left">3rd Qu.:2609</td>
-<td align="left">3rd Qu.:1000.0</td>
-<td align="left">3rd Qu.: 6804.1</td>
-<td align="left">3rd Qu.: 0.0</td>
-<td align="left">3rd Qu.: 7013.1</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+3rd Qu.:55.00
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+3rd Qu.:2609
+</td>
+<td style="text-align:left;">
+3rd Qu.:1000.0
+</td>
+<td style="text-align:left;">
+3rd Qu.: 6804.1
+</td>
+<td style="text-align:left;">
+3rd Qu.: 0.0
+</td>
+<td style="text-align:left;">
+3rd Qu.: 7013.1
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
 </tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Max. :69.00</td>
-<td align="left">NA</td>
-<td align="left">Max. :7320</td>
-<td align="left">Max. :2000.0</td>
-<td align="left">Max. :56469.6</td>
-<td align="left">Max. :31927.3</td>
-<td align="left">Max. :56469.6</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Max. :69.00
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Max. :7320
+</td>
+<td style="text-align:left;">
+Max. :2000.0
+</td>
+<td style="text-align:left;">
+Max. :56469.6
+</td>
+<td style="text-align:left;">
+Max. :31927.3
+</td>
+<td style="text-align:left;">
+Max. :56469.6
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
 </tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA’s :145</td>
-<td align="left">NA</td>
-<td align="left">NA’s :3</td>
-<td align="left">NA’s :2</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA’s :145
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA’s :3
+</td>
+<td style="text-align:left;">
+NA’s :2
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
 </tr>
 </tbody>
 </table>
@@ -3204,7 +3916,7 @@ The Organization for Economic Cooperation and Development (OECD). 2021. <
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Note that the average severity in <a href="#tab:1.3">Table 1.3</a> differs from that reported in <a href="#tab:1.2">Table 1.2</a>. This is because the former includes policyholders with zero claims where as the latter does not. This is an important distinction that we will address in later portions of the text.<a href="ChapIntro.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Note that the average severity in <a href="../docs/ChapIntro.html#tab:1.3">Table 1.3</a> differs from that reported in <a href="../docs/ChapIntro.html#tab:1.2">Table 1.2</a>. This is because the former includes policyholders with zero claims where as the latter does not. This is an important distinction that we will address in later portions of the text.<a href="ChapIntro.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -3255,7 +3967,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["LossDataAnalytics.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

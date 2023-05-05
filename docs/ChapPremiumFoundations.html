@@ -565,7 +565,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="Format/style.css" type="text/css" />
 <link rel="stylesheet" href="includeWebex/webex.css" type="text/css" />
 </head>
 
@@ -1942,7 +1942,7 @@ Figure 9.4: <strong>Lorenz versus Performance Curve</strong>
 </h5>
 <div id="toggleExample.AreaDemo" style="display: none">
 <p>To understand the formula for the Gini statistic, here is a sketch of a parallelogram connecting points <span class="math inline">\((a_1, b_1)\)</span>, <span class="math inline">\((a_2, b_2)\)</span>, and a 45 degree line. You can use basic geometry to check that the area of the figure is <span class="math inline">\(Area = (a_2 - a_1) \left \{\frac{a_2+a_1}{2} - \frac{b_2+b_1}{2} \right\}\)</span>. The definition of the Gini statistic in equation <a href="ChapPremiumFoundations.html#eq:GiniDefn">(9.7)</a> is simply twice the sum of the parallelograms. The second equality in equation <a href="ChapPremiumFoundations.html#eq:GiniDefn">(9.7)</a> is the result of some straight-forward algebra.</p>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-85-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-87-1.png" width="672" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 <p><strong>Example – Loss Distribution: Continued.</strong> The Gini statistic for the Lorenz curve (left-hand panel of Figure <a href="ChapPremiumFoundations.html#fig:LorenzVsOrdered">9.4</a>) is 34.4 percent. In contrast, the Gini statistic for performance curve (right-hand panel) is 1.7 percent.</p>
@@ -1972,31 +1972,31 @@ Figure 9.4: <strong>Lorenz versus Performance Curve</strong>
 <p>For our base premium, we assume a common distribution among all states. For these simulated data, the average in-sample loss is <span class="math inline">\(P_1\)</span>=221.36.</p>
 <p>As an alternative, we use averages that are state-specific; these averages form our premiums <span class="math inline">\(P_2\)</span>. Because this illustration uses means that vary by states, we anticipate this alternative rating procedure to be preferred to the community rating procedure.</p>
 <p>Out of sample claims were generated from the same gamma distribution as the in-sample model, with 100 observations for each state. The following <code>R</code> code shows how to calculate the performance curves.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="ChapPremiumFoundations.html#cb159-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> Outy</span>
-<span id="cb159-2"><a href="ChapPremiumFoundations.html#cb159-2" aria-hidden="true" tabindex="-1"></a>P1 <span class="ot">&lt;-</span> Flatpred</span>
-<span id="cb159-3"><a href="ChapPremiumFoundations.html#cb159-3" aria-hidden="true" tabindex="-1"></a>P2 <span class="ot">&lt;-</span> Predvec</span>
-<span id="cb159-4"><a href="ChapPremiumFoundations.html#cb159-4" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">=</span> <span class="fu">length</span>(y)</span>
-<span id="cb159-5"><a href="ChapPremiumFoundations.html#cb159-5" aria-hidden="true" tabindex="-1"></a>XYmat <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(y, P1, P2))</span>
-<span id="cb159-6"><a href="ChapPremiumFoundations.html#cb159-6" aria-hidden="true" tabindex="-1"></a>XYmatPOrder <span class="ot">=</span> XYmat[<span class="fu">order</span>(P1), ]  <span class="co">#  Sort by premiums P1</span></span>
-<span id="cb159-7"><a href="ChapPremiumFoundations.html#cb159-7" aria-hidden="true" tabindex="-1"></a>DFy1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(XYmatPOrder<span class="sc">$</span>y)<span class="sc">/</span><span class="fu">sum</span>(y))</span>
-<span id="cb159-8"><a href="ChapPremiumFoundations.html#cb159-8" aria-hidden="true" tabindex="-1"></a>DFx1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(XYmatPOrder<span class="sc">$</span>P1)<span class="sc">/</span><span class="fu">sum</span>(P1))</span>
-<span id="cb159-9"><a href="ChapPremiumFoundations.html#cb159-9" aria-hidden="true" tabindex="-1"></a>XYmatPOrder <span class="ot">=</span> XYmat[<span class="fu">order</span>(P2), ]  <span class="co">#  Sort by premiums P2</span></span>
-<span id="cb159-10"><a href="ChapPremiumFoundations.html#cb159-10" aria-hidden="true" tabindex="-1"></a>DFy2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(XYmatPOrder<span class="sc">$</span>y)<span class="sc">/</span><span class="fu">sum</span>(y))</span>
-<span id="cb159-11"><a href="ChapPremiumFoundations.html#cb159-11" aria-hidden="true" tabindex="-1"></a>DFx2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(XYmatPOrder<span class="sc">$</span>P2)<span class="sc">/</span><span class="fu">sum</span>(P2))</span>
-<span id="cb159-12"><a href="ChapPremiumFoundations.html#cb159-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-13"><a href="ChapPremiumFoundations.html#cb159-13" aria-hidden="true" tabindex="-1"></a><span class="co"># FIGURE 3</span></span>
-<span id="cb159-14"><a href="ChapPremiumFoundations.html#cb159-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb159-15"><a href="ChapPremiumFoundations.html#cb159-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Lorenz Curve</span></span>
-<span id="cb159-16"><a href="ChapPremiumFoundations.html#cb159-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DFx1, DFy1, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">cex =</span> <span class="fl">0.2</span>, <span class="at">xlab =</span> <span class="st">&quot;Premium Distn&quot;</span>,</span>
-<span id="cb159-17"><a href="ChapPremiumFoundations.html#cb159-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Flat&quot;</span>)</span>
-<span id="cb159-18"><a href="ChapPremiumFoundations.html#cb159-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb159-19"><a href="ChapPremiumFoundations.html#cb159-19" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">&quot;Loss Distn&quot;</span>, <span class="at">side =</span> <span class="dv">2</span>, <span class="at">line =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">at =</span> <span class="fl">1.1</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb159-20"><a href="ChapPremiumFoundations.html#cb159-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Performance Curve</span></span>
-<span id="cb159-21"><a href="ChapPremiumFoundations.html#cb159-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DFx2, DFy2, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">cex =</span> <span class="fl">0.2</span>, <span class="at">xlab =</span> <span class="st">&quot;Premium Distn&quot;</span>,</span>
-<span id="cb159-22"><a href="ChapPremiumFoundations.html#cb159-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;State Specific&quot;</span>)</span>
-<span id="cb159-23"><a href="ChapPremiumFoundations.html#cb159-23" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb159-24"><a href="ChapPremiumFoundations.html#cb159-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">&quot;Loss Distn&quot;</span>, <span class="at">side =</span> <span class="dv">2</span>, <span class="at">line =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">at =</span> <span class="fl">1.1</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-88-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="ChapPremiumFoundations.html#cb160-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> Outy</span>
+<span id="cb160-2"><a href="ChapPremiumFoundations.html#cb160-2" aria-hidden="true" tabindex="-1"></a>P1 <span class="ot">&lt;-</span> Flatpred</span>
+<span id="cb160-3"><a href="ChapPremiumFoundations.html#cb160-3" aria-hidden="true" tabindex="-1"></a>P2 <span class="ot">&lt;-</span> Predvec</span>
+<span id="cb160-4"><a href="ChapPremiumFoundations.html#cb160-4" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">=</span> <span class="fu">length</span>(y)</span>
+<span id="cb160-5"><a href="ChapPremiumFoundations.html#cb160-5" aria-hidden="true" tabindex="-1"></a>XYmat <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(y, P1, P2))</span>
+<span id="cb160-6"><a href="ChapPremiumFoundations.html#cb160-6" aria-hidden="true" tabindex="-1"></a>XYmatPOrder <span class="ot">=</span> XYmat[<span class="fu">order</span>(P1), ]  <span class="co">#  Sort by premiums P1</span></span>
+<span id="cb160-7"><a href="ChapPremiumFoundations.html#cb160-7" aria-hidden="true" tabindex="-1"></a>DFy1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(XYmatPOrder<span class="sc">$</span>y)<span class="sc">/</span><span class="fu">sum</span>(y))</span>
+<span id="cb160-8"><a href="ChapPremiumFoundations.html#cb160-8" aria-hidden="true" tabindex="-1"></a>DFx1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(XYmatPOrder<span class="sc">$</span>P1)<span class="sc">/</span><span class="fu">sum</span>(P1))</span>
+<span id="cb160-9"><a href="ChapPremiumFoundations.html#cb160-9" aria-hidden="true" tabindex="-1"></a>XYmatPOrder <span class="ot">=</span> XYmat[<span class="fu">order</span>(P2), ]  <span class="co">#  Sort by premiums P2</span></span>
+<span id="cb160-10"><a href="ChapPremiumFoundations.html#cb160-10" aria-hidden="true" tabindex="-1"></a>DFy2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(XYmatPOrder<span class="sc">$</span>y)<span class="sc">/</span><span class="fu">sum</span>(y))</span>
+<span id="cb160-11"><a href="ChapPremiumFoundations.html#cb160-11" aria-hidden="true" tabindex="-1"></a>DFx2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(XYmatPOrder<span class="sc">$</span>P2)<span class="sc">/</span><span class="fu">sum</span>(P2))</span>
+<span id="cb160-12"><a href="ChapPremiumFoundations.html#cb160-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-13"><a href="ChapPremiumFoundations.html#cb160-13" aria-hidden="true" tabindex="-1"></a><span class="co"># FIGURE 3</span></span>
+<span id="cb160-14"><a href="ChapPremiumFoundations.html#cb160-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb160-15"><a href="ChapPremiumFoundations.html#cb160-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Lorenz Curve</span></span>
+<span id="cb160-16"><a href="ChapPremiumFoundations.html#cb160-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DFx1, DFy1, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">cex =</span> <span class="fl">0.2</span>, <span class="at">xlab =</span> <span class="st">&quot;Premium Distn&quot;</span>,</span>
+<span id="cb160-17"><a href="ChapPremiumFoundations.html#cb160-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Flat&quot;</span>)</span>
+<span id="cb160-18"><a href="ChapPremiumFoundations.html#cb160-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb160-19"><a href="ChapPremiumFoundations.html#cb160-19" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">&quot;Loss Distn&quot;</span>, <span class="at">side =</span> <span class="dv">2</span>, <span class="at">line =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">at =</span> <span class="fl">1.1</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb160-20"><a href="ChapPremiumFoundations.html#cb160-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Performance Curve</span></span>
+<span id="cb160-21"><a href="ChapPremiumFoundations.html#cb160-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DFx2, DFy2, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">cex =</span> <span class="fl">0.2</span>, <span class="at">xlab =</span> <span class="st">&quot;Premium Distn&quot;</span>,</span>
+<span id="cb160-22"><a href="ChapPremiumFoundations.html#cb160-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;State Specific&quot;</span>)</span>
+<span id="cb160-23"><a href="ChapPremiumFoundations.html#cb160-23" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb160-24"><a href="ChapPremiumFoundations.html#cb160-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">&quot;Loss Distn&quot;</span>, <span class="at">side =</span> <span class="dv">2</span>, <span class="at">line =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">at =</span> <span class="fl">1.1</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-90-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>For these data, the Gini statistics are 19.6 percent for the flat rate premium and -0.702 percent for the state-specific alternative. This indicates that the state-specific alternative procedure is strongly preferred to the base community rating procedure.</p>
 <hr />
 </div>
@@ -2184,7 +2184,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["LossDataAnalytics.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

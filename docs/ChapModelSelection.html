@@ -565,7 +565,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="Format/style.css" type="text/css" />
 <link rel="stylesheet" href="includeWebex/webex.css" type="text/css" />
 </head>
 
@@ -2846,7 +2846,7 @@ Figure 5.12: <strong>Quantile-Quantile (<span class="math inline">\(qq\)</span>)
 <hr />
 <p><strong>Example 5.3.1. Actuarial Exam Question.</strong> The graph below shows a <span class="math inline">\(pp\)</span>
 plot of a fitted distribution compared to a sample.</p>
-<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-55-1.png" width="40%" style="display: block; margin: auto;" /></p>
+<p><img src="LossDataAnalytics_files/figure-html/unnamed-chunk-57-1.png" width="40%" style="display: block; margin: auto;" /></p>
 <p>Comment on the two distributions with respect to left tail, right tail,
 and median probabilities.</p>
 <h5 style="text-align: center;">
@@ -3279,33 +3279,66 @@ favors more complicated models.</p>
 <span id="cb46-38"><a href="ChapModelSelection.html#cb46-38" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Model Selection based on MSE and AIC for normal outputs**&quot;</span>,</span>
 <span id="cb46-39"><a href="ChapModelSelection.html#cb46-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-58">Table 5.1: </span><strong>Model Selection based on MSE and AIC for normal outputs</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-60">Table 5.1: </span><strong>Model Selection based on MSE and AIC for normal outputs</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Train</td>
-<td align="right">1.186</td>
-<td align="right">1.016</td>
-<td align="right">0.990</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Train
+</td>
+<td style="text-align:right;">
+1.186
+</td>
+<td style="text-align:right;">
+1.016
+</td>
+<td style="text-align:right;">
+0.990
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Test</td>
-<td align="right">1.081</td>
-<td align="right">0.958</td>
-<td align="right">1.012</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Test
+</td>
+<td style="text-align:right;">
+1.081
+</td>
+<td style="text-align:right;">
+0.958
+</td>
+<td style="text-align:right;">
+1.012
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Train</td>
-<td align="right">321.935</td>
-<td align="right">293.028</td>
-<td align="right">295.694</td>
+<tr>
+<td style="text-align:left;">
+AIC - Train
+</td>
+<td style="text-align:right;">
+321.935
+</td>
+<td style="text-align:right;">
+293.028
+</td>
+<td style="text-align:right;">
+295.694
+</td>
 </tr>
 </tbody>
 </table>
@@ -3387,45 +3420,94 @@ when the sample size is relatively small.</p>
 <span id="cb47-55"><a href="ChapModelSelection.html#cb47-55" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Model Selection based on in-sample AIC and out-of-sample MSE and MAE from lognormal model**&quot;</span>,</span>
 <span id="cb47-56"><a href="ChapModelSelection.html#cb47-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-59">Table 5.2: </span><strong>Model Selection based on in-sample AIC and out-of-sample MSE and MAE from lognormal model</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-61">Table 5.2: </span><strong>Model Selection based on in-sample AIC and out-of-sample MSE and MAE from lognormal model</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Train</td>
-<td align="right">4.365</td>
-<td align="right">4.185</td>
-<td align="right">4.192</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Train
+</td>
+<td style="text-align:right;">
+4.365
+</td>
+<td style="text-align:right;">
+4.185
+</td>
+<td style="text-align:right;">
+4.192
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Test</td>
-<td align="right">3.881</td>
-<td align="right">3.686</td>
-<td align="right">3.679</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Test
+</td>
+<td style="text-align:right;">
+3.881
+</td>
+<td style="text-align:right;">
+3.686
+</td>
+<td style="text-align:right;">
+3.679
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Train</td>
-<td align="right">2.077</td>
-<td align="right">1.821</td>
-<td align="right">1.807</td>
+<tr>
+<td style="text-align:left;">
+MAE - Train
+</td>
+<td style="text-align:right;">
+2.077
+</td>
+<td style="text-align:right;">
+1.821
+</td>
+<td style="text-align:right;">
+1.807
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Test</td>
-<td align="right">2.166</td>
-<td align="right">2.056</td>
-<td align="right">2.073</td>
+<tr>
+<td style="text-align:left;">
+MAE - Test
+</td>
+<td style="text-align:right;">
+2.166
+</td>
+<td style="text-align:right;">
+2.056
+</td>
+<td style="text-align:right;">
+2.073
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Train</td>
-<td align="right">1800.716</td>
-<td align="right">1681.550</td>
-<td align="right">1686.142</td>
+<tr>
+<td style="text-align:left;">
+AIC - Train
+</td>
+<td style="text-align:right;">
+1800.716
+</td>
+<td style="text-align:right;">
+1681.550
+</td>
+<td style="text-align:right;">
+1686.142
+</td>
 </tr>
 </tbody>
 </table>
@@ -3462,45 +3544,94 @@ when the sample size is relatively small.</p>
 <span id="cb48-31"><a href="ChapModelSelection.html#cb48-31" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Model Selection based on in-sample AIC and out-of-sample MSE and MAE from gamma model**&quot;</span>,</span>
 <span id="cb48-32"><a href="ChapModelSelection.html#cb48-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-59">Table 5.2: </span><strong>Model Selection based on in-sample AIC and out-of-sample MSE and MAE from gamma model</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-61">Table 5.2: </span><strong>Model Selection based on in-sample AIC and out-of-sample MSE and MAE from gamma model</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Train</td>
-<td align="right">4.634</td>
-<td align="right">4.572</td>
-<td align="right">4.572</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Train
+</td>
+<td style="text-align:right;">
+4.634
+</td>
+<td style="text-align:right;">
+4.572
+</td>
+<td style="text-align:right;">
+4.572
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Test</td>
-<td align="right">4.298</td>
-<td align="right">4.232</td>
-<td align="right">4.235</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Test
+</td>
+<td style="text-align:right;">
+4.298
+</td>
+<td style="text-align:right;">
+4.232
+</td>
+<td style="text-align:right;">
+4.235
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Train</td>
-<td align="right">1.862</td>
-<td align="right">1.815</td>
-<td align="right">1.817</td>
+<tr>
+<td style="text-align:left;">
+MAE - Train
+</td>
+<td style="text-align:right;">
+1.862
+</td>
+<td style="text-align:right;">
+1.815
+</td>
+<td style="text-align:right;">
+1.817
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Test</td>
-<td align="right">2.127</td>
-<td align="right">2.123</td>
-<td align="right">2.128</td>
+<tr>
+<td style="text-align:left;">
+MAE - Test
+</td>
+<td style="text-align:right;">
+2.127
+</td>
+<td style="text-align:right;">
+2.123
+</td>
+<td style="text-align:right;">
+2.128
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Train</td>
-<td align="right">1906.398</td>
-<td align="right">1789.312</td>
-<td align="right">1795.662</td>
+<tr>
+<td style="text-align:left;">
+AIC - Train
+</td>
+<td style="text-align:right;">
+1906.398
+</td>
+<td style="text-align:right;">
+1789.312
+</td>
+<td style="text-align:right;">
+1795.662
+</td>
 </tr>
 </tbody>
 </table>
@@ -3588,45 +3719,94 @@ smaller sample size of 200.</p>
 <span id="cb49-58"><a href="ChapModelSelection.html#cb49-58" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Model Selection based on in-sample AIC and out-of-sample MSE and MAE from lognormal model**&quot;</span>,</span>
 <span id="cb49-59"><a href="ChapModelSelection.html#cb49-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-60">Table 5.3: </span><strong>Model Selection based on in-sample AIC and out-of-sample MSE and MAE from lognormal model</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-62">Table 5.3: </span><strong>Model Selection based on in-sample AIC and out-of-sample MSE and MAE from lognormal model</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Train</td>
-<td align="right">1.083</td>
-<td align="right">0.763</td>
-<td align="right">0.760</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Train
+</td>
+<td style="text-align:right;">
+1.083
+</td>
+<td style="text-align:right;">
+0.763
+</td>
+<td style="text-align:right;">
+0.760
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Test</td>
-<td align="right">1.128</td>
-<td align="right">0.815</td>
-<td align="right">0.812</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Test
+</td>
+<td style="text-align:right;">
+1.128
+</td>
+<td style="text-align:right;">
+0.815
+</td>
+<td style="text-align:right;">
+0.812
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Train</td>
-<td align="right">0.800</td>
-<td align="right">0.535</td>
-<td align="right">0.529</td>
+<tr>
+<td style="text-align:left;">
+MAE - Train
+</td>
+<td style="text-align:right;">
+0.800
+</td>
+<td style="text-align:right;">
+0.535
+</td>
+<td style="text-align:right;">
+0.529
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Test</td>
-<td align="right">0.830</td>
-<td align="right">0.565</td>
-<td align="right">0.566</td>
+<tr>
+<td style="text-align:left;">
+MAE - Test
+</td>
+<td style="text-align:right;">
+0.830
+</td>
+<td style="text-align:right;">
+0.565
+</td>
+<td style="text-align:right;">
+0.566
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Train</td>
-<td align="right">1212.218</td>
-<td align="right">864.776</td>
-<td align="right">868.794</td>
+<tr>
+<td style="text-align:left;">
+AIC - Train
+</td>
+<td style="text-align:right;">
+1212.218
+</td>
+<td style="text-align:right;">
+864.776
+</td>
+<td style="text-align:right;">
+868.794
+</td>
 </tr>
 </tbody>
 </table>
@@ -3663,45 +3843,94 @@ smaller sample size of 200.</p>
 <span id="cb50-31"><a href="ChapModelSelection.html#cb50-31" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Model Selection based on in-sample AIC and out-of-sample MSE and MAE from gamma model**&quot;</span>,</span>
 <span id="cb50-32"><a href="ChapModelSelection.html#cb50-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-60">Table 5.3: </span><strong>Model Selection based on in-sample AIC and out-of-sample MSE and MAE from gamma model</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-62">Table 5.3: </span><strong>Model Selection based on in-sample AIC and out-of-sample MSE and MAE from gamma model</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Train</td>
-<td align="right">1.553</td>
-<td align="right">1.476</td>
-<td align="right">1.475</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Train
+</td>
+<td style="text-align:right;">
+1.553
+</td>
+<td style="text-align:right;">
+1.476
+</td>
+<td style="text-align:right;">
+1.475
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Test</td>
-<td align="right">1.594</td>
-<td align="right">1.523</td>
-<td align="right">1.522</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Test
+</td>
+<td style="text-align:right;">
+1.594
+</td>
+<td style="text-align:right;">
+1.523
+</td>
+<td style="text-align:right;">
+1.522
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Train</td>
-<td align="right">1.121</td>
-<td align="right">1.226</td>
-<td align="right">1.227</td>
+<tr>
+<td style="text-align:left;">
+MAE - Train
+</td>
+<td style="text-align:right;">
+1.121
+</td>
+<td style="text-align:right;">
+1.226
+</td>
+<td style="text-align:right;">
+1.227
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Test</td>
-<td align="right">1.138</td>
-<td align="right">1.253</td>
-<td align="right">1.253</td>
+<tr>
+<td style="text-align:left;">
+MAE - Test
+</td>
+<td style="text-align:right;">
+1.138
+</td>
+<td style="text-align:right;">
+1.253
+</td>
+<td style="text-align:right;">
+1.253
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Train</td>
-<td align="right">1249.211</td>
-<td align="right">852.292</td>
-<td align="right">856.850</td>
+<tr>
+<td style="text-align:left;">
+AIC - Train
+</td>
+<td style="text-align:right;">
+1249.211
+</td>
+<td style="text-align:right;">
+852.292
+</td>
+<td style="text-align:right;">
+856.850
+</td>
 </tr>
 </tbody>
 </table>
@@ -3812,93 +4041,206 @@ with the correct distribution and mean structure, even with a total of
 <span id="cb51-46"><a href="ChapModelSelection.html#cb51-46" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from lognormal model**&quot;</span>,</span>
 <span id="cb51-47"><a href="ChapModelSelection.html#cb51-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-61">Table 5.4: </span><strong>Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from lognormal model</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-63">Table 5.4: </span><strong>Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from lognormal model</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Fold 1</td>
-<td align="right">1.808</td>
-<td align="right">1.750</td>
-<td align="right">1.891</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 1
+</td>
+<td style="text-align:right;">
+1.808
+</td>
+<td style="text-align:right;">
+1.750
+</td>
+<td style="text-align:right;">
+1.891
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Fold 2</td>
-<td align="right">2.145</td>
-<td align="right">1.773</td>
-<td align="right">1.813</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 2
+</td>
+<td style="text-align:right;">
+2.145
+</td>
+<td style="text-align:right;">
+1.773
+</td>
+<td style="text-align:right;">
+1.813
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rmse - Fold 3</td>
-<td align="right">3.461</td>
-<td align="right">3.335</td>
-<td align="right">3.333</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 3
+</td>
+<td style="text-align:right;">
+3.461
+</td>
+<td style="text-align:right;">
+3.335
+</td>
+<td style="text-align:right;">
+3.333
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Fold 4</td>
-<td align="right">1.425</td>
-<td align="right">1.723</td>
-<td align="right">1.865</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 4
+</td>
+<td style="text-align:right;">
+1.425
+</td>
+<td style="text-align:right;">
+1.723
+</td>
+<td style="text-align:right;">
+1.865
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rmse - Fold 5</td>
-<td align="right">4.848</td>
-<td align="right">4.450</td>
-<td align="right">4.454</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 5
+</td>
+<td style="text-align:right;">
+4.848
+</td>
+<td style="text-align:right;">
+4.450
+</td>
+<td style="text-align:right;">
+4.454
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Average</td>
-<td align="right">2.738</td>
-<td align="right">2.606</td>
-<td align="right">2.671</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Average
+</td>
+<td style="text-align:right;">
+2.738
+</td>
+<td style="text-align:right;">
+2.606
+</td>
+<td style="text-align:right;">
+2.671
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 1</td>
-<td align="right">1.341</td>
-<td align="right">1.408</td>
-<td align="right">1.502</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 1
+</td>
+<td style="text-align:right;">
+1.341
+</td>
+<td style="text-align:right;">
+1.408
+</td>
+<td style="text-align:right;">
+1.502
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Fold 2</td>
-<td align="right">1.881</td>
-<td align="right">1.264</td>
-<td align="right">1.255</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 2
+</td>
+<td style="text-align:right;">
+1.881
+</td>
+<td style="text-align:right;">
+1.264
+</td>
+<td style="text-align:right;">
+1.255
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 3</td>
-<td align="right">2.037</td>
-<td align="right">2.142</td>
-<td align="right">2.146</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 3
+</td>
+<td style="text-align:right;">
+2.037
+</td>
+<td style="text-align:right;">
+2.142
+</td>
+<td style="text-align:right;">
+2.146
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Fold 4</td>
-<td align="right">1.225</td>
-<td align="right">1.345</td>
-<td align="right">1.476</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 4
+</td>
+<td style="text-align:right;">
+1.225
+</td>
+<td style="text-align:right;">
+1.345
+</td>
+<td style="text-align:right;">
+1.476
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 5</td>
-<td align="right">2.421</td>
-<td align="right">2.022</td>
-<td align="right">2.051</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 5
+</td>
+<td style="text-align:right;">
+2.421
+</td>
+<td style="text-align:right;">
+2.022
+</td>
+<td style="text-align:right;">
+2.051
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Average</td>
-<td align="right">1.781</td>
-<td align="right">1.636</td>
-<td align="right">1.686</td>
+<tr>
+<td style="text-align:left;">
+MAE - Average
+</td>
+<td style="text-align:right;">
+1.781
+</td>
+<td style="text-align:right;">
+1.636
+</td>
+<td style="text-align:right;">
+1.686
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Average</td>
-<td align="right">286.257</td>
-<td align="right">266.223</td>
-<td align="right">271.200</td>
+<tr>
+<td style="text-align:left;">
+AIC - Average
+</td>
+<td style="text-align:right;">
+286.257
+</td>
+<td style="text-align:right;">
+266.223
+</td>
+<td style="text-align:right;">
+271.200
+</td>
 </tr>
 </tbody>
 </table>
@@ -3933,93 +4275,206 @@ with the correct distribution and mean structure, even with a total of
 <span id="cb52-29"><a href="ChapModelSelection.html#cb52-29" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from gamma model**&quot;</span>,</span>
 <span id="cb52-30"><a href="ChapModelSelection.html#cb52-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-61">Table 5.4: </span><strong>Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from gamma model</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-63">Table 5.4: </span><strong>Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from gamma model</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Fold 1</td>
-<td align="right">2.557</td>
-<td align="right">2.642</td>
-<td align="right">2.677</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 1
+</td>
+<td style="text-align:right;">
+2.557
+</td>
+<td style="text-align:right;">
+2.642
+</td>
+<td style="text-align:right;">
+2.677
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Fold 2</td>
-<td align="right">1.930</td>
-<td align="right">1.999</td>
-<td align="right">2.005</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 2
+</td>
+<td style="text-align:right;">
+1.930
+</td>
+<td style="text-align:right;">
+1.999
+</td>
+<td style="text-align:right;">
+2.005
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rmse - Fold 3</td>
-<td align="right">4.088</td>
-<td align="right">4.155</td>
-<td align="right">4.187</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 3
+</td>
+<td style="text-align:right;">
+4.088
+</td>
+<td style="text-align:right;">
+4.155
+</td>
+<td style="text-align:right;">
+4.187
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Fold 4</td>
-<td align="right">1.181</td>
-<td align="right">1.273</td>
-<td align="right">1.318</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 4
+</td>
+<td style="text-align:right;">
+1.181
+</td>
+<td style="text-align:right;">
+1.273
+</td>
+<td style="text-align:right;">
+1.318
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rmse - Fold 5</td>
-<td align="right">5.232</td>
-<td align="right">5.262</td>
-<td align="right">5.286</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 5
+</td>
+<td style="text-align:right;">
+5.232
+</td>
+<td style="text-align:right;">
+5.262
+</td>
+<td style="text-align:right;">
+5.286
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Average</td>
-<td align="right">2.998</td>
-<td align="right">3.066</td>
-<td align="right">3.095</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Average
+</td>
+<td style="text-align:right;">
+2.998
+</td>
+<td style="text-align:right;">
+3.066
+</td>
+<td style="text-align:right;">
+3.095
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 1</td>
-<td align="right">1.929</td>
-<td align="right">2.069</td>
-<td align="right">2.114</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 1
+</td>
+<td style="text-align:right;">
+1.929
+</td>
+<td style="text-align:right;">
+2.069
+</td>
+<td style="text-align:right;">
+2.114
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Fold 2</td>
-<td align="right">1.060</td>
-<td align="right">1.116</td>
-<td align="right">1.124</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 2
+</td>
+<td style="text-align:right;">
+1.060
+</td>
+<td style="text-align:right;">
+1.116
+</td>
+<td style="text-align:right;">
+1.124
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 3</td>
-<td align="right">2.488</td>
-<td align="right">2.660</td>
-<td align="right">2.725</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 3
+</td>
+<td style="text-align:right;">
+2.488
+</td>
+<td style="text-align:right;">
+2.660
+</td>
+<td style="text-align:right;">
+2.725
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Fold 4</td>
-<td align="right">0.887</td>
-<td align="right">0.949</td>
-<td align="right">0.999</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 4
+</td>
+<td style="text-align:right;">
+0.887
+</td>
+<td style="text-align:right;">
+0.949
+</td>
+<td style="text-align:right;">
+0.999
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 5</td>
-<td align="right">2.251</td>
-<td align="right">2.312</td>
-<td align="right">2.345</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 5
+</td>
+<td style="text-align:right;">
+2.251
+</td>
+<td style="text-align:right;">
+2.312
+</td>
+<td style="text-align:right;">
+2.345
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Average</td>
-<td align="right">1.723</td>
-<td align="right">1.821</td>
-<td align="right">1.861</td>
+<tr>
+<td style="text-align:left;">
+MAE - Average
+</td>
+<td style="text-align:right;">
+1.723
+</td>
+<td style="text-align:right;">
+1.821
+</td>
+<td style="text-align:right;">
+1.861
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Average</td>
-<td align="right">299.063</td>
-<td align="right">281.455</td>
-<td align="right">282.816</td>
+<tr>
+<td style="text-align:left;">
+AIC - Average
+</td>
+<td style="text-align:right;">
+299.063
+</td>
+<td style="text-align:right;">
+281.455
+</td>
+<td style="text-align:right;">
+282.816
+</td>
 </tr>
 </tbody>
 </table>
@@ -4089,93 +4544,206 @@ after we increase the sample size to 1000.</p>
 <span id="cb53-49"><a href="ChapModelSelection.html#cb53-49" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from lognormal model**&quot;</span>,</span>
 <span id="cb53-50"><a href="ChapModelSelection.html#cb53-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-62">Table 5.5: </span><strong>Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from lognormal model</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-64">Table 5.5: </span><strong>Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from lognormal model</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Fold 1</td>
-<td align="right">1.080</td>
-<td align="right">0.794</td>
-<td align="right">0.799</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 1
+</td>
+<td style="text-align:right;">
+1.080
+</td>
+<td style="text-align:right;">
+0.794
+</td>
+<td style="text-align:right;">
+0.799
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Fold 2</td>
-<td align="right">0.953</td>
-<td align="right">0.639</td>
-<td align="right">0.639</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 2
+</td>
+<td style="text-align:right;">
+0.953
+</td>
+<td style="text-align:right;">
+0.639
+</td>
+<td style="text-align:right;">
+0.639
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rmse - Fold 3</td>
-<td align="right">1.354</td>
-<td align="right">0.914</td>
-<td align="right">0.916</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 3
+</td>
+<td style="text-align:right;">
+1.354
+</td>
+<td style="text-align:right;">
+0.914
+</td>
+<td style="text-align:right;">
+0.916
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Fold 4</td>
-<td align="right">1.097</td>
-<td align="right">0.725</td>
-<td align="right">0.727</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 4
+</td>
+<td style="text-align:right;">
+1.097
+</td>
+<td style="text-align:right;">
+0.725
+</td>
+<td style="text-align:right;">
+0.727
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rmse - Fold 5</td>
-<td align="right">1.171</td>
-<td align="right">0.695</td>
-<td align="right">0.695</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 5
+</td>
+<td style="text-align:right;">
+1.171
+</td>
+<td style="text-align:right;">
+0.695
+</td>
+<td style="text-align:right;">
+0.695
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Average</td>
-<td align="right">1.131</td>
-<td align="right">0.753</td>
-<td align="right">0.755</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Average
+</td>
+<td style="text-align:right;">
+1.131
+</td>
+<td style="text-align:right;">
+0.753
+</td>
+<td style="text-align:right;">
+0.755
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 1</td>
-<td align="right">0.837</td>
-<td align="right">0.579</td>
-<td align="right">0.583</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 1
+</td>
+<td style="text-align:right;">
+0.837
+</td>
+<td style="text-align:right;">
+0.579
+</td>
+<td style="text-align:right;">
+0.583
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Fold 2</td>
-<td align="right">0.755</td>
-<td align="right">0.473</td>
-<td align="right">0.474</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 2
+</td>
+<td style="text-align:right;">
+0.755
+</td>
+<td style="text-align:right;">
+0.473
+</td>
+<td style="text-align:right;">
+0.474
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 3</td>
-<td align="right">0.952</td>
-<td align="right">0.600</td>
-<td align="right">0.602</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 3
+</td>
+<td style="text-align:right;">
+0.952
+</td>
+<td style="text-align:right;">
+0.600
+</td>
+<td style="text-align:right;">
+0.602
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Fold 4</td>
-<td align="right">0.852</td>
-<td align="right">0.523</td>
-<td align="right">0.525</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 4
+</td>
+<td style="text-align:right;">
+0.852
+</td>
+<td style="text-align:right;">
+0.523
+</td>
+<td style="text-align:right;">
+0.525
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 5</td>
-<td align="right">0.897</td>
-<td align="right">0.503</td>
-<td align="right">0.507</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 5
+</td>
+<td style="text-align:right;">
+0.897
+</td>
+<td style="text-align:right;">
+0.503
+</td>
+<td style="text-align:right;">
+0.507
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Average</td>
-<td align="right">0.859</td>
-<td align="right">0.536</td>
-<td align="right">0.538</td>
+<tr>
+<td style="text-align:left;">
+MAE - Average
+</td>
+<td style="text-align:right;">
+0.859
+</td>
+<td style="text-align:right;">
+0.536
+</td>
+<td style="text-align:right;">
+0.538
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Average</td>
-<td align="right">1980.018</td>
-<td align="right">1381.321</td>
-<td align="right">1388.351</td>
+<tr>
+<td style="text-align:left;">
+AIC - Average
+</td>
+<td style="text-align:right;">
+1980.018
+</td>
+<td style="text-align:right;">
+1381.321
+</td>
+<td style="text-align:right;">
+1388.351
+</td>
 </tr>
 </tbody>
 </table>
@@ -4210,93 +4778,206 @@ after we increase the sample size to 1000.</p>
 <span id="cb54-29"><a href="ChapModelSelection.html#cb54-29" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(OutMat, <span class="at">caption =</span> <span class="st">&quot;**Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from gamma model**&quot;</span>,</span>
 <span id="cb54-30"><a href="ChapModelSelection.html#cb54-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-62">Table 5.5: </span><strong>Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from gamma model</strong></caption>
+<caption>
+<span id="tab:unnamed-chunk-64">Table 5.5: </span><strong>Cross-validation based on in-sample AIC, and out-of-sample MSE and MAE from gamma model</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Community Rating</th>
-<th align="right">Two Levels</th>
-<th align="right">Six Levels</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Community Rating
+</th>
+<th style="text-align:right;">
+Two Levels
+</th>
+<th style="text-align:right;">
+Six Levels
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rmse - Fold 1</td>
-<td align="right">1.455</td>
-<td align="right">1.620</td>
-<td align="right">1.620</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 1
+</td>
+<td style="text-align:right;">
+1.455
+</td>
+<td style="text-align:right;">
+1.620
+</td>
+<td style="text-align:right;">
+1.620
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Fold 2</td>
-<td align="right">1.347</td>
-<td align="right">1.543</td>
-<td align="right">1.543</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 2
+</td>
+<td style="text-align:right;">
+1.347
+</td>
+<td style="text-align:right;">
+1.543
+</td>
+<td style="text-align:right;">
+1.543
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rmse - Fold 3</td>
-<td align="right">1.865</td>
-<td align="right">2.006</td>
-<td align="right">2.005</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 3
+</td>
+<td style="text-align:right;">
+1.865
+</td>
+<td style="text-align:right;">
+2.006
+</td>
+<td style="text-align:right;">
+2.005
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Fold 4</td>
-<td align="right">1.558</td>
-<td align="right">1.738</td>
-<td align="right">1.738</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 4
+</td>
+<td style="text-align:right;">
+1.558
+</td>
+<td style="text-align:right;">
+1.738
+</td>
+<td style="text-align:right;">
+1.738
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rmse - Fold 5</td>
-<td align="right">1.690</td>
-<td align="right">1.838</td>
-<td align="right">1.838</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Fold 5
+</td>
+<td style="text-align:right;">
+1.690
+</td>
+<td style="text-align:right;">
+1.838
+</td>
+<td style="text-align:right;">
+1.838
+</td>
 </tr>
-<tr class="even">
-<td align="left">Rmse - Average</td>
-<td align="right">1.583</td>
-<td align="right">1.749</td>
-<td align="right">1.749</td>
+<tr>
+<td style="text-align:left;">
+Rmse - Average
+</td>
+<td style="text-align:right;">
+1.583
+</td>
+<td style="text-align:right;">
+1.749
+</td>
+<td style="text-align:right;">
+1.749
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 1</td>
-<td align="right">1.003</td>
-<td align="right">1.223</td>
-<td align="right">1.223</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 1
+</td>
+<td style="text-align:right;">
+1.003
+</td>
+<td style="text-align:right;">
+1.223
+</td>
+<td style="text-align:right;">
+1.223
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Fold 2</td>
-<td align="right">0.975</td>
-<td align="right">1.195</td>
-<td align="right">1.195</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 2
+</td>
+<td style="text-align:right;">
+0.975
+</td>
+<td style="text-align:right;">
+1.195
+</td>
+<td style="text-align:right;">
+1.195
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 3</td>
-<td align="right">1.301</td>
-<td align="right">1.478</td>
-<td align="right">1.479</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 3
+</td>
+<td style="text-align:right;">
+1.301
+</td>
+<td style="text-align:right;">
+1.478
+</td>
+<td style="text-align:right;">
+1.479
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Fold 4</td>
-<td align="right">1.118</td>
-<td align="right">1.342</td>
-<td align="right">1.342</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 4
+</td>
+<td style="text-align:right;">
+1.118
+</td>
+<td style="text-align:right;">
+1.342
+</td>
+<td style="text-align:right;">
+1.342
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MAE - Fold 5</td>
-<td align="right">1.228</td>
-<td align="right">1.420</td>
-<td align="right">1.420</td>
+<tr>
+<td style="text-align:left;">
+MAE - Fold 5
+</td>
+<td style="text-align:right;">
+1.228
+</td>
+<td style="text-align:right;">
+1.420
+</td>
+<td style="text-align:right;">
+1.420
+</td>
 </tr>
-<tr class="even">
-<td align="left">MAE - Average</td>
-<td align="right">1.125</td>
-<td align="right">1.332</td>
-<td align="right">1.332</td>
+<tr>
+<td style="text-align:left;">
+MAE - Average
+</td>
+<td style="text-align:right;">
+1.125
+</td>
+<td style="text-align:right;">
+1.332
+</td>
+<td style="text-align:right;">
+1.332
+</td>
 </tr>
-<tr class="odd">
-<td align="left">AIC - Average</td>
-<td align="right">2047.108</td>
-<td align="right">1349.855</td>
-<td align="right">1357.246</td>
+<tr>
+<td style="text-align:left;">
+AIC - Average
+</td>
+<td style="text-align:right;">
+2047.108
+</td>
+<td style="text-align:right;">
+1349.855
+</td>
+<td style="text-align:right;">
+1357.246
+</td>
 </tr>
 </tbody>
 </table>
@@ -4403,33 +5084,66 @@ values that are much lower than those from normal and exponential
 distributions. The conclusion from the goodness of fit statistics is
 consistent to that revealed by the <span class="math inline">\(qq\)</span> plots.</p>
 <table>
-<caption><span id="tab:KsCensored">Table 5.6: </span><strong>Nonparametric goodness of fit statistics for right-censored Bodily Injury Claims</strong></caption>
+<caption>
+<span id="tab:KsCensored">Table 5.6: </span><strong>Nonparametric goodness of fit statistics for right-censored Bodily Injury Claims</strong>
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Kolmogorov-Smirnov</th>
-<th align="right">Cramer-von Mises</th>
-<th align="right">Anderson-Darling</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Kolmogorov-Smirnov
+</th>
+<th style="text-align:right;">
+Cramer-von Mises
+</th>
+<th style="text-align:right;">
+Anderson-Darling
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Lognormal</td>
-<td align="right">1.994</td>
-<td align="right">0.304</td>
-<td align="right">1.770</td>
+<tr>
+<td style="text-align:left;">
+Lognormal
+</td>
+<td style="text-align:right;">
+1.994
+</td>
+<td style="text-align:right;">
+0.304
+</td>
+<td style="text-align:right;">
+1.770
+</td>
 </tr>
-<tr class="even">
-<td align="left">Normal</td>
-<td align="right">3.096</td>
-<td align="right">1.335</td>
-<td align="right">9.437</td>
+<tr>
+<td style="text-align:left;">
+Normal
+</td>
+<td style="text-align:right;">
+3.096
+</td>
+<td style="text-align:right;">
+1.335
+</td>
+<td style="text-align:right;">
+9.437
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Exponential</td>
-<td align="right">4.811</td>
-<td align="right">4.065</td>
-<td align="right">21.659</td>
+<tr>
+<td style="text-align:left;">
+Exponential
+</td>
+<td style="text-align:right;">
+4.811
+</td>
+<td style="text-align:right;">
+4.065
+</td>
+<td style="text-align:right;">
+21.659
+</td>
 </tr>
 </tbody>
 </table>
@@ -4575,7 +5289,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["LossDataAnalytics.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

@@ -565,7 +565,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="Format/style.css" type="text/css" />
 <link rel="stylesheet" href="includeWebex/webex.css" type="text/css" />
 </head>
 
@@ -1179,7 +1179,7 @@ div.csl-indent {
 <button type="button"  style="background-color:#008CBA;color:white">Download the Wisconsin Property Fund Data</button></a></p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-186">Table 21.1: </span><strong>Variables in the Wisconsin Property Fund Dataset</strong>
+<span id="tab:unnamed-chunk-188">Table 21.1: </span><strong>Variables in the Wisconsin Property Fund Dataset</strong>
 </caption>
 <thead>
 <tr>
@@ -1284,7 +1284,7 @@ Builing and contents claims
 </table>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-187">Table 21.2: </span><strong>Wisconsin Property Fund First Five Rows</strong>
+<span id="tab:unnamed-chunk-189">Table 21.2: </span><strong>Wisconsin Property Fund First Five Rows</strong>
 </caption>
 <thead>
 <tr>
@@ -1503,7 +1503,7 @@ BCClaim
 </table>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-187">Table 21.2: </span><strong>Wisconsin Property Fund Last Five Rows</strong>
+<span id="tab:unnamed-chunk-189">Table 21.2: </span><strong>Wisconsin Property Fund Last Five Rows</strong>
 </caption>
 <thead>
 <tr>
@@ -4207,13 +4207,13 @@ PolID
 <h2><span class="header-section-number">21.6</span> ‘R’ Package CASdatasets<a href="DataResources.html#r-package-casdatasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>R</code> package <code>CASdatasets</code> provides a convenient way to access many well-known insurance datasets. This package was originally created to support the book <em>Computational Actuarial Science with R</em>, edited by Arthur Charpentier, <span class="citation">Charpentier (<a href="#ref-charpentier2014computational" role="doc-biblioref">2014</a>)</span>.</p>
 <p>To install the package, here is a bit of <code>R</code> code:</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="DataResources.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;CASdatasets&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;http://cas.uqam.ca/pub/&quot;</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
-<span id="cb290-2"><a href="DataResources.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CASdatasets)</span>
-<span id="cb290-3"><a href="DataResources.html#cb290-3" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(CASdatasets)</span>
-<span id="cb290-4"><a href="DataResources.html#cb290-4" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(sgautonb  <span class="co"># See the documentation of the Singapore Auto Data</span></span>
-<span id="cb290-5"><a href="DataResources.html#cb290-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb290-6"><a href="DataResources.html#cb290-6" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(lossalae  <span class="co"># See the documentation of the Loss and Expense Data</span></span>
-<span id="cb290-7"><a href="DataResources.html#cb290-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="DataResources.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;CASdatasets&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;http://cas.uqam.ca/pub/&quot;</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
+<span id="cb291-2"><a href="DataResources.html#cb291-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CASdatasets)</span>
+<span id="cb291-3"><a href="DataResources.html#cb291-3" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(CASdatasets)</span>
+<span id="cb291-4"><a href="DataResources.html#cb291-4" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(sgautonb  <span class="co"># See the documentation of the Singapore Auto Data</span></span>
+<span id="cb291-5"><a href="DataResources.html#cb291-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb291-6"><a href="DataResources.html#cb291-6" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(lossalae  <span class="co"># See the documentation of the Loss and Expense Data</span></span>
+<span id="cb291-7"><a href="DataResources.html#cb291-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Note that this package assumes that you have already installed a few other packages, including <em>xts</em>, <em>sp</em>, and <em>zoo</em>.</p>
 <p>To illustrate,</p>
 <ul>
@@ -4234,6 +4234,7 @@ PolID
 <li><strong>U.S. Government’s open data.</strong> This website (url: <a href="https://www.data.gov/">https://www.data.gov/</a>) contains about 200,000 datasets covering a wide range of areas including climate, education, energy, and finance.</li>
 <li><strong>AWS Public Datasets.</strong> In this website (url: <a href="https://aws.amazon.com/datasets/">https://aws.amazon.com/datasets/</a>), Amazon provides a centralized repository of public datasets, including some huge datasets.</li>
 </ul>
+
 
 </div>
 </div>
@@ -4297,7 +4298,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["LossDataAnalytics.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
