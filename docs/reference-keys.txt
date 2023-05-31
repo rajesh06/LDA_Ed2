@@ -314,7 +314,7 @@ nonparametric-estimation-using-modified-data
 grouped-data
 S:MS:PlugIn
 S:MS:RightCensored
-MS:further-reading-and-resources
+CS:further-reading-and-resources
 ChapModelSelection
 S:MS:ModelSelection
 S:MS:ToolsModelSelection
@@ -325,6 +325,7 @@ S:MS:Tools:Stats:Likelihood
 model-selection-based-on-a-test-dataset
 S:MS:Cross-Validation
 S:MS:Modified-Data
+MS:further-reading-and-resources
 ChapAggLossModels
 introduction
 individual-risk-model
