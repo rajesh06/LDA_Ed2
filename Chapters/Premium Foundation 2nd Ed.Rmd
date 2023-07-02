@@ -1,0 +1,306 @@
+
+`r chapnum = 9`
+
+# Premium Foundations {#ChapPremiumFoundations}
+
+*Chapter Preview.* Setting prices for insurance products, i.e., premiums, is an important task for actuaries and other data analysts. This chapter introduces the foundations for pricing non-life products.
+
+## Introduction to Ratemaking {#S:IntroductionRatemaking}
+
+***
+In this section, you learn how to:
+
+- Develop pure premiums
+- Develop a technical price to includes pure premiums, expenses and profits
+- Calculate an indicated rate change
+- Summarize a strategy for extending pricing to include heterogeneous risks and trends over time
+
+***
+
+This chapter explains how you can determine the appropriate price for an insurance product. As described in Section \@ref(S:PredModApps), one of the core actuarial functions is `r Gloss('ratemaking')`, where the analyst seeks to determine the right price for a risk.
+
+A `r Gloss('price')` is the consideration exchanged for a good or service. In insurance, we refer to this consideration as the `r Gloss('premium')` and the service provided by the insurer is protection against contingent events. The amount of protection varies by risk being insured. For example, in homeowners insurance, the amount of insurance protection depends on the home value. In life insurance, the amount of protection may depend on a policyholder's financial status (e.g., income and wealth) and their perceived need for financial security. So, it is common to express insurance prices as a unit of the protection being purchased, for example, a price per thousand dollars of coverage on a home or benefit in the event of death. These prices/premiums are known as `r Gloss('rates')` because they are expressed in standardized units.
+
+Unlike other products, the costs of insurance protection are not known at the sale of the contract. If the `r Gloss('insured contingent event')`, such as the loss of a house or life, does not occur, then the contract costs are only administrative (e.g., to set up the contract) and are relatively minor. If an insured event occurs, then the cost includes not only administrative costs but also claim payment(s) and expenses to settle claims. So, the cost is random when the contract is written, and protection from that randomness is the basis of insurance. 
+
+Because costs are unknown at the time of sale, insurance pricing differs from common economic approaches. This chapter introduces traditional actuarial approaches to determine prices as a function of insurance costs. As we will see, this pricing approach is sufficient for some insurance markets, such as personal automobile or homeowners, where the insurer has a portfolio of many independent risks. However, there are other insurance markets where actuarial prices only provide an input to general market prices. To reinforce this distinction, actuarial cost-based premiums are sometimes known as `r Gloss('technical prices')`. 
+
+To develop technical prices, it is helpful to think of a premium as revenue source that provides for claim payments, contract expenses, and an required return for the capital provider. We formalize this relationship as follows:
+
+$$
+\begin{equation}
+\small{
+\text{Premium} = \text{Rate} \times \text{Exposures}\\
+\text{Rate} = \dfrac{\text{Pure Premiums} + \text{Fixed Expenses} }{1 - \text{Variable Expense Rate} - \text{Profit}}
+\\
+\text{where:}\\
+\text{Pure Premiums} = \dfrac{\text{Claims and Claims Adjustment Expense}}{\text{Exposures}}\\
+\text{or:}\\
+\text{Pure Premiums} = \dfrac{\text{Claim Counts}}{\text{Exposures}} \times \dfrac{\text{Claims and Claims Adjustment Expense}}{\text{Claim Counts}}\\
+}(\#eq:PremiumEquation)
+\end{equation}
+$$
+`Non-claim Expenses` include insurer costs that vary by premium (such as sales commissions), and those that do not (such as building costs and employee salaries). We include those costs through the Fixed Expenses and Variable Expense Rate of the @ref(#eq:PremiumEquation).
+
+An insurer requires capital to support operations. The capital provider will reasonably expect to earn a profit from insuring risk. Generally, the required profit is expressed a return on equity. A portion of required profit is earned from investment income from two sources: policyholder cashflows and investment of the insurer's surplus. To the extent that investment income is insufficient to provide the required rate of return, the premiums will also need to include a provision `r Gloss('underwriting profit')`. 
+
+The premium equation above is slightly simplified to promote the understanding of the claims and expense provisions in Section \@ref(#S:claims) and exposures in Section \@ref(S:expenses). When we discuss profit, we will refine the equation to consider investment income.
+
+### Chapter Orginization
+
+* In Section \@ref(#S:DataSources), we first present the sources of information that support premium devleopment. 
+* We discuss this development of the provision for claims and claim adjustment expenses in Section \@ref(#S:claims).
+* In Section \@ref(S:expenses), we discuss fixed and variable non-claim expenses.
+* In Section \@ref(S:profit), we discuss the provision for profit.
+
+There will also be cases, such as a single contract issued to a large corporation to insure all of its buildings against fire damage, where the use of only an expectation for pricing is insufficient. So, Section \@ref(S:PricingPrinciples) also summarizes alternative premium principles that incorporate uncertainty into our pricing. Note that an emphasis of this text is estimation of the entire distribution of losses so the analyst is not restricted to working only with expectations.
+
+## Data Sources {#S:DataSources}
+As we have seen in Section \@ref(S:AggRateMaking), insurers consider aggregate information for ratemaking such as exposures to risk, premiums, expenses, claims, and payments. This aggregate information is also useful for managing an insurer’s activities; financial reports are commonly created at least annually and often quarterly. At any given financial reporting date, information about recent policies and claims will be ongoing and necessarily incomplete; this section introduces concepts for projecting risk information so that it is useful for ratemaking purposes.
+
+Insurers generally store information about insured risks, such as exposures, premiums, claim counts, losses, and rating factors, into three databases:
+
+* *policy database* - contains information about the risk being insured, the policyholder, and the contract provisions
+* *claims database* - contains information about each claim; these are linked to the policy database.
+* *payment database* - contains information on each claims transaction, typically payments but may also changes to *case reserves*. These are linked to the claims database.
+
+Insurers will aggregate the information in these detailed databases to develop the information needed for financial reports. As described in this chapter, insurers’ actuaries will also use this information to develop the premiums.
+
+In developing premiums and rates, its important that we use claims information and exposure information that is comparable. Most ratemaking uses an accident year approach. In this approach, we relate claims incurred during a specified period to the premium or exposure "earned" during that same period, without consideration of the period in which the underlying policy was written. For example a 12 month policy issued on 1 July 2019, may result in events that produce claims in 2019 or 2020, and the claims are assigned to the year of the event. Generally, we earn premiums and exposures on a pro-rata as to time basis as presented in the following table:
+
+[Table 9.7] gives detailed illustrative calculations for a portfolio of four illustrative policies.
+
+<a id=tab:9.7></a>
+
+[Table 9.7]: \#tab:9.7
+
+Table 9.7. **Exposures for Four 12-Month Policies**
+
+$$
+\small{
+\begin{matrix}
+\begin{array}{cl|cc|cc|cc|c}
+  \hline
+&  & & & & & &&\text{In-Force} \\
+&\text{Effective} & \text{Written}& \text{Exposure} & \text{Earned} &\text{Exposure}& \text{Unearned} &\text{Exposure}&  \text{Exposure} \\
+{Policy} &\text{Date}         & 2019 & 2020 & 2019 & 2020 & 1/1/2019 & 1/1/2020 & 1/1/2020 \\   \hline
+\text{A}&\text{1 Jan 2019}   & 1.00 & 0.00 & 1.00 & 0.00& 0.00 & 0.00 & 0.00 \\
+\text{B}&\text{1 April 2019} & 1.00 & 0.00 & 0.75 & 0.25 & 0.25 & 0.00& 1.00 \\
+\text{C}&\text{1 July 2019}  & 1.00 & 0.00 & 0.50 & 0.50 & 0.50 & 0.00& 1.00 \\
+\text{D}&\text{1 Oct 2019}   & 1.00 & 0.00 & 0.25 & 0.75 & 0.75 & 0.00& 1.00 \\ \hline
+ &  Total       & 4.00 & 0.00 & 2.50 & 1.50 & 1.50 & 0.00 & 3.00 \\
+  \hline
+  \hline
+\end{array}
+\end{matrix}
+}
+$$
+
+
+## Pure Premiums {#S:claims}
+
+The `Claims and Claim Adjustment Expenses` in equation \@ref(eq:PremiumEquation) are random, and so, as a baseline, we use the *expected costs* to determine rates. To develop our initial understanding, we will consider the insurer that enters into many contracts with risks that are similar except, by pure chance, in some cases the insured event occurs, and in others, it does not. The insurer is obligated to pay the total amount of claim payments for all contracts. If the risks are similar, then all policyholders are equally likely to contribute to the total loss. So, from this perspective, it makes sense to consider average claim payment over many insureds. From probability theory, specifically the law of large numbers, we know that the average of `r Gloss('iid')` risks is close to the expected amount, so we use the expectation as a baseline pricing principle. 
+
+In this chapter, we present the development of average premium levels for a portfolio of homogeneous risks. In chapter \@ref(#ChapRiskClass), we present approaches to develop classification plans which adjust those average premiums to recognize various risk characteristics. In chapter \@ref(#ChapBonusMalus), we present approaches to develop premiums that consider the claim experience of an individual insured. 
+
+The terms `r Gloss('loss')` and `r Gloss('claim')` refer to the amount of compensation paid or payable to the claimant under the terms of the insurance policy. Definitions can vary:
+* Sometimes, *claim* is used interchangeably with the term *loss*.
+* In some insurance and actuarial sources, *loss* is the amount of damage sustained in an insured event. The *claim* is the amount paid by the insurer. Differences between *loss* and *claim* amounts are typically due to the coverage terms such as deductibles and policy limits.
+* In economics, a *claim* is a demand for payment by an insured or by an injured third party under the terms and conditions of the insurance contract, and the *loss* is the amount paid by the insurer.
+
+This text will follow the second bullet.
+
+Also, there are two categories of claim adjustment expenses. 
+* Allocated claim adjustment expenses can be attributed to a specific claim, and are generally comprised of investigation expenses legal expenses to defend or settle the claim. 
+* Unallocated claim adjustment expenses can not be assigned to individual claims (e.g., claim adjuster salaries.) Actuaries often review claims and allocated claim adjustment expenses in aggregate as the latter is often a function of the former. 
+
+Claims and allocated claim adjustment expenses are sometimes inversely correlated as additional defend expenses may result in lower claim payments. In this section, references to claims also include allocated claims adjustment expenses. In this chapter we are focused on the claims and allocated claims adjustment expenses per unit exposure. That rate is referred to as a pure premium.
+
+Insurers will include a provision for unallocated claims adjustment expenses either as a percentage of claims and allocated claims expenses or premiums. We discuss unallocated claims adjustment expenses separately in this section.
+
+To develop the pure premiums, actuaries will typically review claims experience over a multi-year (typically three to seven years) period. The use of a multi-year period smooths the year-to-year randomness. The expected pure premium is generally A weighted average of the observations in the experience period. The weights generally balance responsiveness to more recent experience and the stability of a longer-term period. To support the understanding of the presentation of the development of pure premiums, we provide the following pure premium equation:
+
+$$ \text{Pure Premium}^{(t)} = \sum_{i=1}^n w_i \dfrac{\text{Claims and Claims Expenses}_{i}^{(t)}}{\text{Exposure}_i^{(t)}}$$
+Where we can develop projected claims and claims expenses based on ultimate claims and allocated claims adjustment expenses from our experience period:
+
+$$ \text{Claims and Claims Expenses}_{i}^{(t)} =  C_i^{\text{x}LL, \text{x}Cat} \times T_{i}^{(t)} \times LL \times CP \times UE$$
+Or, we can estimate projected claims and claims expenses as the product of projected claim frequency and claims severity:
+
+$$ \text{Claims and Claims Expenses}_{i}^{(t)} =  E[X] \times \times E[N] \times UE$$
+Under the latter approach, we assume the projected frequency and severity already include the various adjustments described below.
+
+$$ \text{Exposure}_{i}^{(t)} =  \text{Exposure}_i\times E_{i}^{(t)}$$
+
+where:
+* $C_i^{\text{x}LL, \text{x}Cat}$ is historical claims experience for year $i$, excluding large losses and catastrophes
+* $T_i$ is a claim trend factor to adjust year $i$ to the cost level of year $t$
+* $ET_i$ is a exposure trend factor to adjust year $i$ to the cost level of year $t$
+* $LL$ is large loss factor
+* $CP$ is a catastrophe provision
+* $UE$ is the unallocted claims adjustment expense factor
+* $E[X]$ is the projected average severity per claim
+* $E[N]$ is the projected number of claims
+* $w_i$ is the weight for year $i$ in an $n$ year experience period.
+
+
+<!-- I suggest deleting the following section, it's really more about the development of ultimate losses, i.e., loss reserving and I don't see value in repeating it here (and there is a risk that the discussion conflicts with the loss reserving chapter) -->
+
+<!-- To establish additional terminology, it is helpful to follow the timeline of a claim as it develops. In Figure \@ref(fig:ClaimDevelopment), the claim occurs at time $t_1$, and the insuring company is notified at time $t_3$. There can be a gap between occurrence and notification such that the end of a company financial reporting period, known as a `r Gloss('accounting date')`, occurs ($t_2$) before the loss is reported. In this case, the claim is said to be `r Gloss('incurred but not reported')` at this valuation date. -->
+
+<!-- Until the claim is settled, the reported claim is considered an `r Gloss('open claim')`. After claim notification, there may be one or more loss payments. Not all payments may be made by the next valuation date ($t_4$). -->
+
+<!-- As the claim develops, eventually, the company deems its financial obligations on the claim to be resolved and declares the claim `r Gloss('closed')`. However, it is possible that new facts arise, and the claim must be re-opened, giving rise to additional loss payments prior to being closed again. -->
+
+<!-- (ref:ClaimDevelopment) **Timeline of Claim Development** -->
+
+<!-- ```{r ClaimDevelopment, fig.cap='(ref:ClaimDevelopment)', out.width='75%',  fig.asp=0.5, fig.align='center', echo=FALSE} -->
+<!-- plot.new() -->
+<!-- par(mar=c(0,0,0,0), cex=1.1) -->
+<!-- plot.window(xlim=c(0,20),ylim=c(0,10)) -->
+
+<!-- arrows(1,1,19.8,1,code=2,lwd=2,angle=25,length=0.10) -->
+<!-- text(0,2,labels="Occurrence",adj=0, cex=0.8) -->
+
+<!-- text(3,4,labels="Valuation\nDate 1",adj=0, cex=0.8) -->
+<!-- text(4,2,labels="Notification",adj=0, cex=0.8) -->
+<!-- text(6,8,labels="Loss Payments",adj=0, cex=0.8) -->
+<!-- text(9,4,labels="Valuation\nDate 2",adj=0, cex=0.8) -->
+<!-- text(11,8,labels="Loss\nPayments",adj=0, cex=0.8) -->
+<!-- text(13,2,labels="Closure",adj=0, cex=0.8) -->
+<!-- text(14.5,4,labels="Re-\nOpening",adj=0, cex=0.8) -->
+<!-- text(16,8,labels="Loss\nPayments",adj=0, cex=0.8) -->
+<!-- text(18,4,labels="Closure",adj=0, cex=0.8) -->
+
+<!-- arrows(3.8,3.3,3.8,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+<!-- arrows(9.8,3.3,9.8,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+<!-- arrows(15.3,3.3,15.3,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+<!-- arrows(18.8,3.3,18.8,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+
+<!-- arrows(6.8,7.7,6.8,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+<!-- arrows(7.1,7.7,7.1,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+<!-- arrows(7.9,7.7,7.9,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+
+<!-- arrows(11.4,7.2,11.4,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+<!-- arrows(12,7.2,12,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+
+<!-- arrows(16.6,7.2,16.6,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+<!-- arrows(17,7.2,17,1.2,code=2,lwd=2,angle=25,length=0.10) -->
+
+<!-- text(1,1,labels="X",adj=0, cex=0.8) -->
+<!-- text(4.8,1,labels="X",adj=0, cex=0.8) -->
+<!-- text(13.8,1,labels="X",adj=0, cex=0.8) -->
+
+<!-- text(1,0.3,expression(t[1]),adj=0, cex=0.8) -->
+<!-- text(3.8,0.3,expression(t[2]),adj=0, cex=0.8) -->
+<!-- text(4.8,0.3,expression(t[3]),adj=0, cex=0.8) -->
+<!-- text(9.8,0.3,expression(t[4]),adj=0, cex=0.8) -->
+<!-- ``` -->
+
+<!-- - `r Gloss('Accident date')` - the date of the occurrence which gave rise to the claim. This is also known as the *date of loss* or the *occurrence date*. -->
+<!-- - `r Gloss('Report date')` - the date the insurer  receives notice of the claim. Claims not currently known by the insurer are referred to as unreported claims or *incurred but not reported (IBNR) claims*. -->
+
+Recall that a claim is the amount paid or payable to claimants under the terms of insurance policies. Further, we have:
+- *Paid claims* are those losses for a particular period that have actually been paid to claimants.
+- Where there is an expectation that payment will be made in the future, a claim will have an associated *case reserve* representing the estimated amount of that payment. Case adjusters establish case reserves separately for each open claim based on the information available.
+- *Reported claims*, also known as *case incurred claims* or *incurred claims*, is the sum of paid claims and case reserves
+
+The *ultimate claim* is the amount required to close and settle all claims for a defined group of policies. From our pure premium equation, we note that there are two approaches to development of the claims and claims expemse provision. We can either use estimates of ultimate claims and claims adjustment expenses which can as developed as desribed in Section \@ref(#ChapLossReserves) or we can use projections of frequency and severity separately as described Section \@ref(#ChapFrequency) and Section \@ref(#ChapSeverity), respectively. In this section, we present the use of use of those ultimate claims in developing pure premiums, or the rate of claims per unit exposure.
+
+
+### Adjustments to Claims and Allocated Claims Adjustment Expenses
+
+In this section we review adjustments to historical ultimate claims that are required to support development of prospective rates. These adjustments include trending large loss adjustments and provisions for catastrophes. Finally, we discuss approaches to incorporate unallocated claims adjustment expense.
+
+#### Trending
+However, each of the years of the experience period has a different underlying cost level and our goal is to estimate claims at the cost level of the prospective policy period. Consider, for example, if costs were rising at a rate of 5% per annum. All else equal, the estimated ultimate cost for time $t + 2$ would be $1.05^2$ times the costs of claims from time $t$. Trending is the process of adjusting ultimate losses from historical to prospective cost levels. 
+
+Actuaries will often consider separate trends for the frequency of claims and the severity of claims. Also actuaries often state past trends separately from future trends. Past trends reflect changes that have taken place between the experience period of the rate calculation and the valuation date. Future trends reflect expectations of change between the valuation date and the prospective policy period.
+
+There are various approaches to estimating severity trend rates. Two common approaches include the estimation of trend rates based on external cost indices and the estimation of trend rates based on claims experience.  The former approach generally uses government data such as the consumer price index, or components thereof. In the latter approach actuaries will often fit regression models to discern the rate of change in average claims values over time. 
+
+Due to the lack of external indices that would be appropriate as a basis for claims frequency models, actuaries generally either estimate frequency trend based on company experience for assume that frequency trend is 0%.
+
+It's also common to review pure premium trends directly. Although the pure premium trend is effectively a combination of the frequency and severity trends, analysis of pure premiums may mask underlying changes in frequency and severity when they are inversely correlated.
+
+### Large Loss and Catastophe Provisions
+
+Consider, for example, if an insurer were considering a five-year experience period and that experience period included a one-in-10-year event. If we did not adjust that data, we would effectively be overestimating claim amounts for that category of claims.
+
+In ratemaking we remove these unusual large losses and catastrophe losses from the experience period data, and then add a provision consistent with the longer term average cost of large losses or catastrophes. Although large loss adjustments are commonly based on the insurer’s claims experience, the provision for catastrophes is often based on catastrophe models developed by specialists. Adjustments for catastrophes are more common in property insurance while adjustments for large losses are more common in liability insurance.
+
+### Unallocated Claims Adjustment Expenses
+
+Some insurers include unallocated claims adjustment expenses as a percentage of claims and allocated claims adjustment expenses, while other insurers include unallocated claims adjustment expenses as a percentage of premiums. In our discussion we use the the former approach. For insurers that use the latter approach, the inclusion of a provision for unallocated claims adjustment expenses would follow that described below for other non-claim expenses. Generally, insurers estimate $UE$ by reviewing historical ratios of those payments to claims and allocated claims adjustment expense payments. 
+
+## Premiums and Expsoures {#S:ExposureToRisk}
+
+The denominator of the pure premium equation is "Exposures." One way to standardize heterogeneous risks is through the concept of an `r Gloss('exposure', '7.2, 7.4')`. To explain exposures, let us use *scale distributions* that we learned about in Chapter \@ref(ChapSeverity). To recall a `r Gloss('scale distribution', '7.4')`, suppose that $X$ has a `r Gloss('parametric distribution')` and define a rescaled version $R = X/E$, $E > 0$. If $R$ is in the same parametric family as $X$, then the distribution is said to be a scale distribution. As we have seen, the gamma, exponential, and Pareto distributions are examples of scale distributions.
+
+Intuitively, the idea behind exposures is to make risks more comparable to one another. For example, it may be that risks $X_1, \ldots, X_n$ are from different distributions and yet, with the choice of the right exposures, the rates $R_1, \ldots, R_n$ are from the same distribution. Here, we interpret the rate $R_i = C_i/E_i$ to be the loss divided by exposure.
+
+[Table 9.3] provides a few examples. We remark that this table refers to "earned" car and house years, concepts that are be explained in Section \@ref(S:DataSources).
+
+<a id=tab:9.3></a> 
+
+[Table 9.3]: \#tab:9.3
+
+Table 9.3. **Commonly used Exposures in Different Types of Insurance**
+
+$$
+\small{
+\begin{matrix}
+\begin{array}{ll}
+\text{Type of Insurance} & \text{Exposure Basis} \\\hline
+\text{Personal Automobile} &  \text{Earned Car Year, Amount of Insurance Coverage} \\
+\text{Homeowners} &  \text{Earned House Year, Amount of Insurance Coverage}\\
+\text{Workers Compensation}  & \text{Payroll}\\
+\text{Commercial General Liability} &  \text{Sales Revenue, Payroll, Square Footage, Number of Units}\\
+\text{Commercial Business Property}  & \text{Amount of Insurance Coverage}\\
+\text{Physician's Professional Liability}  & \text{Number of Physician Years}\\
+\text{Professional Liability}  & \text{Number of Professionals (e.g., Lawyers or Accountants)}\\
+\text{Personal Articles Floater} &  \text{Value of Item} \\
+  \hline
+\end{array}
+\end{matrix}
+}
+$$
+
+
+#### Criteria for Choosing an Exposure  {-}
+
+An exposure base should meet the following criteria. It should:
+
+- be an accurate measure of the quantitative exposure to loss
+- be easy for the insurer to determine (at the time the policy is initiated) and not subject to manipulation by the insured,
+- be easy to understand by the insured and to calculate by the insurer,
+- consider any preexisting exposure base established within the industry.
+
+To illustrate, consider personal automobile coverage. Instead of the exposure basis "earned car year," a more accurate measure of the quantitative exposure to loss might be number of miles driven. Historically, this measure had been difficult to determine at the time the policy is issued and subject to potential manipulation by the insured and so it is still not typically used. Modern telematic devices that allow for accurate mileage recording is changing the use of this variable in some marketplaces.
+
+As another example, the exposure measure in `r Gloss('commercial business property')`, e.g. fire insurance, is typically the amount of insurance coverage. As property values grow with inflation, so will the amount of insurance coverage. Thus, rates quoted on a per amount of insurance coverage are less sensitive to inflation than otherwise.
+
+
+## Other Provisions in the Premium
+
+### Non Claim Expenses
+
+Non-claim insurer Operating expense costs include commissions, premium taxes, and other expenses such as salaries, rent, and inspections. 
+* Some expenses (such as commissions and premium taxes) vary with premiums are "variable" or "premium variable expenses."
+* Other expenses (such as general administrative and head office costs) are not proportional to premium.
+
+For these expenses, insurers will 
+
+## Investment Income and Profit
+
+
+
+
+
+
+
+
+
+
+
+
+
