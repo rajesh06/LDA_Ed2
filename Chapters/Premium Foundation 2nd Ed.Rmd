@@ -30,26 +30,26 @@ To develop technical prices, it is helpful to think of a premium as revenue sour
 $$
 \begin{equation}
 \small{
-\text{Premium} = \text{Rate} \times \text{Exposures}\\
-\text{Rate} = \dfrac{\text{Pure Premiums} + \text{Fixed Expenses} }{1 - \text{Variable Expense Rate} - \text{Profit}}
+\text{Premium} = \dfrac{\text{Pure Premiums} + \text{Fixed Expenses} }{1 - \text{Variable Expense Rate} - \text{Profit}}
 \\
 \text{where:}\\
-\text{Pure Premiums} = \dfrac{\text{Claims and Claims Adjustment Expense}}{\text{Exposures}}\\
+\text{Pure Premiums} = \dfrac{\text{Estimated Claims and Claims Adjustment Expense}}{\text{Exposures}}\\
 \text{or:}\\
-\text{Pure Premiums} = \dfrac{\text{Claim Counts}}{\text{Exposures}} \times \dfrac{\text{Claims and Claims Adjustment Expense}}{\text{Claim Counts}}\\
+\text{Pure Premiums} = \dfrac{\text{Estimated Claim Counts}}{\text{Exposures}} \times \dfrac{\text{Estimated Claims and Claims Adjustment Expense}}{\text{Estimated Claim Counts}}\\
 }(\#eq:PremiumEquation)
 \end{equation}
 $$
+
 `Non-claim Expenses` include insurer costs that vary by premium (such as sales commissions), and those that do not (such as building costs and employee salaries). We include those costs through the Fixed Expenses and Variable Expense Rate of the @ref(#eq:PremiumEquation).
 
-An insurer requires capital to support operations. The capital provider will reasonably expect to earn a profit from insuring risk. Generally, the required profit is expressed a return on equity. A portion of required profit is earned from investment income from two sources: policyholder cashflows and investment of the insurer's surplus. To the extent that investment income is insufficient to provide the required rate of return, the premiums will also need to include a provision `r Gloss('underwriting profit')`. 
-
-The premium equation above is slightly simplified to promote the understanding of the claims and expense provisions in Section \@ref(#S:claims) and exposures in Section \@ref(S:expenses). When we discuss profit, we will refine the equation to consider investment income.
+An insurer requires capital to support operations. The capital provider will reasonably expect to earn a profit from insuring risk. 
 
 ### Chapter Orginization
 
+This presentation of this section follows the premium equation.
+
 * In Section \@ref(#S:DataSources), we first present the sources of information that support premium devleopment. 
-* We discuss this development of the provision for claims and claim adjustment expenses in Section \@ref(#S:claims).
+* We discuss this development of the pure premiums in Section \@ref(#S:claims).
 * In Section \@ref(S:expenses), we discuss fixed and variable non-claim expenses.
 * In Section \@ref(S:profit), we discuss the provision for profit.
 
@@ -232,9 +232,9 @@ In ratemaking we remove these unusual large losses and catastrophe losses from t
 
 Some insurers include unallocated claims adjustment expenses as a percentage of claims and allocated claims adjustment expenses, while other insurers include unallocated claims adjustment expenses as a percentage of premiums. In our discussion we use the the former approach. For insurers that use the latter approach, the inclusion of a provision for unallocated claims adjustment expenses would follow that described below for other non-claim expenses. Generally, insurers estimate $UE$ by reviewing historical ratios of those payments to claims and allocated claims adjustment expense payments. 
 
-## Premiums and Expsoures {#S:ExposureToRisk}
+## Expsoures {#S:ExposureToRisk}
 
-The denominator of the pure premium equation is "Exposures." One way to standardize heterogeneous risks is through the concept of an `r Gloss('exposure', '7.2, 7.4')`. To explain exposures, let us use *scale distributions* that we learned about in Chapter \@ref(ChapSeverity). To recall a `r Gloss('scale distribution', '7.4')`, suppose that $X$ has a `r Gloss('parametric distribution')` and define a rescaled version $R = X/E$, $E > 0$. If $R$ is in the same parametric family as $X$, then the distribution is said to be a scale distribution. As we have seen, the gamma, exponential, and Pareto distributions are examples of scale distributions.
+The denominator of the pure premium equation is "`r Gloss('exposure', '7.2, 7.4')`." We use exposures to standardize heterogeneous risks. To explain exposures, let us use *scale distributions* that we learned about in Chapter \@ref(ChapSeverity). To recall a `r Gloss('scale distribution', '7.4')`, suppose that $X$ has a `r Gloss('parametric distribution')` and define a rescaled version $R = X/E$, $E > 0$. If $R$ is in the same parametric family as $X$, then the distribution is said to be a scale distribution. As we have seen, the gamma, exponential, and Pareto distributions are examples of scale distributions.
 
 Intuitively, the idea behind exposures is to make risks more comparable to one another. For example, it may be that risks $X_1, \ldots, X_n$ are from different distributions and yet, with the choice of the right exposures, the rates $R_1, \ldots, R_n$ are from the same distribution. Here, we interpret the rate $R_i = C_i/E_i$ to be the loss divided by exposure.
 
@@ -288,9 +288,47 @@ Non-claim insurer Operating expense costs include commissions, premium taxes, an
 * Some expenses (such as commissions and premium taxes) vary with premiums are "variable" or "premium variable expenses."
 * Other expenses (such as general administrative and head office costs) are not proportional to premium.
 
-For these expenses, insurers will 
+For these expenses, insurers will typically relay of either historical expense ratios, budgeted amounts, or financial forecasts.
+
+We include fixed expenses in our premium equation on a per exposure basis and we include variable expenses as a rate per unit premium. 
 
 ## Investment Income and Profit
+
+An insurer requires capital to support operations.  The insured pays a premium for the promise of the insurer to pay a claim in the future. Capital serves as protection for the policyholder in the event that premiums are insufficient to pay claims. 
+
+The capital provider will reasonably expect to earn a profit from insuring risk. Generally, the required profit is expressed a return on equity. A portion of required profit is earned from investment income from two sources: policyholder cashflows and investment of the insurer's surplus. To the extent that investment income is insufficient to provide the required rate of return, the premiums will also need to include an `r Gloss('underwriting profit')` provision. 
+
+We generally express the total required rate of return as an after-tax return on equity. 
+
+The premium equation above is slightly simplified to promote the understanding of the claims and expense provisions in Section \@ref(#S:claims) and exposures in Section \@ref(S:expenses).We now refine the equation to consider investment income.We now consider the other source on an insurer's profit, investment income. We first consider policyholder cashflows, i.e., premiums, claims and claim adjustment expenses and non-claim expenses. We consideration of investment income on policyholder by discounting each of the the cashflows of each of these components of the premium equation.
+
+* There may be a delay in the insurer's receipt of premium, perhaps because the insurer offers its incured payment plans.
+* Claims and claims adjustment expenses are paid over a period that extends beyond the policy term. Generally, property coverages have the shortest payment stream, with all claims being settled and paid over a period that extends between 2 and 5 years, depending on the complexity of the determination of damages. Litigated liability covearges will have intermediate payment streams that range from three to 10 years. Finally, coverages such as workers compensation, offer lifetime benefits that extend forty years or longer. 
+* Non-claim expense are largely paid over the term of the policy period.
+
+We can rewrite our premium equation to capture the discounting. We replace the unity in denominator with a premium delay factor and we recognize the discounting of claims and claims adjustments expenses (in the pure premium) and non-claim expenses. 
+
+$$
+\begin{equation}
+\small{
+\text{Premium} = \dfrac{\text{Discounted Pure Premiums} + \text{Discounted Fixed Expenses}} {\text{Premium Delay} - \text{Variable Expense Rate} - \text{Profit}}\\
+}(\#eq:dPremiumEquation)
+\end{equation}
+$$
+
+We recognize that the discounting effect of the numerator is significantly greater than the effect in the denominator. As a result, consideration of investment income on policyholder cash flows serves to reduce the premium. If the profit provision in the premium equation were 0, the the premium would equal the present value of the cash flows of the insurance policy. 
+
+However, as we discussed the insurer will also require a return on its capital. Generally, coverages that are riskier, i.e., have more variability, will require more capital. Every claim submitted to the insurer has access to all of the capital of the insurer. In insurance, capital is often referred to as surplus. For ratemaking, we notionally allocate capital to coverage using premium to surplus ratios and we state the required rate of return on an after-tax basis. We have to convert that return to percent of premium to include in our premium equation. For example, if we assume a 2:1 premium:surplus ratio, a required after-tax rate of return of 12% and a tax rate of 30%, then the profit provision in the premium would be:
+
+$$
+\begin{equation}
+
+\dfrac{12~\text{after tax return}}{\text{surplus}} \times \dfrac{1 \times \text{surplus}}{2 \times \text{premium}} \times \dfrac{1~\text{pre-tax}}{0.7~\text{after tax}} = \dfrac{8.6~\text{pre-tax return}}{\text{premium}}
+
+\end{equation} 
+$$
+
+
 
 
 
