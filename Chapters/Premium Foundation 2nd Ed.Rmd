@@ -211,14 +211,14 @@ The *ultimate claim* is the amount required to close and settle all claims for a
 
 In this section we review adjustments to historical ultimate claims that are required to support development of prospective rates. These adjustments include trending large loss adjustments and provisions for catastrophes. Finally, we discuss approaches to incorporate unallocated claims adjustment expense.
 
-#### Trending
+#### Trending {#s:Trending}
 However, each of the years of the experience period has a different underlying cost level and our goal is to estimate claims at the cost level of the prospective policy period. Consider, for example, if costs were rising at a rate of 5% per annum. All else equal, the estimated ultimate cost for time $t + 2$ would be $1.05^2$ times the costs of claims from time $t$. Trending is the process of adjusting ultimate losses from historical to prospective cost levels. 
 
 Actuaries will often consider separate trends for the frequency of claims and the severity of claims. Also actuaries often state past trends separately from future trends. Past trends reflect changes that have taken place between the experience period of the rate calculation and the valuation date. Future trends reflect expectations of change between the valuation date and the prospective policy period.
 
 There are various approaches to estimating severity trend rates. Two common approaches include the estimation of trend rates based on external cost indices and the estimation of trend rates based on claims experience.  The former approach generally uses government data such as the consumer price index, or components thereof. In the latter approach actuaries will often fit regression models to discern the rate of change in average claims values over time. 
 
-Due to the lack of external indices that would be appropriate as a basis for claims frequency models, actuaries generally either estimate frequency trend based on company experience for assume that frequency trend is 0%.
+Due to the lack of external indices that would be appropriate as a basis for claims frequency models, actuaries generally either estimate frequency trend based on company experience or assume that frequency trend is 0%.
 
 It's also common to review pure premium trends directly. Although the pure premium trend is effectively a combination of the frequency and severity trends, analysis of pure premiums may mask underlying changes in frequency and severity when they are inversely correlated.
 
@@ -429,6 +429,77 @@ Some of the properties listed in [Table 9.2] are mild in the sense that they wil
 The *scale invariance* principle is known as *homogeneity of degree one* in economics. For example, it allows us to work in different currencies (e.g., from dollars to Euros) as well as a host of other applications and will be discussed further in the following Section \@ref(S:HeterogeneousRisks). Although a generally accepted principle, we note that this principle does not hold for a large value of $X$ that may border on a surplus constraint of an insurer; if an insurer has a large probability of becoming insolvent, then that insurer may not wish to use linear pricing. It is easy to check that this principle holds for the expected value and standard deviation principles, although not for the variance and exponential principles.
 
 
+## Reviewing Rate Adequacy {#S:PricingPrinciples}
+
+After establishing the initial premiums, insurance company actuaries will perform rate reviews to measure the adequacy of those rates. For many regulated coverages (typically, personal lines insurance), actuaries file those rate reviews with the insurance regulator. Actuaries review rates regularly as rate levels require update to kepp pace with inflationary pressures. At times, the required rate will be have a decreasing trend; for example with improvements in vehicle safety technology or workplace safety. Of course, the primary purpose of the rate is to test whether the experience of the rate program is consistent with loss and expense assumptions underlying the current rates. 
+
+### The Loss Ratio Method
+
+The "loss ratio method" is a common approach to assess rate adequacy. The `r Gloss('loss ratio')` is the ratio of the sum of losses to the premium.
+
+$$
+\small{
+\text{Loss Ratio} = \frac{\text{Loss}}{\text{Premium}} .
+}
+$$
+
+When determining premiums, it is a bit counter-intuitive to emphasize this ratio because the premium component is built into the denominator. As we will see, the loss ratio method develops rate **changes** rather than rates; we can use rate changes to update past experience to get a current rate. We calculate rate changes by comparing the loss ratio of the experience period to the target loss ratio. This adjustment factor is then applied to current rates to determine new indicated rates.
+
+We first provide an overview of the approach to promote understanding. Let us return to equation \@ref(eq:dPremiumEquation). Noting that the "pure premium" is the provision for loss in the rates, we have the following:
+
+$$
+\begin{equation}
+\small{
+\text{Premium} = \dfrac{\text{Discounted Pure Premiums} + \text{Discounted Fixed Expenses} }{\text{Premium Delay} - \text{Variable Expense Rate} - \text{Profit}}\\
+
+\text{Premium Delay - Variable Expense Rate - Profit} = \dfrac{\text{Discounted Pure Premiums}}{\text{Premium}} + \dfrac{\text{Discounted Fixed Expenses}}{\text{Premium}}\\
+
+\text{Premium Delay - Variable Expense Rate - Profit} - \dfrac{\text{Discounted Fixed Expenses}}{\text{Premium}} = \dfrac{\text{Discounted Pure Premiums}}{\text{Premium}}\\
+
+\text{Premium Delay - Variable Expense Rate - Profit} - \dfrac{\text{Discounted Fixed Expenses}}{\text{Premium}} = \text{Target Discounted Loss Ratio}\\
+
+}
+\end{equation}
+$$
+For simplification we will not repeat that the components of the rate change factor are discounted. In the loss ratio method, we compare the projected loss ratio to the target loss ratio. A projected loss ratio that exceeds the target loss ratio implies the need for a rate increase. A projected loss ratio that is less than the target loss ratio implies the need for a rate decrease. 
+
+The experience loss ratio is not simply calculated as the ratio of loss and premium. Actuaries adjust ...
+
+
+* As with the development of pure premiums described above, actuaries will typically review claims experience over a multi-year (typically three to seven years) period to smooths the year-to-year randomness. The years in the experience period are simillaryl weighted to balance responsiveness to more recent experience and the stability of a longer-term period. 
+
+* The numerator of the loss ratio will be *ultimate losses.* We provides a discoussion of the estimation of ultimate losses in the section on loss reserving.
+
+* We need to adjust the experience period losses to the cost level of the proposed rate program. We discussed this trend adjustment is \@ref(S:Trending). We apply the trend factor from the average accident period of the experience period to the avearge accident date of the proposed rate program. For example, if we are estimating rates that will underlie twelve month policies written in calendar year 2025, the average accident date of the prospective rate program will be 31 December 2025 (sometimes rounded to 1 January 2026). The first policy of the prospective period will be written on 1 January 2025 and expire on 31 December 2025. Assuming even distribution of claim events during the policy, average accident date (midpoint) of that policy will be 1 July 2025. Correspondingly, the last policy of the prospective period will be written on 31 December 2025 and expire on 31 December 2026 with an average accident date (midpoint) of that policy will be 1 July 2026. The midpoint of all policies written under the proposed rate program is therefore 31 December 2025.  To adjust experience for accident year 2022, we apply 3.5 years of trend. The average accident date of accident year 2022 is July 1, 2022 - so 3.5 year is the distance in time to the average accident date of the proposed rate program.
+
+* We also need to adjust premiums for the effect of rate changes. There are two common approaches to this adjustment. 
+
+The Parallelogram Method: Premium on-level factors use historical rate change calculations. For example if the company adopted a +10% rate change on 1 July 2022, then the denominator of 2022 earned premium would need be adjusted by +7.5%. Policies written prior to 1 July 2022 would need to be adjusted by +10%; for the premium earned after 1 July 2022; half would be earned on policies written under the old rate levels and require the 10% adjustment and half would be written on policies written under the higher rate levels and require no adjustment. The weighted average of these adjustments if +7.5%. 
+
+NOTE TO BRIAN: Do you want me to expand on this parallelogram method or provide reference or do we have it elsewhere.
+
+* Extension of Exposures: The extension of exposure method is a more detailed approach which involved the re-rating of all historical policies at current rates. It is more precise as the parallelogram method relies on rate changes that were calculated as the average rate change given the mix of business at that time. However, the mix of business may change and the rate change effect on the current mix may be different. The extension of exposures does not rely on those average rate changes and instead relies on on current rates.
+
+* Premium Trend - Experience period premiums must also be adjusted for for premium trend, and the basis of premium must match the loss trend. For example, insureds may purchase higher limits of coverage to protect against higher inflation. These higher limits would be reflected in the internal claims experience and may underlie the data used to measure loss trend. If we are considering these changes in the loss trend, then we alos need to consider the effect of higher limit purchases in premium trend.
+
+
+**Example. Loss Ratio Indicated Change Factor.** Assume the following information:
+
+- Projected ultimate loss and LAE ratio = 65%
+- Projected fixed expense ratio = 6.5%
+- Variable expense  = 25%
+- Target UW profit = 10%
+
+With these assumptions, with equation \@ref(eq:IndicatedChangeFactor), the indicated change factor can be calculated as
+$$
+\small{
+ICF = \frac{\text{(Losses + Fixed)}/\text{Premium}}{ 1 - V - Q_{target}} = \frac{0.65 + 0.065}{1- 0.25 - 0.10} = 1.10 .
+}
+$$
+
+This means that overall average rate level should be increased by 10%.
+
+***
 
 
 
