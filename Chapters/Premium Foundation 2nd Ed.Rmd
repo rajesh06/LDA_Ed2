@@ -480,7 +480,7 @@ NOTE TO BRIAN: Do you want me to expand on this parallelogram method or provide 
 
 * Extension of Exposures: The extension of exposure method is a more detailed approach which involved the re-rating of all historical policies at current rates. It is more precise as the parallelogram method relies on rate changes that were calculated as the average rate change given the mix of business at that time. However, the mix of business may change and the rate change effect on the current mix may be different. The extension of exposures does not rely on those average rate changes and instead relies on on current rates.
 
-* Premium Trend - Experience period premiums must also be adjusted for for premium trend, and the basis of premium must match the loss trend. For example, insureds may purchase higher limits of coverage to protect against higher inflation. These higher limits would be reflected in the internal claims experience and may underlie the data used to measure loss trend. If we are considering these changes in the loss trend, then we alos need to consider the effect of higher limit purchases in premium trend.
+* Premium Trend - Experience period premiums must also be adjusted for for premium trend, and the basis of premium must match the loss trend. For example, insureds may purchase higher limits of coverage to protect against higher inflation. These higher limits would be reflected in the internal claims experience and may underlie the data used to measure loss trend. If we are considering these changes in the loss trend, then we also need to consider the effect of higher limit purchases in premium trend.
 
 
 **Example. Loss Ratio Indicated Change Factor.** Assume the following information:
